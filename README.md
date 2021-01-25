@@ -1,3 +1,7 @@
 # Projet_WEB
 
-ça fonctionne
+photo
+
+### Projet WEB : CPI A2 Groupe # (Catarina, Laurianne, Dylan, Antoine)
+
+## autre chose
