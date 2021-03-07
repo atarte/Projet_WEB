@@ -1,8 +1,10 @@
-DROP DATABASE IF EXISTS GroupeCAT_Projet;
-CREATE DATABASE GroupeCAT_Projet;
+DROP DATABASE IF EXISTS GroupeCat_Projet;
+CREATE DATABASE GroupeCat_Projet;
+USE GroupeCat_Projet;
 
-
-USE GroupeCAT_Projet;
+-- DROP DATABASE IF EXISTS GroupeCat_Test;
+-- CREATE DATABASE GroupeCat_Test;
+-- USE GroupeCat_Test;
 
 
 DROP TABLE IF EXISTS Pays;
@@ -143,8 +145,8 @@ CREATE TABLE Users(
    Prenom VARCHAR(50) NOT NULL,
    Email VARCHAR(50) NOT NULL,
    Password VARCHAR(50) NOT NULL,
-   Id_Centre INT NOT NULL,
-   Id_Type_Promotion INT NOT NULL,
+   Id_Centre INT,
+   Id_Type_Promotion INT,
 
    CONSTRAINT Users_PK PRIMARY KEY(Id_Users),
    CONSTRAINT Users_Centre_FK FOREIGN KEY(Id_Centre) REFERENCES Centre(Id_Centre),
