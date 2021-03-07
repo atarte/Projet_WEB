@@ -209,3 +209,24 @@ CREATE TABLE Droit(
    CONSTRAINT Droit_Users_FK FOREIGN KEY(Id_Users) REFERENCES Users(Id_Users),
    CONSTRAINT Droit_Role_FK FOREIGN KEY(Id_Role) REFERENCES Role(Id_Role)
 );
+
+
+DROP TABLE IF EXISTS Note;
+CREATE TABLE Note(
+   Id_Entreprise INT NOT NULL,
+   Id_Users INT NOT NULL,
+   Note INT NOT NULL,
+
+   CONSTRAINT Note_Entreprise_FK FOREIGN KEY(Id_Entreprise) REFERENCES Entreprise(Id_Entreprise),
+   CONSTRAINT NOTE_Users_FK FOREIGN KEY(Id_Users) REFERENCES Users(Id_Users)
+);
+
+
+DROP TABLE IF EXISTS Confiance;
+CREATE TABLE Confiance(
+   Id_Entreprise INT NOT NULL,
+   Id_Users INT NOT NULL,
+
+   CONSTRAINT Confiance_Entreprise_FK FOREIGN KEY(Id_Entreprise) REFERENCES Entreprise(Id_Entreprise),
+   CONSTRAINT Confiance_Users_FK FOREIGN KEY(Id_Users) REFERENCES Users(Id_Users)
+);
