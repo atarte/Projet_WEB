@@ -1,10 +1,10 @@
-DROP DATABASE IF EXISTS GroupeCat_Projet;
-CREATE DATABASE GroupeCat_Projet;
-USE GroupeCat_Projet;
+-- DROP DATABASE IF EXISTS GroupeCat_Projet;
+-- CREATE DATABASE GroupeCat_Projet;
+-- USE GroupeCat_Projet;
 
--- DROP DATABASE IF EXISTS GroupeCat_Test;
--- CREATE DATABASE GroupeCat_Test;
--- USE GroupeCat_Test;
+DROP DATABASE IF EXISTS GroupeCat_Test;
+CREATE DATABASE GroupeCat_Test;
+USE GroupeCat_Test;
 
 
 DROP TABLE IF EXISTS Pays;
@@ -19,7 +19,7 @@ CREATE TABLE Pays(
 DROP TABLE IF EXISTS Region;
 CREATE TABLE Region(
    Id_Region INT AUTO_INCREMENT NOT NULL,
-   Regions VARCHAR(50) NOT NULL,
+   Region VARCHAR(50) NOT NULL,
    Id_Pays INT NOT NULL,
 
    CONSTRAINT Region_PK PRIMARY KEY(Id_Region),
@@ -74,12 +74,12 @@ CREATE TABLE Promotion(
    CONSTRAINT Promotion_PK PRIMARY KEY(Id_Promotion)
 );
 
-DROP TABLE IF EXISTS Role;
-CREATE TABLE Role(
-   Id_Role INT AUTO_INCREMENT NOT NULL,
-   Role VARCHAR(50) NOT NULL,
+DROP TABLE IF EXISTS Statut;
+CREATE TABLE Statut(
+   Id_Statut INT AUTO_INCREMENT NOT NULL,
+   Statut VARCHAR(50) NOT NULL,
 
-   CONSTRAINT Role_PK PRIMARY KEY(Id_Role)
+   CONSTRAINT Statut_PK PRIMARY KEY(Id_Statut)
 );
 
 
@@ -144,7 +144,7 @@ CREATE TABLE Users(
    Nom VARCHAR(50) NOT NULL,
    Prenom VARCHAR(50) NOT NULL,
    Email VARCHAR(50) NOT NULL,
-   Password VARCHAR(50) NOT NULL,
+   Passwd VARCHAR(50) NOT NULL,
    Id_Centre INT,
    Id_Type_Promotion INT,
 
@@ -206,10 +206,10 @@ CREATE TABLE Droit(
    Etudiant BOOLEAN NOT NULL,
    Candidature BOOLEAN NOT NULL,
    Id_Users INT NOT NULL,
-   Id_Role INT NOT NULL,
+   Id_Statut INT NOT NULL,
 
    CONSTRAINT Droit_Users_FK FOREIGN KEY(Id_Users) REFERENCES Users(Id_Users),
-   CONSTRAINT Droit_Role_FK FOREIGN KEY(Id_Role) REFERENCES Role(Id_Role)
+   CONSTRAINT Droit_Statut_FK FOREIGN KEY(Id_Statut) REFERENCES Statut(Id_Statut)
 );
 
 
