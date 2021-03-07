@@ -21,7 +21,7 @@ CREATE TABLE Region(
    Id_Pays INT NOT NULL,
 
    CONSTRAINT Region_PK PRIMARY KEY(Id_Region),
-   CONSTRAINT Pays_FK FOREIGN KEY(Id_Pays) REFERENCES Pays(Id_Pays)
+   CONSTRAINT Region_Pays_FK FOREIGN KEY(Id_Pays) REFERENCES Pays(Id_Pays)
 );
 
 
@@ -51,7 +51,7 @@ CREATE TABLE Ville(
    Id_Region INT NOT NULL,
 
    CONSTRAINT Ville_PK PRIMARY KEY(Id_Ville),
-   CONSTRAINT Region_FK FOREIGN KEY(Id_Region) REFERENCES Region(Id_Region)
+   CONSTRAINT Ville_Region_FK FOREIGN KEY(Id_Region) REFERENCES Region(Id_Region)
 );
 
 
@@ -84,11 +84,11 @@ CREATE TABLE Role(
 DROP TABLE IF EXISTS Adresse;
 CREATE TABLE Adresse(
    Id_Adresse INT AUTO_INCREMENT NOT NULL,
-   Adresse VARCHAR(50) NOT NULL,
+   Adresse VARCHAR(100) NOT NULL,
    Id_Ville INT NOT NULL,
 
    CONSTRAINT Adresse_PK PRIMARY KEY(Id_Adresse),
-   CONSTRAINT Ville_FK FOREIGN KEY(Id_Ville) REFERENCES Ville(Id_Ville)
+   CONSTRAINT Adresse_Ville_FK FOREIGN KEY(Id_Ville) REFERENCES Ville(Id_Ville)
 );
 
 
@@ -101,7 +101,7 @@ CREATE TABLE Entreprise(
    Id_Secteur INT NOT NULL,
 
    CONSTRAINT Entreprise_PK PRIMARY KEY(Id_Entreprise),
-   CONSTRAINT Secteur_FK FOREIGN KEY(Id_Secteur) REFERENCES Secteur(Id_Secteur)
+   CONSTRAINT Entreprise_Secteur_FK FOREIGN KEY(Id_Secteur) REFERENCES Secteur(Id_Secteur)
 );
 
 
@@ -119,9 +119,9 @@ CREATE TABLE Stage(
    Id_Type_Promotion INT NOT NULL,
 
    CONSTRAINT Stage_PK PRIMARY KEY(Id_Stage),
-   CONSTRAINT Entreprise_FK FOREIGN KEY(Id_Entreprise) REFERENCES Entreprise(Id_Entreprise),
-   CONSTRAINT Ville_FK FOREIGN KEY(Id_Ville) REFERENCES Ville(Id_Ville),
-   CONSTRAINT Promotion_FK FOREIGN KEY(Id_Type_Promotion) REFERENCES Type_Promotion(Id_Type_Promotion)
+   CONSTRAINT Stage_Entreprise_FK FOREIGN KEY(Id_Entreprise) REFERENCES Entreprise(Id_Entreprise),
+   CONSTRAINT Stage_Ville_FK FOREIGN KEY(Id_Ville) REFERENCES Ville(Id_Ville),
+   CONSTRAINT Stage_Promotion_FK FOREIGN KEY(Id_Type_Promotion) REFERENCES Type_Promotion(Id_Type_Promotion)
 );
 
 
@@ -132,7 +132,7 @@ CREATE TABLE Centre(
    Id_Adresse INT NOT NULL,
 
    CONSTRAINT Centre_PK PRIMARY KEY(Id_Centre),
-   CONSTRAINT Adresse_FK FOREIGN KEY(Id_Adresse) REFERENCES Adresse(Id_Adresse)
+   CONSTRAINT Centre_Adresse_FK FOREIGN KEY(Id_Adresse) REFERENCES Adresse(Id_Adresse)
 );
 
 
@@ -147,8 +147,8 @@ CREATE TABLE Users(
    Id_Type_Promotion INT NOT NULL,
 
    CONSTRAINT Users_PK PRIMARY KEY(Id_Users),
-   CONSTRAINT Centre_FK FOREIGN KEY(Id_Centre) REFERENCES Centre(Id_Centre),
-   CONSTRAINT Type_Promotion_FK FOREIGN KEY(Id_Type_Promotion) REFERENCES Type_Promotion(Id_Type_Promotion)
+   CONSTRAINT Users_Centre_FK FOREIGN KEY(Id_Centre) REFERENCES Centre(Id_Centre),
+   CONSTRAINT Users_Type_Promotion_FK FOREIGN KEY(Id_Type_Promotion) REFERENCES Type_Promotion(Id_Type_Promotion)
 );
 
 
@@ -157,8 +157,8 @@ CREATE TABLE Demande(
    Id_Stage INT NOT NULL,
    Id_Competence INT NOT NULL,
 
-   CONSTRAINT Stage_FK FOREIGN KEY(Id_Stage) REFERENCES Stage(Id_Stage),
-   CONSTRAINT Competence_FK FOREIGN KEY(Id_Competence) REFERENCES Competence(Id_Competence)
+   CONSTRAINT Demande_Stage_FK FOREIGN KEY(Id_Stage) REFERENCES Stage(Id_Stage),
+   CONSTRAINT Demande_Competence_FK FOREIGN KEY(Id_Competence) REFERENCES Competence(Id_Competence)
 );
 
 
@@ -167,18 +167,18 @@ CREATE TABLE Reside(
    Id_Adresse INT NOT NULL,
    Id_Entreprise INT NOT NULL,
 
-   CONSTRAINT Adresse_FK FOREIGN KEY(Id_Adresse) REFERENCES Adresse(Id_Adresse),
-   CONSTRAINT Entreprise_FK FOREIGN KEY(Id_Entreprise) REFERENCES Entreprise(Id_Entreprise)
+   CONSTRAINT Reside_Adresse_FK FOREIGN KEY(Id_Adresse) REFERENCES Adresse(Id_Adresse),
+   CONSTRAINT Reside_Entreprise_FK FOREIGN KEY(Id_Entreprise) REFERENCES Entreprise(Id_Entreprise)
 );
 
 
-DROP TABLE IF EXISTS Enseigne
+DROP TABLE IF EXISTS Enseigne;
 CREATE TABLE Enseigne(
    Id_Users INT NOT NULL,
    Id_Promotion INT NOT NULL,
 
-   CONSTRAINT Users_FK FOREIGN KEY(Id_Users) REFERENCES Users(Id_Users),
-   CONSTRAINT Promotion_FK FOREIGN KEY(Id_Promotion) REFERENCES Promotion(Id_Promotion)
+   CONSTRAINT Enseigne_Users_FK FOREIGN KEY(Id_Users) REFERENCES Users(Id_Users),
+   CONSTRAINT Enseigne_Promotion_FK FOREIGN KEY(Id_Promotion) REFERENCES Promotion(Id_Promotion)
 );
 
 
@@ -190,8 +190,8 @@ CREATE TABLE Wishlist(
    Id_Users INT NOT NULL,
    Id_Stage INT NOT NULL,
 
-   CONSTRAINT Users_FK FOREIGN KEY(Id_Users) REFERENCES Users(Id_Users),
-   CONSTRAINT Stage_FK FOREIGN KEY(Id_Stage) REFERENCES Stage(Id_Stage)
+   CONSTRAINT Wishlist_Users_FK FOREIGN KEY(Id_Users) REFERENCES Users(Id_Users),
+   CONSTRAINT Wishlist_Stage_FK FOREIGN KEY(Id_Stage) REFERENCES Stage(Id_Stage)
 );
 
 
@@ -206,6 +206,6 @@ CREATE TABLE Droit(
    Id_Users INT NOT NULL,
    Id_Role INT NOT NULL,
 
-   CONSTRAINT Users_FK FOREIGN KEY(Id_Users) REFERENCES Users(Id_Users),
-   CONSTRAINT Role_FK FOREIGN KEY(Id_Role) REFERENCES Role(Id_Role)
+   CONSTRAINT Droit_Users_FK FOREIGN KEY(Id_Users) REFERENCES Users(Id_Users),
+   CONSTRAINT Droit_Role_FK FOREIGN KEY(Id_Role) REFERENCES Role(Id_Role)
 );
