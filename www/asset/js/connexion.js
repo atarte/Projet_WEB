@@ -25,7 +25,7 @@ function analyse(){
 conn.addEventListener('click', function(attent) {
 	attent.preventDefault(); //supprime l'action par default du boutton Envoyer
 	requete = new XMLHttpRequest(); 
-	requete.open("GET","Requete_conn.php?User="+user.value+"&Pass="+pass.value, true); //Ouverture de la requete http
+	requete.open("GET","./asset/php/Requete_conn.php?User="+user.value+"&Pass="+pass.value, true); //Ouverture de la requete http
 	requete.onreadystatechange = analyse; //Analyse du resultat
 	requete.send();//Envoi de la requete
 });
