@@ -6,7 +6,7 @@
     <body>
         <p>Dans le formulaire précédent, vous avez fourni les
         informations suivantes :</p>
-        
+
         <?php
             //print_r($_POST);
             echo 'Id : ' .$_POST['id_users'].'<br>';
