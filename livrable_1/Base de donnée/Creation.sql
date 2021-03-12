@@ -87,7 +87,7 @@ DROP TABLE IF EXISTS Adresse;
 CREATE TABLE Adresse(
    Id_Adresse INT AUTO_INCREMENT NOT NULL,
    Adresse VARCHAR(100) NOT NULL,
-   Id_Ville INT NOT NULL,
+   Id_Ville VARCHAR(50) NOT NULL,
 
    CONSTRAINT Adresse_PK PRIMARY KEY(Id_Adresse),
    CONSTRAINT Adresse_Ville_FK FOREIGN KEY(Id_Ville) REFERENCES Ville(Id_Ville)
@@ -131,6 +131,9 @@ DROP TABLE IF EXISTS Centre;
 CREATE TABLE Centre(
    Id_Centre INT AUTO_INCREMENT NOT NULL,
    Centre VARCHAR(50) NOT NULL,
+   Assit_Nom VARCHAR(50) NOT NULL,
+   Assit_Premon VARCHAR(50) NOT NULL,
+   Assit_Mail VARCHAR(50) NOT NULL,
    Id_Adresse INT NOT NULL,
 
    CONSTRAINT Centre_PK PRIMARY KEY(Id_Centre),
@@ -145,10 +148,14 @@ CREATE TABLE Users(
    Prenom VARCHAR(50) NOT NULL,
    Email VARCHAR(50) NOT NULL,
    Passwd VARCHAR(50) NOT NULL,
+   Id_Pilote INT,
+   Id_Promotion INT,
    Id_Centre INT,
    Id_Type_Promotion INT,
 
    CONSTRAINT Users_PK PRIMARY KEY(Id_Users),
+   CONSTRAINT Users_Pilote_FK FOREIGN KEY(Id_Pilote) REFERENCES Users(Id_Users),
+   CONSTRAINT Users_Promotion_FK FOREIGN KEY(Id_Promotion) REFERENCES Promotion(Id_Promotion),
    CONSTRAINT Users_Centre_FK FOREIGN KEY(Id_Centre) REFERENCES Centre(Id_Centre),
    CONSTRAINT Users_Type_Promotion_FK FOREIGN KEY(Id_Type_Promotion) REFERENCES Type_Promotion(Id_Type_Promotion)
 );
@@ -174,26 +181,16 @@ CREATE TABLE Reside(
 );
 
 
-DROP TABLE IF EXISTS Enseigne;
-CREATE TABLE Enseigne(
-   Id_Users INT NOT NULL,
-   Id_Promotion INT NOT NULL,
-
-   CONSTRAINT Enseigne_Users_FK FOREIGN KEY(Id_Users) REFERENCES Users(Id_Users),
-   CONSTRAINT Enseigne_Promotion_FK FOREIGN KEY(Id_Promotion) REFERENCES Promotion(Id_Promotion)
-);
-
-
-DROP TABLE IF EXISTS Wishlist;
-CREATE TABLE Wishlist(
+DROP TABLE IF EXISTS Candidature;
+CREATE TABLE Candidature(
    Souhait DATE,
    Postulation DATE,
-   Historique DATE,
+   Step INT,
    Id_Users INT NOT NULL,
    Id_Stage INT NOT NULL,
 
-   CONSTRAINT Wishlist_Users_FK FOREIGN KEY(Id_Users) REFERENCES Users(Id_Users),
-   CONSTRAINT Wishlist_Stage_FK FOREIGN KEY(Id_Stage) REFERENCES Stage(Id_Stage)
+   CONSTRAINT Candidature_Users_FK FOREIGN KEY(Id_Users) REFERENCES Users(Id_Users),
+   CONSTRAINT Candidature_Stage_FK FOREIGN KEY(Id_Stage) REFERENCES Stage(Id_Stage)
 );
 
 
