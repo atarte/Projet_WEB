@@ -1,21 +1,3 @@
--- Insertion dans la table Users
-INSERT INTO Users (Id_Users, Nom, Prenom, Email, Passwd, ID_Centre, ID_Type_Promotion) VALUES
-(1, 'admin', 'admin', 'admin', 'admin', NULL, NULL);
-
-
--- Insertion dans la table Statut
-INSERT INTO Statut (Id_Statut, Statut) VALUES
-(1, 'Administrateur'),
-(2, 'Pilote'),
-(3, 'Délégué'),
-(4, 'Etudiant');
-
-
--- Insertion dans la table Droit
-INSERT INTO Droit (Id_Users, Id_Statut, Entreprise, Offre, Pilote, Delegue, Etudiant, Candidature) VALUES
-(1, 1, 1, 1, 1, 1, 1, 1 );
-
-
 -- Insertion dans la table Type_Promotion
 INSERT INTO Type_Promotion (Id_Type_Promotion, Type_Promotion) VALUES
 (1, 'Informatique'),
@@ -49,7 +31,7 @@ INSERT INTO Promotion (Id_Promotion, Promotion) VALUES
 
 
 -- Insertion de la table Pays
-INSERT INTO Pays (Id_Pays, Pays) VALUES 
+INSERT INTO Pays (Id_Pays, Pays) VALUES
 (1, 'France');
 
 
@@ -150,32 +132,32 @@ INSERT INTO Adresse (Id_Adresse, Adresse, Id_Ville) VALUES
 
 
 -- Insertion dans la table Centre
-INSERT INTO Centre (Id_Centre, Centre, Id_Adresse) VALUES
-(1, 'Nice', 1),
-(2, 'Aix-en-Provence', 2),
-(3, 'Montpellier', 3),
-(4, 'Toulouse', 4),
-(5, 'Pau', 5),
-(6, 'Bordeaux', 6),
-(7, 'Grenoble', 7),
-(8, 'Lyon', 8),
-(9, 'Angoulême', 9),
-(10, 'La Rochelle', 10),
-(11, 'Châteauroux', 11),
-(12, 'Nantes', 12),
-(13, 'Saint-Nazaire', 13),
-(14, 'Le Mans', 14),
-(15, 'Brest', 15),
-(16, 'Orléans', 16),
-(17, 'Dijon', 17),
-(18, 'Caen', 18),
-(19, 'Rouen', 19),
-(20, 'Reims', 20),
-(21, 'Arras', 21),
-(22, 'Lille', 22),
-(23, 'Nancy', 23),
-(24, 'Strasbourg', 24),
-(25, 'Paris Nanterre', 25);
+INSERT INTO Centre (Id_Centre, Centre, Assist_Nom, Assist_Prenom, Assist_Mail, Id_Adresse) VALUES
+(1, 'Nice', 'Monterne', 'Amélie', 'antoniobananaperceptron@gmail.com', 1),
+(2, 'Aix-en-Provence', 'Fibi', 'Julien', 'antoniobananaperceptron@gmail.com', 2),
+(3, 'Montpellier', 'Carb', 'Alex', 'antoniobananaperceptron@gmail.com', 3),
+(4, 'Toulouse', 'Péro', 'David', 'antoniobananaperceptron@gmail.com', 4),
+(5, 'Pau', 'Free', 'Covid', 'antoniobananaperceptron@gmail.com', 5),
+(6, 'Bordeaux', 'Mascario', 'Basil', 'antoniobananaperceptron@gmail.com', 6),
+(7, 'Grenoble', 'Hydroalcolyque', 'Gel', 'antoniobananaperceptron@gmail.com', 7),
+(8, 'Lyon', 'Barrière', 'Gaston', 'antoniobananaperceptron@gmail.com', 8),
+(9, 'Angoulême', 'Virus', 'Corona', 'antoniobananaperceptron@gmail.com', 9),
+(10, 'La Rochelle', 'Martie', 'Aurélie', 'antoniobananaperceptron@gmail.com', 10),
+(11, 'Châteauroux', 'Mystère', 'Martin', 'antoniobananaperceptron@gmail.com', 11),
+(12, 'Nantes', 'Gadget', 'Rocky', 'antoniobananaperceptron@gmail.com', 12),
+(13, 'Saint-Nazaire', 'Lorier', 'Lily', 'antoniobananaperceptron@gmail.com', 13),
+(14, 'Le Mans', 'Doo', 'Scooby', 'antoniobananaperceptron@gmail.com', 14),
+(15, 'Brest', 'Tortue', 'Gérard', 'antoniobananaperceptron@gmail.com', 15),
+(16, 'Orléans', 'Cars', 'Antonin', 'antoniobananaperceptron@gmail.com', 16),
+(17, 'Dijon', 'De Dijon', 'Cendrillon', 'antoniobananaperceptron@gmail.com', 17),
+(18, 'Caen', 'Fèbre', 'Fabien', 'antoniobananaperceptron@gmail.com', 18),
+(19, 'Rouen', 'Parker', 'George', 'antoniobananaperceptron@gmail.com', 19),
+(20, 'Reims', 'Parmesan', 'Gile', 'antoniobananaperceptron@gmail.com', 20),
+(21, 'Arras', 'Du Mont', 'Xavier', 'antoniobananaperceptron@gmail.com', 21),
+(22, 'Lille', 'Testi', 'Hugo', 'antoniobananaperceptron@gmail.com', 22),
+(23, 'Nancy', 'Valé', 'Zoé', 'antoniobananaperceptron@gmail.com', 23),
+(24, 'Strasbourg', 'Serbe', 'Sandra', 'antoniobananaperceptron@gmail.com', 24),
+(25, 'Paris Nanterre', 'Weber', 'Nathaniel', 'antoniobananaperceptron@gmail.com', 25);
 
 
 -- Insertion dans la table Secteur
@@ -198,3 +180,26 @@ INSERT INTO Secteur (Id_Secteur, Secteur) VALUES
 (16, 'Service aux entreprises'),
 (17, 'Transports / Logistique');
 
+
+-- Insertion dans la table Statut
+INSERT INTO Statut (Id_Statut, Statut) VALUES
+(1, 'Administrateur'),
+(2, 'Pilote'),
+(3, 'Délégué'),
+(4, 'Etudiant');
+
+
+-- Insertion dans la table Users
+INSERT INTO Users (Id_Users, Nom, Prenom, Email, Passwd, Id_Pilote, Id_Promotion, ID_Centre, ID_Type_Promotion) VALUES
+(1, 'admin', 'admin', 'admin@gmail.com', 'admin', NULL, NULL, NULL, NULL),
+(2, 'menhaj', 'lamyae', 'lmenhaj@cesi.fr', '1234', NULL, 1, NULL, NULL),
+(3, 'gaddouri', 'radhia', 'rgaddouri', '1234', NULL, NULL, NULL, NULL),
+(4, 'silva roriz', 'catarina', 'catarinasilvaroriz@viacesi.fr', '1234', 2, 1, 1, 2);
+
+
+-- Insertion dans la table Droit
+INSERT INTO Droit (Id_Users, Id_Statut, Entreprise, Offre, Pilote, Delegue, Etudiant, Candidature) VALUES
+(1, 1, 1, 1, 1, 1, 1, 1),
+(2, 2, 1, 1, 2, 1, 1, 2),
+(3, 3, 1, 1, 1, 1, 1, 1),
+(4, 4, 1, 2, 2, 2, 2, 1);

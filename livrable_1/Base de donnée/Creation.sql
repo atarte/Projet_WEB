@@ -131,9 +131,9 @@ DROP TABLE IF EXISTS Centre;
 CREATE TABLE Centre(
    Id_Centre INT AUTO_INCREMENT NOT NULL,
    Centre VARCHAR(50) NOT NULL,
-   Assit_Nom VARCHAR(50) NOT NULL,
-   Assit_Premon VARCHAR(50) NOT NULL,
-   Assit_Mail VARCHAR(50) NOT NULL,
+   Assist_Nom VARCHAR(50) NOT NULL,
+   Assist_Prenom VARCHAR(50) NOT NULL,
+   Assist_Mail VARCHAR(50) NOT NULL,
    Id_Adresse INT NOT NULL,
 
    CONSTRAINT Centre_PK PRIMARY KEY(Id_Centre),
@@ -149,8 +149,8 @@ CREATE TABLE Users(
    Email VARCHAR(50) NOT NULL,
    Passwd VARCHAR(50) NOT NULL,
    Id_Pilote INT,
-   Id_Promotion INT,
    Id_Centre INT,
+   Id_Promotion INT,
    Id_Type_Promotion INT,
 
    CONSTRAINT Users_PK PRIMARY KEY(Id_Users),
@@ -183,11 +183,11 @@ CREATE TABLE Reside(
 
 DROP TABLE IF EXISTS Candidature;
 CREATE TABLE Candidature(
+   Id_Users INT NOT NULL,
+   Id_Stage INT NOT NULL,
    Souhait DATE,
    Postulation DATE,
    Step INT,
-   Id_Users INT NOT NULL,
-   Id_Stage INT NOT NULL,
 
    CONSTRAINT Candidature_Users_FK FOREIGN KEY(Id_Users) REFERENCES Users(Id_Users),
    CONSTRAINT Candidature_Stage_FK FOREIGN KEY(Id_Stage) REFERENCES Stage(Id_Stage)
@@ -196,14 +196,14 @@ CREATE TABLE Candidature(
 
 DROP TABLE IF EXISTS Droit;
 CREATE TABLE Droit(
+   Id_Users INT NOT NULL,
+   Id_Statut INT NOT NULL,
    Entreprise BOOLEAN NOT NULL,
    Offre BOOLEAN NOT NULL,
    Pilote BOOLEAN NOT NULL,
    Delegue BOOLEAN NOT NULL,
    Etudiant BOOLEAN NOT NULL,
    Candidature BOOLEAN NOT NULL,
-   Id_Users INT NOT NULL,
-   Id_Statut INT NOT NULL,
 
    CONSTRAINT Droit_Users_FK FOREIGN KEY(Id_Users) REFERENCES Users(Id_Users),
    CONSTRAINT Droit_Statut_FK FOREIGN KEY(Id_Statut) REFERENCES Statut(Id_Statut)
