@@ -193,7 +193,7 @@ INSERT INTO Statut (Id_Statut, Statut) VALUES
 INSERT INTO Users (Id_Users, Nom, Prenom, Email, Passwd, Id_Pilote, ID_Centre, Id_Promotion, ID_Type_Promotion) VALUES
 (1, 'admin', 'admin', 'admin@gmail.com', 'admin', NULL, NULL, NULL, NULL),
 (2, 'menhaj', 'lamyae', 'lmenhaj@cesi.fr', '1234', NULL, 1, NULL, NULL),
-(3, 'gaddouri', 'radhia', 'rgaddouri', '1234', NULL, NULL, NULL, NULL),
+(3, 'gaddouri', 'radhia', 'rgaddouri@cesi.fr', '1234', NULL, NULL, NULL, NULL),
 (4, 'silva roriz', 'catarina', 'catarinasilvaroriz@viacesi.fr', '1234', 2, 1, 1, 2);
 
 
