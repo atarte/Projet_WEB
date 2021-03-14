@@ -36,12 +36,12 @@ CREATE TABLE Competence(
 );
 
 
-DROP TABLE IF EXISTS Type_Promotion;
-CREATE TABLE Type_Promotion(
-   Id_Type_Promotion INT AUTO_INCREMENT NOT NULL,
-   Type_Promotion VARCHAR(50) NOT NULL,
+DROP TABLE IF EXISTS Specialite;
+CREATE TABLE Specialite(
+   Id_Specialite INT AUTO_INCREMENT NOT NULL,
+   Specialite VARCHAR(50) NOT NULL,
 
-   CONSTRAINT Type_Promotion_PK PRIMARY KEY(Id_Type_Promotion)
+   CONSTRAINT Specialite_PK PRIMARY KEY(Id_Specialite)
 );
 
 
@@ -118,12 +118,12 @@ CREATE TABLE Stage(
    Email VARCHAR(50) NOT NULL,
    Id_Entreprise INT NOT NULL,
    Id_Ville INT NOT NULL,
-   Id_Type_Promotion INT NOT NULL,
+   Id_Specialite INT NOT NULL,
 
    CONSTRAINT Stage_PK PRIMARY KEY(Id_Stage),
    CONSTRAINT Stage_Entreprise_FK FOREIGN KEY(Id_Entreprise) REFERENCES Entreprise(Id_Entreprise),
    CONSTRAINT Stage_Ville_FK FOREIGN KEY(Id_Ville) REFERENCES Ville(Id_Ville),
-   CONSTRAINT Stage_Promotion_FK FOREIGN KEY(Id_Type_Promotion) REFERENCES Type_Promotion(Id_Type_Promotion)
+   CONSTRAINT Stage_Promotion_FK FOREIGN KEY(Id_Specialite) REFERENCES Specialite(Id_Specialite)
 );
 
 
@@ -151,13 +151,13 @@ CREATE TABLE Users(
    Id_Pilote INT,
    Id_Centre INT,
    Id_Promotion INT,
-   Id_Type_Promotion INT,
+   Id_Specialite INT,
 
    CONSTRAINT Users_PK PRIMARY KEY(Id_Users),
    CONSTRAINT Users_Pilote_FK FOREIGN KEY(Id_Pilote) REFERENCES Users(Id_Users),
    CONSTRAINT Users_Promotion_FK FOREIGN KEY(Id_Promotion) REFERENCES Promotion(Id_Promotion),
    CONSTRAINT Users_Centre_FK FOREIGN KEY(Id_Centre) REFERENCES Centre(Id_Centre),
-   CONSTRAINT Users_Type_Promotion_FK FOREIGN KEY(Id_Type_Promotion) REFERENCES Type_Promotion(Id_Type_Promotion)
+   CONSTRAINT Users_Specialite_FK FOREIGN KEY(Id_Specialite) REFERENCES Specialite(Id_Specialite)
 );
 
 
