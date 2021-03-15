@@ -25,14 +25,14 @@
           $requete = 'SELECT Id_Centre, Centre FROM Centre';
           $resultat =$bdd->query($requete);
           while ($data = $resultat->fetch()){
-            echo '<option value="'.$data['Id_Centre'].'">'.$data['Centre'].'<option>';
+            echo '<option value="'.$data['Id_Centre'].'">'.$data['Centre'].'</option>';
           }
         ?>
       </select>
       <br>
       <br>
       <input type="submit" name="Validation">
-      
+
       <?php
       if (isset($_GET['erreur'])) {
           $err = $_GET['erreur'];
