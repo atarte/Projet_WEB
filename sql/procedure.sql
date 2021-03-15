@@ -45,5 +45,22 @@ BEGIN
   WHERE d.Id_Statut = 4;
 END |
 
+-- Creation_Pilote
+
+DROP PROCEDURE IF EXISTS Creation_Pilote |
+CREATE PROCEDURE Creation_Pilote(IN i_nom VARCHAR(50),IN i_prenom VARCHAR(50),IN i_mail VARCHAR(50),IN i_passwd VARCHAR(50),IN i_id_centre VARCHAR(50))
+BEGIN
+DECLARE id_use INT;
+
+INSERT INTO Users(Nom,Prenom,Email,Passwd,Id_Centre)
+VALUES(i_nom,i_prenom,i_mail,i_passwd,i_id_centre);
+
+SELECT LAST_INSERT_ID() INTO id_use;
+
+INSERT INTO Droit(Id_Users,Id_Statut,Entreprise,Offre,Pilote,Delegue,Etudiant,Candidature)
+VALUES(id_use,2,1,1,0,1,1,1);
+
+
+END |
 
 DELIMITER ;
