@@ -154,7 +154,7 @@ CREATE TABLE Users(
    Id_Specialite INT,
 
    CONSTRAINT Users_PK PRIMARY KEY(Id_Users),
-   CONSTRAINT Users_Pilote_FK FOREIGN KEY(Id_Pilote) REFERENCES Users(Id_Users),
+   FOREIGN KEY(Id_Pilote) REFERENCES Users(Id_Users),
    CONSTRAINT Users_Promotion_FK FOREIGN KEY(Id_Promotion) REFERENCES Promotion(Id_Promotion),
    CONSTRAINT Users_Centre_FK FOREIGN KEY(Id_Centre) REFERENCES Centre(Id_Centre),
    CONSTRAINT Users_Specialite_FK FOREIGN KEY(Id_Specialite) REFERENCES Specialite(Id_Specialite)
