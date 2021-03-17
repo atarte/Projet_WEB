@@ -16,7 +16,7 @@ Dans ces dossiers, vous retrouverez également toutes les pages celons l'utilisa
 
 ## Base de donnée
 
-Dans le dossier [***Base de donnée***](https://github.com/atarte/Projet_WEB/tree/main/livrable_1/Base%20de%20donn%C3%A9e), vous retrouverez tous les données consernant la base de donnée de notre site.  
+Dans le dossier [***Base de donnée***](https://github.com/atarte/Projet_WEB/tree/main/livrable_1/Base%20de%20donn%C3%A9e), vous retrouverez toutes les données consernant la base de donnée de notre site.  
 
 Ce dossier contiendra :
 * Un MCD de notre base de données;
