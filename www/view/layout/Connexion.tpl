@@ -1,16 +1,10 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{include file="./common/header.tpl" title={$title}}
 
-    <title>{$title}</title>
-</head>
 <header>
     {$erreur|default:""}
 </header>
 <body>
-    
+
     <form action="/www/connexion/verification" method="POST">
         <fieldset>
             <legend>Connexion</legend>
@@ -25,4 +19,5 @@
     </form>
 
 </body>
-</html>
+
+{include file="./common/footer.tpl"}
