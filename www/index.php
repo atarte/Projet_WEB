@@ -7,6 +7,9 @@ define('ROOT', str_replace('index.php', '', $_SERVER['SCRIPT_FILENAME']));
 require_once(ROOT.'app/Model.php');
 require_once(ROOT.'app/Controler.php');
 
+// On appel le moteur de template
+require_once(ROOT.'public/smarty/libs/smarty.class.php');
+
 
 // on separe les paramètres du lien pour déterminer ou l'on se trouve
 $param = explode('/', $_GET['p']);
