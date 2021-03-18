@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-18 16:35:08
+/* Smarty version 3.1.39, created on 2021-03-18 18:38:47
   from 'D:\SCOLAIRE\CESI\2eme_annee\projet\WEB\Projet_WEB\www\view\layout\Connexion.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6053813c1f6077_23058530',
+  'unifunc' => 'content_60539e37a79947_57293295',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ff15853d3aaf5b84008589979b8d46480cdaaa9e' => 
     array (
       0 => 'D:\\SCOLAIRE\\CESI\\2eme_annee\\projet\\WEB\\Projet_WEB\\www\\view\\layout\\Connexion.tpl',
-      1 => 1616085224,
+      1 => 1616092040,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6053813c1f6077_23058530 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60539e37a79947_57293295 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -35,8 +35,8 @@ function content_6053813c1f6077_23058530 (Smarty_Internal_Template $_smarty_tpl)
 
 </header>
 <body>
-
-    <form action="../../mvc/connexion/verification" method="POST">
+    
+    <form action="/www/connexion/verification" method="POST">
         <fieldset>
             <legend>Connexion</legend>
             Identifiant :

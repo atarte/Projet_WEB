@@ -10,8 +10,8 @@
     {$erreur|default:""}
 </header>
 <body>
-
-    <form action="../../mvc/connexion/verification" method="POST">
+    
+    <form action="/www/connexion/verification" method="POST">
         <fieldset>
             <legend>Connexion</legend>
             Identifiant :
