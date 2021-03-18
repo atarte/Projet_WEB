@@ -3,10 +3,12 @@
 <body>
 
     <nav>
-        <a href="../../mvc/accueil/deconnexion"><button>Deconnexion</button></a>
+        <a href="../../www/accueil/deconnexion"><button>Deconnexion</button></a>
     </nav>
 
-
+    <main>
+        {$button}
+    </main>
 
 </body>
 

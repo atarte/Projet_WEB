@@ -28,6 +28,7 @@ Class Accueil_Model extends Model {
                     'pilote' => $row['Pilote'],
                     'delegue' => $row['Delegue'],
                     'etudiant' => $row['Etudiant'],
+                    'candidature' => $row['Candidature']
                 );
             }
         }
@@ -35,6 +36,8 @@ Class Accueil_Model extends Model {
 
 
     public function deconnexion() {
+        session_unset();
+
         header("location: ../");
     }
 }
