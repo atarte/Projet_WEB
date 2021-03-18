@@ -1,11 +1,15 @@
 <?php
 
+$smarty = new Smarty;
+
+$smarty->assign('title', 'Connexion');
 
 if (isset($err)) {
-    if ($err == '1') {
-        echo "Utilisateur ou mot de passe incorect !";
+    if ($err == 1) {
+        $smarty->assign('erreur', 'Email ou mot de passe incorect');
     }
-    else if ($err == '2') {
-        echo "Adresse mail déjà utilsé !";
+    else {
     }
 }
+
+$smarty->display(ROOT.'/view/layout/Connexion.tpl');

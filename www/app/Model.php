@@ -3,11 +3,11 @@
 // ceci est la class du model global, elle est abstraite pour qu'elle ne puisse etre utilisable que par l'héritage
 abstract class Model {
     // Information de la base de donnée
-    private $host = 'localhost';
-    private $dbname = 'prosit_7';
-    private $port = '3306';
-    private $login = 'root';
-    private $pwd = '';
+    private $host = 'projetweb.cokj0wfmdhfw.eu-west-3.rds.amazonaws.com';
+    private $dbname = 'GroupeCat_Test';
+    private $port = '3315';
+    private $login = 'admin';
+    private $pwd = 'ProjetNulle';
 
     // Base de donné
     protected $db;
