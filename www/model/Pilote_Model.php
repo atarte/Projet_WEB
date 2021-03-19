@@ -32,4 +32,39 @@ Class Pilote_Model extends Model {
 
       return $query;
     }
+
+    public function putPilote() {
+
+      $this->getConnexion();
+
+      $req = "SELECT Email From Users WHERE Email = :email ;";
+
+      $query = $this->db->prepare($req);
+
+      $query->bindParam(':email', $_POST['mail']);
+
+      $query->execute();
+
+      $count = $query->rowCount();
+      $row = $query->fetch();
+
+      if ($count == 1 && !empty($row)) {
+        return 1;
+      }
+      else {
+        $req  = "CALL Creation_Pilote(:nom, :prenom, :mail, :pass, :centre)";
+
+        $query = $this->db->prepare($req);
+
+        $query->bindParam(':nom', $_POST['nom']);
+        $query->bindParam(':prenom', $_POST['prenom']);
+        $query->bindParam(':mail', $_POST['mail']);
+        $query->bindParam(':pass', $_POST['pass']);
+        $query->bindParam(':centre', $_POST['centre']);
+
+        $query->execute();
+
+      }
+
+    }
 }

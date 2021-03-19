@@ -18,7 +18,10 @@ while ($row = $Pilote->fetch()) {
 
 $smarty->assign('Pilote',$html);
 
+if (isset($err)) {
+    if ($err == 1) {
+        $smarty->assign('erreur', 'Email déjà utilisé pour un autre compte');
+    }
+  }
 
-
-
-$smarty->display(ROOT.'/view/layout/Pilote.tpl');
+$smarty->display(ROOT.'view/layout/Pilote.tpl');

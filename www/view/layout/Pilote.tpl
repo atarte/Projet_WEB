@@ -1,7 +1,7 @@
 {include file="./common/header.tpl" title={$title}}
 
 <body>
-  <form action="./creation_pilote" method="post">
+  <form action="/Pilote/creation_pilote" method="post">
 
       Nom : <br>
       <input type="text" name="nom" required>
@@ -21,6 +21,12 @@
       <br>
       <br>
 
+      Password : <br>
+      <input type="text" name="pass" required>
+
+      <br>
+      <br>
+
       Centre : <br>
       <select name="centre" required>
         {$Centre}
@@ -32,6 +38,7 @@
       <input type="submit" name="Validation">
       <br>
       <br>
+
       {$Pilote}
 
 </body>

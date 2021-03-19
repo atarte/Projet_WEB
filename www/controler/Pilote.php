@@ -15,11 +15,11 @@ class Pilote extends Controler {
       $Pilote = $this->Pilote_Model->getPilote();
       //$this->Pilote_Model->putPilote();
 
-      require_once(ROOT.'/view/Pilote_View.php');
+      require_once(ROOT.'view/Pilote_View.php');
 
     }
 
     public function creation_pilote() {
-      
+      $compte = $this->Pilote_Model->putPilote();
     }
 }
