@@ -4,7 +4,7 @@ class Connexion extends Controler {
     public function index() {
         $this->loadModel("Connexion_Model");
 
-        require_once(ROOT.'/view/Connexion_View.php');
+        require_once(ROOT.'view/Connexion_View.php');
     }
 
 
@@ -13,7 +13,7 @@ class Connexion extends Controler {
 
         $err = $this->Connexion_Model->verification();
 
-        require_once(ROOT.'/view/Connexion_View.php');
+        require_once(ROOT.'view/Connexion_View.php');
     }
 
 }

@@ -27,7 +27,7 @@ class Connexion_Model extends Model {
             if ($count == 1 && !empty($row)) {
                 $_SESSION['id'] = $row['id'];
 
-                header("Location: ../accueil");
+                header("Location: /Accueil");
             }
             else {
                 return '1';

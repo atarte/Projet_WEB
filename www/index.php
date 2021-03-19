@@ -1,7 +1,7 @@
 <?php
 // On genere une constante qui contiendra le chemin vers index point php
 define('ROOT', str_replace('index.php', '', $_SERVER['SCRIPT_FILENAME']));
-// die(ROOT);
+// echo ROOT;
 
 // On les fichiers globaux que l'on utilisera plutard
 require_once(ROOT.'app/Model.php');
@@ -31,14 +31,14 @@ if ($param[0] != "") { // si le lien contient un parametre : envoie sur la bonne
         // On appel le controler passe en parrametre en on le transphorme en variable grace a la class qu'il transport
         require_once(ROOT.'controler/'.$controler.'.php');
         $controler = new $controler();
-    
+
         // on verifie que la méthode voulu existe bien, sinon erreur 404
         if (method_exists($controler, $action)) {
             // $controler->$action();
             unset($param[0]);
             unset($param[1]);
             call_user_func_array([$controler, $action], $param);
-    
+
         }
         else {
             http_response_code(404);
@@ -54,7 +54,7 @@ else { // si le lien ne contient pas de parrametre : envoie sur la page d'acceui
     // Controler et methode par default si il n'y a aucun parametre
     $controler = "Connexion";
     $action = 'index';
-    
+
     require_once(ROOT.'controler/Connexion.php');
     $controler = new $controler();
     $controler->$action();

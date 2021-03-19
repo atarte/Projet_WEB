@@ -14,4 +14,4 @@ if (isset($err)) {
     }
 }
 
-$smarty->display(ROOT.'/view/layout/Connexion.tpl');
+$smarty->display(ROOT.'view/layout/Connexion.tpl');

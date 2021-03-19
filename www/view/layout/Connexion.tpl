@@ -5,7 +5,7 @@
 </header>
 <body>
 
-    <form action="/www/connexion/verification" method="POST">
+    <form action="/connexion/verification" method="POST">
         <fieldset>
             <legend>Connexion</legend>
             Identifiant :
