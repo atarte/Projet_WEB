@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-19 17:23:12
+/* Smarty version 3.1.39, created on 2021-03-19 21:13:04
   from 'C:\Users\catar\Documents\CESI\A2\4 - Web\Projet\Projet_WEB\www\view\layout\Pilote.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6054de0085da66_99223654',
+  'unifunc' => 'content_605513e03eecb2_35280551',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2de94e97273ef0ba26a5870d9a061a1fcd9a8893' => 
     array (
       0 => 'C:\\Users\\catar\\Documents\\CESI\\A2\\4 - Web\\Projet\\Projet_WEB\\www\\view\\layout\\Pilote.tpl',
-      1 => 1616174589,
+      1 => 1616188381,
       2 => 'file',
     ),
   ),
@@ -22,12 +22,17 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./common/footer.tpl' => 1,
   ),
 ),false)) {
-function content_6054de0085da66_99223654 (Smarty_Internal_Template $_smarty_tpl) {
+function content_605513e03eecb2_35280551 (Smarty_Internal_Template $_smarty_tpl) {
 ob_start();
 echo $_smarty_tpl->tpl_vars['title']->value;
 $_prefixVariable1 = ob_get_clean();
 $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('title'=>$_prefixVariable1), 0, false);
 ?>
+
+<header>
+    <?php echo (($tmp = @$_smarty_tpl->tpl_vars['erreur']->value)===null||$tmp==='' ? '' : $tmp);?>
+
+</header>
 
 <body>
   <form action="/Pilote/creation_pilote" method="post">
@@ -51,7 +56,7 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
       <br>
 
       Password : <br>
-      <input type="text" name="pass" required>
+      <input type="password" name="pass" required>
 
       <br>
       <br>
@@ -65,7 +70,7 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
       <br>
       <br>
 
-      <input type="submit" name="Validation">
+      <input type="submit" name="Validation" value="Créer">
       <br>
       <br>
 

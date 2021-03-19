@@ -4,8 +4,8 @@ Class Pilote_Model extends Model {
     public function __construct() {
         // verification que l'utilisateur à bien le droit d'accédé à cette page
 
-        if (!isset($_SESSION['id'])){// || ($_SESSION['role'] != "1" || ($_SESSION['role'] == "3" && $_SESSION['deleg']['pilote'] != "1"))) {
-            header("location: ../../www");
+        if (!isset($_SESSION['id']) || ($_SESSION['role'] == "3" && $_SESSION['deleg']['pilote'] != "1")) {
+            header("location: /");
         }
     }
 
@@ -49,7 +49,7 @@ Class Pilote_Model extends Model {
       $row = $query->fetch();
 
       if ($count == 1 && !empty($row)) {
-        return 1;
+        return '1';
       }
       else {
         $req  = "CALL Creation_Pilote(:nom, :prenom, :mail, :pass, :centre)";

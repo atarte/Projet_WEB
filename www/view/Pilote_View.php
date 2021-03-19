@@ -13,7 +13,7 @@ $smarty->assign('Centre', $html);
 
 $html = '';
 while ($row = $Pilote->fetch()) {
-    $html = $html.'<div> Nom : '.$row['nom'].'<br> Prénom : '.$row['prenom'].'<br> Email : '.$row['email'].'<br> Centre : '.$row['centre'].'</div><br><br>';
+    $html = $html.'Nom : '.$row['nom'].'<br> Prénom : '.$row['prenom'].'<br> Email : '.$row['email'].'<br> Centre : '.$row['centre'].'<br><br>';
 }
 
 $smarty->assign('Pilote',$html);
@@ -22,6 +22,8 @@ if (isset($err)) {
     if ($err == 1) {
         $smarty->assign('erreur', 'Email déjà utilisé pour un autre compte');
     }
+  else {
   }
+}
 
 $smarty->display(ROOT.'view/layout/Pilote.tpl');

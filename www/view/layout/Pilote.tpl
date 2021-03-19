@@ -1,5 +1,9 @@
 {include file="./common/header.tpl" title={$title}}
 
+<header>
+    {$erreur|default:""}
+</header>
+
 <body>
   <form action="/Pilote/creation_pilote" method="post">
 
@@ -22,7 +26,7 @@
       <br>
 
       Password : <br>
-      <input type="text" name="pass" required>
+      <input type="password" name="pass" required>
 
       <br>
       <br>
@@ -35,7 +39,7 @@
       <br>
       <br>
 
-      <input type="submit" name="Validation">
+      <input type="submit" name="Validation" value="Créer">
       <br>
       <br>
 
