@@ -67,4 +67,20 @@ Class Pilote_Model extends Model {
       }
 
     }
+
+    public function supPilote() {
+
+      $this->getConnexion();
+
+      echo $_POST['Id_Users'];
+
+      $req = "CALL Supprimer_Pilote(:id)";
+
+      $query = $this->db->prepare($req);
+
+      $query->bindParam(':id', $_POST['Id_Users']);
+
+      $query->execute();
+
+    }
 }

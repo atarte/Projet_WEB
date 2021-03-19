@@ -43,7 +43,11 @@
       <br>
       <br>
 
+    </form>
+
+    <form action="/Pilote/supprime_pilote" method="post">
       {$Pilote}
+    </form>  
 
 </body>
 

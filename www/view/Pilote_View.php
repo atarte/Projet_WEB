@@ -13,13 +13,14 @@ $smarty->assign('Centre', $html);
 
 $html = '';
 while ($row = $Pilote->fetch()) {
-    $html = $html.'Nom : '.$row['nom'].'<br> Prénom : '.$row['prenom'].'<br> Email : '.$row['email'].'<br> Centre : '.$row['centre'].'<br><br>';
+    $html = $html.'Nom : '.$row['nom'].'<br> Prénom : '.$row['prenom'].'<br> Email : '.$row['email'].'<br> Centre : '.$row['centre'].'<br>
+                  <button type="submit" value="'.$row['Id_Users'].'">Supprimer</button> <br><br>';
 }
 
 $smarty->assign('Pilote',$html);
 
-if (isset($err)) {
-    if ($err == 1) {
+if (isset($compte)) {
+    if ($compte == 1) {
         $smarty->assign('erreur', 'Email déjà utilisé pour un autre compte');
     }
   else {
