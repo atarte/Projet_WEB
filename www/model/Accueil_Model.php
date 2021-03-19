@@ -5,6 +5,8 @@ Class Accueil_Model extends Model {
         session_start();
 
         if (!isset($_SESSION['id'])) {
+            session_unset();
+            // il faudrai affiché un message du genre "page inaxessible"
             header("location: ../../www");
         }
     }
@@ -27,7 +29,7 @@ Class Accueil_Model extends Model {
         $row = $query->fetch();
 
         if ($count == 1 && !empty($row)) {
-            $_SESSION['role'] = $row['Id_Users'];
+            $_SESSION['role'] = $row['Id_Statut'];
 
             if ($_SESSION['role'] == "3") {
                 $_SESSION['deleg'] = array(

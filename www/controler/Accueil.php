@@ -1,10 +1,12 @@
 <?php
 
-class Accueil extends Controler {    
+class Accueil extends Controler {
     public function index() {
         $this->loadModel("Accueil_Model");
 
         $this->Accueil_Model->getPower();
+
+        echo $_SESSION['role'];
 
         require_once(ROOT.'/view/Accueil_View.php');
     }

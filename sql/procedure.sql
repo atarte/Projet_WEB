@@ -28,7 +28,7 @@ END |
 -- CALL Creation_Etudiant('rttz', 'zret', 'zretze@zret', 'zert', 2, 1, 2);
 
 DROP PROCEDURE IF EXISTS Affichage_Etudiant |
-CREATE PROCEDURE Affichage_Etudiant()
+CREATE PROCEDURE Affichage_Etudiant(IN page INT)
 BEGIN
   SELECT Users.Nom AS nom, Users.Prenom As prenom, Users.Email AS email, u.Nom AS piloteNom, u.Prenom AS pilotePrenom, c.Centre AS centre, p.Promotion AS promotion, s.Specialite AS specialite
   FROM Users
@@ -42,7 +42,9 @@ BEGIN
   ON Users.Id_Specialite = s.Id_Specialite
   INNER JOIN Droit d
   ON Users.Id_Users = d.Id_Users
-  WHERE d.Id_Statut = 4;
+  WHERE d.Id_Statut = 4
+  -- ORDER BY USERS.Id_Users
+  LIMIT page, 10;
 END |
 
 -- Creation_Pilote

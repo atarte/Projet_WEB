@@ -20,55 +20,55 @@
             <form action="./asset/php/creation_etudiant.php" method="post">
                 nom :
                 <input type="text" name="nom" required>
-                
+
                 Prenom :
                 <input type="text" name="prenom" required>
-    
+
                 email :
                 <input type="email" name="email" required>
-    
+
                 password :
                 <input type="password" name="pwd" required>
-    
+
                 pilote :
                 <select name="pilote" required>
                     <option value="">Choisiez un pilote</option>
                     <?php
                     $req = "SELECT Users.Id_Users AS id, Users.Nom AS nom, Users.Prenom AS prenom FROM Users INNER JOIN Droit ON Users.Id_Users = Droit.Id_Users WHERE Droit.Id_Statut = 2;";
-                    
+
                     $query = $bdd->query($req);
-    
+
                     while ($row = $query->fetch()) {
                         $nom = ucfirst($row['nom']);
                         $prenom = ucfirst($row['prenom']);
-    
+
                         echo '<option value="'.$row['id'].'">'.$nom.' '.$prenom.'</option>';
                     }
                     ?>
                 </select>
-    
+
                 promotion :
                 <select name="promotion" required>
                     <option value="">Choisiez une promotion</option>
                     <?php
                     $req = "SELECT Id_Promotion AS id, Promotion AS promotion FROM Promotion;";
-                    
+
                     $query = $bdd->query($req);
-    
+                    
                     while ($row = $query->fetch()) {
                         echo '<option value="'.$row['id'].'">'.$row['promotion'].'</option>';
                     }
                     ?>
                 </select>
-    
+
                 spécialité :
                 <select name="specialite" required>
                     <option value="">Choisiez une spécialité</option>
                     <?php
                 $req = "SELECT Id_Specialite AS id, Specialite AS specialite FROM Specialite;";
-                
+
                 $query = $bdd->query($req);
-    
+
                 while ($row = $query->fetch()) {
                     echo '<option value="'.$row['id'].'">'.$row['specialite'].'</option>';
                 }
@@ -86,7 +86,7 @@
 
             while($row = $query->fetch()) { ?>
                 <div>
-                    Etudiant | 
+                    Etudiant |
                     nom : <?php echo $row['nom']; ?>
                     prenom : <?php echo $row['prenom']; ?>
                     email : <?php echo $row['email']; ?>
@@ -96,7 +96,7 @@
                     promotion : <?php echo $row['promotion']; ?>
                     spécialité : <?php echo $row['specialite']; ?>
                     <br>
-                </div>  
+                </div>
             <?php
             }
             ?>
