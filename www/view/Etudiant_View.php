@@ -35,4 +35,4 @@ while ($row = $specialite->fetch()) {
 $smarty->assign('specialite', $html);
 
 
-$smarty->display(ROOT.'/view/layout/Etudiant.tpl');
+$smarty->display(ROOT.'view/layout/Etudiant.tpl');

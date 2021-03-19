@@ -2,7 +2,7 @@
 
 <body>
     <!-- création étudiant -->
-    <form action="./creation" method="post">
+    <form action="/etudiant/creation" method="post">
         nom :
         <input type="text" name="nom" required>
 

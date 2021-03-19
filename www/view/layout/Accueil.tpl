@@ -3,7 +3,7 @@
 <body>
 
     <nav>
-        <a href="../../www/accueil/deconnexion"><button>Deconnexion</button></a>
+        <a href="/accueil/deconnexion"><button>Deconnexion</button></a>
     </nav>
 
     <main>

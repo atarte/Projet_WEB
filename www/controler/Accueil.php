@@ -8,7 +8,7 @@ class Accueil extends Controler {
 
         echo $_SESSION['role'];
 
-        require_once(ROOT.'/view/Accueil_View.php');
+        require_once(ROOT.'view/Accueil_View.php');
     }
 
     public function deconnexion() {

@@ -6,13 +6,13 @@ Class Etudiant_Model extends Model {
         if (!isset($_SESSION['role']) || $_SESSION['role'] == "3") {
             session_unset();
             // il faudrai affiché un message du genre "Vous n'avez pas les droits pour accédé à cette page"
-            header("location: ../../www");
+            header("location: /");
         }
     }
 
 
     public function addEtudiant() {
-        
+
     }
 
 

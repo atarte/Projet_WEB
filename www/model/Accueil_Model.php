@@ -7,7 +7,7 @@ Class Accueil_Model extends Model {
         if (!isset($_SESSION['id'])) {
             session_unset();
             // il faudrai affiché un message du genre "page inaxessible"
-            header("location: ../../www");
+            header("location: /");
         }
     }
 
@@ -48,6 +48,6 @@ Class Accueil_Model extends Model {
     public function deconnexion() {
         session_unset();
 
-        header("location: ../");
+        header("location: /");
     }
 }

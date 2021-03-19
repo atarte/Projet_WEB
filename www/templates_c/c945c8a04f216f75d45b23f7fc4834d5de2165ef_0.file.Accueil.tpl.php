@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-18 21:38:59
+/* Smarty version 3.1.39, created on 2021-03-19 16:41:24
   from 'D:\SCOLAIRE\CESI\2eme_annee\projet\WEB\Projet_WEB\www\view\layout\Accueil.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6053c873daea17_96387064',
+  'unifunc' => 'content_6054d43424b530_45243888',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c945c8a04f216f75d45b23f7fc4834d5de2165ef' => 
     array (
       0 => 'D:\\SCOLAIRE\\CESI\\2eme_annee\\projet\\WEB\\Projet_WEB\\www\\view\\layout\\Accueil.tpl',
-      1 => 1616103493,
+      1 => 1616171983,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./common/footer.tpl' => 1,
   ),
 ),false)) {
-function content_6053c873daea17_96387064 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6054d43424b530_45243888 (Smarty_Internal_Template $_smarty_tpl) {
 ob_start();
 echo $_smarty_tpl->tpl_vars['title']->value;
 $_prefixVariable1 = ob_get_clean();
@@ -32,7 +32,7 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
 <body>
 
     <nav>
-        <a href="../../www/accueil/deconnexion"><button>Deconnexion</button></a>
+        <a href="/accueil/deconnexion"><button>Deconnexion</button></a>
     </nav>
 
     <main>
