@@ -11,11 +11,15 @@ class Pilote extends Controler {
 
       $this->loadModel("Pilote_Model");
 
-      $this->Pilote_Model->getCentre();
-      $this->Pilote_Model->getPilote();
-      $this->Pilote_Model->putPilote();
+      $Centre = $this->Pilote_Model->getCentre();
+      $Pilote = $this->Pilote_Model->getPilote();
+      //$this->Pilote_Model->putPilote();
 
       require_once(ROOT.'/view/Pilote_View.php');
 
+    }
+
+    public function creation_pilote() {
+      
     }
 }

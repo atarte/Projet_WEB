@@ -65,4 +65,18 @@ VALUES(id_use,2,1,1,0,1,1,1);
 
 END |
 
+--Affichage_Pilote
+
+DROP PROCEDURE IF EXISTS Affichage_Pilote |
+CREATE PROCEDURE Affichage_Pilotes(IN page INT)
+BEGIN
+  SELECT Users.Nom AS nom, Users.Prenom As prenom, Users.Email AS email, c.Centre AS centre
+  FROM Users
+  INNER JOIN Centre c
+  ON Users.Id_Centre = c.Id_Centre
+  INNER JOIN Droit d
+  ON Users.Id_Users = d.Id_Users
+  WHERE d.Id_Statut = 2;
+END |
+
 DELIMITER ;
