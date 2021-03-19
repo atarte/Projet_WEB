@@ -72,8 +72,6 @@ Class Pilote_Model extends Model {
 
       $this->getConnexion();
 
-      echo $_POST['Id_Users'];
-
       $req = "CALL Supprimer_Pilote(:id)";
 
       $query = $this->db->prepare($req);
