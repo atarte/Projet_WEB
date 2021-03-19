@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-19 13:36:07
+/* Smarty version 3.1.39, created on 2021-03-19 13:52:07
   from 'D:\SCOLAIRE\CESI\2eme_annee\projet\WEB\Projet_WEB\www\view\layout\Etudiant.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6054a8c75aa8c1_32693945',
+  'unifunc' => 'content_6054ac8717fd10_35087428',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4bbf89a610c58c5a621a3b6f426a96fac3bc4c9d' => 
     array (
       0 => 'D:\\SCOLAIRE\\CESI\\2eme_annee\\projet\\WEB\\Projet_WEB\\www\\view\\layout\\Etudiant.tpl',
-      1 => 1616160956,
+      1 => 1616161924,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./common/footer.tpl' => 1,
   ),
 ),false)) {
-function content_6054a8c75aa8c1_32693945 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6054ac8717fd10_35087428 (Smarty_Internal_Template $_smarty_tpl) {
 ob_start();
 echo $_smarty_tpl->tpl_vars['title']->value;
 $_prefixVariable1 = ob_get_clean();
@@ -31,7 +31,7 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
 
 <body>
     <!-- création étudiant -->
-    <form action="./asset/php/creation_etudiant.php" method="post">
+    <form action="/creation" method="post">
         nom :
         <input type="text" name="nom" required>
 
@@ -67,7 +67,7 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
         <input type="submit" value="crée">
     </form>
 
-    <?php echo $_smarty_tpl->tpl_vars['affichage']->value;?>
+    <?php echo $_smarty_tpl->tpl_vars['etudiant']->value;?>
 
 </body>
 

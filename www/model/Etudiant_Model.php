@@ -11,6 +11,11 @@ Class Etudiant_Model extends Model {
     }
 
 
+    public function addEtudiant() {
+        
+    }
+
+
     public function getEtudiant(int $p) {
         $this->getConnexion();
 
@@ -56,7 +61,7 @@ Class Etudiant_Model extends Model {
         $this->getConnexion();
 
         $req = "SELECT Id_Specialite AS id, Specialite AS specialite FROM Specialite;";
-        
+
         $query = $this->db->prepare($req);
 
         $query->execute();

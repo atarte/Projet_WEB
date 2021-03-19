@@ -2,7 +2,7 @@
 
 <body>
     <!-- création étudiant -->
-    <form action="./asset/php/creation_etudiant.php" method="post">
+    <form action="./creation" method="post">
         nom :
         <input type="text" name="nom" required>
 
