@@ -4,7 +4,7 @@
     {$erreur|default:''}
 
     <!-- création étudiant -->
-    <form action="/etudiant/creation" method="post">
+    <form action="/Etudiant/creation" method="post">
         nom :
         <input type="text" name="nom" required>
 
@@ -34,7 +34,7 @@
             <option value="">Choisiez une spécialité</option>
             {$specialite}
         </select>
-        <input type="submit" value="crée">
+        <input type="submit" value="créer">
     </form>
 
     {$etudiant}
