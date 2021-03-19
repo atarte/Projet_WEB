@@ -12,6 +12,44 @@ Class Etudiant_Model extends Model {
 
 
     public function addEtudiant() {
+        $this->getConnexion();
+
+        $req = "SELECT Id_Users FROM Users WHERE Email = :email";
+
+        $query = $this->db->prepare($req);
+
+        $query->bindParam(':email', $_POST['email']);
+
+        $query->execute();
+
+        $count = $query->rowCount();
+
+        if ($count == 0 ) {
+
+            $_POST['pilote'] = intval($_POST['pilote']);
+            $_POST['promotion'] = intval($_POST['promotion']);
+            $_POST['specialite'] = intval($_POST['specialite']);
+
+            $req = "CALL Creation_Etudiant(:nom, :prenom, :email, :pwd, :pilote, :promotion, :specialite)";
+
+            $query = $this->db->prepare($req);
+
+            $query->bindParam(':nom', $_POST['nom']);
+            $query->bindParam(':prenom', $_POST['prenom']);
+            $query->bindParam(':email', $_POST['email']);
+            $query->bindParam(':pwd', $_POST['pwd']);
+            $query->bindParam(':pilote', $_POST['pilote']);
+            $query->bindParam(':promotion', $_POST['promotion']);
+            $query->bindParam(':specialite', $_POST['specialite']);
+
+            $query->execute();
+
+            header("Location: /Etudiant");
+        }
+        else {
+            // header("Location: /Etudiant/creation");
+            return 1;
+        }
 
     }
 

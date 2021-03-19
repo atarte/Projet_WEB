@@ -10,7 +10,6 @@ require_once(ROOT.'app/Controler.php');
 // On appel le moteur de template
 require_once(ROOT.'public/smarty/libs/smarty.class.php');
 
-
 // on separe les paramètres du lien pour déterminer ou l'on se trouve
 $param = explode('/', $_GET['p']);
 // var_dump($param);

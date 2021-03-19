@@ -13,6 +13,13 @@ class Etudiant extends Controler {
     }
 
 
+    public function creation() {
+        $err = $this->Etudiant_Model->addEtudiant();
+
+        $this->page();
+    }
+
+
     public function page(int $p = 1) {
         // $this->loadModel("Etudiant_Model");
 
@@ -25,9 +32,5 @@ class Etudiant extends Controler {
         $specialite = $this->Etudiant_Model->getSpecialite();
 
         require_once(ROOT.'view/Etudiant_View.php');
-    }
-
-    public function creation() {
-        
     }
 }

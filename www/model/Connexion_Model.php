@@ -31,6 +31,7 @@ class Connexion_Model extends Model {
             }
             else {
                 return '1';
+                // header("location: /Connexion");
             }
         }
     }

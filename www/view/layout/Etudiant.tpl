@@ -1,6 +1,8 @@
 {include file="./common/header.tpl" title={$title}}
 
 <body>
+    {$erreur|default:''}
+
     <!-- création étudiant -->
     <form action="/etudiant/creation" method="post">
         nom :
