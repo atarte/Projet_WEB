@@ -1,8 +1,16 @@
 <?php
 
 Class Accueil_Model extends Model {
-    public function getPower() {
+    public function __construct() {
         session_start();
+
+        if (!isset($_SESSION['id'])) {
+            header("location: ../../www");
+        }
+    }
+
+
+    public function getPower() {
 
         $this->getConnexion();
         // if (isset($_SESSION['id']))

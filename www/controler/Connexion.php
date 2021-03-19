@@ -2,9 +2,8 @@
 
 class Connexion extends Controler {
     public function index() {
-        // $this->loadModel("Connexion_Model");
+        $this->loadModel("Connexion_Model");
 
-        // $this->render('Connexion_View', 'Connexion');
         require_once(ROOT.'/view/Connexion_View.php');
     }
 

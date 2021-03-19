@@ -1,6 +1,11 @@
 <?php
 
 class Connexion_Model extends Model {
+    public function __construct() {
+        session_unset();
+    }
+
+
     public function verification() {
         session_start();
 
