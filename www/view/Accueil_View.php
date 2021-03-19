@@ -2,7 +2,7 @@
 
 $smarty = new Smarty;
 
-$smarty->assign('title', 'Accueil');
+$smarty->assign('title', 'Gestion Accueil');
 
 $html = '';
 

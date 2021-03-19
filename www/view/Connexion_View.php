@@ -2,7 +2,7 @@
 
 $smarty = new Smarty;
 
-$smarty->assign('title', 'Connexion');
+$smarty->assign('title', 'Gestion Connexion');
 
 // $smarty->assign('url', ROOT.'connexion/verification');
 
