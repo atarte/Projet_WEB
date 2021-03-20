@@ -44,4 +44,9 @@ class Etudiant extends Controler {
 
         require_once(ROOT.'view/Etudiant_View.php');
     }
+
+
+    public function modification(int $id) {
+        
+    }
 }

@@ -8,33 +8,33 @@
     <!-- création étudiant -->
     <form id="formulaire" action="/Etudiant/creation" method="post">
         nom :
-        <input type="text" name="nom" required>
+        <input id="nom" type="text" name="nom" required>
 
         Prenom :
-        <input type="text" name="prenom" required>
+        <input id="prenom" type="text" name="prenom" required>
 
         email :
-        <input type="email" name="email" required>
+        <input id="email" type="email" name="email" required>
 
-        <div id="pwd">
+        <div id="pwd_div">
             password :
             <input "pwd" type="password" name="pwd" required>
         </div>
 
         pilote :
-        <select name="pilote" required>
+        <select id="pilote" name="pilote" required>
             <option value="">Choisiez un pilote</option>
             {$pilote}
         </select>
 
         promotion :
-        <select name="promotion" required>
+        <select id="promotion" name="promotion" required>
             <option value="">Choisiez une promotion</option>
             {$promotion}
         </select>
 
         spécialité :
-        <select name="specialite" required>
+        <select id="specialite" name="specialite" required>
             <option value="">Choisiez une spécialité</option>
             {$specialite}
         </select>

@@ -19,6 +19,7 @@ while ($row = $etudiant->fetch()) {
     $i++;
 
     $aff = $aff.'<div id="'.$row["id"].'">';
+    
     $aff = $aff.'Nom :<span id="nom_'.$row['id'].'">'.$row['nom'].'</span>';
 
     $aff = $aff.' | Prenom :<span id="prenom_'.$row['id'].'">'.$row["prenom"].'</span>';
