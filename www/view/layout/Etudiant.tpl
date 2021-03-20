@@ -6,7 +6,7 @@
     {$erreur|default:''}
 
     <!-- création étudiant -->
-    <form action="/Etudiant/creation" method="post">
+    <form id="formulaire" action="/Etudiant/creation" method="post">
         nom :
         <input type="text" name="nom" required>
 
