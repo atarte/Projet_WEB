@@ -24,7 +24,7 @@ Class Pilote_Model extends Model {
 
     public function getPilote() {
 
-      $req = "CALL Affichage_Pilote()";
+      $req = "CALL Affichage_Pilote(1)";
 
       $query = $this->db->prepare($req);
 
