@@ -3,7 +3,7 @@
 Class Etudiant_Model extends Model {
     public function __construct() {
 
-        if (!isset($_SESSION['role']) || $_SESSION['role'] == "3") {
+        if (!isset($_SESSION['role']) || $_SESSION['role'] == "4" || ($_SESSION['role'] == "3" && $_SESSION['role']['etudiant'] != "1")) {
             session_unset();
             // il faudrai affiché un message du genre "Vous n'avez pas les droits pour accédé à cette page"
             header("location: /");

@@ -14,13 +14,30 @@ if (isset($err)) {
 
 // affichage des etudiants
 $i = 0;
-$html = '';
+$aff = '';
 while ($row = $etudiant->fetch()) {
     $i++;
-    $html = $html.$i.' id :'.$row['id'].'; nom :'.$row['nom'].'; prenom :'.$row['prenom'].'; email :'.$row['email'].'; pilote nom :'.$row['piloteNom'].'; pilote prenom :'.$row['pilotePrenom'].'; centre :'.$row['centre'].'; promotion :'.$row['promotion'].'; spécialité :'.$row['specialite'];
-    $html = $html.'<button onclick=modif('.$row['id'].')>Modifier</button><br>';
+
+    $aff = $aff.'<div id="'.$row["id"].'">';
+    $aff = $aff.'Nom :<span id="nom_'.$row['id'].'">'.$row['nom'].'</span>';
+
+    $aff = $aff.' | Prenom :<span id="prenom_'.$row['id'].'">'.$row["prenom"].'</span>';
+
+    $aff = $aff.' | Email :<span id="email_'.$row['id'].'">'.$row['email'].'</span>';
+
+    $aff = $aff.' | Centre :<span id="centre_'.$row['id'].'">'.$row['centre'].'</span>';
+
+    $aff = $aff.' | Pilote :<span id="pilote_'.$row['id'].'">'.$row['piloteNom']." ".$row['pilotePrenom'].'</span>';
+
+    $aff = $aff.' | Promotion :<span id="promotion_'.$row['id'].'">'.$row['promotion'].'</span>';
+
+    $aff = $aff.' | Specialite :<span id="specialite_'.$row['id'].'">'.$row['specialite'].'</span>';
+
+    $aff = $aff.'<button onclick=modif('.$row['id'].')>Modifier</button><br>';
+
+    $aff = $aff.'</div>';
 }
-$smarty->assign('etudiant', $html);
+$smarty->assign('etudiant', $aff);
 
 
 // Ajout des pilotes dans le select
