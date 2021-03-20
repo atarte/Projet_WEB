@@ -72,7 +72,7 @@ END |
 DROP PROCEDURE IF EXISTS Affichage_Pilote |
 CREATE PROCEDURE Affichage_Pilote(IN page INT)
 BEGIN
-  SELECT UPPER(Users.Nom)AS nom, CONCAT(UPPER(SUBSTRING(Users.Prenom,1,1)),LOWER(SUBSTRING(Users.Prenom,2))) As prenom, Users.Email AS email, c.Centre AS centre
+  SELECT Users.Id_Users, UPPER(Users.Nom)AS nom, CONCAT(UPPER(SUBSTRING(Users.Prenom,1,1)),LOWER(SUBSTRING(Users.Prenom,2))) As prenom, Users.Email AS email, c.Centre AS centre
   FROM Users
   INNER JOIN Centre c
   ON Users.Id_Centre = c.Id_Centre

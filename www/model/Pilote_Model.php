@@ -74,6 +74,8 @@ Class Pilote_Model extends Model {
 
       $req = "CALL Supprimer_Pilote(:id)";
 
+      echo $_POST['supp'];
+
       $query = $this->db->prepare($req);
 
       $query->bindParam(':id', $_POST['supp']);
