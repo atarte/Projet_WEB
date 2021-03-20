@@ -4,8 +4,8 @@ $smarty = new Smarty;
 
 $smarty->assign('title', 'Gestion Etudiant');
 
-if (isset($err)) {
-    if ($err == 1) {
+if (isset($this->err)) {
+    if ($this->err == 1) {
         $smarty->assign('erreur', 'Email deja utilisé');
     }
     else {
@@ -15,24 +15,24 @@ if (isset($err)) {
 // affichage des etudiants
 $i = 0;
 $aff = '';
-while ($row = $etudiant->fetch()) {
+while ($row = $this->etudiant->fetch()) {
     $i++;
 
     $aff = $aff.'<div id="'.$row["id"].'">';
-    
-    $aff = $aff.'Nom :<span id="nom_'.$row['id'].'">'.$row['nom'].'</span>';
 
-    $aff = $aff.' | Prenom :<span id="prenom_'.$row['id'].'">'.$row["prenom"].'</span>';
+    $aff = $aff.'Nom : <span id="nom_'.$row['id'].'">'.$row['nom'].'</span>';
 
-    $aff = $aff.' | Email :<span id="email_'.$row['id'].'">'.$row['email'].'</span>';
+    $aff = $aff.' | Prenom : <span id="prenom_'.$row['id'].'">'.$row["prenom"].'</span>';
 
-    $aff = $aff.' | Centre :<span id="centre_'.$row['id'].'">'.$row['centre'].'</span>';
+    $aff = $aff.' | Email : <span id="email_'.$row['id'].'">'.$row['email'].'</span>';
 
-    $aff = $aff.' | Pilote :<span id="pilote_'.$row['id'].'">'.$row['piloteNom']." ".$row['pilotePrenom'].'</span>';
+    $aff = $aff.' | Centre : <span id="centre_'.$row['id'].'">'.$row['centre'].'</span>';
 
-    $aff = $aff.' | Promotion :<span id="promotion_'.$row['id'].'">'.$row['promotion'].'</span>';
+    $aff = $aff.' | Pilote : <span id="pilote_'.$row['id'].'">'.$row['piloteNom']." ".$row['pilotePrenom'].'</span>';
 
-    $aff = $aff.' | Specialite :<span id="specialite_'.$row['id'].'">'.$row['specialite'].'</span>';
+    $aff = $aff.' | Promotion : <span id="promotion_'.$row['id'].'">'.$row['promotion'].'</span>';
+
+    $aff = $aff.' | Specialite : <span id="specialite_'.$row['id'].'">'.$row['specialite'].'</span>';
 
     $aff = $aff.'<button onclick=modif('.$row['id'].')>Modifier</button><br>';
 
@@ -43,7 +43,7 @@ $smarty->assign('etudiant', $aff);
 
 // Ajout des pilotes dans le select
 $html = '';
-while ($row = $pilote->fetch()) {
+while ($row = $this->pilote->fetch()) {
     $html = $html.'<option value="'.$row['id'].'">'.$row['nom'].' '.$row['prenom'].'</option>';
 }
 $smarty->assign('pilote', $html);
@@ -51,7 +51,7 @@ $smarty->assign('pilote', $html);
 
 // Ajout des promotions dans le select
 $html = '';
-while ($row = $promotion->fetch()) {
+while ($row = $this->promotion->fetch()) {
     $html = $html.'<option value="'.$row['id'].'">'.$row['promotion'].'</option>';
 }
 $smarty->assign('promotion', $html);
@@ -59,7 +59,7 @@ $smarty->assign('promotion', $html);
 
 // Ajout des specialités dans le select
 $html = '';
-while ($row = $specialite->fetch()) {
+while ($row = $this->specialite->fetch()) {
     $html = $html.'<option value="'.$row['id'].'">'.$row['specialite'].'</option>';
 }
 $smarty->assign('specialite', $html);

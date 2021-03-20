@@ -1,9 +1,20 @@
 <?php
 
 class Etudiant extends Controler {
+    public $etudiant;
+    public $pilote;
+    public $promotion;
+    public $specialite;
+    // public $err;
+
+
     public function __construct() {
         session_start();
         $this->loadModel("Etudiant_Model");
+
+        $this->pilote = $this->Etudiant_Model->getPilote();
+        $this->promotion = $this->Etudiant_Model->getPromotion();
+        $this->specialite = $this->Etudiant_Model->getSpecialite();
     }
 
 
@@ -13,40 +24,45 @@ class Etudiant extends Controler {
     }
 
 
-    public function creation() {
-        $err = $this->Etudiant_Model->addEtudiant();
+    public function affichage() {
+        
+    }
 
-        // $this->page();
-        // on laisse comme ça pour le moment même si c'est vraiment pas beau
-        $p = 1;
+
+    public function page(int $p = 1) {
         $pageLimit = 10 * ($p -1);
 
-        $etudiant = $this->Etudiant_Model->getEtudiant($pageLimit);
-
-        $pilote = $this->Etudiant_Model->getPilote();
-        $promotion = $this->Etudiant_Model->getPromotion();
-        $specialite = $this->Etudiant_Model->getSpecialite();
+        $this->etudiant = $this->Etudiant_Model->getEtudiant($pageLimit);
 
         require_once(ROOT.'view/Etudiant_View.php');
     }
 
 
-    public function page(int $p = 1) {
-        // $this->loadModel("Etudiant_Model");
+    public function creation() {
+        $this->err = $this->Etudiant_Model->addEtudiant();
 
+        $p = 1;
         $pageLimit = 10 * ($p -1);
 
-        $etudiant = $this->Etudiant_Model->getEtudiant($pageLimit);
+        $this->etudiant = $this->Etudiant_Model->getEtudiant($pageLimit);
 
-        $pilote = $this->Etudiant_Model->getPilote();
-        $promotion = $this->Etudiant_Model->getPromotion();
-        $specialite = $this->Etudiant_Model->getSpecialite();
+        // $this->page();
 
         require_once(ROOT.'view/Etudiant_View.php');
     }
 
 
     public function modification(int $id) {
-        
+        $p = 1;
+        $pageLimit = 10 * ($p -1);
+
+        $etudiant = $this->Etudiant_Model->getEtudiant($pageLimit);
+
+        require_once(ROOT.'view/Etudiant_View.php');
+    }
+
+
+    public function suppression() {
+
     }
 }
