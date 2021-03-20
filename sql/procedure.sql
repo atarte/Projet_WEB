@@ -78,7 +78,7 @@ BEGIN
   ON Users.Id_Centre = c.Id_Centre
   INNER JOIN Droit d
   ON Users.Id_Users = d.Id_Users
-  WHERE d.Id_Statut = 2;
+  WHERE d.Id_Statut = 2
   LIMIT page, 10;
 END |
 
