@@ -7,10 +7,13 @@ class Etudiant extends Controler {
     public $specialite;
     // public $err;
 
+    public $p;
 
     public function __construct() {
         session_start();
         $this->loadModel("Etudiant_Model");
+
+        $this->p = 1;
 
         $this->pilote = $this->Etudiant_Model->getPilote();
         $this->promotion = $this->Etudiant_Model->getPromotion();
@@ -19,46 +22,37 @@ class Etudiant extends Controler {
 
 
     public function index() {
-        $this->page();
-        // require_once(ROOT.'view/Etudiant_View.php');
+        $this->affichage();
     }
 
 
     public function affichage() {
-        
-    }
-
-
-    public function page(int $p = 1) {
-        $pageLimit = 10 * ($p -1);
+        $pageLimit = 10 * ($this->p -1);
 
         $this->etudiant = $this->Etudiant_Model->getEtudiant($pageLimit);
 
         require_once(ROOT.'view/Etudiant_View.php');
+    }
+
+
+    public function page(int $page) {
+        $this->p = $page;
+
+        $this->affichage();
     }
 
 
     public function creation() {
         $this->err = $this->Etudiant_Model->addEtudiant();
 
-        $p = 1;
-        $pageLimit = 10 * ($p -1);
-
-        $this->etudiant = $this->Etudiant_Model->getEtudiant($pageLimit);
-
-        // $this->page();
-
-        require_once(ROOT.'view/Etudiant_View.php');
+        $this->affichage();
     }
 
 
     public function modification(int $id) {
-        $p = 1;
-        $pageLimit = 10 * ($p -1);
+        $this->err = $this->Etudiant_Model->updateEtudiant($id);
 
-        $etudiant = $this->Etudiant_Model->getEtudiant($pageLimit);
-
-        require_once(ROOT.'view/Etudiant_View.php');
+        $this->affichage();
     }
 
 

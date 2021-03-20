@@ -62,13 +62,13 @@ Class Etudiant_Model extends Model {
     }
 
 
-    public function updateEtudiant() {
+    public function updateEtudiant(int $id) {
 
     }
 
 
     public function deleteEtudiant() {
-        
+
     }
 
 

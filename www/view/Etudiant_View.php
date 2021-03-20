@@ -66,7 +66,7 @@ $smarty->assign('specialite', $html);
 
 
 // Pagination
-$page  = $p;
+$page  = $this->p;
 $pageBack = $page -1;
 $pageForward = $page +1;
 
