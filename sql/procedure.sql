@@ -32,7 +32,7 @@ END |
 DROP PROCEDURE IF EXISTS Affichage_Etudiant |
 CREATE PROCEDURE Affichage_Etudiant(IN page INT)
 BEGIN
-  SELECT Users.Nom AS nom, Users.Prenom As prenom, Users.Email AS email, u.Nom AS piloteNom, u.Prenom AS pilotePrenom, c.Centre AS centre, p.Promotion AS promotion, s.Specialite AS specialite
+  SELECT Users.Id_Users AS id, Users.Nom AS nom, Users.Prenom As prenom, Users.Email AS email, u.Nom AS piloteNom, u.Prenom AS pilotePrenom, c.Centre AS centre, p.Promotion AS promotion, s.Specialite AS specialite
   FROM Users
   INNER JOIN Users u
   ON Users.Id_Pilote = u.Id_Users
@@ -45,12 +45,12 @@ BEGIN
   INNER JOIN Droit d
   ON Users.Id_Users = d.Id_Users
   WHERE d.Id_Statut = 4
-  ORDER BY USERS.Id_Users
+  ORDER BY Users.Id_Users
   LIMIT page, 10;
 END |
 
--- Creation Pilote
 
+-- Creation Pilote
 DROP PROCEDURE IF EXISTS Creation_Pilote |
 CREATE PROCEDURE Creation_Pilote(IN i_nom VARCHAR(50),IN i_prenom VARCHAR(50),IN i_mail VARCHAR(50),IN i_passwd VARCHAR(50),IN i_id_centre VARCHAR(50))
 BEGIN
@@ -67,10 +67,10 @@ VALUES(id_use,2,1,1,0,1,1,1);
 
 END |
 
---Affichage Pilote
 
+-- Affichage Pilote
 DROP PROCEDURE IF EXISTS Affichage_Pilote |
-CREATE PROCEDURE Affichage_Pilotes(IN page INT)
+CREATE PROCEDURE Affichage_Pilote(IN page INT)
 BEGIN
   SELECT UPPER(Users.Nom)AS nom, CONCAT(UPPER(SUBSTRING(Users.Prenom,1,1)),LOWER(SUBSTRING(Users.Prenom,2))) As prenom, Users.Email AS email, c.Centre AS centre
   FROM Users

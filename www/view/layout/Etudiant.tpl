@@ -44,6 +44,8 @@
     <div>
         {$pagination}
     </div>
+
+    <script src="/public/js/Etudiant.js" charset="utf-8"></script>
 </body>
 
 {include file="./common/footer.tpl"}
