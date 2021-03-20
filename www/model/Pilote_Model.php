@@ -22,11 +22,13 @@ Class Pilote_Model extends Model {
         return $query;
     }
 
-    public function getPilote() {
+    public function getPilote(int $p) {
 
-      $req = "CALL Affichage_Pilote(1)";
+      $req = "CALL Affichage_Pilote(:p)";
 
       $query = $this->db->prepare($req);
+
+      $query->bindParam(':p', $p);
 
       $query->execute();
 

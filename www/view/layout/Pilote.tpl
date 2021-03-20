@@ -5,6 +5,9 @@
 </header>
 
 <body>
+
+  <button><a href="/Accueil">Retour</a></button>
+  <br><br>
   <form action="/Pilote/creation_pilote" method="post">
 
       Nom : <br>
@@ -47,7 +50,11 @@
 
     <form action="/Pilote/supprime_pilote" method="post">
       {$Pilote}
-    </form>  
+    </form>
+
+    <div>
+        {$pagination}
+    </div>
 
 </body>
 
