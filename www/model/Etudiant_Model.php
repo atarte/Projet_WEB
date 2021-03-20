@@ -33,10 +33,10 @@ Class Etudiant_Model extends Model {
 
             $nom = strtolower($_POST['nom']);
             $prenom = strtolower($_POST['prenom']);
-            $pwd = strtolower($_POST['pwd']);
-            $pilote = strtolower($_POST['pilote']);
-            $promotion = strtolower($_POST['promotion']);
-            $specialite = strtolower($_POST['specialite']);
+            // $pwd = strtolower($_POST['pwd']);
+            // $pilote = strtolower($_POST['pilote']);
+            // $promotion = strtolower($_POST['promotion']);
+            // $specialite = strtolower($_POST['specialite']);
 
             $req = "CALL Creation_Etudiant(:nom, :prenom, :email, :pwd, :pilote, :promotion, :specialite)";
 
@@ -55,7 +55,6 @@ Class Etudiant_Model extends Model {
             header("Location: /Etudiant");
         }
         else {
-            // header("Location: /Etudiant/creation");
             return 1;
         }
 
@@ -63,11 +62,58 @@ Class Etudiant_Model extends Model {
 
 
     public function updateEtudiant(int $id) {
+        $this->getConnexion();
+
+        $req = "SELECT Id_Users AS id FROM Users WHERE Email = :email";
+
+        $query = $this->db->prepare($req);
+
+        $email = strtolower($_POST['email']);
+        $query->bindParam(':email', $email);
+
+        $query->execute();
+
+        $row = $query->fetch();
+        $count = $query->rowCount();
+
+        if ($count == 0 || $row['id'] == strval($id)) {
+
+            $_POST['pilote'] = intval($_POST['pilote']);
+            $_POST['promotion'] = intval($_POST['promotion']);
+            $_POST['specialite'] = intval($_POST['specialite']);
+
+            $nom = strtolower($_POST['nom']);
+            $prenom = strtolower($_POST['prenom']);
+            // $pilote = strtolower($_POST['pilote']);
+            // $promotion = strtolower($_POST['promotion']);
+            // $specialite = strtolower($_POST['specialite']);
+
+            $req = "CALL Modification_Etudiant(:id, :nom, :prenom, :email, :pilote, :promotion, :specialite)";
+
+            $query = $this->db->prepare($req);
+
+            $query->bindParam(':id', $id);
+            $query->bindParam(':nom', $nom);
+            $query->bindParam(':prenom', $prenom);
+            $query->bindParam(':email', $email);
+            $query->bindParam(':pilote', $pilote);
+            $query->bindParam(':promotion', $promotion);
+            $query->bindParam(':specialite', $specialite);
+
+            $query->execute();
+
+            echo $req;
+
+            header("Location: /Etudiant");
+        }
+        else {
+            return 1;
+        }
 
     }
 
 
-    public function deleteEtudiant() {
+    public function deleteEtudiant(int $id) {
 
     }
 

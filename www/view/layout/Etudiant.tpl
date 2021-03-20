@@ -16,10 +16,10 @@
         email :
         <input id="email" type="email" name="email" required>
 
-        <div id="pwd_div">
+        <span id="pwd_div">
             password :
             <input "pwd" type="password" name="pwd" required>
-        </div>
+        </span>
 
         pilote :
         <select id="pilote" name="pilote" required>

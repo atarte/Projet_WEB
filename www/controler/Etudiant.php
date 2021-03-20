@@ -5,7 +5,7 @@ class Etudiant extends Controler {
     public $pilote;
     public $promotion;
     public $specialite;
-    // public $err;
+    public $err;
 
     public $p;
 
@@ -56,7 +56,9 @@ class Etudiant extends Controler {
     }
 
 
-    public function suppression() {
-
+    public function suppression(int $id) {
+        // $this->err = $this->Etudiant_Model->deleteEtudiant($id);
+        //
+        // $this->affichage();
     }
 }

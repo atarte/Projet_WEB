@@ -13,7 +13,7 @@ BEGIN
 
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
     BEGIN
-    ROLLBACK;
+        ROLLBACK;
     END;
 
     SELECT ID_Centre INTO centre FROM Users WHERE Users.Id_Users = pilote;
@@ -26,7 +26,30 @@ BEGIN
     INSERT INTO Droit (Id_Users, Id_Statut, Entreprise, Offre, Pilote, Delegue, Etudiant, Candidature)
     VALUES (id_users, 4, 1, 0, 0, 0, 0, 1);
 END |
--- CALL Creation_Etudiant('rttz', 'zret', 'zretze@zret', 'zert', 2, 1, 2);
+
+
+DROP PROCEDURE IF EXISTS Modification_Etudiant |
+CREATE PROCEDURE Modification_Etudiant (IN id INT, IN nom VARCHAR(50), IN prenom VARCHAR(50), IN pilote VARCHAR(50), IN promotion VARCHAR(50), IN specialite VARCHAR(50))
+BEGIN
+    DECLARE centre INT;
+
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    BEGIN
+        ROLLBACK;
+    END;
+
+    SELECT ID_Centre INTO centre FROM Users WHERE Users.Id_Users = pilote;
+
+    UPDATE Users SET
+        Users.Nom = nom,
+        Users.Prenom = prenom,
+        Users.Pilote = pilote,
+        Users.Centre = centre,
+        Users.Promotion = promotion,
+        Users.Specialite = specialite
+    WHERE Users.Id_Users = id;
+END |
+
 
 -- Affichage Etudiant
 DROP PROCEDURE IF EXISTS Affichage_Etudiant |
