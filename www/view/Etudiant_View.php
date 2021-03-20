@@ -17,7 +17,8 @@ $i = 0;
 $html = '';
 while ($row = $etudiant->fetch()) {
     $i++;
-    $html = $html.$i.' id :'.$row['id'].' nom :'.$row['nom'].'prenom :'.$row['prenom'].'email :'.$row['email'].'pilote nom :'.$row['piloteNom'].'pilote prenom :'.$row['pilotePrenom'].'centre :'.$row['centre'].'promotion :'.$row['promotion'].'spécialité :'.$row['specialite'].'<br>';
+    $html = $html.$i.' id :'.$row['id'].'; nom :'.$row['nom'].'; prenom :'.$row['prenom'].'; email :'.$row['email'].'; pilote nom :'.$row['piloteNom'].'; pilote prenom :'.$row['pilotePrenom'].'; centre :'.$row['centre'].'; promotion :'.$row['promotion'].'; spécialité :'.$row['specialite'];
+    $html = $html.'<button onclick=modif('.$row['id'].')>Modifier</button><br>';
 }
 $smarty->assign('etudiant', $html);
 

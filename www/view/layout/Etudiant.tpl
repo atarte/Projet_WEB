@@ -16,8 +16,10 @@
         email :
         <input type="email" name="email" required>
 
-        password :
-        <input type="password" name="pwd" required>
+        <div id="pwd">
+            password :
+            <input "pwd" type="password" name="pwd" required>
+        </div>
 
         pilote :
         <select name="pilote" required>
@@ -36,8 +38,11 @@
             <option value="">Choisiez une spécialité</option>
             {$specialite}
         </select>
-        <input type="submit" value="créer">
+        <input id="submit" type="submit" value="Créer">
     </form>
+
+    <div id="annuler">
+    </div>
 
     {$etudiant}
 
