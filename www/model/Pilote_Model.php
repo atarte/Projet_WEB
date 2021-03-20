@@ -4,7 +4,7 @@ Class Pilote_Model extends Model {
     public function __construct() {
         // verification que l'utilisateur à bien le droit d'accédé à cette page
 
-        if (!isset($_SESSION['id']) || ($_SESSION['role'] == "3" && $_SESSION['deleg']['pilote'] != "1")) {
+        if (($_SESSION['role'] == "3" && $_SESSION['deleg']['pilote'] != "1") || ($_SESSION['role'] == "2") || ($_SESSION['role'] == "4")) {
             header("location: /");
         }
     }
@@ -76,7 +76,7 @@ Class Pilote_Model extends Model {
 
       $query = $this->db->prepare($req);
 
-      $query->bindParam(':id', $_POST['Id_Users']);
+      $query->bindParam(':id', $_POST['supp']);
 
       $query->execute();
 

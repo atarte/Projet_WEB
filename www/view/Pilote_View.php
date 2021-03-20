@@ -14,7 +14,7 @@ $smarty->assign('Centre', $html);
 $html = '';
 while ($row = $Pilote->fetch()) {
     $html = $html.'Nom : '.$row['nom'].'<br> Prénom : '.$row['prenom'].'<br> Email : '.$row['email'].'<br> Centre : '.$row['centre'].'<br>
-                  <button type="submit">Supprimer</button><br><br>';
+                  <button type="submit" name="supp" value"'.$row['Id_Users'].'">Supprimer</button><br><br>';
 }
 
 $smarty->assign('Pilote',$html);
