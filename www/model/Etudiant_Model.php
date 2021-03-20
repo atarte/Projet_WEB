@@ -18,7 +18,8 @@ Class Etudiant_Model extends Model {
 
         $query = $this->db->prepare($req);
 
-        $query->bindParam(':email', $_POST['email']);
+        $email = strtolower($_POST['email']);
+        $query->bindParam(':email', $email);
 
         $query->execute();
 
@@ -30,17 +31,24 @@ Class Etudiant_Model extends Model {
             $_POST['promotion'] = intval($_POST['promotion']);
             $_POST['specialite'] = intval($_POST['specialite']);
 
+            $nom = strtolower($_POST['nom']);
+            $prenom = strtolower($_POST['prenom']);
+            $pwd = strtolower($_POST['pwd']);
+            $pilote = strtolower($_POST['pilote']);
+            $promotion = strtolower($_POST['promotion']);
+            $specialite = strtolower($_POST['specialite']);
+
             $req = "CALL Creation_Etudiant(:nom, :prenom, :email, :pwd, :pilote, :promotion, :specialite)";
 
             $query = $this->db->prepare($req);
 
-            $query->bindParam(':nom', $_POST['nom']);
-            $query->bindParam(':prenom', $_POST['prenom']);
-            $query->bindParam(':email', $_POST['email']);
-            $query->bindParam(':pwd', $_POST['pwd']);
-            $query->bindParam(':pilote', $_POST['pilote']);
-            $query->bindParam(':promotion', $_POST['promotion']);
-            $query->bindParam(':specialite', $_POST['specialite']);
+            $query->bindParam(':nom', $nom);
+            $query->bindParam(':prenom', $prenom);
+            $query->bindParam(':email', $email);
+            $query->bindParam(':pwd', $pwd);
+            $query->bindParam(':pilote', $pilote);
+            $query->bindParam(':promotion', $promotion);
+            $query->bindParam(':specialite', $specialite);
 
             $query->execute();
 

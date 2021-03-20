@@ -18,8 +18,10 @@ class Etudiant extends Controler {
 
         // $this->page();
         // on laisse comme ça pour le moment même si c'est vraiment pas beau
-        $p = 0;
-        $etudiant = $this->Etudiant_Model->getEtudiant($p);
+        $p = 1;
+        $pageLimit = 10 * ($p -1);
+
+        $etudiant = $this->Etudiant_Model->getEtudiant($pageLimit);
 
         $pilote = $this->Etudiant_Model->getPilote();
         $promotion = $this->Etudiant_Model->getPromotion();
@@ -32,9 +34,9 @@ class Etudiant extends Controler {
     public function page(int $p = 1) {
         // $this->loadModel("Etudiant_Model");
 
-        $p = 10 * ($p -1);
+        $pageLimit = 10 * ($p -1);
 
-        $etudiant = $this->Etudiant_Model->getEtudiant($p);
+        $etudiant = $this->Etudiant_Model->getEtudiant($pageLimit);
 
         $pilote = $this->Etudiant_Model->getPilote();
         $promotion = $this->Etudiant_Model->getPromotion();

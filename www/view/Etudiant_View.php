@@ -12,9 +12,12 @@ if (isset($err)) {
     }
 }
 
+// affichage des etudiants
+$i = 0;
 $html = '';
 while ($row = $etudiant->fetch()) {
-    $html = $html.'nom :'.$row['nom'].'prenom :'.$row['prenom'].'email :'.$row['email'].'pilote nom :'.$row['piloteNom'].'pilote prenom :'.$row['pilotePrenom'].'centre :'.$row['centre'].'promotion :'.$row['promotion'].'spécialité :'.$row['specialite'].'<br>';
+    $i++;
+    $html = $html.$i.' nom :'.$row['nom'].'prenom :'.$row['prenom'].'email :'.$row['email'].'pilote nom :'.$row['piloteNom'].'pilote prenom :'.$row['pilotePrenom'].'centre :'.$row['centre'].'promotion :'.$row['promotion'].'spécialité :'.$row['specialite'].'<br>';
 }
 $smarty->assign('etudiant', $html);
 
@@ -41,6 +44,31 @@ while ($row = $specialite->fetch()) {
     $html = $html.'<option value="'.$row['id'].'">'.$row['specialite'].'</option>';
 }
 $smarty->assign('specialite', $html);
+
+
+// Pagination
+$page  = $p;
+$pageBack = $page -1;
+$pageForward = $page +1;
+
+// echo 'p:'.$page.'; b:'.$pageBack.'; f:'.$pageForward;
+
+$html = '<span ';
+if ($page == 1) {
+    $html = $html.'hidden';
+}
+$html = $html.'><a href="/Etudiant/page/'.$pageBack.'"> << </a></span>';
+
+$html = $html.'<span>page '.$page.'</span>';
+
+$html = $html.'<span ';
+if ($i < 10) {
+    $html = $html.'hidden';
+}
+$html = $html.'><a href="/Etudiant/page/'.$pageForward.'"> >> </a></span>';
+
+$smarty->assign('pagination', $html);
+
 
 
 $smarty->display(ROOT.'view/layout/Etudiant.tpl');

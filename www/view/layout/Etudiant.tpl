@@ -1,6 +1,8 @@
 {include file="./common/header.tpl" title={$title}}
 
 <body>
+    <a href="/Accueil">retour</a>
+
     {$erreur|default:''}
 
     <!-- création étudiant -->
@@ -38,6 +40,10 @@
     </form>
 
     {$etudiant}
+
+    <div>
+        {$pagination}
+    </div>
 </body>
 
 {include file="./common/footer.tpl"}
