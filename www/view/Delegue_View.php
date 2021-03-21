@@ -29,11 +29,23 @@ while ($row = $this->delegue->fetch()) {
 
     $aff = $aff.' | Email : <span id="email_'.$row['id'].'">'.$row['email'].'</span>';
 
+    $aff = $aff.' | Entreprise : <span id="entreprise_'.$row['id'].'">'.$row['entreprise'].'</span>';
+
+    $aff = $aff.' | Offre : <span id="offre_'.$row['id'].'">'.$row['offre'].'</span>';
+
+    $aff = $aff.' | Pilote : <span id="pilote_'.$row['id'].'">'.$row['pilote'].'</span>';
+
+    $aff = $aff.' | Délégué : <span id="delegue_'.$row['id'].'">'.$row['delegue'].'</span>';
+
+    $aff = $aff.' | Etudiant : <span id="etudiant_'.$row['id'].'">'.$row['etudiant'].'</span>';
+
+    $aff = $aff.' | Candidature : <span id="candidature_'.$row['id'].'">'.$row['candidature'].'</span>';
+
     $aff = $aff.'<button onclick=modification('.$row['id'].')>Modifier</button>';
 
-    // if delegue a pas le droit on le retire
+    if ($_SESSION['role'] != "3") {
         $aff = $aff.'<button onclick=confirmation('.$row['id'].')>Supprimer</button>';
-    //
+    }
 
     $aff = $aff.'<br></div>';
 }

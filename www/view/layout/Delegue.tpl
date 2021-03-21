@@ -23,22 +23,22 @@
         </span>
 
         gestion Entreprise :
-        <input type="checkbox" name="gestion[]" value="entreprise">
+        <input id="entreprise" type="checkbox" name="gestion[]" value="entreprise">
 
         gestion Offre :
-        <input type="checkbox" name="gestion[]" value="offre">
+        <input id="offre" type="checkbox" name="gestion[]" value="offre">
 
         gestion Pilote :
-        <input type="checkbox" name="gestion[]" value="pilote">
+        <input id="pilote" type="checkbox" name="gestion[]" value="pilote">
 
         gestion Délégué :
-        <input type="checkbox" name="gestion[]" value="delegue">
+        <input id="delegue" type="checkbox" name="gestion[]" value="delegue">
 
         gestion Etudiant :
-        <input type="checkbox" name="gestion[]" value="etudiant">
+        <input id="etudiant" type="checkbox" name="gestion[]" value="etudiant">
 
         gestion Candidature :
-        <input type="checkbox" name="gestion[]" value="candidature">
+        <input id="candidature" type="checkbox" name="gestion[]" value="candidature">
 
         <input id="submit" type="submit" value="Créer">
     </form>

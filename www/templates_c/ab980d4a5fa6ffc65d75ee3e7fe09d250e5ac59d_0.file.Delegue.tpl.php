@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-21 20:58:17
+/* Smarty version 3.1.39, created on 2021-03-21 22:11:38
   from 'D:\SCOLAIRE\CESI\2eme_annee\projet\WEB\Projet_WEB\www\view\layout\Delegue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6057b3698161c9_16928856',
+  'unifunc' => 'content_6057c49a846093_32061625',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ab980d4a5fa6ffc65d75ee3e7fe09d250e5ac59d' => 
     array (
       0 => 'D:\\SCOLAIRE\\CESI\\2eme_annee\\projet\\WEB\\Projet_WEB\\www\\view\\layout\\Delegue.tpl',
-      1 => 1616358467,
+      1 => 1616364345,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./common/footer.tpl' => 1,
   ),
 ),false)) {
-function content_6057b3698161c9_16928856 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6057c49a846093_32061625 (Smarty_Internal_Template $_smarty_tpl) {
 ob_start();
 echo $_smarty_tpl->tpl_vars['title']->value;
 $_prefixVariable1 = ob_get_clean();
@@ -53,22 +53,22 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
         </span>
 
         gestion Entreprise :
-        <input type="checkbox" name="gestion[]" value="entreprise">
+        <input id="entreprise" type="checkbox" name="gestion[]" value="entreprise">
 
         gestion Offre :
-        <input type="checkbox" name="gestion[]" value="offre">
+        <input id="offre" type="checkbox" name="gestion[]" value="offre">
 
         gestion Pilote :
-        <input type="checkbox" name="gestion[]" value="pilote">
+        <input id="pilote" type="checkbox" name="gestion[]" value="pilote">
 
         gestion Délégué :
-        <input type="checkbox" name="gestion[]" value="delegue">
+        <input id="delegue" type="checkbox" name="gestion[]" value="delegue">
 
         gestion Etudiant :
-        <input type="checkbox" name="gestion[]" value="etudiant">
+        <input id="etudiant" type="checkbox" name="gestion[]" value="etudiant">
 
         gestion Candidature :
-        <input type="checkbox" name="gestion[]" value="candidature">
+        <input id="candidature" type="checkbox" name="gestion[]" value="candidature">
 
         <input id="submit" type="submit" value="Créer">
     </form>
