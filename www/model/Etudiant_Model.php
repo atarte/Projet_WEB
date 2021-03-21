@@ -33,10 +33,6 @@ Class Etudiant_Model extends Model {
 
             $nom = strtolower($_POST['nom']);
             $prenom = strtolower($_POST['prenom']);
-            // $pwd = strtolower($_POST['pwd']);
-            // $pilote = strtolower($_POST['pilote']);
-            // $promotion = strtolower($_POST['promotion']);
-            // $specialite = strtolower($_POST['specialite']);
 
             $req = "CALL Creation_Etudiant(:nom, :prenom, :email, :pwd, :pilote, :promotion, :specialite)";
 
@@ -45,10 +41,10 @@ Class Etudiant_Model extends Model {
             $query->bindParam(':nom', $nom);
             $query->bindParam(':prenom', $prenom);
             $query->bindParam(':email', $email);
-            $query->bindParam(':pwd', $pwd);
-            $query->bindParam(':pilote', $pilote);
-            $query->bindParam(':promotion', $promotion);
-            $query->bindParam(':specialite', $specialite);
+            $query->bindParam(':pwd', $_POST['pwd']);
+            $query->bindParam(':pilote', $_POST['pilote']);
+            $query->bindParam(':promotion', $_POST['promotion']);
+            $query->bindParam(':specialite', $_POST['specialite']);
 
             $query->execute();
 
@@ -57,7 +53,6 @@ Class Etudiant_Model extends Model {
         else {
             return 1;
         }
-
     }
 
 
@@ -84,9 +79,6 @@ Class Etudiant_Model extends Model {
 
             $nom = strtolower($_POST['nom']);
             $prenom = strtolower($_POST['prenom']);
-            // $pilote = strtolower($_POST['pilote']);
-            // $promotion = strtolower($_POST['promotion']);
-            // $specialite = strtolower($_POST['specialite']);
 
             $req = "CALL Modification_Etudiant(:id, :nom, :prenom, :email, :pilote, :promotion, :specialite)";
 
@@ -96,20 +88,17 @@ Class Etudiant_Model extends Model {
             $query->bindParam(':nom', $nom);
             $query->bindParam(':prenom', $prenom);
             $query->bindParam(':email', $email);
-            $query->bindParam(':pilote', $pilote);
-            $query->bindParam(':promotion', $promotion);
-            $query->bindParam(':specialite', $specialite);
+            $query->bindParam(':pilote', $_POST['pilote']);
+            $query->bindParam(':promotion', $_POST['promotion']);
+            $query->bindParam(':specialite', $_POST['specialite']);
 
             $query->execute();
-
-            echo $req;
 
             header("Location: /Etudiant");
         }
         else {
             return 1;
         }
-
     }
 
 

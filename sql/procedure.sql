@@ -29,26 +29,32 @@ END |
 
 
 DROP PROCEDURE IF EXISTS Modification_Etudiant |
-CREATE PROCEDURE Modification_Etudiant (IN id INT, IN nom VARCHAR(50), IN prenom VARCHAR(50), IN pilote VARCHAR(50), IN promotion VARCHAR(50), IN specialite VARCHAR(50))
+CREATE PROCEDURE Modification_Etudiant (IN id INT, IN nom VARCHAR(50), IN prenom VARCHAR(50), IN email VARCHAR(50), IN pilote INT, IN promotion INT, IN specialite INT)
 BEGIN
     DECLARE centre INT;
 
-    DECLARE EXIT HANDLER FOR SQLEXCEPTION
-    BEGIN
-        ROLLBACK;
-    END;
+    -- DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    -- BEGIN
+    --     ROLLBACK;
+    -- END;
 
     SELECT ID_Centre INTO centre FROM Users WHERE Users.Id_Users = pilote;
 
     UPDATE Users SET
         Users.Nom = nom,
         Users.Prenom = prenom,
-        Users.Pilote = pilote,
-        Users.Centre = centre,
-        Users.Promotion = promotion,
-        Users.Specialite = specialite
+        Users.Email = email,
+        Users.Id_Pilote = pilote,
+        Users.Id_Centre = centre,
+        Users.Id_Promotion = promotion,
+        Users.Id_Specialite = specialite
     WHERE Users.Id_Users = id;
 END |
+
+-- CALL Modification_Etudiant(19, 'dix', 'modifoui', 'dix@cesi.fr', 2, 2, 2);
+--
+-- SELECT * FROM Users WHERE Id_Users = 19;
+
 
 
 -- Affichage Etudiant
