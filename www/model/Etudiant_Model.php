@@ -5,9 +5,24 @@ Class Etudiant_Model extends Model {
 
         if (!isset($_SESSION['role']) || $_SESSION['role'] == "4" || ($_SESSION['role'] == "3" && $_SESSION['deleg']['etudiant'] != "1")) {
             session_unset();
-            // il faudrai affiché un message du genre "Vous n'avez pas les droits pour accédé à cette page"
+
             header("location: /");
         }
+    }
+
+    
+    public function displayEtudiant(int $p) {
+        $this->getConnexion();
+
+        $req = "CALL Affichage_Etudiant(:p)";
+
+        $query = $this->db->prepare($req);
+
+        $query->bindParam(':p', $p);
+
+        $query->execute();
+
+        return $query;
     }
 
 
@@ -187,21 +202,6 @@ Class Etudiant_Model extends Model {
         if (!empty($_POST['centre'])) {
             $query->bindParam(':centre', $_POST['centre']);
         }
-
-        $query->execute();
-
-        return $query;
-    }
-
-
-    public function displayEtudiant(int $p) {
-        $this->getConnexion();
-
-        $req = "CALL Affichage_Etudiant(:p)";
-
-        $query = $this->db->prepare($req);
-
-        $query->bindParam(':p', $p);
 
         $query->execute();
 

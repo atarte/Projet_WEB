@@ -4,6 +4,8 @@ $smarty = new Smarty;
 
 $smarty->assign('title', 'Gestion Etudiant');
 
+
+// affichage de l'erreur
 if (isset($this->err)) {
     if ($this->err == 1) {
         $smarty->assign('erreur', 'Email deja utilisé');
@@ -11,6 +13,7 @@ if (isset($this->err)) {
     else {
     }
 }
+
 
 // affichage des etudiants
 $i = 0;
@@ -36,7 +39,6 @@ while ($row = $this->etudiant->fetch()) {
 
     $aff = $aff.'<button onclick=modification('.$row['id'].')>Modifier</button>';
 
-    // $aff = $aff.'<a href="/Etudiant/suppression/'.$row['id'].'"><button>Supprimer</button></a>';
     $aff = $aff.'<button onclick=confirmation('.$row['id'].')>Supprimer</button>';
 
     $aff = $aff.'<br></div>';
