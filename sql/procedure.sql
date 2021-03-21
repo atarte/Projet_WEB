@@ -145,7 +145,7 @@ BEGIN
         Users.Nom = nom,
         Users.Prenom = prenom,
         Users.Email = email,
-        Users.Id_Centre = centre,
+        Users.Id_Centre = centre
 	WHERE Users.Id_Users = id;
 END |
 
@@ -180,7 +180,7 @@ END |
 
 -- ===================================================================== DELEGUE
 -- Affichage DELEGUE
-DROP PROCEDURE IS EXISTS Affichage_Delegue |
+DROP PROCEDURE IF EXISTS Affichage_Delegue |
 CREATE PROCEDURE Affichage_Delegue (IN page INT)
 BEGIN
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
@@ -203,13 +203,13 @@ BEGIN
     INNER JOIN Droit d
         ON u.Id_Users = d.Id_Users
     WHERE d.Id_Statut = 3
-    ORDER BY Users.Id_Users DESC
+    ORDER BY u.Id_Users DESC
     LIMIT page, 10;
 END |
 
 
 -- Creation Delegue
-DROP PROCEDURE IS EXISTS Creation_Delgue |
+DROP PROCEDURE IF EXISTS Creation_Delgue |
 CREATE PROCEDURE Creation_Delgue ()
 BEGIN
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
@@ -220,7 +220,7 @@ END |
 
 
 -- Modification Delegue
-DROP PROCEDURE IS EXISTS Modification_Delegue |
+DROP PROCEDURE IF EXISTS Modification_Delegue |
 CREATE PROCEDURE Modification_Delegue (IN id INT)
 BEGIN
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
@@ -231,7 +231,7 @@ END |
 
 
 -- Suppression Delegue
-DROP PROCEDURE IS EXISTS Suppression_Delegue |
+DROP PROCEDURE IF EXISTS Suppression_Delegue |
 CREATE PROCEDURE Suppression_Delegue (IN id INT)
 BEGIN
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
