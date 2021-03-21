@@ -16,7 +16,7 @@ $i = 0;
 while ($row = $Pilote->fetch()) {
     $i++;
     $html = $html.$i.' Nom : '.$row['nom'].'<br> Prénom : '.$row['prenom'].'<br> Email : '.$row['email'].'<br> Centre : '.$row['centre'].'<br>
-                  <button type="submit" name="supp" value"'.$row['Id_Users'].'">Supprimer</button><br><br>';
+                  <button type="submit" name="supp">Supprimer</button><button name="modif" value="'.$row['Id_Users'].'">Modifier</button><br><br>';
 }
 
 $smarty->assign('Pilote',$html);

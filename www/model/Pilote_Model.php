@@ -13,7 +13,7 @@ Class Pilote_Model extends Model {
 
         $this->getConnexion();
 
-        $req = "SELECT Id_Centre, Centre FROM Centre";
+        $req = "SELECT Id_Centre, Centre FROM Centre ORDER BY Centre";
 
         $query = $this->db->prepare($req);
 
