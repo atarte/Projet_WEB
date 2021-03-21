@@ -36,7 +36,7 @@ function annuler() {
     document.getElementById("prenom").value = "";
     document.getElementById("email").value = "";
 
-    document.getElementById("pwd_div").innerHTML = 'password :<input "pwd" type="password" name="pwd" required>';
+    document.getElementById("pwd_div").innerHTML = 'Password : <br><input "pwd" type="password" name="pwd" required>';
 
     document.getElementById('centre').selectedIndex = 0;
 

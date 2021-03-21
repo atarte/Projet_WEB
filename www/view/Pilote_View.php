@@ -18,13 +18,13 @@ while ($row = $Pilote->fetch()) {
 
     $html = $html.'<div id="'.$row["Id_Users"].'">';
 
-    $html = $html.' Nom : <span id="nom_'.$row['Id_Users'].'">'.$row['nom'].'<br>';
+    $html = $html.' Nom : <span id="nom_'.$row['Id_Users'].'">'.$row['nom'].'</span><br>';
 
-    $html = $html.' Prénom : <span id="prenom_'.$row['Id_Users'].'">'.$row['prenom'].'<br>';
+    $html = $html.' Prénom : <span id="prenom_'.$row['Id_Users'].'">'.$row['prenom'].'</span><br>';
 
-    $html = $html.' Email : <span id="email_'.$row['Id_Users'].'">'.$row['email'].'<br>';
+    $html = $html.' Email : <span id="email_'.$row['Id_Users'].'">'.$row['email'].'</span><br>';
 
-    $html = $html.' Centre : <span id="centre_'.$row['Id_Users'].'">'.$row['centre'].'<br>';
+    $html = $html.' Centre : <span id="centre_'.$row['Id_Users'].'">'.$row['centre'].'</span><br>';
 
     $html = $html.'<button onclick=confirmation('.$row['Id_Users'].')>Supprimer</button>';
 
