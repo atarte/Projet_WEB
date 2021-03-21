@@ -7,9 +7,11 @@ class Pilote extends Controler {
       $this->loadModel("Pilote_Model");
   }
 
+
     public function index() {
       $this->page();
     }
+
 
     public function page(int $p = 1) {
 
@@ -21,6 +23,7 @@ class Pilote extends Controler {
       require_once(ROOT.'view/Pilote_View.php');
 
     }
+
 
     public function creation_pilote() {
 
@@ -35,6 +38,7 @@ class Pilote extends Controler {
       require_once(ROOT.'view/Pilote_View.php');
     }
 
+
     public function supprime_pilote() {
       $compte = $this->Pilote_Model->supPilote();
 
@@ -43,6 +47,7 @@ class Pilote extends Controler {
 
       require_once(ROOT.'view/Pilote_View.php');
     }
+
 
     public function modification_pilote() {
 
@@ -56,4 +61,5 @@ class Pilote extends Controler {
 
       require_once(ROOT.'view/Pilote_View.php');
     }
+    
 }

@@ -51,8 +51,8 @@ Class Pilote_Model extends Model {
       $row = $query->fetch();
 
       if ($count == 1 && !empty($row)) {
-        return '1';
-      }
+            return '1';
+        }
       else {
         $req  = "CALL Creation_Pilote(:nom, :prenom, :mail, :pass, :centre)";
 
