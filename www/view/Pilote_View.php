@@ -15,8 +15,23 @@ $html = '';
 $i = 0;
 while ($row = $Pilote->fetch()) {
     $i++;
-    $html = $html.$i.' Nom : '.$row['nom'].'<br> Prénom : '.$row['prenom'].'<br> Email : '.$row['email'].'<br> Centre : '.$row['centre'].'<br>
-                  <button type="submit" name="supp">Supprimer</button><button name="modif" value="'.$row['Id_Users'].'">Modifier</button><br><br>';
+
+    $html = $html.'<div id="'.$row["Id_Users"].'">';
+
+    $html = $html.' Nom : <span id="nom_'.$row['Id_Users'].'">'.$row['nom'].'<br>';
+
+    $html = $html.' Prénom : <span id="prenom_'.$row['Id_Users'].'">'.$row['prenom'].'<br>';
+
+    $html = $html.' Email : <span id="email_'.$row['Id_Users'].'">'.$row['email'].'<br>';
+
+    $html = $html.' Centre : <span id="centre_'.$row['Id_Users'].'">'.$row['centre'].'<br>';
+
+    $html = $html.'<button onclick=confirmation('.$row['Id_Users'].')>Supprimer</button>';
+
+    $html = $html.'<button onclick=modification('.$row['Id_Users'].')>Modifier</button><br><br>';
+
+    $html = $html.'<br></div>';
+
 }
 
 $smarty->assign('Pilote',$html);

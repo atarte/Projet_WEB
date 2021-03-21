@@ -11,31 +11,33 @@
   <form action="/Pilote/creation_pilote" method="post" id="formulaire">
 
       Nom : <br>
-      <input type="text" name="nom" required>
+      <input id="nom" type="text" name="nom" required>
 
       <br>
       <br>
 
       Prenom : <br>
-      <input type="text" name="prenom" required>
+      <input id="prenom" type="text" name="prenom" required>
 
       <br>
       <br>
 
       Mail : <br>
-      <input type="email" name="mail" required>
+      <input id="email" type="email" name="email" required>
 
       <br>
       <br>
 
-      Password : <br>
-      <input type="password" name="pass" id="pass" required>
+      <span id="pwd_div">
+          Password : <br>
+          <input type="password" name="pwd" id="pwd" required>
+      </span>
 
       <br>
       <br>
 
       Centre : <br>
-      <select name="centre" required>
+      <select id="centre" name="centre" required>
         <option value="">--Choississez votre centre--</option>
         {$Centre}
       </select>
@@ -43,7 +45,7 @@
       <br>
       <br>
 
-      <input type="submit" name="Validation" value="Créer" id="submit">
+      <input type="submit" value="Créer" id="submit">
       <br>
 
     </form>
