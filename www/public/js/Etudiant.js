@@ -1,9 +1,9 @@
 function modif(id) {
-    // let html = document.getElementById("nom_"+id).innerHTML;
-
     document.getElementById("nom").value = document.getElementById("nom_"+id).innerHTML;
     document.getElementById("prenom").value = document.getElementById("prenom_"+id).innerHTML;
     document.getElementById("email").value = document.getElementById("email_"+id).innerHTML;
+
+    document.getElementById("pwd_div").innerHTML = "";
 
     select(id, "pilote");
     select(id, "promotion");
@@ -11,12 +11,11 @@ function modif(id) {
 
     document.getElementById("formulaire").action = "/Etudiant/modification/"+id;
 
-    document.getElementById("pwd_div").innerHTML = "";
-
     document.getElementById("submit").value = "Modifier";
 
-    document.getElementById("annuler").innerHTML = '<a href="/Etudiant"><button>Annuler</button></a>';
+    document.getElementById("annuler").innerHTML = '<button onclick=annuler()>Annuler</button>';
 }
+
 
 function select(idEtudiant, idSelect) {
     let pilote = document.getElementById(idSelect+"_"+idEtudiant).innerHTML;
@@ -33,4 +32,23 @@ function select(idEtudiant, idSelect) {
         }
     }
 
+}
+
+
+function annuler() {
+    document.getElementById("nom").value = "";
+    document.getElementById("prenom").value = "";
+    document.getElementById("email").value = "";
+
+    document.getElementById("pwd_div").innerHTML = 'password :<input "pwd" type="password" name="pwd" required>';
+
+    document.getElementById('pilote').selectedIndex = 0;
+    document.getElementById('promotion').selectedIndex = 0;
+    document.getElementById('specialite').selectedIndex = 0;
+
+    document.getElementById("formulaire").action = "/Etudiant/creation";
+
+    document.getElementById("submit").value = "Créer";
+
+    document.getElementById("annuler").innerHTML = "";
 }
