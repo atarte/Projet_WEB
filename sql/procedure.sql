@@ -124,4 +124,23 @@ BEGIN
     LIMIT page, 10;
 END |
 
+
+-- Suppression Pilote
+DROP PROCEDURE IF EXISTS Suppression_Pilote |
+CREATE PROCEDURE Creation_Pilote(IN id INT)
+BEGIN
+
+DECLARE id_etudiant INT;
+
+SELECT Users.Id_Users INTO id_etudiant FROM Users WHERE Users.Id_Pilote = id;
+
+DELETE FROM Confiance WHERE Confiance.Id_Users = id;
+DELETE FROM Candidature WHERE Candidature.Id_Users = id;
+DELETE FROM Droit WHERE Droit.Id_Users = id_etudiant;
+DELETE FROM Users WHERE Users.Id_Users = id_etudiant;
+DELETE FROM Droit WHERE Droit.Id_Users = id;
+DELETE FROM Users WHERE Users.Id_Users = id;
+
+END |
+
 DELIMITER ;

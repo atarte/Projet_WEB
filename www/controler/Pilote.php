@@ -36,8 +36,8 @@ class Pilote extends Controler {
     }
 
 
-    public function suppression_pilote() {
-        $compte = $this->Pilote_Model->supPilote();
+    public function suppression_pilote(int $id) {
+        $compte = $this->Pilote_Model->supPilote($id);
 
         $Centre = $this->Pilote_Model->getCentre();
         $Pilote = $this->Pilote_Model->getPilote($pageLimit);
