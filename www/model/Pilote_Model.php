@@ -129,4 +129,66 @@ Class Pilote_Model extends Model {
             return 1;
         }
     }
+
+
+    public function search() {
+        $this->getConnexion();
+
+        $whr = "";
+
+        if (!empty($_POST['nom'])) {
+            $whr = $whr."AND Users.Nom = :nom ";
+        }
+        if (!empty($_POST['prenom'])) {
+            $whr = $whr."AND Users.Prenom = :prenom ";
+        }
+        if (!empty($_POST['centre'])) {
+            $whr = $whr."AND Users.Id_Centre = :centre ;";
+        }
+
+        $req =
+            "SELECT
+                Users.Id_Users,
+                Users.Nom AS nom,
+                Users.Prenom As prenom,
+                Users.Email AS email,
+                c.Centre AS centre
+            FROM Users
+            INNER JOIN Centre c
+                ON Users.Id_Centre = c.Id_Centre
+            INNER JOIN Droit d
+                ON Users.Id_Users = d.Id_Users
+            WHERE d.Id_Statut = 2 ".$whr;
+
+        $query = $this->db->prepare($req);
+
+        if (!empty($_POST['nom'])) {
+            $query->bindParam(':nom', $_POST['nom']);
+        }
+        if (!empty($_POST['prenom'])) {
+            $query->bindParam(':prenom', $_POST['prenom']);
+        }
+        if (!empty($_POST['centre'])) {
+            $query->bindParam(':centre', $_POST['centre']);
+        }
+
+        $query->execute();
+
+        return $query;
+    }
+
+
+    public function displayEtudiant(int $p) {
+        $this->getConnexion();
+
+        $req = "CALL Affichage_Etudiant(:p)";
+
+        $query = $this->db->prepare($req);
+
+        $query->bindParam(':p', $p);
+
+        $query->execute();
+
+        return $query;
+    }
 }

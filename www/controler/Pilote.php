@@ -59,4 +59,13 @@ class Pilote extends Controler {
 
         $this->affichage();
     }
+
+
+    public function recherche() {
+        $this->pilote = $this->Pilote_Model->search();
+
+        $this->p = 0;
+
+        require_once(ROOT.'view/Pilote_View.php');
+    }
 }

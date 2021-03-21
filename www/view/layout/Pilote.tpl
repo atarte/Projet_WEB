@@ -38,7 +38,7 @@
 
       Centre : <br>
       <select id="centre" name="centre" required>
-        <option value="">--Choississez votre centre--</option>
+        <option value="">--Choississez un centre--</option>
         {$Centre}
       </select>
 
@@ -55,12 +55,28 @@
 
     <br>
 
-    <!--<form action="/Pilote/supprime_pilote" method="post">-->
+    Barre de Recherche des Pilotes
+    <form id="recherche" action="/Pilote/recherche" method="post">
+        Nom :
+        <input id="r_nom" type="text" name="nom">
+
+        Prenom :
+        <input id="r_prenom" type="text" name="prenom">
+
+        Centre :
+        <select id="r_centre" name="centre">
+            <option value="">--Choisiez un centre--</option>
+            {$Centre}
+        </select>
+
+        <input id="r_submit" type="submit" value="Rechercher">
+    </form>
+    <a href="/Pilote"><button>X</button></a>
+
       {$Pilote}
-    <!--</form>-->
 
     <div>
-        {$pagination}
+        {$pagination|default:""}
     </div>
 
     <script src="/public/js/Pilote.js" charset="utf-8"></script>

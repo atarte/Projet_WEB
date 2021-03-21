@@ -48,7 +48,6 @@ $page  = $this->p;
 $pageBack = $page -1;
 $pageForward = $page +1;
 
-// echo 'p:'.$page.'; b:'.$pageBack.'; f:'.$pageForward;
 
 $html = '<span ';
 if ($page == 1) {
@@ -64,7 +63,9 @@ if ($i < 10) {
 }
 $html = $html.'><a href="/Pilote/page/'.$pageForward.'"> >> </a></span>';
 
-$smarty->assign('pagination', $html);
+if ($this->p != 0) {
+    $smarty->assign('pagination', $html);
+}
 
 
 
