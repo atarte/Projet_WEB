@@ -1,7 +1,7 @@
 {include file="./common/header.tpl" title={$title}}
 
 <body>
-    <a href="/Accueil">retour</a>
+    <a href="/Accueil"><button>Retour</button></a>
 
     {$erreur|default:''}
 

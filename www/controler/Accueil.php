@@ -6,7 +6,7 @@ class Accueil extends Controler {
 
         $this->Accueil_Model->getPower();
 
-        echo $_SESSION['role'];
+        // echo $_SESSION['role'];
 
         require_once(ROOT.'view/Accueil_View.php');
     }

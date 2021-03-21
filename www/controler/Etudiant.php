@@ -57,8 +57,8 @@ class Etudiant extends Controler {
 
 
     public function suppression(int $id) {
-        // $this->err = $this->Etudiant_Model->deleteEtudiant($id);
-        //
-        // $this->affichage();
+        $this->err = $this->Etudiant_Model->deleteEtudiant($id);
+
+        $this->affichage();
     }
 }

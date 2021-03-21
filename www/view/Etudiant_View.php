@@ -34,9 +34,12 @@ while ($row = $this->etudiant->fetch()) {
 
     $aff = $aff.' | Specialite : <span id="specialite_'.$row['id'].'">'.$row['specialite'].'</span>';
 
-    $aff = $aff.'<button onclick=modif('.$row['id'].')>Modifier</button><br>';
+    $aff = $aff.'<button onclick=modification('.$row['id'].')>Modifier</button>';
 
-    $aff = $aff.'</div>';
+    // $aff = $aff.'<a href="/Etudiant/suppression/'.$row['id'].'"><button>Supprimer</button></a>';
+    $aff = $aff.'<button onclick=confirmation('.$row['id'].')>Supprimer</button>';
+
+    $aff = $aff.'<br></div>';
 }
 $smarty->assign('etudiant', $aff);
 

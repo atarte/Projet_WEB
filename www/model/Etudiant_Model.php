@@ -103,7 +103,19 @@ Class Etudiant_Model extends Model {
 
 
     public function deleteEtudiant(int $id) {
+        $this->getConnexion();
 
+        $req = "CALL Suppression_Etudiant(:id)";
+
+        $query = $this->db->prepare($req);
+
+        $query->bindParam(':id', $id);
+
+        $query->execute();
+
+        header("Location: /Etudiant");
+
+        // peut etre mettre une verification pour voir si la ligne a bien étais supprimer
     }
 
 

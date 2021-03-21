@@ -33,10 +33,10 @@ CREATE PROCEDURE Modification_Etudiant (IN id INT, IN nom VARCHAR(50), IN prenom
 BEGIN
     DECLARE centre INT;
 
-    -- DECLARE EXIT HANDLER FOR SQLEXCEPTION
-    -- BEGIN
-    --     ROLLBACK;
-    -- END;
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    BEGIN
+        ROLLBACK;
+    END;
 
     SELECT ID_Centre INTO centre FROM Users WHERE Users.Id_Users = pilote;
 
@@ -51,10 +51,25 @@ BEGIN
     WHERE Users.Id_Users = id;
 END |
 
--- CALL Modification_Etudiant(19, 'dix', 'modifoui', 'dix@cesi.fr', 2, 2, 2);
---
--- SELECT * FROM Users WHERE Id_Users = 19;
 
+-- Suppresion_Etudiant
+DROP PROCEDURE IF EXISTS Suppression_Etudiant |
+CREATE PROCEDURE Suppression_Etudiant (IN id INT)
+BEGIN
+    -- DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    -- BEGIN
+    --     ROLLBACK;
+    -- END;
+
+    DELETE FROM Droit
+    WHERE Droit.Id_Users = id;
+
+    DELETE FROM Candidature
+    WHERE Candidature.Id_Users = id;
+
+    DELETE FROM Users
+    WHERE Users.Id_Users = id;
+END |
 
 
 -- Affichage Etudiant
@@ -74,8 +89,8 @@ BEGIN
     INNER JOIN Droit d
     ON Users.Id_Users = d.Id_Users
     WHERE d.Id_Statut = 4
-    ORDER BY Users.Id_Users
-LIMIT page, 10;
+    ORDER BY Users.Id_Users DESC
+    LIMIT page, 10;
 END |
 
 

@@ -1,4 +1,4 @@
-function modif(id) {
+function modification(id) {
     document.getElementById("nom").value = document.getElementById("nom_"+id).innerHTML;
     document.getElementById("prenom").value = document.getElementById("prenom_"+id).innerHTML;
     document.getElementById("email").value = document.getElementById("email_"+id).innerHTML;
@@ -51,4 +51,16 @@ function annuler() {
     document.getElementById("submit").value = "Créer";
 
     document.getElementById("annuler").innerHTML = "";
+}
+
+
+function confirmation(id) {
+    let nom = document.getElementById("nom_"+id).innerHTML;
+    let prenom = document.getElementById("prenom_"+id).innerHTML;
+
+    let res = confirm("Voulez vous réelement supprimer cette étudiant : "+nom+" "+prenom+" ?");
+
+    if (res) {
+        document.location.href="/Etudiant/suppression/"+id;
+    }
 }
