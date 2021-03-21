@@ -1,61 +1,62 @@
 <?php
 
 class Pilote extends Controler {
+    public $pilote;
+    public $centre;
+
+    public $err;
+    public $p;
+
+
     public function __construct() {
         session_start();
         $this->loadModel("Pilote_Model");
+
+        $this->p = 1;
+
+        $this->centre = $this->Pilote_Model->getCentre();
     }
 
 
     public function index() {
-        $this->page();
+        $this->affichage();
     }
 
 
-    public function page(int $p = 1) {
-        $pageLimit = 10 * ($p -1);
+    public function affichage() {
+        $pageLimit = 10 * ($this->p -1);
 
-        $Centre = $this->Pilote_Model->getCentre();
-        $Pilote = $this->Pilote_Model->getPilote($pageLimit);
+        $this->pilote = $this->Pilote_Model->displayPilote($pageLimit);
 
         require_once(ROOT.'view/Pilote_View.php');
+
     }
 
 
-    public function creation_pilote() {
+    public function page(int $page = 1) {
+        $this->p = $page;
 
-        $p = 1;
-        $pageLimit = 10 * ($p -1);
-
-        $compte = $this->Pilote_Model->putPilote();
-
-        $Centre = $this->Pilote_Model->getCentre();
-        $Pilote = $this->Pilote_Model->getPilote($pageLimit);
-
-        require_once(ROOT.'view/Pilote_View.php');
+        $this->affichage();
     }
 
 
-    public function suppression_pilote(int $id) {
-        $compte = $this->Pilote_Model->supPilote($id);
+    public function creation() {
+        $this->err = $this->Pilote_Model->addPilote();
 
-        $Centre = $this->Pilote_Model->getCentre();
-        $Pilote = $this->Pilote_Model->getPilote($pageLimit);
-
-        require_once(ROOT.'view/Pilote_View.php');
+        $this->affichage();
     }
 
 
-    public function modification_pilote(int $id) {
+    public function suppression(int $id) {
+        $this->err = $this->Pilote_Model->deletePilote($id);
 
-        $p = 1;
-        $pageLimit = 10 * ($p -1);
+        $this->affichage();
+    }
 
-        $compte = $this->Pilote_Model->updatePilote($id);
 
-        $Centre = $this->Pilote_Model->getCentre();
-        $Pilote = $this->Pilote_Model->getPilote($pageLimit);
+    public function modification(int $id) {
+        $this->err = $this->Pilote_Model->updatePilote($id);
 
-        require_once(ROOT.'view/Pilote_View.php');
+        $this->affichage();
     }
 }

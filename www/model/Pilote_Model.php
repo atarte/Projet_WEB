@@ -10,21 +10,21 @@ Class Pilote_Model extends Model {
     }
 
 
-    public function getCentre() {
+    // public function getCentre() {
+    //
+    //     $this->getConnexion();
+    //
+    //     $req = "SELECT Id_Centre, Centre FROM Centre ORDER BY Centre";
+    //
+    //     $query = $this->db->prepare($req);
+    //
+    //     $query->execute();
+    //
+    //     return $query;
+    // }
 
-        $this->getConnexion();
 
-        $req = "SELECT Id_Centre, Centre FROM Centre ORDER BY Centre";
-
-        $query = $this->db->prepare($req);
-
-        $query->execute();
-
-        return $query;
-    }
-
-
-    public function getPilote(int $p) {
+    public function displayPilote(int $p) {
 
         $req = "CALL Affichage_Pilote(:p)";
 
@@ -38,7 +38,7 @@ Class Pilote_Model extends Model {
     }
 
 
-    public function putPilote() {
+    public function addPilote() {
 
         $this->getConnexion();
 
@@ -46,7 +46,7 @@ Class Pilote_Model extends Model {
 
         $query = $this->db->prepare($req);
 
-        $query->bindParam(':email', $_POST['mail']);
+        $query->bindParam(':email', $_POST['email']);
 
         $query->execute();
 
@@ -54,26 +54,25 @@ Class Pilote_Model extends Model {
         $row = $query->fetch();
 
         if ($count == 1 && !empty($row)) {
-            return '1';
+            return 1;
         }
         else {
-            $req  = "CALL Creation_Pilote(:nom, :prenom, :mail, :pass, :centre)";
+            $req  = "CALL Creation_Pilote(:nom, :prenom, :email, :pwd, :centre)";
 
             $query = $this->db->prepare($req);
 
             $query->bindParam(':nom', $_POST['nom']);
             $query->bindParam(':prenom', $_POST['prenom']);
-            $query->bindParam(':mail', $_POST['mail']);
-            $query->bindParam(':pass', $_POST['pass']);
+            $query->bindParam(':email', $_POST['email']);
+            $query->bindParam(':pwd', $_POST['pwd']);
             $query->bindParam(':centre', $_POST['centre']);
 
             $query->execute();
-
         }
     }
 
 
-    public function supPilote(int $id) {
+    public function deletePilote(int $id) {
 
         $this->getConnexion();
 
@@ -130,5 +129,4 @@ Class Pilote_Model extends Model {
             return 1;
         }
     }
-    
 }

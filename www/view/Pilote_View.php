@@ -5,15 +5,15 @@ $smarty = new Smarty;
 $smarty->assign('title', 'Gestion Pilote');
 
 $html = '';
-while ($row = $Centre->fetch()) {
-    $html = $html.'<option value="'.$row['Id_Centre'].'">'.$row['Centre'].'</option>';
+while ($row = $this->centre->fetch()) {
+    $html = $html.'<option value="'.$row['id'].'">'.$row['centre'].'</option>';
 }
 
 $smarty->assign('Centre', $html);
 
 $html = '';
 $i = 0;
-while ($row = $Pilote->fetch()) {
+while ($row = $this->pilote->fetch()) {
     $i++;
 
     $html = $html.'<div id="'.$row["Id_Users"].'">';
@@ -36,15 +36,15 @@ while ($row = $Pilote->fetch()) {
 
 $smarty->assign('Pilote',$html);
 
-if (isset($compte)) {
-    if ($compte == 1) {
+if (isset($this->err)) {
+    if ($$this->err == 1) {
         $smarty->assign('erreur', 'Email déjà utilisé pour un autre compte');
     }
-  else {
-  }
+    else {
+    }
 }
 
-$page  = $p;
+$page  = $this->p;
 $pageBack = $page -1;
 $pageForward = $page +1;
 
@@ -65,5 +65,7 @@ if ($i < 10) {
 $html = $html.'><a href="/Pilote/page/'.$pageForward.'"> >> </a></span>';
 
 $smarty->assign('pagination', $html);
+
+
 
 $smarty->display(ROOT.'view/layout/Pilote.tpl');

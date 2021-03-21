@@ -8,7 +8,7 @@
 
   <a href="/Accueil"><button>Retour</button></a>
   <br><br>
-  <form action="/Pilote/creation_pilote" method="post" id="formulaire">
+  <form action="/Pilote/creation" method="post" id="formulaire">
 
       Nom : <br>
       <input id="nom" type="text" name="nom" required>

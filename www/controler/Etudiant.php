@@ -32,7 +32,7 @@ class Etudiant extends Controler {
     public function affichage() {
         $pageLimit = 10 * ($this->p -1);
 
-        $this->etudiant = $this->Etudiant_Model->getEtudiant($pageLimit);
+        $this->etudiant = $this->Etudiant_Model->displayEtudiant($pageLimit);
 
         require_once(ROOT.'view/Etudiant_View.php');
     }
