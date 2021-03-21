@@ -99,7 +99,8 @@ INSERT INTO Ville (Id_Ville, Ville, Code_Postal, Id_Region) VALUES
 (34, 'Saint-Etienne-du-Rouvray', 76800, 15),
 (35, 'Villiers les Nancy', 54600, 18),
 (36, 'Lingolsheim', 67380, 19),
-(37, 'Mauguio', 34130, 2);
+(37, 'Mauguio', 34130, 2),
+(38, 'Cannes', '06400',1);
 
 
 -- Insertion dans la table Adresse
@@ -128,7 +129,8 @@ INSERT INTO Adresse (Id_Adresse, Adresse, Id_Ville) VALUES
 (22, 'Campus Arts et Métiers, 8 Bd Louis XIV', 22),
 (23, '2 bis rue de Crédence', 35),
 (24, '2 allée des Foulons, Parc des Tanneries BP 50016', 36),
-(25, '93 boulevard de La Seine CS 40177', 25);
+(25, '93 boulevard de La Seine CS 40177', 25),
+(26, '1 Rue du test', 38);
 
 
 -- Insertion dans la table Centre
@@ -203,3 +205,13 @@ INSERT INTO Droit (Id_Users, Id_Statut, Entreprise, Offre, Pilote, Delegue, Etud
 (2, 2, 1, 1, 0, 1, 1, 0),
 (3, 3, 1, 1, 1, 1, 1, 1),
 (4, 4, 1, 0, 0, 0, 0, 1);
+
+
+-- Insertion de la table Entreprise
+INSERT INTO Entreprise (Nom, Email, Nombre_Accepter, Id_Secteur) VALUES
+('PourTest', 'faitpourtest@entreprise.com',2,14);
+
+
+--Insertion de la table Reside
+INSERT INTO Reside (Id_Entreprise, Id_Adresse) VALUES
+(1,26);
