@@ -127,7 +127,7 @@ END |
 
 -- Suppression Pilote
 DROP PROCEDURE IF EXISTS Suppression_Pilote |
-CREATE PROCEDURE Creation_Pilote(IN id INT)
+CREATE PROCEDURE Suppression_Pilote(IN id INT)
 BEGIN
 
 DECLARE id_etudiant INT;
@@ -140,6 +140,21 @@ DELETE FROM Droit WHERE Droit.Id_Users = id_etudiant;
 DELETE FROM Users WHERE Users.Id_Users = id_etudiant;
 DELETE FROM Droit WHERE Droit.Id_Users = id;
 DELETE FROM Users WHERE Users.Id_Users = id;
+
+END |
+
+
+-- Modification Pilote
+DROP PROCEDURE IF EXISTS Modification_Pilote |
+CREATE PROCEDURE Modification_Pilote(IN id INT)
+BEGIN
+
+UPDATE Users SET
+        Users.Nom = nom,
+        Users.Prenom = prenom,
+        Users.Email = email,
+        Users.Id_Centre = centre,
+	WHERE Users.Id_Users = id;
 
 END |
 

@@ -87,4 +87,48 @@ Class Pilote_Model extends Model {
 
         header("Location: /Pilote");
     }
+
+
+    public function updatePilote(int $id) {
+
+        $this->getConnexion();
+
+        $req = "SELECT Id_Users AS id FROM Users WHERE Email = :email";
+
+        $query = $this->db->prepare($req);
+
+        $email = strtolower($_POST['email']);
+        $query->bindParam(':email', $email);
+
+        $query->execute();
+
+        $row = $query->fetch();
+        $count = $query->rowCount();
+
+        if ($count == 0 || $row['id'] == strval($id)) {
+
+            $_POST['centre'] = intval($_POST['centre']);
+
+            $nom = strtolower($_POST['nom']);
+            $prenom = strtolower($_POST['prenom']);
+
+            $req = "CALL Modification_Pilote(:id, :nom, :prenom, :email, :centre)";
+
+            $query = $this->db->prepare($req);
+
+            $query->bindParam(':id', $id);
+            $query->bindParam(':nom', $nom);
+            $query->bindParam(':prenom', $prenom);
+            $query->bindParam(':email', $email);
+            $query->bindParam(':centre', $_POST['centre']);
+
+            $query->execute();
+
+            header("Location: /Pilote");
+        }
+        else {
+            return 1;
+        }
+    }
+    
 }

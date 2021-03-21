@@ -46,12 +46,12 @@ class Pilote extends Controler {
     }
 
 
-    public function modification_pilote() {
+    public function modification_pilote(int $id) {
 
         $p = 1;
         $pageLimit = 10 * ($p -1);
 
-        $compte = $this->Pilote_Model->putPilote();
+        $compte = $this->Pilote_Model->updatePilote($id);
 
         $Centre = $this->Pilote_Model->getCentre();
         $Pilote = $this->Pilote_Model->getPilote($pageLimit);
