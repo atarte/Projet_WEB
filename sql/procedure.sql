@@ -113,9 +113,9 @@ BEGIN
     SELECT Users.Id_Users, UPPER(Users.Nom)AS nom, CONCAT(UPPER(SUBSTRING(Users.Prenom,1,1)),LOWER(SUBSTRING(Users.Prenom,2))) As prenom, Users.Email AS email, c.Centre AS centre
     FROM Users
     INNER JOIN Centre c
-    ON Users.Id_Centre = c.Id_Centre
+        ON Users.Id_Centre = c.Id_Centre
     INNER JOIN Droit d
-    ON Users.Id_Users = d.Id_Users
+        ON Users.Id_Users = d.Id_Users
     WHERE d.Id_Statut = 2
     LIMIT page, 10;
 END |
@@ -231,12 +231,27 @@ END |
 
 -- Modification Delegue
 DROP PROCEDURE IF EXISTS Modification_Delegue |
-CREATE PROCEDURE Modification_Delegue (IN id INT)
+CREATE PROCEDURE Modification_Delegue (IN id INT, IN nom VARCHAR(50), IN prenom VARCHAR(50), IN email VARCHAR(50), IN entreprise INT, IN offre INT, IN pilote INT, IN delegue INT, IN etudiant INT, IN candidature INT)
 BEGIN
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
     BEGIN
         ROLLBACK;
     END;
+
+    UPDATE Users SET
+        Users.Nom = nom,
+        Users.Prenom = prenom,
+        Users.Email = email
+    WHERE Users.Id_Users = id;
+
+    UPDATE Droit SET
+        Droit.Entreprise = entreprise,
+        Droit.Offre = offre,
+        Droit.Pilote = pilote,
+        Droit.Delegue = delegue,
+        Droit.Etudiant = etudiant,
+        Droit.Candidature = candidature
+    WHERE Droit.Id_Users = id;
 END |
 
 
@@ -248,6 +263,12 @@ BEGIN
     BEGIN
         ROLLBACK;
     END;
+
+    DELETE FROM Droit
+    WHERE Droit.Id_Users = id;
+
+    DELETE FROM Users
+    WHERE Users.Id_Users = id;
 END |
 
 
