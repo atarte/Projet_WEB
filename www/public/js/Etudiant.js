@@ -57,7 +57,7 @@ function confirmation(id) {
     let nom = document.getElementById("nom_"+id).innerHTML;
     let prenom = document.getElementById("prenom_"+id).innerHTML;
 
-    let res = confirm("Voulez vous réelement supprimer cette étudiant : "+nom+" "+prenom+" ?");
+    let res = confirm("Voulez vous réelement supprimer cet étudiant : "+nom+" "+prenom+" ?");
 
     if (res) {
         document.location.href="/Etudiant/suppression/"+id;

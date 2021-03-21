@@ -4,6 +4,38 @@ USE GroupeCat_Test
 
 DELIMITER |
 
+-- ==================================================================== ETUDIANT
+-- Affichage Etudiant
+DROP PROCEDURE IF EXISTS Affichage_Etudiant |
+CREATE PROCEDURE Affichage_Etudiant(IN page INT)
+BEGIN
+    SELECT
+        Users.Id_Users AS id,
+        Users.Nom AS nom,
+        Users.Prenom As prenom,
+        Users.Email AS email,
+        u.Nom AS piloteNom,
+        u.Prenom AS pilotePrenom,
+        c.Centre AS centre,
+        p.Promotion AS promotion,
+        s.Specialite AS specialite
+    FROM Users
+    INNER JOIN Users u
+        ON Users.Id_Pilote = u.Id_Users
+    INNER JOIN Centre c
+        ON Users.Id_Centre = c.Id_Centre
+    INNER JOIN Promotion p
+        ON Users.Id_Promotion = p.Id_Promotion
+    INNER JOIN Specialite s
+        ON Users.Id_Specialite = s.Id_Specialite
+    INNER JOIN Droit d
+        ON Users.Id_Users = d.Id_Users
+    WHERE d.Id_Statut = 4
+    ORDER BY Users.Id_Users DESC
+    LIMIT page, 10;
+END |
+
+
 -- Creation Etudiant
 DROP PROCEDURE IF EXISTS Creation_Etudiant |
 CREATE PROCEDURE Creation_Etudiant(IN nom VARCHAR(50), IN prenom VARCHAR(50), IN email VARCHAR(50), IN pwd VARCHAR(50), IN pilote INT, IN promotion INT, IN specialite INT)
@@ -28,6 +60,7 @@ BEGIN
 END |
 
 
+-- Modification Etudiant
 DROP PROCEDURE IF EXISTS Modification_Etudiant |
 CREATE PROCEDURE Modification_Etudiant (IN id INT, IN nom VARCHAR(50), IN prenom VARCHAR(50), IN email VARCHAR(50), IN pilote INT, IN promotion INT, IN specialite INT)
 BEGIN
@@ -56,10 +89,10 @@ END |
 DROP PROCEDURE IF EXISTS Suppression_Etudiant |
 CREATE PROCEDURE Suppression_Etudiant (IN id INT)
 BEGIN
-    -- DECLARE EXIT HANDLER FOR SQLEXCEPTION
-    -- BEGIN
-    --     ROLLBACK;
-    -- END;
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    BEGIN
+        ROLLBACK;
+    END;
 
     DELETE FROM Droit
     WHERE Droit.Id_Users = id;
@@ -72,24 +105,18 @@ BEGIN
 END |
 
 
--- Affichage Etudiant
-DROP PROCEDURE IF EXISTS Affichage_Etudiant |
-CREATE PROCEDURE Affichage_Etudiant(IN page INT)
+-- ====================================================================== PILOTE
+-- Affichage Pilote
+DROP PROCEDURE IF EXISTS Affichage_Pilote |
+CREATE PROCEDURE Affichage_Pilote(IN page INT)
 BEGIN
-    SELECT Users.Id_Users AS id, Users.Nom AS nom, Users.Prenom As prenom, Users.Email AS email, u.Nom AS piloteNom, u.Prenom AS pilotePrenom, c.Centre AS centre, p.Promotion AS promotion, s.Specialite AS specialite
+    SELECT Users.Id_Users, UPPER(Users.Nom)AS nom, CONCAT(UPPER(SUBSTRING(Users.Prenom,1,1)),LOWER(SUBSTRING(Users.Prenom,2))) As prenom, Users.Email AS email, c.Centre AS centre
     FROM Users
-    INNER JOIN Users u
-    ON Users.Id_Pilote = u.Id_Users
     INNER JOIN Centre c
     ON Users.Id_Centre = c.Id_Centre
-    INNER JOIN Promotion p
-    ON Users.Id_Promotion = p.Id_Promotion
-    INNER JOIN Specialite s
-    ON Users.Id_Specialite = s.Id_Specialite
     INNER JOIN Droit d
     ON Users.Id_Users = d.Id_Users
-    WHERE d.Id_Statut = 4
-    ORDER BY Users.Id_Users DESC
+    WHERE d.Id_Statut = 2
     LIMIT page, 10;
 END |
 
@@ -110,18 +137,16 @@ BEGIN
 END |
 
 
--- Affichage Pilote
-DROP PROCEDURE IF EXISTS Affichage_Pilote |
-CREATE PROCEDURE Affichage_Pilote(IN page INT)
+-- Modification Pilote
+DROP PROCEDURE IF EXISTS Modification_Pilote |
+CREATE PROCEDURE Modification_Pilote(IN id INT)
 BEGIN
-    SELECT Users.Id_Users, UPPER(Users.Nom)AS nom, CONCAT(UPPER(SUBSTRING(Users.Prenom,1,1)),LOWER(SUBSTRING(Users.Prenom,2))) As prenom, Users.Email AS email, c.Centre AS centre
-    FROM Users
-    INNER JOIN Centre c
-    ON Users.Id_Centre = c.Id_Centre
-    INNER JOIN Droit d
-    ON Users.Id_Users = d.Id_Users
-    WHERE d.Id_Statut = 2
-    LIMIT page, 10;
+    UPDATE Users SET
+        Users.Nom = nom,
+        Users.Prenom = prenom,
+        Users.Email = email,
+        Users.Id_Centre = centre,
+	WHERE Users.Id_Users = id;
 END |
 
 
@@ -129,33 +154,91 @@ END |
 DROP PROCEDURE IF EXISTS Suppression_Pilote |
 CREATE PROCEDURE Suppression_Pilote(IN id INT)
 BEGIN
+    DECLARE id_etudiant INT;
 
-DECLARE id_etudiant INT;
+    SELECT Users.Id_Users INTO id_etudiant FROM Users WHERE Users.Id_Pilote = id;
 
-SELECT Users.Id_Users INTO id_etudiant FROM Users WHERE Users.Id_Pilote = id;
+    DELETE FROM Confiance
+    WHERE Confiance.Id_Users = id;
 
-DELETE FROM Confiance WHERE Confiance.Id_Users = id;
-DELETE FROM Candidature WHERE Candidature.Id_Users = id;
-DELETE FROM Droit WHERE Droit.Id_Users = id_etudiant;
-DELETE FROM Users WHERE Users.Id_Users = id_etudiant;
-DELETE FROM Droit WHERE Droit.Id_Users = id;
-DELETE FROM Users WHERE Users.Id_Users = id;
+    DELETE FROM Candidature
+    WHERE Candidature.Id_Users = id;
 
+    DELETE FROM Droit
+    WHERE Droit.Id_Users = id_etudiant;
+
+    DELETE FROM Users
+    WHERE Users.Id_Users = id_etudiant;
+
+    DELETE FROM Droit
+    WHERE Droit.Id_Users = id;
+
+    DELETE FROM Users
+    WHERE Users.Id_Users = id;
 END |
 
 
--- Modification Pilote
-DROP PROCEDURE IF EXISTS Modification_Pilote |
-CREATE PROCEDURE Modification_Pilote(IN id INT)
+-- ===================================================================== DELEGUE
+-- Affichage DELEGUE
+DROP PROCEDURE IS EXISTS Affichage_Delegue |
+CREATE PROCEDURE Affichage_Delegue (IN page INT)
 BEGIN
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    BEGIN
+        ROLLBACK;
+    END;
 
-UPDATE Users SET
-        Users.Nom = nom,
-        Users.Prenom = prenom,
-        Users.Email = email,
-        Users.Id_Centre = centre,
-	WHERE Users.Id_Users = id;
-
+    SELECT
+        u.Id_Users AS id,
+        u.Nom AS nom,
+        u.Prenom As prenom,
+        u.Email AS email,
+        d.Entreprise AS entreprise,
+        d.Offre AS offre,
+        d.Pilote AS pilote,
+        d.Delegue AS delegue,
+        d.Etudiant AS etudiant,
+        d.Candidature AS Candidature
+    FROM Users u
+    INNER JOIN Droit d
+        ON u.Id_Users = d.Id_Users
+    WHERE d.Id_Statut = 3
+    ORDER BY Users.Id_Users DESC
+    LIMIT page, 10;
 END |
+
+
+-- Creation Delegue
+DROP PROCEDURE IS EXISTS Creation_Delgue |
+CREATE PROCEDURE Creation_Delgue ()
+BEGIN
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    BEGIN
+        ROLLBACK;
+    END;
+END |
+
+
+-- Modification Delegue
+DROP PROCEDURE IS EXISTS Modification_Delegue |
+CREATE PROCEDURE Modification_Delegue (IN id INT)
+BEGIN
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    BEGIN
+        ROLLBACK;
+    END;
+END |
+
+
+-- Suppression Delegue
+DROP PROCEDURE IS EXISTS Suppression_Delegue |
+CREATE PROCEDURE Suppression_Delegue (IN id INT)
+BEGIN
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    BEGIN
+        ROLLBACK;
+    END;
+END |
+
 
 DELIMITER ;

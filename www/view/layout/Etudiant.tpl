@@ -52,7 +52,7 @@
         nom :
         <input id="r_nom" type="text" name="nom">
 
-        Prenom :
+        prenom :
         <input id="r_prenom" type="text" name="prenom">
 
         pilote :
