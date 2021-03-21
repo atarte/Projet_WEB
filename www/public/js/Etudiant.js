@@ -31,7 +31,6 @@ function select(idEtudiant, idSelect) {
             break;
         }
     }
-
 }
 
 

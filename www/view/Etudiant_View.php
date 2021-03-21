@@ -68,12 +68,18 @@ while ($row = $this->specialite->fetch()) {
 $smarty->assign('specialite', $html);
 
 
+// Ajout des centres dans le select
+$html = '';
+while ($row = $this->centre->fetch()) {
+    $html = $html.'<option value="'.$row['id'].'">'.$row['centre'].'</option>';
+}
+$smarty->assign('centre', $html);
+
+
 // Pagination
 $page  = $this->p;
 $pageBack = $page -1;
 $pageForward = $page +1;
-
-// echo 'p:'.$page.'; b:'.$pageBack.'; f:'.$pageForward;
 
 $html = '<span ';
 if ($page == 1) {
@@ -89,7 +95,9 @@ if ($i < 10) {
 }
 $html = $html.'><a href="/Etudiant/page/'.$pageForward.'"> >> </a></span>';
 
-$smarty->assign('pagination', $html);
+if ($this->p != 0) {
+    $smarty->assign('pagination', $html);
+}
 
 
 
