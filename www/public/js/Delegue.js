@@ -3,7 +3,24 @@ function modification(id) {
     document.getElementById("prenom").value = document.getElementById("prenom_"+id).innerHTML;
     document.getElementById("email").value = document.getElementById("email_"+id).innerHTML;
 
-    // check les check box si nessessaire
+    if (document.getElementById("entreprise_"+id).innerHTML == "1") {
+        document.getElementById("entreprise").checked = true;
+    }
+    if (document.getElementById("offre_"+id).innerHTML == "1") {
+        document.getElementById("offre").checked = true;
+    }
+    if (document.getElementById("pilote_"+id).innerHTML == "1") {
+        document.getElementById("pilote").checked = true;
+    }
+    if (document.getElementById("delegue_"+id).innerHTML == "1") {
+        document.getElementById("delegue").checked = true;
+    }
+    if (document.getElementById("etudiant_"+id).innerHTML == "1") {
+        document.getElementById("etudiant").checked = true;
+    }
+    if (document.getElementById("candidature_"+id).innerHTML == "1") {
+        document.getElementById("candidature").checked = true;
+    }
 
     document.getElementById("pwd_div").innerHTML = "";
 
@@ -20,7 +37,12 @@ function annuler() {
     document.getElementById("prenom").value = "";
     document.getElementById("email").value = "";
 
-    // uncheck les check box si nessessaire
+    document.getElementById("entreprise").checked = false;
+    document.getElementById("offre").checked = false;
+    document.getElementById("pilote").checked = false;
+    document.getElementById("delegue").checked = false;
+    document.getElementById("etudiant").checked = false;
+    document.getElementById("candidature").checked = false;
 
     document.getElementById("pwd_div").innerHTML = 'password :<input "pwd" type="password" name="pwd" required>';
 

@@ -198,7 +198,7 @@ BEGIN
         d.Pilote AS pilote,
         d.Delegue AS delegue,
         d.Etudiant AS etudiant,
-        d.Candidature AS Candidature
+        d.Candidature AS candidature
     FROM Users u
     INNER JOIN Droit d
         ON u.Id_Users = d.Id_Users
@@ -209,13 +209,23 @@ END |
 
 
 -- Creation Delegue
-DROP PROCEDURE IF EXISTS Creation_Delgue |
-CREATE PROCEDURE Creation_Delgue ()
+DROP PROCEDURE IF EXISTS Creation_Delegue |
+CREATE PROCEDURE Creation_Delegue (IN nom VARCHAR(50), IN prenom VARCHAR(50), IN email VARCHAR(50), IN pwd VARCHAR(50), IN entreprise INT, IN offre INT, IN pilote INT, IN delegue INT, IN etudiant INT, IN candidature INT)
 BEGIN
+    DECLARE id_users INT;
+
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
     BEGIN
         ROLLBACK;
     END;
+
+    INSERT INTO Users (Id_Users, Nom, Prenom, Email, Passwd, Id_Pilote, Id_Centre, Id_Promotion, Id_Specialite)
+    VALUES (NULL, nom, prenom, email, pwd, NULL, NULL, NULL, NULL);
+
+    SELECT LAST_INSERT_ID() INTO id_users;
+
+    INSERT INTO Droit (Id_Users, Id_Statut, Entreprise, Offre, Pilote, Delegue, Etudiant, Candidature)
+    VALUES (id_users, 3, entreprise, offre, pilote, delegue, etudiant, candidature);
 END |
 
 
