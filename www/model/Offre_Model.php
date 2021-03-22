@@ -50,6 +50,18 @@ Class Offre_Model extends Model {
     }
 
 
+    // public function displayOffre(int $p) {
+    //     $req = "CALL Affichage_Offre(:p)";
+    //
+    //     $query = $this->db->prepare($req);
+    //
+    //     $query->bindParam(':p', $p);
+    //
+    //     $query->execute();
+    //
+    //     return $query;
+    // }
+
     public function displayOffre(int $p) {
         $req = "CALL Affichage_Offre(:p)";
 
@@ -59,8 +71,29 @@ Class Offre_Model extends Model {
 
         $query->execute();
 
-        return $query;
+        $competence = $query;
+
+        $query_comp = array();
+
+        while ($row = $competence->fetch()) {
+            $req = "SELECT c.Id_Competence AS id, c.Competence AS competence FROM Demande
+                    INNER JOIN Competence c ON Demande.Id_Competence = c.Id_Competence
+                    WHERE Demande.Id_stage = :id";
+
+            $autre = $this->db->prepare($req);
+
+            $autre->bindParam(':id', $row["id"]);
+
+            $autre->execute();
+
+            // $query_comp =
+            array_push($query_comp, $autre);
+        }
+        // return $query;
+
+        return $query, $query_comp;
     }
+
 
 
     public function displayCompetence(int $p) {
