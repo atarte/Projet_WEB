@@ -133,7 +133,7 @@ Class Offre_Model extends Model {
     public function updateOffre(int $id) {
         $this->getConnexion();
 
-        $req = "SELECT Id_Stage FROM Stage WHERE Email = :email";
+        $req = "SELECT Id_Stage AS id FROM Stage WHERE Email = :email";
 
         $query = $this->db->prepare($req);
 

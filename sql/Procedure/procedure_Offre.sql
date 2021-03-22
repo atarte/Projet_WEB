@@ -61,9 +61,27 @@ END |
 
 -- Modification Pilote
 DROP PROCEDURE IF EXISTS Modification_Offre |
-CREATE PROCEDURE Modification_Offre (IN id INT)
+CREATE PROCEDURE Modification_Offre (IN nom VARCHAR(50), IN durer VARCHAR(50), IN remuneration FLOAT, IN date_offre DATE, IN nb_place INT, IN email VARCHAR(50), IN id_ent INT, IN id_ville INT, IN id_spe INT, IN competence VARCHAR(100), IN id INT)
 BEGIN
+    DECLARE id_comp INT;
 
+    SELECT Id_Competence INTO id_comp FROM Demande WHERE Demande.Id_Stage = id;
+
+    UPDATE Stage SET
+    Stage.Nom = nom,
+    Stage.Durer_Stage = durer,
+    Stage.Remuneration = remuneration,
+    Stage.Date_Offre = date_offre,
+    Stage.Nombre_Place = nb_place,
+    Stage.Email = email,
+    Stage.Id_Entreprise = id_ent,
+    Stage.Id_Ville = id_ville,
+    Stage.Id_Specialite = id_spe
+    WHERE Stage.Id_Stage = id;
+
+    UPDATE Competence SET
+    Competence.Competence = competence
+    WHERE Competence.Id_Competence = id_comp;
 END |
 
 

@@ -87,7 +87,7 @@
       <br>
 
       Barre de Recherche des Offres
-      <!-- <form id="recherche" action="/Offre/recherche" method="post"> -->
+      <form id="recherche" action="/Offre/recherche" method="post">
           Nom :
           <input id="r_nom" type="text" name="nom">
 
