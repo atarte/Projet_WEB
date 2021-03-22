@@ -105,7 +105,6 @@
       <a href="/Pilote"><button>X</button></a><br><br>
 
         {$Offre}
-        {$Competence}
 
       <div>
           <!-- {$pagination|default:""} -->
