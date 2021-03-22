@@ -53,6 +53,20 @@ Class Offre_Model extends Model {
     }
 
 
+    public function getCompetence() {
+
+        $this->getConnexion();
+
+        $req = "SELECT DISTINCT Id_Competence AS id, Competence AS competence FROM Competence ORDER BY Competence";
+
+        $query = $this->db->prepare($req);
+
+        $query->execute();
+
+        return $query;
+    }
+
+
     public function displayOffre(int $p) {
         $req = "CALL Affichage_Offre(:p)";
 

@@ -5,6 +5,7 @@ class Offre extends Controler {
     public $ville;
     public $entreprise;
     public $offre;
+    public $competence;
 
     public $err;
     public $p;
@@ -18,6 +19,7 @@ class Offre extends Controler {
         $this->type_promo = $this->Offre_Model->getType();
         $this->ville = $this->Offre_Model->getVille();
         $this->entreprise = $this->Offre_Model->getEntreprise();
+        $this->competence = $this->Offre_Model->getCompetence();
     }
 
 

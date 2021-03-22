@@ -219,10 +219,8 @@ INSERT INTO Reside (Id_Entreprise, Id_Adresse) VALUES
 
 --Insertion de la table Competence
 INSERT INTO Competence(Competence) VALUES
-('PHP'),
-('HTML'),
-('CSS'),
-('JavaScript');
+('PHP / HTML / CSS / JavaScript');
+
 
 
 --Insertion de la table Stage
@@ -232,7 +230,4 @@ INSERT INTO Stage(Nom,Durer_Stage,Remuneration,Date_Offre,Nombre_Place,Email,Id_
 
 --Insertion de la table Demande
 INSERT INTO Demande (Id_Stage,Id_Competence) VALUES
-(1,1),
-(1,2),
-(1,3),
-(1,4);
+(1,1);

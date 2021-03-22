@@ -100,6 +100,12 @@
               {$Ville}
           </select>
 
+          Compétences :
+          <select id="r_ville" name="ville">
+              <option value="">--Choisiez le(s) Compétence(s)--</option>
+              {$Competence}
+          </select>
+
           <input id="r_submit" type="submit" value="Rechercher">
       </form>
       <a href="/Offre"><button>X</button></a><br><br>
