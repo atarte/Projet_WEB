@@ -20,6 +20,7 @@ BEGIN
        e.Nom AS entreprise,
        v.Ville AS ville,
        comp.competence AS competence
+
     FROM Stage INNER JOIN (SELECT c.Competence AS competence, Id_Stage FROM Demande
     INNER JOIN Competence c ON Demande.Id_Competence = c.Id_Competence) AS comp ON 1=1
     INNER JOIN Specialite s ON Stage.Id_Specialite = s.Id_Specialite
@@ -34,24 +35,25 @@ END |
 
 -- Creation Offre
 DROP PROCEDURE IF EXISTS Creation_Offre |
-CREATE PROCEDURE Creation_Offre (IN nom VARCHAR(50), IN durer VARCHAR(50), IN remuneration FLOAT, IN date_offre DATE, IN nb_place INT, IN email INT, IN id_spe INT, IN id_ent INT, IN id_ville INT, IN competence VARCHAR(100))
+CREATE PROCEDURE Creation_Offre (IN nom VARCHAR(50), IN durer VARCHAR(50), IN remuneration FLOAT, IN date_offre DATE, IN nb_place INT, IN email VARCHAR(50), IN id_ent INT, IN id_ville INT, IN id_spe INT, IN competence VARCHAR(100))
 BEGIN
 
-DECLARE id_st INT;
-DECLARE id_comp INT;
+    DECLARE id_st INT;
+    DECLARE id_comp INT;
 
-INSERT INTO Stage (Nom,Durer_Stage,Remuneration,Date_Offre,Nombre_Place,Email,Id_Entreprise,Id_Ville,Id_Specialite) VALUES
-(nom,remuneration,date_offre,nb_place,email,id_ent,id_ville,id_spé);
+    INSERT INTO Stage (Nom,Durer_Stage,Remuneration,Date_Offre,Nombre_Place,Email,Id_Entreprise,Id_Ville,Id_Specialite) VALUES
+    (nom,durer,remuneration,date_offre,nb_place,email,id_ent,id_ville,id_spe);
 
-SELECT LAST_INSERT_ID INTO id_st;
+    SELECT LAST_INSERT_ID() INTO id_st;
 
-INSERT INTO Competence (Competence) VALUES
-(competence);
+    INSERT INTO Competence (Competence) VALUES
+    (competence);
 
-SELECT LAST_INSERT_ID INTO id_comp;
+    SELECT LAST_INSERT_ID() INTO id_comp;
 
-INSERT INTO Demande (Id_Stage, Id_Competence) VALUES
-(id_st,id_comp);
+    INSERT INTO Demande (Id_Stage, Id_Competence) VALUES
+    (id_st,id_comp);
+
 
 
 END |
