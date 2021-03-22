@@ -1,7 +1,7 @@
 <?php
 
 Class Offre_Model extends Model {
-    $this->competence;
+    $this->reception;
 
     public function __construct() {
         // verification que l'utilisateur à bien le droit d'accédé à cette page
@@ -9,7 +9,7 @@ Class Offre_Model extends Model {
         // if (($_SESSION['role'] == "3" && $_SESSION['deleg']['offre'] == "1") || ($_SESSION['role'] == "2") || ($_SESSION['role'] == "1")) {
         //     header("location: /");
         // }
-        $this->competence = array();
+        $this->reception = array();
     }
 
     public function getType() {
@@ -90,11 +90,11 @@ Class Offre_Model extends Model {
             $autre->execute();
 
             // $query_comp =
-            array_push($this->competence, $autre);
+            array_push($this->reception, $autre);
         }
         // return $query;
 
-        return $queryp;
+        return $query;
     }
 
 
