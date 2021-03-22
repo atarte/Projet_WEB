@@ -43,9 +43,9 @@ while ($row = $this->offre->fetch()) {
 
     $html = $html.' Durée : <span id="duree_'.$row['id'].'">'.$row['stage'].'</span><br>';
 
-    $html = $html.' Spécialité : <span id="spe_'.$row['id'].'">'.$row['specialite'].'</span><br>';
+    $html = $html.' Spécialité : <span id="specialite_'.$row['id'].'">'.$row['specialite'].'</span><br>';
 
-    $html = $html.'Compétence(s) : <span id="comp_'.$row['id'].'">'.$row['competence'].'</span><br>';
+    $html = $html.'Compétence(s) : <span id="competences_'.$row['id'].'">'.$row['competence'].'</span><br>';
 
     $html = $html.' Nombres de place(s) : <span id="nb_'.$row['id'].'">'.$row['nb_place'].'</span><br>';
 
@@ -71,6 +71,30 @@ if (isset($this->err)) {
     }
     else {
     }
+}
+
+
+$page  = $this->p;
+$pageBack = $page -1;
+$pageForward = $page +1;
+
+
+$html = '<span ';
+if ($page == 1) {
+    $html = $html.'hidden';
+}
+$html = $html.'><a href="/Offre/page/'.$pageBack.'"> << </a></span>';
+
+$html = $html.'<span>page '.$page.'</span>';
+
+$html = $html.'<span ';
+if ($i < 10) {
+    $html = $html.'hidden';
+}
+$html = $html.'><a href="/Offre/page/'.$pageForward.'"> >> </a></span>';
+
+if ($this->p != 0) {
+    $smarty->assign('pagination', $html);
 }
 
 $smarty->display(ROOT.'/view/layout/Offre.tpl');

@@ -112,4 +112,70 @@ Class Offre_Model extends Model {
             return 1;
         }
     }
+
+
+    public function deleteOffre(int $id) {
+
+        $this->getConnexion();
+
+        $req = "CALL Suppression_Offre(:id)";
+
+        $query = $this->db->prepare($req);
+
+        $query->bindParam(':id', $id);
+
+        $query->execute();
+
+        header("Location: /Offre");
+    }
+
+
+    public function updateOffre(int $id) {
+        $this->getConnexion();
+
+        $req = "SELECT Id_Stage FROM Stage WHERE Email = :email";
+
+        $query = $this->db->prepare($req);
+
+        $email = strtolower($_POST['email']);
+        $query->bindParam(':email', $email);
+
+        $query->execute();
+
+        $row = $query->fetch();
+        $count = $query->rowCount();
+
+        if ($count == 0 || $row['id'] == strval($id)) {
+
+            $_POST['specialite'] = intval($_POST['specialite']);
+            $_POST['entreprise'] = intval($_POST['entreprise']);
+            $_POST['ville'] = intval($_POST['ville']);
+
+            $nom = strtolower($_POST['nom']);
+            $competence = strtolower($_POST['competences']);
+
+            $req = "CALL Modification_Offre(:nom, :durer, :remuneration, :date_offre, :nb_place, :email, :id_ent, :id_ville, :id_spe, :competence, :id)";
+
+            $query = $this->db->prepare($req);
+
+            $query->bindParam(':id', $id);
+            $query->bindParam(':nom', $nom);
+            $query->bindParam(':durer', $_POST['duree']);
+            $query->bindParam(':remuneration', $_POST['remuneration'] );
+            $query->bindParam(':date_offre', $_POST['date']);
+            $query->bindParam(':nb_place', $_POST['nb_place']);
+            $query->bindParam(':email', $email);
+            $query->bindParam('id_spe', $_POST['specialite']);
+            $query->bindParam(':id_ent', $_POST['entreprise']);
+            $query->bindParam(':id_ville', $_POST['ville']);
+            $query->bindParam(':competence', $competence);
+
+            $query->execute();
+
+            header("Location: /Offre");
+        }
+        else {
+            return 1;
+        }
+    }
 }

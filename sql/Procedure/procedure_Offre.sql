@@ -71,7 +71,14 @@ END |
 DROP PROCEDURE IF EXISTS Suppression_Offre |
 CREATE PROCEDURE Suppression_Offre (IN id INT)
 BEGIN
+    DECLARE id_comp INT;
 
+    SELECT Id_Competence INTO id_comp FROM Demande WHERE Id_Stage = id ;
+
+    DELETE FROM Candidature WHERE Candidature.Id_Stage = id;
+    DELETE FROM Demande WHERE Demande.Id_Stage = id;
+    DELETE FROM Competence WHERE Competence.Id_Competence = id_comp;
+    DELETE FROM Stage WHERE Stage.Id_Stage = id;
 END |
 
 

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-22 19:38:32
+/* Smarty version 3.1.39, created on 2021-03-22 20:59:24
   from 'C:\Users\catar\Documents\CESI\A2\4 - Web\Projet\Projet_WEB\www\view\layout\Offre.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6058f238a8f382_87062437',
+  'unifunc' => 'content_6059052c64c2d3_85687098',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '5316064743d807fa49f515a4d61122fb6f690608' => 
     array (
       0 => 'C:\\Users\\catar\\Documents\\CESI\\A2\\4 - Web\\Projet\\Projet_WEB\\www\\view\\layout\\Offre.tpl',
-      1 => 1616441906,
+      1 => 1616446755,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./common/footer.tpl' => 1,
   ),
 ),false)) {
-function content_6058f238a8f382_87062437 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6059052c64c2d3_85687098 (Smarty_Internal_Template $_smarty_tpl) {
 ob_start();
 echo $_smarty_tpl->tpl_vars['title']->value;
 $_prefixVariable1 = ob_get_clean();
@@ -61,7 +61,7 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
         <br>
 
         Ville : <br>
-        <select id="r_ville" name="ville">
+        <select id="ville" name="ville">
             <option value="">--Choisiez une ville--</option>
             <?php echo $_smarty_tpl->tpl_vars['Ville']->value;?>
 
@@ -145,8 +145,8 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
 
 
       <div>
-          <!-- <?php echo (($tmp = @$_smarty_tpl->tpl_vars['pagination']->value)===null||$tmp==='' ? '' : $tmp);?>
- -->
+          <?php echo (($tmp = @$_smarty_tpl->tpl_vars['pagination']->value)===null||$tmp==='' ? '' : $tmp);?>
+
       </div>
 
       <?php echo '<script'; ?>

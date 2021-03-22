@@ -37,8 +37,23 @@ class Offre extends Controler {
 
     }
 
+
     public function creation() {
         $this->err = $this->Offre_Model->addOffre();
+
+        $this->affichage();
+    }
+
+
+    public function suppression(int $id) {
+        $this->err = $this->Offre_Model->deleteOffre($id);
+
+        $this->affichage();
+    }
+
+
+    public function modification(int $id) {
+        $this->err = $this->Offre_Model->updateOffre($id);
 
         $this->affichage();
     }

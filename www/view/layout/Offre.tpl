@@ -30,7 +30,7 @@
         <br>
 
         Ville : <br>
-        <select id="r_ville" name="ville">
+        <select id="ville" name="ville">
             <option value="">--Choisiez une ville--</option>
             {$Ville}
         </select>
@@ -110,7 +110,7 @@
         {$Offre}
 
       <div>
-          <!-- {$pagination|default:""} -->
+          {$pagination|default:""}
       </div>
 
       <script src="/public/js/Offre.js" charset="utf-8"></script>
