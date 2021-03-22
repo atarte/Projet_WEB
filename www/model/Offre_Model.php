@@ -53,18 +53,6 @@ Class Offre_Model extends Model {
     }
 
 
-    // public function displayOffre(int $p) {
-    //     $req = "CALL Affichage_Offre(:p)";
-    //
-    //     $query = $this->db->prepare($req);
-    //
-    //     $query->bindParam(':p', $p);
-    //
-    //     $query->execute();
-    //
-    //     return $query;
-    // }
-
     public function displayOffre(int $p) {
         $req = "CALL Affichage_Offre(:p)";
 
@@ -74,38 +62,54 @@ Class Offre_Model extends Model {
 
         $query->execute();
 
-        $comp = $query;
-
-        // $query_comp = array();
-
-        while ($row = $comp->fetch()) {
-            $req = "SELECT c.Id_Competence AS id, c.Competence AS competence FROM Demande
-                    INNER JOIN Competence c ON Demande.Id_Competence = c.Id_Competence
-                    WHERE Demande.Id_stage = :id";
-
-            $autre = $this->db->prepare($req);
-
-            $autre->bindParam(':id', $row["id"]);
-
-            $autre->execute();
-
-            array_push($this->reception, $autre);
-        }
-
         return $query;
     }
 
 
+    public function addOffre() {
+        $this->getConnexion();
 
-    public function displayCompetence(int $p) {
-        $req = "CALL Affichage_Competence(:p)";
+        $req = "SELECT Id_Stage FROM Stage WHERE Email = :email";
 
         $query = $this->db->prepare($req);
 
-        $query->bindParam(':p', $p);
+        $email = strtolower($_POST['email']);
+        $query->bindParam(':email', $email);
 
         $query->execute();
 
-        return $query;
+        $count = $query->rowCount();
+
+        if ($count == 0 ) {
+
+            $_POST['specialite'] = intval($_POST['specialite']);
+            $_POST['entreprise'] = intval($_POST['entreprise']);
+            $_POST['ville'] = intval($_POST['ville']);
+
+            $nom = strtolower($_POST['nom']);
+            $competence = strtolower($_POST['competences']);
+
+            $req = "CALL Creation_Offre(:nom, :durer, :remuneration, :date_offre, :nb_place, :email, :id_ent, :id_ville, :id_spe, :competence)";
+
+            $query = $this->db->prepare($req);
+
+            $query->bindParam(':nom', $nom);
+            $query->bindParam(':durer', $_POST['duree']);
+            $query->bindParam(':remuneration', $_POST['remuneration'] );
+            $query->bindParam(':date_offre', $_POST['date']);
+            $query->bindParam(':nb_place', $_POST['nb_place']);
+            $query->bindParam(':email', $email);
+            $query->bindParam('id_spe', $_POST['specialite']);
+            $query->bindParam(':id_ent', $_POST['entreprise']);
+            $query->bindParam(':id_ville', $_POST['ville']);
+            $query->bindParam(':competence', $competence);
+
+            $query->execute();
+
+            header("Location: /Offre");
+        }
+        else {
+            return 1;
+        }
     }
 }

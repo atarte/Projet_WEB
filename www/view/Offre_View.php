@@ -45,14 +45,7 @@ while ($row = $this->offre->fetch()) {
 
     $html = $html.' Spécialité : <span id="spe_'.$row['id'].'">'.$row['specialite'].'</span><br>';
 
-    // while ($row2 = $this->competence->fetchAll(PDO::FETCH_COLUMN)) {
-    //     $html2 = $html2.' Compétences : <span id="competence_'.$row2['Nom'].'">'.$row2['competence'].'</span><br>';
-    // }
-    $html = $html.' Competence : ';
-    while ($comp = $this->competence[i]->fetch()) {
-        $html = $html.'<span id="comp'.i.'_'.$comp['id'].'">'.$comp['competence'].'</span><br>';
-    }
-    $i++;
+    $html = $html.'Compétence(s) : <span id="comp_'.$row['id'].'">'.$row['competence'].'</span><br>';
 
     $html = $html.' Nombres de place(s) : <span id="nb_'.$row['id'].'">'.$row['nb_place'].'</span><br>';
 
@@ -71,6 +64,13 @@ while ($row = $this->offre->fetch()) {
 }
 
 $smarty->assign('Offre',$html);
-// $smarty->assign('Competence',$html2);
+
+if (isset($this->err)) {
+    if ($$this->err == 1) {
+        $smarty->assign('erreur', 'Email déjà utilisé pour un autre compte');
+    }
+    else {
+    }
+}
 
 $smarty->display(ROOT.'/view/layout/Offre.tpl');

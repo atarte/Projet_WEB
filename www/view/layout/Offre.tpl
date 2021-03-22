@@ -3,7 +3,7 @@
 <body>
     <a href="/Accueil"><button>Retour</button></a>
     <br><br>
-    <!-- <form action="/Offre/creation" method="post" id="formulaire"> -->
+    <form action="/Offre/creation" method="post" id="formulaire">
 
         Nom : <br>
         <input id="nom" type="text" name="nom" required>
@@ -92,7 +92,10 @@
           <input id="r_nom" type="text" name="nom">
 
           Entreprise :
-          <input id="r_entreprise" type="text" name="entreprise">
+          <select id="entreprise" name="entreprise" required>
+              <option value="">--Choississez une entreprise--</option>
+              {$Entreprise}
+          </select>
 
           Ville :
           <select id="r_ville" name="ville">

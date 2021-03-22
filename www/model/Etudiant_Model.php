@@ -10,7 +10,7 @@ Class Etudiant_Model extends Model {
         }
     }
 
-    
+
     public function displayEtudiant(int $p) {
         $this->getConnexion();
 
