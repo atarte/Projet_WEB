@@ -9,23 +9,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
+
 
     <title>Document</title>
 </head>
 <body>
     <main>
         <article>
+            <script src="/entreprise/asset/js/entreprise.js"></script>
+            
 
             <!-- création entreprise -->
             <form action="./asset/php/creation_entreprise.php" method="post">
 
                 Nom :
                 <input type="text" name="Nom" required>
-		
-		E-mail: 
+
+		E-mail:
 		<input type="text" name="email" required>
-		
+
 		Stagiaire :
                  <select name="stagiaire" required>
                     <option value="">--Nombre accepté--</option>
@@ -39,20 +41,20 @@
                 }
                 ?>
                 </select>
-		
+
 		Adresse :
                 <input type="text" name="adresse" required>
-                    
+
                 Code postal :
                     <input id="code_p" type="number" name="code_p" class="taille_b">
-                    
+
                 Ville :
                     <select id="ville" class="taille_b" name="ville">
                     </select>
 
                 Region :
                     <input id="region" type="text" name="region" class="taille_b" readonly>
-					
+
 				Pays :
                 <select name="pays" required>
                     <option value="">--Pays--</option>
@@ -66,7 +68,7 @@
                 }
                 ?>
                 </select>
-                 
+
 
 
 
@@ -87,7 +89,7 @@
                 <input type="submit" value="crée">
             </form>
         </article>
-		
+
 
         <article>
             <!-- Visualisation des entreprises -->
@@ -113,7 +115,5 @@
             ?>
         </article>
     </main>
-	<script src="D:\projet\www\private\asset\vendor\jquery"></script>
-    <script src="D:\projet\www\private\asset\js\entreprise.js"></script> 
 </body>
 </html>
