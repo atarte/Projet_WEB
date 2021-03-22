@@ -1,12 +1,15 @@
 <?php
 
 Class Offre_Model extends Model {
+    $this->competence;
+
     public function __construct() {
         // verification que l'utilisateur à bien le droit d'accédé à cette page
 
         // if (($_SESSION['role'] == "3" && $_SESSION['deleg']['offre'] == "1") || ($_SESSION['role'] == "2") || ($_SESSION['role'] == "1")) {
         //     header("location: /");
         // }
+        $this->competence = array();
     }
 
     public function getType() {
@@ -71,11 +74,11 @@ Class Offre_Model extends Model {
 
         $query->execute();
 
-        $competence = $query;
+        $comp = $query;
 
-        $query_comp = array();
+        // $query_comp = array();
 
-        while ($row = $competence->fetch()) {
+        while ($row = $comp->fetch()) {
             $req = "SELECT c.Id_Competence AS id, c.Competence AS competence FROM Demande
                     INNER JOIN Competence c ON Demande.Id_Competence = c.Id_Competence
                     WHERE Demande.Id_stage = :id";
@@ -87,11 +90,11 @@ Class Offre_Model extends Model {
             $autre->execute();
 
             // $query_comp =
-            array_push($query_comp, $autre);
+            array_push($this->competence, $autre);
         }
         // return $query;
 
-        return $query, $query_comp;
+        return $queryp;
     }
 
 
