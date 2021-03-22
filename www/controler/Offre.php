@@ -33,6 +33,8 @@ class Offre extends Controler {
         $this->offre = $this->Offre_Model->displayOffre($pageLimit);
         $this->competence = $this->Offre_Model->displayCompetence($pageLimit);
 
+        $this->competence = $this->Offre_Model->reception;
+
         require_once(ROOT.'view/Offre_View.php');
 
     }
