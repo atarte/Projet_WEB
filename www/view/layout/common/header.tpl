@@ -4,8 +4,10 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <link rel="stylesheet" href="http://static.projet.com/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="http://static.projet.com/css/common/style.css">
 
-        <!-- <link rel="stylesheet" href="http://static.projet.com/css/test.css"> -->
+        <!-- <link rel="stylesheet" href={$css}> -->
 
         <title>{$title}</title>
     </head>

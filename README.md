@@ -2,6 +2,6 @@
 
 photo
 
-### Projet WEB : CPI A2 Groupe # (Catarina, Laurianne, Dylan, Antoine)
+### Projet WEB : CPI A2 Groupe 2 (Catarina, Laurianne, Dylan, Antoine)
 
 ## autre chose
