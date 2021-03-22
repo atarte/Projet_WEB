@@ -89,10 +89,8 @@ Class Offre_Model extends Model {
 
             $autre->execute();
 
-            // $query_comp =
             array_push($this->reception, $autre);
         }
-        // return $query;
 
         return $query;
     }

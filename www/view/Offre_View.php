@@ -31,8 +31,8 @@ $smarty->assign('Entreprise', $html);
 $html = '';
 // $html2 = '';
 $i = 0;
-while ($row = $this->offre->fetch()) {
 
+while ($row = $this->offre->fetch()) {
     $html = $html.'<div id="'.$row["id"].'">';
 
     $html = $html.' Nom : <span id="nom_'.$row['id'].'">'.$row['nom'].'</span><br>';
@@ -53,8 +53,6 @@ while ($row = $this->offre->fetch()) {
         $html = $html.'<span id="comp'.i.'_'.$comp['id'].'">'.$comp['competence'].'</span><br>';
     }
     $i++;
-
-
 
     $html = $html.' Nombres de place(s) : <span id="nb_'.$row['id'].'">'.$row['nb_place'].'</span><br>';
 
