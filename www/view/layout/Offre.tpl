@@ -88,11 +88,8 @@
 
       Barre de Recherche des Offres
       <form id="recherche" action="/Offre/recherche" method="post">
-          Nom :
-          <input id="r_nom" type="text" name="nom">
-
           Entreprise :
-          <select id="entreprise" name="entreprise" required>
+          <select id="r_entreprise" name="entreprise" >
               <option value="">--Choississez une entreprise--</option>
               {$Entreprise}
           </select>
@@ -105,7 +102,7 @@
 
           <input id="r_submit" type="submit" value="Rechercher">
       </form>
-      <a href="/Pilote"><button>X</button></a><br><br>
+      <a href="/Offre"><button>X</button></a><br><br>
 
         {$Offre}
 

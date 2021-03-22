@@ -57,4 +57,13 @@ class Offre extends Controler {
 
         $this->affichage();
     }
+
+
+    public function recherche() {
+        $this->offre = $this->Offre_Model->search();
+
+        $this->p = 0;
+
+        require_once(ROOT.'view/Offre_View.php');
+    }
 }
