@@ -102,9 +102,9 @@
 
           <input id="r_submit" type="submit" value="Rechercher">
       </form>
-      <a href="/Pilote"><button>X</button></a>
+      <a href="/Pilote"><button>X</button></a><br><br>
 
-        <!-- {$Offre} -->
+        {$Offre}
 
       <div>
           <!-- {$pagination|default:""} -->

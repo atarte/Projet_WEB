@@ -215,3 +215,24 @@ INSERT INTO Entreprise (Nom, Email, Nombre_Accepter, Id_Secteur) VALUES
 --Insertion de la table Reside
 INSERT INTO Reside (Id_Entreprise, Id_Adresse) VALUES
 (1,26);
+
+
+--Insertion de la table Competence
+INSERT INTO Competence(Competence) VALUES
+('PHP'),
+('HTML'),
+('CSS'),
+('JavaScript');
+
+
+--Insertion de la table Stage
+INSERT INTO Stage(Nom,Durer_Stage,Remuneration,Date_Offre,Nombre_Place,Email,Id_Entreprise,Id_Ville,Id_Specialite) VALUES
+('Cree un site', '3 mois', '490', '22-03-2021', 1, 'mailrh@gmail.com',1,38,1);
+
+
+--Insertion de la table Demande
+INSERT INTO Demande (Id_Stage,Id_Competence) VALUES
+(1,1),
+(1,2),
+(1,3),
+(1,4);

@@ -1,12 +1,15 @@
 <?php
 
 Class Offre_Model extends Model {
+    public $reception;
+
     public function __construct() {
         // verification que l'utilisateur à bien le droit d'accédé à cette page
 
         // if (($_SESSION['role'] == "3" && $_SESSION['deleg']['offre'] == "1") || ($_SESSION['role'] == "2") || ($_SESSION['role'] == "1")) {
         //     header("location: /");
         // }
+        $this->reception = array();
     }
 
     public function getType() {
@@ -42,10 +45,67 @@ Class Offre_Model extends Model {
 
         $req = "SELECT Id_Entreprise AS id, Nom AS entreprise FROM Entreprise ORDER BY Entreprise";
 
-            $query = $this->db->prepare($req);
+        $query = $this->db->prepare($req);
 
-            $query->execute();
+        $query->execute();
 
-            return $query;
+        return $query;
+    }
+
+
+    // public function displayOffre(int $p) {
+    //     $req = "CALL Affichage_Offre(:p)";
+    //
+    //     $query = $this->db->prepare($req);
+    //
+    //     $query->bindParam(':p', $p);
+    //
+    //     $query->execute();
+    //
+    //     return $query;
+    // }
+
+    public function displayOffre(int $p) {
+        $req = "CALL Affichage_Offre(:p)";
+
+        $query = $this->db->prepare($req);
+
+        $query->bindParam(':p', $p);
+
+        $query->execute();
+
+        $comp = $query;
+
+        // $query_comp = array();
+
+        while ($row = $comp->fetch()) {
+            $req = "SELECT c.Id_Competence AS id, c.Competence AS competence FROM Demande
+                    INNER JOIN Competence c ON Demande.Id_Competence = c.Id_Competence
+                    WHERE Demande.Id_stage = :id";
+
+            $autre = $this->db->prepare($req);
+
+            $autre->bindParam(':id', $row["id"]);
+
+            $autre->execute();
+
+            array_push($this->reception, $autre);
+        }
+
+        return $query;
+    }
+
+
+
+    public function displayCompetence(int $p) {
+        $req = "CALL Affichage_Competence(:p)";
+
+        $query = $this->db->prepare($req);
+
+        $query->bindParam(':p', $p);
+
+        $query->execute();
+
+        return $query;
     }
 }
