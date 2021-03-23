@@ -1,6 +1,7 @@
 <?php
 
 class Entreprise extends Controler {
+    public $entreprise;   
     public $nom;
     public $email; 
     public $adresse;
@@ -20,11 +21,7 @@ class Entreprise extends Controler {
 
         $this->p = 1;
 
-        $this->nom = $this->Entreprise_Model->getNom();
-        $this->adresse = $this->Entreprise_Model->getAdresse();
-        $this->ville = $this->Entreprise_Model->getVille();
-        $this->region= $this->Entreprise_Model->getRegion();
-        $this->stagiaire= $this->Entreprise_Model->getStagiaire();
+        $this->stagiaire= $this->Entreprise_Model->getNombre_Accepter();
         $this->secteur = $this->Entreprise_Model->getSecteur();
         
     }

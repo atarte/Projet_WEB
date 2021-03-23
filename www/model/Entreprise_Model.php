@@ -185,4 +185,33 @@ Class Entreprise_Model extends Model {
 
         return $query;
     }
+	
+	public function getNombre_Accepter() {
+
+    $this->getConnexion();
+
+   $req = "SELECT Id_Entreprise AS id, Nombre_Accepter FROM Entreprise ORDER BY Entreprise";
+
+   $query = $this->db->prepare($req);
+
+    $query->execute();
+
+  return $query;
+}
+	
+	
+public function getSecteur() {
+
+    $this->getConnexion();
+
+   $req = "SELECT Id_Entreprise AS id, Secteur FROM Entreprise ORDER BY Entreprise";
+
+   $query = $this->db->prepare($req);
+
+    $query->execute();
+
+  return $query;
+}
+	
+
    }
