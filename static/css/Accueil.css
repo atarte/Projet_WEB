@@ -1,5 +1,6 @@
-.connexion {
+.accueil {
     height: 100vh;
+
 }
 
 .aff {
@@ -8,4 +9,8 @@
     justify-content: center;
 
     /* padding: 0 10px 0 10px; */
+}
+
+button {
+    width: 200px
 }

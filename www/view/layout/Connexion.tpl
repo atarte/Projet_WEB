@@ -9,9 +9,9 @@
         <fieldset>
             <legend>Connexion</legend>
 
-            <form action="/connexion/verification" method="POST">
+            <form action="/Connexion/verification" method="POST">
                 <div class="container">
-                    <div class="row justify-content-center p-1">
+                    <div class="row justify-content-center p-2">
                         <!-- errur : -->
                         {$erreur|default:''}
                     </div>
@@ -19,11 +19,11 @@
                         <!-- Identifiant : -->
                         <input type="text" name="user" placeholder="Email" value="{$cookie|default:""}" required>
                     </div>
-                    <div class="row justify-content-center p-1">
+                    <div class="row justify-content-center p-2">
                         <!-- Mot de passe : -->
                         <input type="password" name="pwd" placeholder="Password" required>
                     </div>
-                    <div class="row justify-content-center p-1">
+                    <div class="row justify-content-center p-2">
                         <input type="submit" value="Connexion">
                     </div>
                 </div>

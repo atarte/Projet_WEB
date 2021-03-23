@@ -4,8 +4,9 @@
 
 <body>
 <main class="container">
-    <a href="/Accueil"><button>Retour</button></a>
-
+    <nav>
+        <a href="/Accueil"><button>Retour</button></a>
+    </nav>
 
     <div class="row justify-content-between">
         <article class="col">
@@ -75,7 +76,7 @@
         <article class="col">
             <fieldset class="field">
                 <legend>Liste des étudiants</legend>
-                
+
                 <!-- Recherche Etudiant -->
                 <div class="">
                     <form id="recherche" action="/Etudiant/recherche" method="post">

@@ -4,7 +4,9 @@
 
 <body>
 <main class="container">
-    <a href="/Accueil"><button>Retour</button></a>
+    <nav>
+        <a href="/Accueil"><button>Retour</button></a>
+    </nav>
 
     <div class="row justify-content-between">
         <article class="col">

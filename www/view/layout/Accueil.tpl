@@ -1,14 +1,23 @@
 {include file="./common/header.tpl" title={$title}}
 
+<link rel="stylesheet" href="http://static.projet.com/css/Accueil.css">
+
 <body>
 
-    <nav>
-        <a href="/accueil/deconnexion"><button>Deconnexion</button></a>
-    </nav>
+<main class="accueil aff">
 
-    <main>
-        {$button}
-    </main>
+    <nav class="aff">
+        <fieldset>
+            <legend>Interface {$role|default:""}</legend>
+            <div class="container">
+                <div class="row justify-content-center p-2">
+                    <a href="/Accueil/deconnexion"><button>Deconnexion</button></a>
+                </div>
+                {$button}
+            </div>
+        </fieldset>
+    </nav>
+</main>
 
 </body>
 
