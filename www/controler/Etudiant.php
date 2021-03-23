@@ -9,6 +9,7 @@ class Etudiant extends Controler {
 
     public $err;
     public $p;
+    public $close;
 
 
     public function __construct() {
@@ -16,6 +17,8 @@ class Etudiant extends Controler {
         $this->loadModel("Etudiant_Model");
 
         $this->p = 1;
+
+        $this->close = false;
 
         $this->pilote = $this->Etudiant_Model->getPilote();
         $this->promotion = $this->Etudiant_Model->getPromotion();
@@ -49,6 +52,8 @@ class Etudiant extends Controler {
         $this->etudiant = $this->Etudiant_Model->search();
 
         $this->p = 0;
+
+        $this->close = true;
 
         require_once(ROOT.'view/Etudiant_View.php');
     }

@@ -111,8 +111,11 @@
                         </select>
 
                         <input id="r_submit" type="submit" value="Rechercher">
+
+                        <span id="close">
+                            {$close|default:""}
+                        </span>
                     </form>
-                    <a href="/Etudiant"><button>X</button></a>
                 </div>
 
                 <!-- Affichage : -->
