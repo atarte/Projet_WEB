@@ -59,7 +59,7 @@ BEGIN
 END |
 
 
--- Modification Pilote
+-- Modification Offre
 DROP PROCEDURE IF EXISTS Modification_Offre |
 CREATE PROCEDURE Modification_Offre (IN nom VARCHAR(50), IN durer VARCHAR(50), IN remuneration FLOAT, IN date_offre DATE, IN nb_place INT, IN email VARCHAR(50), IN id_ent INT, IN id_ville INT, IN id_spe INT, IN competence VARCHAR(100), IN id INT)
 BEGIN
@@ -85,7 +85,7 @@ BEGIN
 END |
 
 
--- Suppression Pilote
+-- Suppression Offre
 DROP PROCEDURE IF EXISTS Suppression_Offre |
 CREATE PROCEDURE Suppression_Offre (IN id INT)
 BEGIN
@@ -97,6 +97,27 @@ BEGIN
     DELETE FROM Demande WHERE Demande.Id_Stage = id;
     DELETE FROM Competence WHERE Competence.Id_Competence = id_comp;
     DELETE FROM Stage WHERE Stage.Id_Stage = id;
+END |
+
+
+-- Création Wishlist
+DROP PROCEDURE IF EXISTS Creation_Wishlist |
+CREATE PROCEDURE Creation_Wishlist (IN id_user INT, IN id_offre INT)
+BEGIN
+    INSERT INTO Candidature (Id_Users, Id_Stage, Souhait) VALUES
+    (id_user,id_offre,DATE(NOW()))
+END |
+
+
+-- Update WishList
+DROP PROCEDURE IF EXISTS Update_WishList |
+CREATE PROCEDURE Update_WishList (IN id_user INT, IN id_offre INT)
+BEGIN
+    UPDATE Candidature SET
+        Candidature.Id_Users = id_user,
+        Candidature.Id_Stage = id_stage,
+        Candidature.Souhait = Date(NOW())
+    WHERE Candidature.Id_Users = id_user AND Candidature.Id_Stage = id_stage
 END |
 
 

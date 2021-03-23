@@ -93,18 +93,16 @@ function wish(id_offre) {
     }
 }
 
-// function candidat() {
-//     let id_stage = document.getElementById("stage_id").value;
-//     let id_offre = document.getElementById("id_offre").value;
-//     let id_user = document.getElementById("user_id").value;
-//     let souhait = document.getElementById("souhait").value;
-//     let id = document.getElementById("id").value;
-//     let btn_wish = document.getElementById("btn_wish").value;
-//
-//     if (id_user == id &&  id_stage == id_offre && souhait != '') {
-//         btn_wish.value = "Déwishlister";
-//     }
-// }
+function deleteWish(id_offre){
+    let nom_offre = document.getElementById("nom_"+id_offre).innerHTML;
+
+    let res = confirm("Voulez vous réelement supprimer cette offre à votre WishList : "+nom_offre+" ?");
+
+    if (res) {
+        document.location.href="/Offre/deleteWishlist/"+id_offre;
+    }
+}
+
 
 function etudiant() {
     let role = document.getElementById("role").value;

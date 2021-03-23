@@ -81,4 +81,9 @@ class Offre extends Controler {
 
         // require_once(ROOT.'view/Offre_View.php');
     }
+
+
+    public function deleteWishlist(int $id) {
+        $this->Offre_Model->deleteWish($id);
+    }
 }

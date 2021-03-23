@@ -218,7 +218,7 @@ $smarty->assign('role', $html);
         else {
             for ($i = 0; $i < count($cand); $i++) {
                 if ($cand[$i]['id_stage'] == $row['id'] && !empty($cand[$i]['souhait'])) {
-                    $jsp ='<button id="btn_wish">Déwishlister</button><br><br>';
+                    $jsp ='<button id="btn_wish" onclick=deleteWish('.$row['id'].')>Déwishlister</button><br><br>';
                     break;
                 }
                 else {
