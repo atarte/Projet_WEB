@@ -1,6 +1,7 @@
 <?php
 
 class Entreprise extends Controler {
+    public $entreprise;   
     public $nom;
     public $email; 
     public $adresse;
