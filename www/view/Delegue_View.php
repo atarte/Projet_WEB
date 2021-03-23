@@ -2,13 +2,13 @@
 
 $smarty = new Smarty;
 
-$smarty->assign('title', 'Gestion Delegue');
+$smarty->assign('title', 'Gestion Délégué');
 
 
 // affichage de l'erreur
 if (isset($this->err)) {
     if ($this->err == 1) {
-        $smarty->assign('erreur', 'Email deja utilisé');
+        $smarty->assign('erreur', '<span class="erreur">Adresse email déjà utilisé</span>');
     }
     else {
     }
@@ -21,15 +21,19 @@ $aff = '';
 while ($row = $this->delegue->fetch()) {
     $i++;
 
-    $aff = $aff.'<div id="'.$row["id"].'">';
+    $aff = $aff.'<div id="'.$row["id"].'" class="p-1 m-1 case">';
 
-    $aff = $aff.'Nom : <span id="nom_'.$row['id'].'">'.$row['nom'].'</span>';
+    $aff = $aff.'<div class="gauche"><div><img class="ico" src="http://static.projet.com/img/user.svg" alt="icone user"></div>';
 
-    $aff = $aff.' | Prenom : <span id="prenom_'.$row['id'].'">'.$row["prenom"].'</span>';
+    $nom = strtoupper($row['nom']);
+    $aff = $aff.'<div><div><span id="nom_'.$row['id'].'">'.$nom.'</span>  ';
 
-    $aff = $aff.' | Email : <span id="email_'.$row['id'].'">'.$row['email'].'</span>';
+    $prenom = ucfirst($row["prenom"]);
+    $aff = $aff.'<span id="prenom_'.$row['id'].'">'.$prenom.'</span></div>';
 
-    $aff = $aff.' | Entreprise : <span id="entreprise_'.$row['id'].'">'.$row['entreprise'].'</span>';
+    $aff = $aff.'<div><span id="email_'.$row['id'].'">'.$row['email'].'</span></div>';
+
+    $aff = $aff.'<div>Entreprise : <span id="entreprise_'.$row['id'].'">'.$row['entreprise'].'</span>';
 
     $aff = $aff.' | Offre : <span id="offre_'.$row['id'].'">'.$row['offre'].'</span>';
 
@@ -39,15 +43,15 @@ while ($row = $this->delegue->fetch()) {
 
     $aff = $aff.' | Etudiant : <span id="etudiant_'.$row['id'].'">'.$row['etudiant'].'</span>';
 
-    $aff = $aff.' | Candidature : <span id="candidature_'.$row['id'].'">'.$row['candidature'].'</span>';
+    $aff = $aff.' | Candidature : <span id="candidature_'.$row['id'].'">'.$row['candidature'].'</span></div></div>';
 
-    $aff = $aff.'<button onclick=modification('.$row['id'].')>Modifier</button>';
+    $aff = $aff.'<div><div><img class="icop" src="http://static.projet.com/img/update.svg" alt="icone modification" onclick=modification('.$row['id'].')></div>';
 
     if ($_SESSION['role'] != "3") {
-        $aff = $aff.'<button onclick=confirmation('.$row['id'].')>Supprimer</button>';
+        $aff = $aff.'<div><img class="icop" src="http://static.projet.com/img/delete.svg" alt="icone suppression" onclick=confirmation('.$row['id'].')></div>';
     }
 
-    $aff = $aff.'<br></div>';
+    $aff = $aff.'</div></div></div>';
 }
 $smarty->assign('delegue', $aff);
 

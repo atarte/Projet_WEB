@@ -3,11 +3,11 @@ function modification(id) {
     document.getElementById("prenom").value = document.getElementById("prenom_"+id).innerHTML;
     document.getElementById("email").value = document.getElementById("email_"+id).innerHTML;
 
-    document.getElementById("pwd_div").innerHTML = "";
-
     select(id, "pilote");
     select(id, "promotion");
     select(id, "specialite");
+
+    document.getElementById("pwd_div").innerHTML = "";
 
     document.getElementById("formulaire").action = "/Etudiant/modification/"+id;
 

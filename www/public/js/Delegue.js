@@ -28,6 +28,8 @@ function modification(id) {
 
     document.getElementById("submit").value = "Modifier";
 
+    document.getElementById("legend_form").innerHTML = "Modification de délégué";
+
     document.getElementById("annuler").innerHTML = '<button onclick=annuler()>Annuler</button>';
 }
 
@@ -44,11 +46,13 @@ function annuler() {
     document.getElementById("etudiant").checked = false;
     document.getElementById("candidature").checked = false;
 
-    document.getElementById("pwd_div").innerHTML = 'password :<input "pwd" type="password" name="pwd" required>';
+    document.getElementById("pwd_div").innerHTML = '<input "pwd" type="password" name="pwd" placeholder="Password" required>';
 
     document.getElementById("formulaire").action = "/Etudiant/creation";
 
     document.getElementById("submit").value = "Créer";
+
+    document.getElementById("legend_form").innerHTML = "Création de délégué";
 
     document.getElementById("annuler").innerHTML = "";
 }

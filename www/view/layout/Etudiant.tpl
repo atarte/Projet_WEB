@@ -73,9 +73,10 @@
         </article>
 
         <article class="col">
-            <!-- Recherche Etudiant -->
             <fieldset class="field">
                 <legend>Liste des étudiants</legend>
+                
+                <!-- Recherche Etudiant -->
                 <div class="">
                     <form id="recherche" action="/Etudiant/recherche" method="post">
                         <!-- nom : -->
