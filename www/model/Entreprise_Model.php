@@ -186,11 +186,11 @@ Class Entreprise_Model extends Model {
         return $query;
     }
 	
-	public function getStagiaire() {
+	public function getNombre_Accepter() {
 
     $this->getConnexion();
 
-   $req = "SELECT Id_Entreprise AS id, Stagiaire FROM Entreprise ORDER BY Entreprise";
+   $req = "SELECT Id_Entreprise AS id, Nombre_Accepter FROM Entreprise ORDER BY Entreprise";
 
    $query = $this->db->prepare($req);
 
@@ -198,4 +198,20 @@ Class Entreprise_Model extends Model {
 
   return $query;
 }
+	
+	
+public function getSecteur() {
+
+    $this->getConnexion();
+
+   $req = "SELECT Id_Entreprise AS id, Secteur FROM Entreprise ORDER BY Entreprise";
+
+   $query = $this->db->prepare($req);
+
+    $query->execute();
+
+  return $query;
+}
+	
+
    }
