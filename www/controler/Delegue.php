@@ -5,6 +5,7 @@ class Delegue extends Controler {
 
     public $err;
     public $p;
+    public $close;
 
 
     public function __construct() {
@@ -12,6 +13,8 @@ class Delegue extends Controler {
         $this->loadModel("Delegue_Model");
 
         $this->p = 1;
+
+        $this->close = false;
     }
 
 
@@ -40,6 +43,8 @@ class Delegue extends Controler {
         $this->delegue = $this->Delegue_Model->search();
 
         $this->p = 0;
+
+        $this->close = true;
 
         require_once(ROOT.'view/Delegue_View.php');
     }

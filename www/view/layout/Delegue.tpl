@@ -90,8 +90,11 @@
                         <input id="r_prenom" type="text" name="prenom" placeholder="Prenom">
 
                         <input id="r_submit" type="submit" value="Rechercher">
+
+                        <span id="close">
+                            {$close|default:""}
+                        </span>
                     </form>
-                    <a href="/Delegue"><button>X</button></a>
                 </div>
 
                 <!-- Affichage : -->

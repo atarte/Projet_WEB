@@ -212,7 +212,7 @@ Class Delegue_Model extends Model {
                 ON u.Id_Users = d.Id_Users
             WHERE d.Id_Statut = 3 ".$whr;
 
-            echo $req;
+            // echo $req;
 
         $query = $this->db->prepare($req);
 

@@ -10,8 +10,12 @@ if (isset($this->err)) {
     if ($this->err == 1) {
         $smarty->assign('erreur', '<span class="erreur">Adresse email déjà utilisé</span>');
     }
-    else {
-    }
+}
+
+
+// Affichage de l'icone de fermeture
+if ($this->close) {
+    $smarty->assign('close', '<a href="/Delegue"><img class="icop"  src="http://static.projet.com/img/close.svg" alt="icone close"></a>');
 }
 
 
