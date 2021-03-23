@@ -6,7 +6,7 @@ $smarty->assign('title', 'Gestion Connexion');
 
 if (isset($err)) {
     if ($err == 1) {
-        $smarty->assign('erreur', 'Email ou mot de passe incorect');
+        $smarty->assign('erreur', '<span class="erreur">Adresse email ou mot de passe incorrect</span>');
     }
     else {
     }

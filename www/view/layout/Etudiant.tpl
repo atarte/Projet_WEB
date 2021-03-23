@@ -14,7 +14,7 @@
             <fieldset class="field">
                 <legend id="legend_form">Création d'étudiant</legend>
 
-                <form id="formulaire" action="/Etudiant/creation" method="post">
+                <form id="formulaire" class="form" action="/Etudiant/creation" method="post">
                     <div class="container">
                         <div class="row justify-content-center p-1">
                             <!-- nom : -->
@@ -24,7 +24,7 @@
                             <!-- Prenom : -->
                             <input id="prenom" type="text" name="prenom" placeholder="Prenom" required>
                         </div>
-                        <div class="row justify-content-center p-1">
+                        <div class="row justify-content-center">
                             <!-- errur : -->
                             {$erreur|default:''}
                         </div>

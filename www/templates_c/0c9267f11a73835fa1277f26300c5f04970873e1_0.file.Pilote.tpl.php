@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-21 19:12:41
+/* Smarty version 3.1.39, created on 2021-03-23 11:39:58
   from 'D:\SCOLAIRE\CESI\2eme_annee\projet\WEB\Projet_WEB\www\view\layout\Pilote.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60579aa98ef1e2_88948642',
+  'unifunc' => 'content_6059d38e200810_52537763',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0c9267f11a73835fa1277f26300c5f04970873e1' => 
     array (
       0 => 'D:\\SCOLAIRE\\CESI\\2eme_annee\\projet\\WEB\\Projet_WEB\\www\\view\\layout\\Pilote.tpl',
-      1 => 1616353830,
+      1 => 1616364933,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./common/footer.tpl' => 1,
   ),
 ),false)) {
-function content_60579aa98ef1e2_88948642 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6059d38e200810_52537763 (Smarty_Internal_Template $_smarty_tpl) {
 ob_start();
 echo $_smarty_tpl->tpl_vars['title']->value;
 $_prefixVariable1 = ob_get_clean();
@@ -68,7 +68,7 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
 
       Centre : <br>
       <select id="centre" name="centre" required>
-        <option value="">--Choississez votre centre--</option>
+        <option value="">--Choississez un centre--</option>
         <?php echo $_smarty_tpl->tpl_vars['Centre']->value;?>
 
       </select>
@@ -86,13 +86,30 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
 
     <br>
 
-    <!--<form action="/Pilote/supprime_pilote" method="post">-->
+    Barre de Recherche des Pilotes
+    <form id="recherche" action="/Pilote/recherche" method="post">
+        Nom :
+        <input id="r_nom" type="text" name="nom">
+
+        Prenom :
+        <input id="r_prenom" type="text" name="prenom">
+
+        Centre :
+        <select id="r_centre" name="centre">
+            <option value="">--Choisiez un centre--</option>
+            <?php echo $_smarty_tpl->tpl_vars['Centre']->value;?>
+
+        </select>
+
+        <input id="r_submit" type="submit" value="Rechercher">
+    </form>
+    <a href="/Pilote"><button>X</button></a>
+
       <?php echo $_smarty_tpl->tpl_vars['Pilote']->value;?>
 
-    <!--</form>-->
 
     <div>
-        <?php echo $_smarty_tpl->tpl_vars['pagination']->value;?>
+        <?php echo (($tmp = @$_smarty_tpl->tpl_vars['pagination']->value)===null||$tmp==='' ? '' : $tmp);?>
 
     </div>
 
