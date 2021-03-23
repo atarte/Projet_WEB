@@ -1,6 +1,11 @@
 {include file="./common/header.tpl" title={$title}}
 
+<header>
+    {$erreur|default:""}
+</header>
+
 <body>
+
 <form action="./asset/php/Creation_Entreprise.php" method="post">
       Nom : <br>
       <input type="text" name="nom" required>
@@ -29,27 +34,13 @@
       <br>
 	  Stagiaire : <br>
       <select name="stagiaire" required>
-        <?php
-          
-          $requete = 'SELECT Id_Stagiaire, Stagiaire FROM Stagiaire';
-          $resultat =$bdd->query($requete);
-          while ($data = $resultat->fetch()){
-            echo '<option value="'.$data['Id_Stagiaire'].'">'.$data['Stagiaire'].'</option>';
-          }
-        ?>
+       
 	</select>	
 	  <br>
       <br>
 	Secteur : <br>
       <select name="secteur" required>
-        <?php
-          
-          $requete = 'SELECT Id_Secteur, Secteur FROM Secteur';
-          $resultat =$bdd->query($requete);
-          while ($data = $resultat->fetch()){
-            echo '<option value="'.$data['Id_Secteur'].'">'.$data['Secteur'].'</option>';
-          }
-        ?>	
+      
 	</select>		
 			<input type="submit" value="Valider" class="bouton">
             <input type="reset" value="Anuler" class="bouton">	
