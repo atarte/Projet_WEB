@@ -57,7 +57,21 @@ Class Offre_Model extends Model {
 
         $this->getConnexion();
 
-        $req = "SELECT DISTINCT Id_Competence AS id, Competence AS competence FROM Competence ORDER BY Competence";
+        $req = "SELECT DISTINCT Id_Competence AS id, Competence AS competence FROM Competence ORDER BY Competence;";
+
+        $query = $this->db->prepare($req);
+
+        $query->execute();
+
+        return $query;
+    }
+
+
+    public function getDurer() {
+
+        $this->getConnexion();
+
+        $req = "SELECT DISTINCT Stage.Durer_Stage AS durer FROM Stage ORDER BY Stage.Durer_Stage;";
 
         $query = $this->db->prepare($req);
 
@@ -205,6 +219,16 @@ Class Offre_Model extends Model {
         if (!empty($_POST['ville'])) {
             $whr = $whr."AND Stage.Id_Ville = :ville ";
         }
+        if (!empty($_POST['competence'])) {
+            $whr = $whr."AND comp.competence = :competence ";
+        }
+        if (!empty($_POST['durer'])) {
+            $whr = $whr."AND Stage.Durer_Stage = :durer";
+        }
+        if (!empty($_POST['remuneration'])) {
+            $whr = $whr."AND Stage.Remuneration >= :remuneration";
+        }
+
         $req =
             "SELECT Stage.ID_Stage AS id,
                Stage.Nom AS nom,
@@ -217,7 +241,6 @@ Class Offre_Model extends Model {
                e.Nom AS entreprise,
                v.Ville AS ville,
                comp.competence AS competence
-
             FROM Stage INNER JOIN
             (SELECT c.Competence AS competence, Id_Stage FROM Demande
             INNER JOIN Competence c ON Demande.Id_Competence = c.Id_Competence) AS comp ON 1=1
@@ -233,6 +256,15 @@ Class Offre_Model extends Model {
         }
         if (!empty($_POST['ville'])) {
             $query->bindParam(':ville', $_POST['ville']);
+        }
+        if (!empty($_POST['competence'])) {
+            $query->bindParam(':competence', $_POST['competence']);
+        }
+        if (!empty($_POST['durer'])) {
+            $query->bindParam(':durer', $_POST['durer']);
+        }
+        if (!empty($_POST['remuneration'])) {
+            $query->bindParam(':remuneration', $_POST['remuneration']);
         }
 
         $query->execute();

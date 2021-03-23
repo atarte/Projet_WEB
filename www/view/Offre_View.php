@@ -28,12 +28,19 @@ while ($row = $this->entreprise->fetch()) {
 $smarty->assign('Entreprise', $html);
 
 
-// $html = '';
-// while ($row = $this->competence->fetch()) {
-//     $html = $html.'<option value="'.$row['id'].'">'.$row['competence'].'</option>';
-// }
-//
-// $smarty->assign('Competence', $html);
+$html = '';
+while ($row = $this->competence->fetch()) {
+    $html = $html.'<option value="'.$row['competence'].'">'.$row['competence'].'</option>';
+}
+
+$smarty->assign('Competence', $html);
+
+$html = '';
+while ($row = $this->durer->fetch()) {
+    $html = $html.'<option value="'.$row['durer'].'">'.$row['durer'].'</option>';
+}
+
+$smarty->assign('Durer', $html);
 
 
 $html = '';

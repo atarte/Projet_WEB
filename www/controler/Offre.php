@@ -6,6 +6,7 @@ class Offre extends Controler {
     public $entreprise;
     public $offre;
     public $competence;
+    public $durer;
 
     public $err;
     public $p;
@@ -20,6 +21,7 @@ class Offre extends Controler {
         $this->ville = $this->Offre_Model->getVille();
         $this->entreprise = $this->Offre_Model->getEntreprise();
         $this->competence = $this->Offre_Model->getCompetence();
+        $this->durer = $this->Offre_Model->getDurer();
     }
 
 
@@ -32,8 +34,6 @@ class Offre extends Controler {
         $pageLimit = 10 * ($this->p -1);
 
         $this->offre = $this->Offre_Model->displayOffre($pageLimit);
-
-        $this->competence = $this->Offre_Model->reception;
 
         require_once(ROOT.'view/Offre_View.php');
 

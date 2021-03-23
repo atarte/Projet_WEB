@@ -101,9 +101,26 @@
           </select>
 
           Compétences :
-          <select id="r_ville" name="ville">
+          <select id="r_competence" name="competence">
               <option value="">--Choisiez le(s) Compétence(s)--</option>
               {$Competence}
+          </select>
+
+          Durée :
+          <select id="r_durer" name="durer">
+              <option value="">--Choisiez la Durée de votre stage--</option>
+              {$Durer}
+          </select>
+
+          Rémunération :
+          <select id="r_remuneration" name="remuneration">
+              <option value="">--Choisiez le(s) Compétence(s)--</option>
+              <option value="0"> Non rémunéré </option>
+              <option value="100"> > 100 </option>
+              <option value="300"> > 300 </option>
+              <option value="500"> > 500 </option>
+              <option value="700"> > 700 </option>
+              <option value="1000"> > 1000 </option>
           </select>
 
           <input id="r_submit" type="submit" value="Rechercher">
