@@ -84,9 +84,11 @@ Class Offre_Model extends Model {
 
         $this->getConnexion();
 
-        $req = "SELECT Candidature.Id_Stage AS id_stage, Candidature.Id_Users AS id_user, Candidature.Souhait AS souhait FROM Candidature;";
+        $req = "SELECT Candidature.Id_Stage AS id_stage, Candidature.Id_Users AS id_user, Candidature.Souhait AS souhait FROM Candidature WHERE Candidature.Id_Users = :id";
 
         $query = $this->db->prepare($req);
+
+        $query->bindParam(':id', $_SESSION['id']);
 
         $query->execute();
 
@@ -298,6 +300,8 @@ Class Offre_Model extends Model {
 
         $query->execute();
 
-        return $query;
+        // return $query;
+        header('location: /Offre');
+
     }
 }

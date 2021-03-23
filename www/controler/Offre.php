@@ -73,10 +73,12 @@ class Offre extends Controler {
 
 
     public function wishList(int $id) {
-        $this->offre = $this->Offre_Model->addWish($id);
+        // $this->offre = $this->Offre_Model->addWish($id);
+        $this->Offre_Model->addWish($id);
 
-        $this->affichage();
+        // header('location: /Offre')
+        // $this->affichage();
 
-        require_once(ROOT.'view/Offre_View.php');
+        // require_once(ROOT.'view/Offre_View.php');
     }
 }

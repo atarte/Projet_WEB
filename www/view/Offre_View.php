@@ -161,6 +161,8 @@ $smarty->assign('role', $html);
 
     $cand = $this->wish->fetchAll();
 
+    print_r($cand);
+
 
     $html = '';
     $i = 0;
@@ -192,19 +194,36 @@ $smarty->assign('role', $html);
 
         $html = $html.'<button onclick=postuler('.$row['id'].')>Postuler</button>';
 
+
+        // echo sizeof($cand);
+        //
+        //
+        // for ($i=0; $i < count($cand); $i++) {
+        //
+        //     echo 'prout';
+        //     $jsp = '';
+        //
+        //     if ($cand[$i]['id_user'] == $_SESSION['id'] && $cand[$i]['id_stage'] == $row['id'] && !empty($cand[$i]['souhait'])) {
+        //         $jsp ='<button id="btn_wish">Déwishlister</button><br><br>';
+        //         break;
+        //     }
+        //     else {
+        //     }
+        // }
         $jsp = '';
 
-        for ($i=0; $i < count($cand); $i++) {
-
-            echo 'prout';
-            $jsp = '';
-
-            if ($cand[$i]['id_user'] == $_SESSION['id'] && $cand[$i]['id_stage'] == $row['id'] && !empty($cand[$i]['souhait'])) {
-                $jsp ='<button id="btn_wish">Déwishlister</button><br><br>';
-                break;
-            }
-            else {
-                $jsp = '<button id="btn_wish" onclick=wish('.$row['id'].')>WishList</button><br><br>';
+        if (count($cand) == 0) {
+            $jsp = '<button id="btn_wish" onclick=wish('.$row['id'].')>WishList</button><br><br>';
+        }
+        else {
+            for ($i = 0; $i < count($cand); $i++) {
+                if ($cand[$i]['id_stage'] == $row['id'] && !empty($cand[$i]['souhait'])) {
+                    $jsp ='<button id="btn_wish">Déwishlister</button><br><br>';
+                    break;
+                }
+                else {
+                    $jsp = '<button id="btn_wish" onclick=wish('.$row['id'].')>WishList</button><br><br>';
+                }
             }
         }
 
