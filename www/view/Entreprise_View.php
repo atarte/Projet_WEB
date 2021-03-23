@@ -13,7 +13,7 @@ $smarty->assign('Secteur', $html);
 
 $html = '';
 $i = 0;
-while ($row = $this->nom->fetch()) {
+while ($row = $this->entreprise->fetch()) {
     $i++;
 
     $html = $html.'<div id="'.$row["Id_Entreprise"].'">';
