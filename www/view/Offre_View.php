@@ -129,6 +129,15 @@ $smarty->assign('role', $html);
 //     }
 // }
 //if ($_SESSION['role'] == "4") {
+
+    $html = '';
+    while ($row = $this->type_promo->fetch()) {
+        $html = $html.'<option value="'.$row['id'].'">'.$row['spe'].'</option>';
+    }
+
+    $smarty->assign('Type', $html);
+
+
     $html = '';
     while ($row = $this->ville->fetch()) {
         $html = $html.'<option value="'.$row['id'].'">'.$row['ville'].'</option>';
@@ -218,11 +227,11 @@ $smarty->assign('role', $html);
         else {
             for ($i = 0; $i < count($cand); $i++) {
                 if ($cand[$i]['id_stage'] == $row['id'] && !empty($cand[$i]['souhait'])) {
-                    $jsp ='<button id="btn_wish" onclick=deleteWish('.$row['id'].')>Déwishlister</button><br><br>';
+                    $jsp ='<button id="btn_wish" href="/Offre/deleteWishlist/'.+id_offre.'">Déwishlister</button><br><br>';
                     break;
                 }
                 else {
-                    $jsp = '<button id="btn_wish" onclick=wish('.$row['id'].')>WishList</button><br><br>';
+                    $jsp = '<button id="btn_wish" href="/Offre/wishList/'.+id_offre.'">WishList</button><br><br>';
                 }
             }
         }

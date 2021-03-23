@@ -83,33 +83,35 @@ function confirmation(id) {
     }
 }
 
-function wish(id_offre) {
-    let nom_offre = document.getElementById("nom_"+id_offre).innerHTML;
+// function wish(id_offre) {
+//     let nom_offre = document.getElementById("nom_"+id_offre).innerHTML;
+//
+//     let res = confirm("Voulez vous réelement ajouter cette offre à votre WishList : "+nom_offre+" ?");
+//
+//     if (res) {
+//         document.location.href="/Offre/wishList/"+id_offre;
+//     }
+//     document.location.href="/Offre/wishList/"+id_offre;
+// }
 
-    let res = confirm("Voulez vous réelement ajouter cette offre à votre WishList : "+nom_offre+" ?");
-
-    if (res) {
-        document.location.href="/Offre/wishList/"+id_offre;
-    }
-}
-
-function deleteWish(id_offre){
-    let nom_offre = document.getElementById("nom_"+id_offre).innerHTML;
-
-    let res = confirm("Voulez vous réelement supprimer cette offre à votre WishList : "+nom_offre+" ?");
-
-    if (res) {
-        document.location.href="/Offre/deleteWishlist/"+id_offre;
-    }
-}
+// function deleteWish(id_offre){
+//     let nom_offre = document.getElementById("nom_"+id_offre).innerHTML;
+//
+//     let res = confirm("Voulez vous réelement supprimer cette offre à votre WishList : "+nom_offre+" ?");
+//
+//     if (res) {
+//         document.location.href="/Offre/deleteWishlist/"+id_offre;
+//     }
+//     document.location.href="/Offre/deleteWishlist/"+id_offre;
+// }
 
 
-function etudiant() {
-    let role = document.getElementById("role").value;
-    let form = document.getElementById("formulaire");
-
-    if (role == 4) {
-        (form.parentElement).removeChild(form);
-    }
-}
-document.addEventListener('DOMContentLoaded', etudiant);
+// function etudiant() {
+//     let role = document.getElementById("role").value;
+//     let form = document.getElementById("formulaire");
+//
+//     if (role == 4) {
+//         (form.parentElement).removeChild(form);
+//     }
+// }
+// document.addEventListener('DOMContentLoaded', etudiant);
