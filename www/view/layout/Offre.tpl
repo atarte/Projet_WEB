@@ -2,7 +2,6 @@
 
 <body>
     {$role}
-    {$Candidature}
     <a href="/Accueil"><button>Retour</button></a>
     <br><br>
     <form action="/Offre/creation" method="post" id="formulaire">
