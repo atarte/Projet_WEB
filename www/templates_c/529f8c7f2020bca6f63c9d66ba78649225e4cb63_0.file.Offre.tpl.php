@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-22 16:04:18
+/* Smarty version 3.1.39, created on 2021-03-23 20:17:44
   from 'D:\SCOLAIRE\CESI\2eme_annee\projet\WEB\Projet_WEB\www\view\layout\Offre.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6058c002ea3989_22127360',
+  'unifunc' => 'content_605a4ce80da3f0_53486754',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '529f8c7f2020bca6f63c9d66ba78649225e4cb63' => 
     array (
       0 => 'D:\\SCOLAIRE\\CESI\\2eme_annee\\projet\\WEB\\Projet_WEB\\www\\view\\layout\\Offre.tpl',
-      1 => 1616429054,
+      1 => 1616530480,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./common/footer.tpl' => 1,
   ),
 ),false)) {
-function content_6058c002ea3989_22127360 (Smarty_Internal_Template $_smarty_tpl) {
+function content_605a4ce80da3f0_53486754 (Smarty_Internal_Template $_smarty_tpl) {
 ob_start();
 echo $_smarty_tpl->tpl_vars['title']->value;
 $_prefixVariable1 = ob_get_clean();
@@ -30,9 +30,11 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
 ?>
 
 <body>
+    <?php echo $_smarty_tpl->tpl_vars['role']->value;?>
+
     <a href="/Accueil"><button>Retour</button></a>
     <br><br>
-    <!-- <form action="/Offre/creation" method="post" id="formulaire"> -->
+    <form action="/Offre/creation" method="post" id="formulaire">
 
         Nom : <br>
         <input id="nom" type="text" name="nom" required>
@@ -61,7 +63,7 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
         <br>
 
         Ville : <br>
-        <select id="r_ville" name="ville">
+        <select id="ville" name="ville">
             <option value="">--Choisiez une ville--</option>
             <?php echo $_smarty_tpl->tpl_vars['Ville']->value;?>
 
@@ -119,12 +121,13 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
       <br>
 
       Barre de Recherche des Offres
-      <!-- <form id="recherche" action="/Offre/recherche" method="post"> -->
-          Nom :
-          <input id="r_nom" type="text" name="nom">
-
+      <form id="recherche" action="/Offre/recherche" method="post">
           Entreprise :
-          <input id="r_entreprise" type="text" name="entreprise">
+          <select id="r_entreprise" name="entreprise" >
+              <option value="">--Choississez une entreprise--</option>
+              <?php echo $_smarty_tpl->tpl_vars['Entreprise']->value;?>
+
+          </select>
 
           Ville :
           <select id="r_ville" name="ville">
@@ -133,16 +136,41 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
 
           </select>
 
+          Compétences :
+          <select id="r_competence" name="competence">
+              <option value="">--Choisiez le(s) Compétence(s)--</option>
+              <?php echo $_smarty_tpl->tpl_vars['Competence']->value;?>
+
+          </select>
+
+          Durée :
+          <select id="r_durer" name="durer">
+              <option value="">--Choisiez la Durée de votre stage--</option>
+              <?php echo $_smarty_tpl->tpl_vars['Durer']->value;?>
+
+          </select>
+
+          Rémunération :
+          <select id="r_remuneration" name="remuneration">
+              <option value="">--Choisiez le(s) Compétence(s)--</option>
+              <option value="0"> Non rémunéré </option>
+              <option value="100"> > 100 </option>
+              <option value="300"> > 300 </option>
+              <option value="500"> > 500 </option>
+              <option value="700"> > 700 </option>
+              <option value="1000"> > 1000 </option>
+          </select>
+
           <input id="r_submit" type="submit" value="Rechercher">
       </form>
-      <a href="/Pilote"><button>X</button></a><br><br>
+      <a href="/Offre"><button>X</button></a><br><br>
 
         <?php echo $_smarty_tpl->tpl_vars['Offre']->value;?>
 
 
       <div>
-          <!-- <?php echo (($tmp = @$_smarty_tpl->tpl_vars['pagination']->value)===null||$tmp==='' ? '' : $tmp);?>
- -->
+          <?php echo (($tmp = @$_smarty_tpl->tpl_vars['pagination']->value)===null||$tmp==='' ? '' : $tmp);?>
+
       </div>
 
       <?php echo '<script'; ?>
