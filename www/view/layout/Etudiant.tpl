@@ -1,94 +1,133 @@
 {include file="./common/header.tpl" title={$title}}
 
+<link rel="stylesheet" href="http://static.projet.com/css/Etudiant.css">
+
 <body>
+<main class="container">
     <a href="/Accueil"><button>Retour</button></a>
 
-    {$erreur|default:''}
 
-    <!-- création étudiant -->
-    Barre de Creation/Modification des étudiants
-    <form id="formulaire" action="/Etudiant/creation" method="post">
-        nom :
-        <input id="nom" type="text" name="nom" required>
+    <div class="row justify-content-between">
+        <article class="col">
 
-        Prenom :
-        <input id="prenom" type="text" name="prenom" required>
+            <!-- création étudiant -->
+            <fieldset class="field">
+                <legend id="legend_form">Création d'étudiant</legend>
 
-        email :
-        <input id="email" type="email" name="email" required>
+                <form id="formulaire" action="/Etudiant/creation" method="post">
+                    <div class="container">
+                        <div class="row justify-content-center p-1">
+                            <!-- nom : -->
+                            <input id="nom" type="text" name="nom" placeholder="Nom" required>
+                        </div>
+                        <div class="row justify-content-center p-1">
+                            <!-- Prenom : -->
+                            <input id="prenom" type="text" name="prenom" placeholder="Prenom" required>
+                        </div>
+                        <div class="row justify-content-center p-1">
+                            <!-- errur : -->
+                            {$erreur|default:''}
+                        </div>
+                        <div class="row justify-content-center p-1">
+                            <!-- email : -->
+                            <input id="email" type="email" name="email" placeholder="Email" required>
+                        </div>
+                        <div class="row justify-content-center p-1">
+                            <span id="pwd_div">
+                                <!-- password : -->
+                                <input "pwd" type="password" name="pwd" placeholder="Password" required>
+                            </span>
+                        </div>
+                        <div class="row justify-content-center p-1">
+                            <!-- pilote : -->
+                            <select id="pilote" name="pilote" required>
+                                <option value="">Choisiez un pilote</option>
+                                {$pilote}
+                            </select>
+                        </div>
+                        <div class="row justify-content-center p-1">
+                        <!-- promotion : -->
+                            <select id="promotion" name="promotion" required>
+                                <option value="">Choisiez une promotion</option>
+                                {$promotion}
+                            </select>
+                        </div>
+                        <div class="row justify-content-center p-1">
+                        <!-- spécialité : -->
+                            <select id="specialite" name="specialite" required>
+                                <option value="">Choisiez une spécialité</option>
+                                {$specialite}
+                            </select>
+                        </div>
+                        <div class="row justify-content-center p-1">
+                            <input id="submit" type="submit" value="Créer">
+                        </div>
+                </form>
 
-        <span id="pwd_div">
-            password :
-            <input "pwd" type="password" name="pwd" required>
-        </span>
+                        <div class="row justify-content-center p-1">
+                            <span id="annuler">
+                            </span>
+                        </div>
+                    </div>
+            </fieldset>
+        </article>
 
-        pilote :
-        <select id="pilote" name="pilote" required>
-            <option value="">Choisiez un pilote</option>
-            {$pilote}
-        </select>
+        <article class="col">
+            <!-- Recherche Etudiant -->
+            <fieldset class="field">
+                <legend>Liste des étudiants</legend>
+                <div class="">
+                    <form id="recherche" action="/Etudiant/recherche" method="post">
+                        <!-- nom : -->
+                        <input id="r_nom" type="text" name="nom" placeholder="Nom">
 
-        promotion :
-        <select id="promotion" name="promotion" required>
-            <option value="">Choisiez une promotion</option>
-            {$promotion}
-        </select>
+                        <!-- prenom : -->
+                        <input id="r_prenom" type="text" name="prenom" placeholder="Prenom">
 
-        spécialité :
-        <select id="specialite" name="specialite" required>
-            <option value="">Choisiez une spécialité</option>
-            {$specialite}
-        </select>
+                        <!-- pilote : -->
+                        <select id="r_pilote" name="pilote">
+                            <option value="">Choisiez un pilote</option>
+                            {$pilote}
+                        </select>
 
-        <input id="submit" type="submit" value="Créer">
-    </form>
+                        <!-- promotion : -->
+                        <select id="r_promotion" name="promotion">
+                            <option value="">Choisiez une promotion</option>
+                            {$promotion}
+                        </select>
 
-    <div id="annuler">
+                        <!-- spécialité : -->
+                        <select id="r_specialite" name="specialite">
+                            <option value="">Choisiez une spécialité</option>
+                            {$specialite}
+                        </select>
+
+                        <!-- centre : -->
+                        <select id="r_centre" name="centre">
+                            <option value="">Choisiez un centre</option>
+                            {$centre}
+                        </select>
+
+                        <input id="r_submit" type="submit" value="Rechercher">
+                    </form>
+                    <a href="/Etudiant"><button>X</button></a>
+                </div>
+
+                <!-- Affichage : -->
+                <div class="page">
+                    {$pagination|default:""}
+                </div>
+
+                <div class="">
+                    {$etudiant}
+                </div>
+            </fieldset>
+        </article>
+
     </div>
+</main>
 
-    <!-- Recherche Etudiant -->
-    Barre de Recherche des étudiants
-    <form id="recherche" action="/Etudiant/recherche" method="post">
-        nom :
-        <input id="r_nom" type="text" name="nom">
 
-        prenom :
-        <input id="r_prenom" type="text" name="prenom">
-
-        pilote :
-        <select id="r_pilote" name="pilote">
-            <option value="">Choisiez un pilote</option>
-            {$pilote}
-        </select>
-
-        promotion :
-        <select id="r_promotion" name="promotion">
-            <option value="">Choisiez une promotion</option>
-            {$promotion}
-        </select>
-
-        spécialité :
-        <select id="r_specialite" name="specialite">
-            <option value="">Choisiez une spécialité</option>
-            {$specialite}
-        </select>
-
-        centre :
-        <select id="r_centre" name="centre">
-            <option value="">Choisiez un centre</option>
-            {$centre}
-        </select>
-
-        <input id="r_submit" type="submit" value="Rechercher">
-    </form>
-    <a href="/Etudiant"><button>X</button></a>
-
-    <!-- Affichage : -->
-    {$etudiant}
-
-    <div>
-        {$pagination|default:""}
-    </div>
 
     <script src="/public/js/Etudiant.js" charset="utf-8"></script>
 </body>
