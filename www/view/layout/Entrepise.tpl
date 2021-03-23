@@ -57,7 +57,7 @@
                 
     </form>
     
-    <script src="./asset/js/facture.js"></script>
+    <script src="./asset/js/entreprise.js"></script>
 </body>
 
 {include file="./common/footer.tpl"}
