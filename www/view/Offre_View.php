@@ -227,11 +227,11 @@ $smarty->assign('role', $html);
         else {
             for ($i = 0; $i < count($cand); $i++) {
                 if ($cand[$i]['id_stage'] == $row['id'] && !empty($cand[$i]['souhait'])) {
-                    $jsp ='<button id="btn_wish" href="/Offre/deleteWishlist/'.+id_offre.'">Déwishlister</button><br><br>';
+                    $jsp ='<button id="btn_wish" href="/Offre/deleteWishlist/'.$row['id'].'">Déwishlister</button><br><br>';
                     break;
                 }
                 else {
-                    $jsp = '<button id="btn_wish" href="/Offre/wishList/'.+id_offre.'">WishList</button><br><br>';
+                    $jsp = '<button id="btn_wish" href="/Offre/wishList/'.$row['id'].'">WishList</button><br><br>';
                 }
             }
         }
