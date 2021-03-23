@@ -20,7 +20,7 @@ class Entreprise extends Controler {
 
         $this->p = 1;
 
-        $this->stagiaire= $this->Entreprise_Model->getStagiaire();
+        $this->stagiaire= $this->Entreprise_Model->getNombre_Accepter();
         $this->secteur = $this->Entreprise_Model->getSecteur();
         
     }
