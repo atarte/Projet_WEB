@@ -87,3 +87,35 @@ function PropositionRegion() {
         region.value = '';
     }
 };
+
+
+
+
+function annuler() {
+    document.getElementById("nom").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("adresse").value = "";
+    document.getElementById("codePostal").value = "";
+    document.getElementById("ville").value = "";
+    document.getElementById("region").value = "";
+    document.getElementById("stagiaire").value = "";
+    document.getElementById('secteur').selectedIndex = 0;
+
+    document.getElementById("formulaire").action = "/Entreprise/creation";
+
+    document.getElementById("submit").value = "Créer";
+
+    document.getElementById("annuler").innerHTML = "";
+}
+
+
+function confirmation(id) {
+    let nom = document.getElementById("nom_"+id).innerHTML;
+    let adresse = document.getElementById("adresse_"+id).innerHTML;
+
+    let res = confirm("Voulez vous réelement supprimer cette Entreprise : "+nom+" "+adresse+" ?");
+
+    if (res) {
+        document.location.href="/Entreprise/suppression/"+id;
+    }
+}
