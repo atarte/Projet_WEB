@@ -1,7 +1,13 @@
 <?php
 
 class Entreprise extends Controler {
-    public $entreprise;
+    public $nom;
+    public $email; 
+    public $adresse;
+    public $codePostal;
+    public $ville;
+    public $region;
+    public $stagiaire;
     public $secteur;
 
     public $err;
