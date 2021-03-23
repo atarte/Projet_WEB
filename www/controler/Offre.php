@@ -7,6 +7,7 @@ class Offre extends Controler {
     public $offre;
     public $competence;
     public $durer;
+    public $wish;
 
     public $err;
     public $p;
@@ -22,6 +23,7 @@ class Offre extends Controler {
         $this->entreprise = $this->Offre_Model->getEntreprise();
         $this->competence = $this->Offre_Model->getCompetence();
         $this->durer = $this->Offre_Model->getDurer();
+        $this->wish = $this->Offre_Model->getWishlist();
     }
 
 
@@ -65,6 +67,15 @@ class Offre extends Controler {
         $this->offre = $this->Offre_Model->search();
 
         $this->p = 0;
+
+        require_once(ROOT.'view/Offre_View.php');
+    }
+
+
+    public function wishList(int $id) {
+        $this->offre = $this->Offre_Model->addWish($id);
+
+        $this->affichage();
 
         require_once(ROOT.'view/Offre_View.php');
     }

@@ -83,11 +83,21 @@ function confirmation(id) {
     }
 }
 
+function wish(id_offre) {
+    let nom_offre = document.getElementById("nom_"+id_offre).innerHTML;
+
+    let res = confirm("Voulez vous réelement ajouter cette offre à votre WishList : "+nom_offre+" ?");
+
+    if (res) {
+        document.location.href="/Offre/wishList/"+id_offre;
+    }
+}
+
 function etudiant() {
-    let id_user = document.getElementById("id_user").value;
+    let role = document.getElementById("role").value;
     let form = document.getElementById("formulaire");
 
-    if (id_user == 4) {
+    if (role == 4) {
         (form.parentElement).removeChild(form);
     }
 }

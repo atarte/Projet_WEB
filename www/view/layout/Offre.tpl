@@ -1,7 +1,7 @@
 {include file="./common/header.tpl" title={$title}}
 
 <body>
-    {$id_user}
+    {$role}
     <a href="/Accueil"><button>Retour</button></a>
     <br><br>
     <form action="/Offre/creation" method="post" id="formulaire">

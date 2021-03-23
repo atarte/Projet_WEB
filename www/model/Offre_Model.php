@@ -80,6 +80,21 @@ Class Offre_Model extends Model {
     }
 
 
+    public function getWishlist() {
+
+        $this->getConnexion();
+
+        $req = "SELECT Candidature.Id_Stage AS id_stage, Candidature.Id_Users AS id_user, Candidature.Souhait AS souhait FROM Candidature;";
+
+        $query = $this->db->prepare($req);
+
+        $query->execute();
+
+        return $query;
+
+    }
+
+
     public function displayOffre(int $p) {
         $req = "CALL Affichage_Offre(:p)";
 
@@ -270,5 +285,19 @@ Class Offre_Model extends Model {
 
         return $query;
 
+    }
+
+
+    public function addWish(int $id) {
+        $req = "CALL Creation_Wishlist(:id_user, :id_offre)";
+
+        $query = $this->db->prepare($req);
+
+        $query->bindParam(':id_user', $_SESSION['id']);
+        $query->bindParam(':id_offre', $id);
+
+        $query->execute();
+
+        return $query;
     }
 }

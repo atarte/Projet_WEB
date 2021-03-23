@@ -4,8 +4,8 @@ $smarty = new Smarty;
 
 $smarty->assign('title', 'Gestion Offre');
 
-$html = '<input type="hidden" id="id_user" value="'.$_SESSION['role'].'">';
-$smarty->assign('id_user', $html);
+$html = '<input type="hidden" id="role" value="'.$_SESSION['role'].'">';
+$smarty->assign('role', $html);
 
 if ($_SESSION['role'] == "1" || $_SESSION['role'] == "2" || ($_SESSION['role'] == "3" && $_SESSION['deleg']['offre'] == "1")) {
     $html = '';
@@ -83,6 +83,8 @@ if ($_SESSION['role'] == "1" || $_SESSION['role'] == "2" || ($_SESSION['role'] =
 
     $smarty->assign('Offre',$html);
 
+
+
     if (isset($this->err)) {
         if ($$this->err == 1) {
             $smarty->assign('erreur', 'Email déjà utilisé pour un autre compte');
@@ -90,6 +92,8 @@ if ($_SESSION['role'] == "1" || $_SESSION['role'] == "2" || ($_SESSION['role'] =
         else {
         }
     }
+
+
 
 
     $page  = $this->p;
@@ -151,7 +155,7 @@ elseif ($_SESSION['role'] == "4") {
     $i = 0;
 
     while ($row = $this->offre->fetch()) {
-        $html = $html.'<div id="'.$row["id"].'">';
+        $html = $html.'<div id=id_"'.$row['id'].'">';
 
         $html = $html.' Nom : <span id="nom_'.$row['id'].'">'.$row['nom'].'</span><br>';
 
@@ -163,7 +167,7 @@ elseif ($_SESSION['role'] == "4") {
 
         $html = $html.' Spécialité : <span id="specialite_'.$row['id'].'">'.$row['specialite'].'</span><br>';
 
-        $html = $html.'Compétence(s) : <span id="competences_'.$row['id'].'">'.$row['competence'].'</span><br>';
+        $html = $html.' Compétence(s) : <span id="competences_'.$row['id'].'">'.$row['competence'].'</span><br>';
 
         $html = $html.' Nombres de place(s) : <span id="nb_'.$row['id'].'">'.$row['nb_place'].'</span><br>';
 
@@ -175,12 +179,18 @@ elseif ($_SESSION['role'] == "4") {
 
         $html = $html.'<button onclick=postuler('.$row['id'].')>Postuler</button>';
 
-        $html = $html.'<button onclick=wish('.$row['id'].')>WishList</button><br><br>';
-
+        while ($wi = $this->wish->fetch()) {
+            if (($_SESSION['id'] != $wi['id_user']) && ($wi['id_stage'] != $row['id']) && $wi['souhait'] == "") {
+                $html = $html.'<button onclick=wish('.$row['id'].')>WishList</button><br><br>';
+            }
+            else if(($_SESSION['id'] == $wi['id_user']) && ($wi['id_stage'] == $row['id']) && $wi['souhait'] == "") {
+                $html = $html.'<button>DéWishLister</button><br><br>';
+            }
+        }
         $html = $html.'<br></div>';
-
     }
     $smarty->assign('Offre',$html);
+
 
     $page  = $this->p;
     $pageBack = $page -1;

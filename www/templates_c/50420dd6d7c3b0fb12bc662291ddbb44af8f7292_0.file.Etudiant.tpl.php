@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-23 11:57:51
+/* Smarty version 3.1.39, created on 2021-03-23 16:18:42
   from 'C:\Users\catar\Documents\CESI\A2\4 - Web\Projet\Projet_WEB\www\view\layout\Etudiant.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6059d7bf403478_75589847',
+  'unifunc' => 'content_605a14e242a3b1_65146557',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '50420dd6d7c3b0fb12bc662291ddbb44af8f7292' => 
     array (
       0 => 'C:\\Users\\catar\\Documents\\CESI\\A2\\4 - Web\\Projet\\Projet_WEB\\www\\view\\layout\\Etudiant.tpl',
-      1 => 1616499639,
+      1 => 1616516317,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./common/footer.tpl' => 1,
   ),
 ),false)) {
-function content_6059d7bf403478_75589847 (Smarty_Internal_Template $_smarty_tpl) {
+function content_605a14e242a3b1_65146557 (Smarty_Internal_Template $_smarty_tpl) {
 ob_start();
 echo $_smarty_tpl->tpl_vars['title']->value;
 $_prefixVariable1 = ob_get_clean();
@@ -33,8 +33,9 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
 
 <body>
 <main class="container">
-    <a href="/Accueil"><button>Retour</button></a>
-
+    <nav>
+        <a href="/Accueil"><button>Retour</button></a>
+    </nav>
 
     <div class="row justify-content-between">
         <article class="col">
@@ -43,7 +44,7 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
             <fieldset class="field">
                 <legend id="legend_form">Création d'étudiant</legend>
 
-                <form id="formulaire" action="/Etudiant/creation" method="post">
+                <form id="formulaire" class="form" action="/Etudiant/creation" method="post">
                     <div class="container">
                         <div class="row justify-content-center p-1">
                             <!-- nom : -->
@@ -53,7 +54,7 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
                             <!-- Prenom : -->
                             <input id="prenom" type="text" name="prenom" placeholder="Prenom" required>
                         </div>
-                        <div class="row justify-content-center p-1">
+                        <div class="row justify-content-center">
                             <!-- errur : -->
                             <?php echo (($tmp = @$_smarty_tpl->tpl_vars['erreur']->value)===null||$tmp==='' ? '' : $tmp);?>
 
@@ -106,9 +107,10 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
         </article>
 
         <article class="col">
-            <!-- Recherche Etudiant -->
             <fieldset class="field">
                 <legend>Liste des étudiants</legend>
+
+                <!-- Recherche Etudiant -->
                 <div class="">
                     <form id="recherche" action="/Etudiant/recherche" method="post">
                         <!-- nom : -->
@@ -146,8 +148,12 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
                         </select>
 
                         <input id="r_submit" type="submit" value="Rechercher">
+
+                        <span id="close">
+                            <?php echo (($tmp = @$_smarty_tpl->tpl_vars['close']->value)===null||$tmp==='' ? '' : $tmp);?>
+
+                        </span>
                     </form>
-                    <a href="/Etudiant"><button>X</button></a>
                 </div>
 
                 <!-- Affichage : -->

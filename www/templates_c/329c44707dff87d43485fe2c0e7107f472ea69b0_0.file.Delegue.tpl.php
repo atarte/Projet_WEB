@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-22 15:03:26
+/* Smarty version 3.1.39, created on 2021-03-23 14:56:03
   from 'C:\Users\catar\Documents\CESI\A2\4 - Web\Projet\Projet_WEB\www\view\layout\Delegue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6058b1be9a76f3_61937608',
+  'unifunc' => 'content_605a0183656428_91087131',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '329c44707dff87d43485fe2c0e7107f472ea69b0' => 
     array (
       0 => 'C:\\Users\\catar\\Documents\\CESI\\A2\\4 - Web\\Projet\\Projet_WEB\\www\\view\\layout\\Delegue.tpl',
-      1 => 1616365211,
+      1 => 1616511330,
       2 => 'file',
     ),
   ),
@@ -22,81 +22,120 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./common/footer.tpl' => 1,
   ),
 ),false)) {
-function content_6058b1be9a76f3_61937608 (Smarty_Internal_Template $_smarty_tpl) {
+function content_605a0183656428_91087131 (Smarty_Internal_Template $_smarty_tpl) {
 ob_start();
 echo $_smarty_tpl->tpl_vars['title']->value;
 $_prefixVariable1 = ob_get_clean();
 $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('title'=>$_prefixVariable1), 0, false);
 ?>
 
+<link rel="stylesheet" href="http://static.projet.com/css/Delegue.css">
+
 <body>
+<main class="container">
     <a href="/Accueil"><button>Retour</button></a>
 
-    <?php echo (($tmp = @$_smarty_tpl->tpl_vars['erreur']->value)===null||$tmp==='' ? '' : $tmp);?>
+    <div class="row justify-content-between">
+        <article class="col">
 
+            <!-- création étudiant -->
+            <fieldset class="field">
+                <legend id="legend_form">Création de délégué</legend>
 
-    <!-- création étudiant -->
-    Barre de Creation/Modification des Delegue
-    <form id="formulaire" action="/Delegue/creation" method="post">
-        nom :
-        <input id="nom" type="text" name="nom" required>
+                <form id="formulaire" class="form" action="/Delegue/creation" method="post">
+                    <div class="container">
+                        <div class="row justify-content-center p-1">
+                            <!-- nom : -->
+                            <input id="nom" type="text" name="nom" placeholder="Nom" required>
+                        </div>
+                        <div class="row justify-content-center p-1">
+                            <!-- Prenom : -->
+                            <input id="prenom" type="text" name="prenom" placeholder="Prenom" required>
+                        </div>
+                        <div class="row justify-content-center">
+                            <!-- errur : -->
+                            <?php echo (($tmp = @$_smarty_tpl->tpl_vars['erreur']->value)===null||$tmp==='' ? '' : $tmp);?>
 
-        prenom :
-        <input id="prenom" type="text" name="prenom" required>
+                        </div>
+                        <div class="row justify-content-center p-1">
+                            <!-- email : -->
+                            <input id="email" type="email" name="email" placeholder="Email" required>
+                        </div>
+                        <div class="row justify-content-center p-1">
+                            <span id="pwd_div">
+                                <!-- password : -->
+                                <input "pwd" type="password" name="pwd" placeholder="Password" required>
+                            </span>
+                        </div>
+                        <div class="row justify-content-center p-1">
+                            gestion Entreprise :
+                            <input id="entreprise" type="checkbox" name="gestion[]" value="entreprise">
+                        </div>
+                        <div class="row justify-content-center p-1">
+                            gestion Offre :
+                            <input id="offre" type="checkbox" name="gestion[]" value="offre">
+                        </div>
+                        <div class="row justify-content-center p-1">
+                            gestion Pilote :
+                            <input id="pilote" type="checkbox" name="gestion[]" value="pilote">
+                        </div>
+                        <div class="row justify-content-center p-1">
+                            gestion Délégué :
+                            <input id="delegue" type="checkbox" name="gestion[]" value="delegue">
+                        </div>
+                        <div class="row justify-content-center p-1">
+                            gestion Etudiant :
+                            <input id="etudiant" type="checkbox" name="gestion[]" value="etudiant">
+                        </div>
+                        <div class="row justify-content-center p-1">
+                            gestion Candidature :
+                            <input id="candidature" type="checkbox" name="gestion[]" value="candidature">
+                        </div>
+                        <div class="row justify-content-center p-1">
+                            <input id="submit" type="submit" value="Créer">
+                        </div>
 
-        email :
-        <input id="email" type="email" name="email" required>
+                </form>
+                        <div class="row justify-content-center p-1">
+                            <span id="annuler">
+                            </span>
+                        </div>
+                    </div>
+            </fieldset>
+        </article>
 
-        <span id="pwd_div">
-            password :
-            <input "pwd" type="password" name="pwd" required>
-        </span>
+        <article class="col">
+            <fieldset class="field">
+                <legend>Liste des délégués</legend>
 
-        gestion Entreprise :
-        <input id="entreprise" type="checkbox" name="gestion[]" value="entreprise">
+                <!-- Recherche Etudiant -->
+                <div class="">
+                    <form id="recherche" action="/Delegue/recherche" method="post">
+                        <!-- nom : -->
+                        <input id="r_nom" type="text" name="nom" placeholder="Nom">
 
-        gestion Offre :
-        <input id="offre" type="checkbox" name="gestion[]" value="offre">
+                        <!-- Prenom : -->
+                        <input id="r_prenom" type="text" name="prenom" placeholder="Prenom">
 
-        gestion Pilote :
-        <input id="pilote" type="checkbox" name="gestion[]" value="pilote">
+                        <input id="r_submit" type="submit" value="Rechercher">
+                    </form>
+                    <a href="/Delegue"><button>X</button></a>
+                </div>
 
-        gestion Délégué :
-        <input id="delegue" type="checkbox" name="gestion[]" value="delegue">
+                <!-- Affichage : -->
+                <div class="page">
+                    <?php echo (($tmp = @$_smarty_tpl->tpl_vars['pagination']->value)===null||$tmp==='' ? '' : $tmp);?>
 
-        gestion Etudiant :
-        <input id="etudiant" type="checkbox" name="gestion[]" value="etudiant">
+                </div>
 
-        gestion Candidature :
-        <input id="candidature" type="checkbox" name="gestion[]" value="candidature">
+                <div>
+                    <?php echo $_smarty_tpl->tpl_vars['delegue']->value;?>
 
-        <input id="submit" type="submit" value="Créer">
-    </form>
-
-    <div id="annuler">
+                </div>
+            </fieldset>
+        </article>
     </div>
-
-    <!-- Recherche Etudiant -->
-    Barre de Recherche des Delegue
-    <form id="recherche" action="/Delegue/recherche" method="post">
-        nom :
-        <input id="r_nom" type="text" name="nom">
-
-        Prenom :
-        <input id="r_prenom" type="text" name="prenom">
-
-        <input id="r_submit" type="submit" value="Rechercher">
-    </form>
-    <a href="/Delegue"><button>X</button></a>
-
-    <!-- Affichage : -->
-    <?php echo $_smarty_tpl->tpl_vars['delegue']->value;?>
-
-
-    <div>
-        <?php echo (($tmp = @$_smarty_tpl->tpl_vars['pagination']->value)===null||$tmp==='' ? '' : $tmp);?>
-
-    </div>
+</main>
 
     <?php echo '<script'; ?>
  src="/public/js/Delegue.js" charset="utf-8"><?php echo '</script'; ?>
