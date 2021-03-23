@@ -185,3 +185,4 @@ Class Entreprise_Model extends Model {
 
         return $query;
     }
+   }
