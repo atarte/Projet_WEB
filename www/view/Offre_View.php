@@ -159,6 +159,8 @@ elseif ($_SESSION['role'] == "4") {
 
     $smarty->assign('Durer', $html);
 
+    $cand = $this->wish->fetchAll();
+    print_r($cand);
 
     $html = '';
     $i = 0;
