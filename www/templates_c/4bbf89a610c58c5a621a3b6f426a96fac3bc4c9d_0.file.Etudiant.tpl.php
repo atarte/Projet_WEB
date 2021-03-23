@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-23 11:13:30
+/* Smarty version 3.1.39, created on 2021-03-23 11:55:49
   from 'D:\SCOLAIRE\CESI\2eme_annee\projet\WEB\Projet_WEB\www\view\layout\Etudiant.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6059cd5a30aa00_35968728',
+  'unifunc' => 'content_6059d74546cf15_78630072',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4bbf89a610c58c5a621a3b6f426a96fac3bc4c9d' => 
     array (
       0 => 'D:\\SCOLAIRE\\CESI\\2eme_annee\\projet\\WEB\\Projet_WEB\\www\\view\\layout\\Etudiant.tpl',
-      1 => 1616498006,
+      1 => 1616500547,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./common/footer.tpl' => 1,
   ),
 ),false)) {
-function content_6059cd5a30aa00_35968728 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6059d74546cf15_78630072 (Smarty_Internal_Template $_smarty_tpl) {
 ob_start();
 echo $_smarty_tpl->tpl_vars['title']->value;
 $_prefixVariable1 = ob_get_clean();
@@ -43,7 +43,7 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
             <fieldset class="field">
                 <legend id="legend_form">Création d'étudiant</legend>
 
-                <form id="formulaire" action="/Etudiant/creation" method="post">
+                <form id="formulaire" class="form" action="/Etudiant/creation" method="post">
                     <div class="container">
                         <div class="row justify-content-center p-1">
                             <!-- nom : -->
@@ -53,7 +53,7 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
                             <!-- Prenom : -->
                             <input id="prenom" type="text" name="prenom" placeholder="Prenom" required>
                         </div>
-                        <div class="row justify-content-center p-1">
+                        <div class="row justify-content-center">
                             <!-- errur : -->
                             <?php echo (($tmp = @$_smarty_tpl->tpl_vars['erreur']->value)===null||$tmp==='' ? '' : $tmp);?>
 

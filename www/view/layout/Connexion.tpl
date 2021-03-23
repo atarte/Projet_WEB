@@ -1,22 +1,36 @@
 {include file="./common/header.tpl" title={$title}}
 
-<header>
-    {$erreur|default:""}
-</header>
+<link rel="stylesheet" href="http://static.projet.com/css/Connexion.css">
+
 <body>
 
-    <form action="/connexion/verification" method="POST">
+<main class="connexion aff">
+    <div class="aff">
         <fieldset>
             <legend>Connexion</legend>
-            Identifiant :
-            <input type="text" name="user" required>
 
-            Mot de passe :
-            <input type="password" name="pwd" required>
-
-            <input type="submit" value="Connexion">
+            <form action="/connexion/verification" method="POST">
+                <div class="container">
+                    <div class="row justify-content-center p-1">
+                        <!-- errur : -->
+                        {$erreur|default:''}
+                    </div>
+                    <div class="row justify-content-center">
+                        <!-- Identifiant : -->
+                        <input type="text" name="user" placeholder="Email" required>
+                    </div>
+                    <div class="row justify-content-center p-1">
+                        <!-- Mot de passe : -->
+                        <input type="password" name="pwd" placeholder="Password" required>
+                    </div>
+                    <div class="row justify-content-center p-1">
+                        <input type="submit" value="Connexion">
+                    </div>
+                </div>
+            </form>
         </fieldset>
-    </form>
+    </div>
+</main>
 
 </body>
 
