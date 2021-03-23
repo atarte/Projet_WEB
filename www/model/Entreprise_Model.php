@@ -185,4 +185,17 @@ Class Entreprise_Model extends Model {
 
         return $query;
     }
+	
+	public function getStagiaire() {
+
+    $this->getConnexion();
+
+   $req = "SELECT Id_Entreprise AS id, Stagiaire FROM Entreprise ORDER BY Entreprise";
+
+   $query = $this->db->prepare($req);
+
+    $query->execute();
+
+  return $query;
+}
    }
