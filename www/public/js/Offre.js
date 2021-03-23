@@ -82,3 +82,13 @@ function confirmation(id) {
         document.location.href="/Offre/suppression/"+id;
     }
 }
+
+function etudiant() {
+    let id_user = document.getElementById("id_user").value;
+    let form = document.getElementById("formulaire");
+
+    if (id_user == 4) {
+        (form.parentElement).removeChild(form);
+    }
+}
+document.addEventListener('DOMContentLoaded', etudiant);

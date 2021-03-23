@@ -1,15 +1,14 @@
 <?php
 
 Class Offre_Model extends Model {
-    public $reception;
 
     public function __construct() {
         // verification que l'utilisateur à bien le droit d'accédé à cette page
 
-        // if (($_SESSION['role'] == "3" && $_SESSION['deleg']['offre'] == "1") || ($_SESSION['role'] == "2") || ($_SESSION['role'] == "1")) {
-        //     header("location: /");
-        // }
-        $this->reception = array();
+        if (($_SESSION['role'] == "3" && $_SESSION['deleg']['offre'] != "1")) {
+            session_unset();
+            header("location: /");
+        }
     }
 
     public function getType() {

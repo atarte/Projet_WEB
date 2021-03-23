@@ -10,7 +10,7 @@ if ($_SESSION['role'] == "1" || $_SESSION['role'] == "2" || $_SESSION['role'] ==
     $html = $html.'<a href="/Entreprise"><button>Gestion Entreprise</button></a><br>';
 }
 
-if ($_SESSION['role'] == "1" || $_SESSION['role'] == "2" || ($_SESSION['role'] == "3" && $_SESSION['deleg']['offre'] == "1")) {
+if ($_SESSION['role'] == "4" || $_SESSION['role'] == "1" || $_SESSION['role'] == "2" || ($_SESSION['role'] == "3" && $_SESSION['deleg']['offre'] == "1")) {
     $html = $html.'<a href="/Offre"><button>Gestion Offre</button></a><br>';
 }
 
