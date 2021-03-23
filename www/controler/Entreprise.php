@@ -20,6 +20,10 @@ class Entreprise extends Controler {
 
         $this->p = 1;
 
+        $this->secteur = $this->Entreprise_Model->getNom();
+        $this->secteur = $this->Entreprise_Model->getAdresse();
+        $this->secteur = $this->Entreprise_Model->getVille();
+        $this->secteur = $this->Entreprise_Model->getRegion();
         $this->secteur = $this->Entreprise_Model->getSecteur();
     }
 
