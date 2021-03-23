@@ -130,78 +130,81 @@ $smarty->assign('role', $html);
 // }
 //if ($_SESSION['role'] == "4") {
 
-    $html = '';
-    while ($row = $this->type_promo->fetch()) {
-        $html = $html.'<option value="'.$row['id'].'">'.$row['spe'].'</option>';
-    }
+// Affichage des Spécialité
+$html = '';
+while ($row = $this->type_promo->fetch()) {
+    $html = $html.'<option value="'.$row['id'].'">'.$row['spe'].'</option>';
+}
 
-    $smarty->assign('Type', $html);
+$smarty->assign('Type', $html);
+
+// Affichage des Villes
+$html = '';
+while ($row = $this->ville->fetch()) {
+    $html = $html.'<option value="'.$row['id'].'">'.$row['ville'].'</option>';
+}
+
+$smarty->assign('Ville', $html);
+
+// Affichage des Entreprises
+$html = '';
+while ($row = $this->entreprise->fetch()) {
+    $html = $html.'<option value="'.$row['id'].'">'.$row['entreprise'].'</option>';
+}
+
+$smarty->assign('Entreprise', $html);
+
+// Affichage des Compétences
+$html = '';
+while ($row = $this->competence->fetch()) {
+    $html = $html.'<option value="'.$row['competence'].'">'.$row['competence'].'</option>';
+}
+
+$smarty->assign('Competence', $html);
+
+// Affichage des durées de stage
+$html = '';
+while ($row = $this->durer->fetch()) {
+    $html = $html.'<option value="'.$row['durer'].'">'.$row['durer'].'</option>';
+}
+
+$smarty->assign('Durer', $html);
+
+// Appel des Souhaits
+$cand = $this->wish->fetchAll();
+
+//print_r($cand);
+
+// Affichage des Offres
+$html = '';
+$i = 0;
+
+while ($row = $this->offre->fetch()) {
+    $html = $html.'<div id=id_"'.$row['id'].'">';
+
+    $html = $html.'<input type="hidden" id="id_offre" value="'.$row['id'].'">';
+
+    $html = $html.' Nom : <span id="nom_'.$row['id'].'">'.$row['nom'].'</span><br>';
+
+    $html = $html.' Entreprise : <span id="entreprise_'.$row['id'].'">'.$row['entreprise'].'</span><br>';
+
+    $html = $html.' Ville : <span id="ville_'.$row['id'].'">'.$row['ville'].'</span><br>';
+
+    $html = $html.' Durée : <span id="duree_'.$row['id'].'">'.$row['stage'].'</span><br>';
+
+    $html = $html.' Spécialité : <span id="specialite_'.$row['id'].'">'.$row['specialite'].'</span><br>';
+
+    $html = $html.' Compétence(s) : <span id="competences_'.$row['id'].'">'.$row['competence'].'</span><br>';
+
+    $html = $html.' Nombres de place(s) : <span id="nb_'.$row['id'].'">'.$row['nb_place'].'</span><br>';
+
+    $html = $html.' Rémunération (mensuelle) : <span id="remuneration_'.$row['id'].'">'.$row['remuneration'].' €</span><br>';
+
+    $html = $html.' Date de dépôt : <span id="date_'.$row['id'].'">'.$row['date_offre'].'</span><br>';
+
+    $html = $html.' Email : <span id="email_'.$row['id'].'">'.$row['email'].'</span><br>';
 
 
-    $html = '';
-    while ($row = $this->ville->fetch()) {
-        $html = $html.'<option value="'.$row['id'].'">'.$row['ville'].'</option>';
-    }
-
-    $smarty->assign('Ville', $html);
-
-
-    $html = '';
-    while ($row = $this->entreprise->fetch()) {
-        $html = $html.'<option value="'.$row['id'].'">'.$row['entreprise'].'</option>';
-    }
-
-    $smarty->assign('Entreprise', $html);
-
-
-    $html = '';
-    while ($row = $this->competence->fetch()) {
-        $html = $html.'<option value="'.$row['competence'].'">'.$row['competence'].'</option>';
-    }
-
-    $smarty->assign('Competence', $html);
-
-    $html = '';
-    while ($row = $this->durer->fetch()) {
-        $html = $html.'<option value="'.$row['durer'].'">'.$row['durer'].'</option>';
-    }
-
-    $smarty->assign('Durer', $html);
-
-    $cand = $this->wish->fetchAll();
-
-    print_r($cand);
-
-
-    $html = '';
-    $i = 0;
-
-    while ($row = $this->offre->fetch()) {
-        $html = $html.'<div id=id_"'.$row['id'].'">';
-
-        $html = $html.'<input type="hidden" id="id_offre" value="'.$row['id'].'">';
-
-        $html = $html.' Nom : <span id="nom_'.$row['id'].'">'.$row['nom'].'</span><br>';
-
-        $html = $html.' Entreprise : <span id="entreprise_'.$row['id'].'">'.$row['entreprise'].'</span><br>';
-
-        $html = $html.' Ville : <span id="ville_'.$row['id'].'">'.$row['ville'].'</span><br>';
-
-        $html = $html.' Durée : <span id="duree_'.$row['id'].'">'.$row['stage'].'</span><br>';
-
-        $html = $html.' Spécialité : <span id="specialite_'.$row['id'].'">'.$row['specialite'].'</span><br>';
-
-        $html = $html.' Compétence(s) : <span id="competences_'.$row['id'].'">'.$row['competence'].'</span><br>';
-
-        $html = $html.' Nombres de place(s) : <span id="nb_'.$row['id'].'">'.$row['nb_place'].'</span><br>';
-
-        $html = $html.' Rémunération (mensuelle) : <span id="remuneration_'.$row['id'].'">'.$row['remuneration'].' €</span><br>';
-
-        $html = $html.' Date de dépôt : <span id="date_'.$row['id'].'">'.$row['date_offre'].'</span><br>';
-
-        $html = $html.' Email : <span id="email_'.$row['id'].'">'.$row['email'].'</span><br>';
-
-        $html = $html.'<button onclick=postuler('.$row['id'].')>Postuler</button>';
 
 
         // echo sizeof($cand);
@@ -219,53 +222,80 @@ $smarty->assign('role', $html);
         //     else {
         //     }
         // }
-        $jsp = '';
+    $jsp = '';
+
+    if ($_SESSION['role'] == 4) {
 
         if (count($cand) == 0) {
+
             $jsp = '<button id="btn_wish" onclick=wish('.$row['id'].')>WishList</button><br><br>';
         }
         else {
+
             for ($i = 0; $i < count($cand); $i++) {
+
                 if ($cand[$i]['id_stage'] == $row['id'] && !empty($cand[$i]['souhait'])) {
-                    $jsp ='<button id="btn_wish" href="/Offre/deleteWishlist/'.$row['id'].'">Déwishlister</button><br><br>';
+
+                    $html = $html.'<button onclick=postuler('.$row['id'].')>Dépostuler</button>';
+
+                    $jsp ='<a href="/Offre/deleteWishlist/'.$row['id'].'"><button>Déwishlister</button></a><br><br>';
                     break;
                 }
                 else {
-                    $jsp = '<button id="btn_wish" href="/Offre/wishList/'.$row['id'].'">WishList</button><br><br>';
+
+                    $html = $html.'<button onclick=postuler('.$row['id'].')>Postuler</button>';
+
+                    $jsp = '<a href="/Offre/wishList/'.$row['id'].'"><button>WishList</button></a><br><br>';
                 }
             }
         }
-
-        $html = $html.$jsp;
-
-
-        $html = $html.'<br></div>';
     }
-    $smarty->assign('Offre',$html);
+    else {
 
+        $html = $html.'<button onclick=confirmation('.$row['id'].')>Supprimer</button>';
 
-    $page  = $this->p;
-    $pageBack = $page -1;
-    $pageForward = $page +1;
+        $html = $html.'<button onclick=modification('.$row['id'].')>Modifier</button><br><br>';
 
-
-    $html = '<span ';
-    if ($page == 1) {
-        $html = $html.'hidden';
     }
-    $html = $html.'><a href="/Offre/page/'.$pageBack.'"> << </a></span>';
 
-    $html = $html.'<span>page '.$page.'</span>';
+    $html = $html.$jsp;
 
-    $html = $html.'<span ';
-    if ($i < 10) {
-        $html = $html.'hidden';
+
+    $html = $html.'<br></div>';
+}
+$smarty->assign('Offre',$html);
+
+// Gestion des Errreur
+if (isset($this->err)) {
+    if ($$this->err == 1) {
+        $smarty->assign('erreur', 'Email déjà utilisé pour un autre compte');
     }
-    $html = $html.'><a href="/Offre/page/'.$pageForward.'"> >> </a></span>';
+}
 
-    if ($this->p != 0) {
-        $smarty->assign('pagination', $html);
-    }
+
+// Pagination
+$page  = $this->p;
+$pageBack = $page -1;
+$pageForward = $page +1;
+
+
+$html = '<span ';
+if ($page == 1) {
+    $html = $html.'hidden';
+}
+$html = $html.'><a href="/Offre/page/'.$pageBack.'"> << </a></span>';
+
+$html = $html.'<span>page '.$page.'</span>';
+
+$html = $html.'<span ';
+if ($i < 10) {
+    $html = $html.'hidden';
+}
+$html = $html.'><a href="/Offre/page/'.$pageForward.'"> >> </a></span>';
+
+if ($this->p != 0) {
+    $smarty->assign('pagination', $html);
+}
 
 
 //}
