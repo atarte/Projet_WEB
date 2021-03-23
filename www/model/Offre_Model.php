@@ -307,29 +307,21 @@ Class Offre_Model extends Model {
         if ($count == 0) {
 
             $req = "CALL Creation_Wishlist(:id_user, :id_offre)";
-
-            $query = $this->db->prepare($req);
-
-            $query->bindParam(':id_user', $_SESSION['id']);
-            $query->bindParam(':id_offre', $id);
-
-            $query->execute();
-
-            // return $query;
-            header('location: /Offre');
         }
         else {
-            $req = "CALL Update_Wishlist(:id_user, :id_offre)";
-
-            $query = $this->db->prepare($req);
-
-            $query->bindParam(':id_user', $_SESSION['id']);
-            $query->bindParam(':id_offre', $id);
-
-            $query->execute();
-
-            header('location: /Offre');
+            $req = "UPDATE Candidature SET
+                Candidature.Souhait = Date(NOW())
+            WHERE Candidature.Id_Users = id_user AND Candidature.Id_Stage = id_stage;";
         }
+
+        $query = $this->db->prepare($req);
+
+        $query->bindParam(':id_user', $_SESSION['id']);
+        $query->bindParam(':id_offre', $id);
+
+        $query->execute();
+
+        header('location: /Offre');
 
 
     }

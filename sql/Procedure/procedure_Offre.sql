@@ -109,16 +109,5 @@ BEGIN
 END |
 
 
--- Update WishList
-DROP PROCEDURE IF EXISTS Update_WishList |
-CREATE PROCEDURE Update_WishList (IN id_user INT, IN id_offre INT)
-BEGIN
-    UPDATE Candidature SET
-        Candidature.Id_Users = id_user,
-        Candidature.Id_Stage = id_stage,
-        Candidature.Souhait = Date(NOW())
-    WHERE Candidature.Id_Users = id_user AND Candidature.Id_Stage = id_stage
-END |
-
 
 DELIMITER ;
