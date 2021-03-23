@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-21 21:36:12
+/* Smarty version 3.1.39, created on 2021-03-23 20:32:51
   from 'C:\Users\catar\Documents\CESI\A2\4 - Web\Projet\Projet_WEB\www\view\layout\Pilote.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6057bc4ceadb66_91645766',
+  'unifunc' => 'content_605a507335a2f4_99656006',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2de94e97273ef0ba26a5870d9a061a1fcd9a8893' => 
     array (
       0 => 'C:\\Users\\catar\\Documents\\CESI\\A2\\4 - Web\\Projet\\Projet_WEB\\www\\view\\layout\\Pilote.tpl',
-      1 => 1616362570,
+      1 => 1616531547,
       2 => 'file',
     ),
   ),
@@ -22,96 +22,117 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./common/footer.tpl' => 1,
   ),
 ),false)) {
-function content_6057bc4ceadb66_91645766 (Smarty_Internal_Template $_smarty_tpl) {
+function content_605a507335a2f4_99656006 (Smarty_Internal_Template $_smarty_tpl) {
 ob_start();
 echo $_smarty_tpl->tpl_vars['title']->value;
 $_prefixVariable1 = ob_get_clean();
 $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('title'=>$_prefixVariable1), 0, false);
 ?>
 
-<header>
-    <?php echo (($tmp = @$_smarty_tpl->tpl_vars['erreur']->value)===null||$tmp==='' ? '' : $tmp);?>
+<link rel="stylesheet" href="http://static.projet.com/css/Pilote.css">
 
-</header>
 
 <body>
+<main class="container">
+    <nav>
+        <a href="/Accueil"><button>Retour</button></a>
+    </nav>
 
-  <a href="/Accueil"><button>Retour</button></a>
-  <br><br>
-  <form action="/Pilote/creation" method="post" id="formulaire">
+    <div class="row justify-content-between">
+        <article class="col">
 
-      Nom : <br>
-      <input id="nom" type="text" name="nom" required>
+            <!-- création de pilote -->
+            <fieldset class="field">
+                <legend id="legend_form">Création de pilote</legend>
 
-      <br>
-      <br>
+                <form id="formulaire" class="form" action="/Pilote/creation" method="post">
+                    <div class="container">
+                        <div class="row justify-content-center p-1">
+                            <!-- nom : -->
+                            <input id="nom" type="text" name="nom" placeholder="Nom" required>
+                        </div>
+                        <div class="row justify-content-center p-1">
+                            <!-- Prenom : -->
+                            <input id="prenom" type="text" name="prenom" placeholder="Prenom" required>
+                        </div>
+                        <div class="row justify-content-center">
+                            <!-- errur : -->
+                            <?php echo (($tmp = @$_smarty_tpl->tpl_vars['erreur']->value)===null||$tmp==='' ? '' : $tmp);?>
 
-      Prenom : <br>
-      <input id="prenom" type="text" name="prenom" required>
+                        </div>
+                        <div class="row justify-content-center p-1">
+                            <!-- email : -->
+                            <input id="email" type="email" name="email" placeholder="Email" required>
+                        </div>
+                        <div class="row justify-content-center p-1">
+                            <span id="pwd_div">
+                                <!-- password : -->
+                                <input id="pwd" type="password" name="pwd" placeholder="Password" required>
+                            </span>
+                        </div>
+                        <div class="row justify-content-center p-1">
+                            <select id="centre" name="centre" required>
+                                <option value="">Choississez un centre</option>
+                                <?php echo $_smarty_tpl->tpl_vars['Centre']->value;?>
 
-      <br>
-      <br>
+                            </select>
+                        </div>
+                        <div class="row justify-content-center p-1">
+                            <input type="submit" value="Créer" id="submit">
+                        </div>
+                </form>
 
-      Mail : <br>
-      <input id="email" type="email" name="email" required>
+                        <div class="row justify-content-center p-1">
+                            <span id="annuler">
+                            </span>
+                        </div>
+                    </div>
+            </fieldset>
+        </article>
 
-      <br>
-      <br>
+        <article class="col">
+            <fieldset class="field">
+                <legend>Liste des délégués</legend>
 
-      <span id="pwd_div">
-          Password : <br>
-          <input type="password" name="pwd" id="pwd" required>
-      </span>
+                <!-- Recherche Pilote -->
+                <div class="">
+                    <form id="recherche" action="/Pilote/recherche" method="post">
+                        <!-- Nom : -->
+                        <input id="r_nom" type="text" name="nom" placeholder="Nom">
 
-      <br>
-      <br>
+                        <!-- Prenom : -->
+                        <input id="r_prenom" type="text" name="prenom" placeholder="Prenom">
 
-      Centre : <br>
-      <select id="centre" name="centre" required>
-        <option value="">--Choississez un centre--</option>
-        <?php echo $_smarty_tpl->tpl_vars['Centre']->value;?>
+                        <!-- Centre : -->
+                        <select id="r_centre" name="centre">
+                            <option value="">Choisiez un centre</option>
+                            <?php echo $_smarty_tpl->tpl_vars['Centre']->value;?>
 
-      </select>
+                        </select>
 
-      <br>
-      <br>
+                        <input id="r_submit" type="submit" value="Rechercher">
 
-      <input type="submit" value="Créer" id="submit">
-      <br>
+                        <span id="close">
+                            <?php echo (($tmp = @$_smarty_tpl->tpl_vars['close']->value)===null||$tmp==='' ? '' : $tmp);?>
 
-    </form>
+                        </span>
+                    </form>
+                </div>
+    <!-- <a href="/Pilote"><button>X</button></a> -->
 
-    <div id="annuler">
+                <div class="page">
+                    <?php echo (($tmp = @$_smarty_tpl->tpl_vars['pagination']->value)===null||$tmp==='' ? '' : $tmp);?>
+
+                </div>
+
+                <div class="">
+                    <?php echo $_smarty_tpl->tpl_vars['Pilote']->value;?>
+
+                </div>
+            </fieldset>
+        </article>
     </div>
-
-    <br>
-
-    Barre de Recherche des Pilotes
-    <form id="recherche" action="/Pilote/recherche" method="post">
-        Nom :
-        <input id="r_nom" type="text" name="nom">
-
-        Prenom :
-        <input id="r_prenom" type="text" name="prenom">
-
-        Centre :
-        <select id="r_centre" name="centre">
-            <option value="">--Choisiez un centre--</option>
-            <?php echo $_smarty_tpl->tpl_vars['Centre']->value;?>
-
-        </select>
-
-        <input id="r_submit" type="submit" value="Rechercher">
-    </form>
-    <a href="/Pilote"><button>X</button></a>
-
-      <?php echo $_smarty_tpl->tpl_vars['Pilote']->value;?>
-
-
-    <div>
-        <?php echo (($tmp = @$_smarty_tpl->tpl_vars['pagination']->value)===null||$tmp==='' ? '' : $tmp);?>
-
-    </div>
+</main>
 
     <?php echo '<script'; ?>
  src="/public/js/Pilote.js" charset="utf-8"><?php echo '</script'; ?>

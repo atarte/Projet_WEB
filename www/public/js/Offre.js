@@ -93,6 +93,19 @@ function wish(id_offre) {
     }
 }
 
+function candidat() {
+    let id_stage = document.getElementById("stage_id").value;
+    let id_offre = document.getElementById("id_offre").value;
+    let id_user = document.getElementById("user_id").value;
+    let souhait = document.getElementById("souhait").value;
+    let id = document.getElementById("id").value;
+    let btn_wish = document.getElementById("btn_wish").value;
+
+    if (id_user == id &&  id_stage == id_offre && souhait != '') {
+        btn_wish.value = "Déwishlister";
+    }
+}
+
 function etudiant() {
     let role = document.getElementById("role").value;
     let form = document.getElementById("formulaire");
@@ -101,4 +114,4 @@ function etudiant() {
         (form.parentElement).removeChild(form);
     }
 }
-document.addEventListener('DOMContentLoaded', etudiant);
+document.addEventListener('DOMContentLoaded', etudiant, candidat);

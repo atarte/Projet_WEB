@@ -7,6 +7,15 @@ $smarty->assign('title', 'Gestion Offre');
 $html = '<input type="hidden" id="role" value="'.$_SESSION['role'].'">';
 $smarty->assign('role', $html);
 
+$html = '';
+while ($row = $this->wish->fetch()) {
+    $html = $html.'<input type="hidden" id="stage_id" value="'.$row['id_stage'].'">';
+    $html = $html.'<input type="hidden" id="user_id" value="'.$row['id_user'].'">';
+    $html = $html.'<input type="hidden" id="souhait_id" value="'.$row['souhait'].'">';
+    $html = $html.'<input type="hidden" id="id" value="'.$_SESSION['id'].'">';
+}
+$smarty->assign('Candidature', $html);
+
 if ($_SESSION['role'] == "1" || $_SESSION['role'] == "2" || ($_SESSION['role'] == "3" && $_SESSION['deleg']['offre'] == "1")) {
     $html = '';
     while ($row = $this->type_promo->fetch()) {
@@ -157,6 +166,8 @@ elseif ($_SESSION['role'] == "4") {
     while ($row = $this->offre->fetch()) {
         $html = $html.'<div id=id_"'.$row['id'].'">';
 
+        $html = $html.'<input type="hidden" id="id_offre" value="'.$row['id'].'">';
+
         $html = $html.' Nom : <span id="nom_'.$row['id'].'">'.$row['nom'].'</span><br>';
 
         $html = $html.' Entreprise : <span id="entreprise_'.$row['id'].'">'.$row['entreprise'].'</span><br>';
@@ -179,14 +190,8 @@ elseif ($_SESSION['role'] == "4") {
 
         $html = $html.'<button onclick=postuler('.$row['id'].')>Postuler</button>';
 
-        while ($wi = $this->wish->fetch()) {
-            if (($_SESSION['id'] != $wi['id_user']) && ($wi['id_stage'] != $row['id']) && $wi['souhait'] == "") {
-                $html = $html.'<button onclick=wish('.$row['id'].')>WishList</button><br><br>';
-            }
-            else if(($_SESSION['id'] == $wi['id_user']) && ($wi['id_stage'] == $row['id']) && $wi['souhait'] == "") {
-                $html = $html.'<button>DéWishLister</button><br><br>';
-            }
-        }
+        $html = $html.'<button id="btn_wish" onclick=wish('.$row['id'].')>WishList</button><br><br>';
+
         $html = $html.'<br></div>';
     }
     $smarty->assign('Offre',$html);

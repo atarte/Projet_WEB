@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-23 14:56:03
+/* Smarty version 3.1.39, created on 2021-03-23 20:33:45
   from 'C:\Users\catar\Documents\CESI\A2\4 - Web\Projet\Projet_WEB\www\view\layout\Delegue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_605a0183656428_91087131',
+  'unifunc' => 'content_605a50a94c6e86_15854730',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '329c44707dff87d43485fe2c0e7107f472ea69b0' => 
     array (
       0 => 'C:\\Users\\catar\\Documents\\CESI\\A2\\4 - Web\\Projet\\Projet_WEB\\www\\view\\layout\\Delegue.tpl',
-      1 => 1616511330,
+      1 => 1616531547,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./common/footer.tpl' => 1,
   ),
 ),false)) {
-function content_605a0183656428_91087131 (Smarty_Internal_Template $_smarty_tpl) {
+function content_605a50a94c6e86_15854730 (Smarty_Internal_Template $_smarty_tpl) {
 ob_start();
 echo $_smarty_tpl->tpl_vars['title']->value;
 $_prefixVariable1 = ob_get_clean();
@@ -33,7 +33,9 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
 
 <body>
 <main class="container">
-    <a href="/Accueil"><button>Retour</button></a>
+    <nav>
+        <a href="/Accueil"><button>Retour</button></a>
+    </nav>
 
     <div class="row justify-content-between">
         <article class="col">
@@ -64,7 +66,7 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
                         <div class="row justify-content-center p-1">
                             <span id="pwd_div">
                                 <!-- password : -->
-                                <input "pwd" type="password" name="pwd" placeholder="Password" required>
+                                <input id="pwd" type="password" name="pwd" placeholder="Password" required>
                             </span>
                         </div>
                         <div class="row justify-content-center p-1">
@@ -118,8 +120,12 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
                         <input id="r_prenom" type="text" name="prenom" placeholder="Prenom">
 
                         <input id="r_submit" type="submit" value="Rechercher">
+
+                        <span id="close">
+                            <?php echo (($tmp = @$_smarty_tpl->tpl_vars['close']->value)===null||$tmp==='' ? '' : $tmp);?>
+
+                        </span>
                     </form>
-                    <a href="/Delegue"><button>X</button></a>
                 </div>
 
                 <!-- Affichage : -->
