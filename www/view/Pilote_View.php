@@ -30,12 +30,12 @@ while ($row = $this->pilote->fetch()) {
     $html = $html.'<div class="gauche"><div><img class="ico" src="http://static.projet.com/img/user.svg" alt="icone user"></div>';
 
     $nom = strtoupper($row['nom']);
-    $html = $html.'<div><div><span id="nom_'.$row['Id_Users'].'">'.$nom.'</span>';
+    $html = $html.'<div><div><span id="nom_'.$row['Id_Users'].'">'.$nom.'</span>  ';
 
     $prenom = ucfirst($row["prenom"]);
     $html = $html.'<span id="prenom_'.$row['Id_Users'].'">'.$prenom.'</span>';
 
-    $html = $html.'<span id="centre_'.$row['Id_Users'].'">'.$row['centre'].'</span></div>';
+    $html = $html.' | <span id="centre_'.$row['Id_Users'].'">'.$row['centre'].'</span></div>';
 
     $html = $html.'<div><span id="email_'.$row['Id_Users'].'">'.$row['email'].'</span></div></div></div>';
 
