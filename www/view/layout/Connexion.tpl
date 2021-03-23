@@ -17,7 +17,7 @@
                     </div>
                     <div class="row justify-content-center">
                         <!-- Identifiant : -->
-                        <input type="text" name="user" placeholder="Email" required>
+                        <input type="text" name="user" placeholder="Email" value="{$cookie|default:""}" required>
                     </div>
                     <div class="row justify-content-center p-1">
                         <!-- Mot de passe : -->
@@ -33,5 +33,7 @@
 </main>
 
 </body>
+
+<script src="/public/js/Connexion.js" charset="utf-8"></script>
 
 {include file="./common/footer.tpl"}

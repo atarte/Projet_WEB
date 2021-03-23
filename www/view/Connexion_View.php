@@ -12,4 +12,10 @@ if (isset($err)) {
     }
 }
 
+// echo $_COOKIE['userName'];
+
+if (isset($_COOKIE['userName'])) {
+    $smarty->assign('cookie', $_COOKIE['userName']);
+}
+
 $smarty->display(ROOT.'view/layout/Connexion.tpl');

@@ -27,6 +27,8 @@ class Connexion_Model extends Model {
             if ($count == 1 && !empty($row)) {
                 $_SESSION['id'] = $row['id'];
 
+                setcookie("userName", $_POST['user'], time()+2*60*60, "/");
+
                 header("Location: /Accueil");
             }
             else {
