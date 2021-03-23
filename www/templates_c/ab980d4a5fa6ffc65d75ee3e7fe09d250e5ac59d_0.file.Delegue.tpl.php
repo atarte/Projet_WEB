@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-23 16:22:21
+/* Smarty version 3.1.39, created on 2021-03-23 16:40:19
   from 'D:\SCOLAIRE\CESI\2eme_annee\projet\WEB\Projet_WEB\www\view\layout\Delegue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_605a15bdbadb16_77112141',
+  'unifunc' => 'content_605a19f3b65224_87373857',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ab980d4a5fa6ffc65d75ee3e7fe09d250e5ac59d' => 
     array (
       0 => 'D:\\SCOLAIRE\\CESI\\2eme_annee\\projet\\WEB\\Projet_WEB\\www\\view\\layout\\Delegue.tpl',
-      1 => 1616516539,
+      1 => 1616517609,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./common/footer.tpl' => 1,
   ),
 ),false)) {
-function content_605a15bdbadb16_77112141 (Smarty_Internal_Template $_smarty_tpl) {
+function content_605a19f3b65224_87373857 (Smarty_Internal_Template $_smarty_tpl) {
 ob_start();
 echo $_smarty_tpl->tpl_vars['title']->value;
 $_prefixVariable1 = ob_get_clean();
@@ -66,7 +66,7 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
                         <div class="row justify-content-center p-1">
                             <span id="pwd_div">
                                 <!-- password : -->
-                                <input "pwd" type="password" name="pwd" placeholder="Password" required>
+                                <input id="pwd" type="password" name="pwd" placeholder="Password" required>
                             </span>
                         </div>
                         <div class="row justify-content-center p-1">

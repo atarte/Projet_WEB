@@ -36,7 +36,7 @@
                         <div class="row justify-content-center p-1">
                             <span id="pwd_div">
                                 <!-- password : -->
-                                <input "pwd" type="password" name="pwd" placeholder="Password" required>
+                                <input id="pwd" type="password" name="pwd" placeholder="Password" required>
                             </span>
                         </div>
                         <div class="row justify-content-center p-1">

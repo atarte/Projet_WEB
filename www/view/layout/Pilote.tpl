@@ -1,83 +1,103 @@
 {include file="./common/header.tpl" title={$title}}
 
-<header>
-    {$erreur|default:""}
-</header>
+<link rel="stylesheet" href="http://static.projet.com/css/Pilote.css">
+
 
 <body>
+<main class="container">
+    <nav>
+        <a href="/Accueil"><button>Retour</button></a>
+    </nav>
 
-  <a href="/Accueil"><button>Retour</button></a>
-  <br><br>
-  <form action="/Pilote/creation" method="post" id="formulaire">
+    <div class="row justify-content-between">
+        <article class="col">
 
-      Nom : <br>
-      <input id="nom" type="text" name="nom" required>
+            <!-- création de pilote -->
+            <fieldset class="field">
+                <legend id="legend_form">Création de pilote</legend>
 
-      <br>
-      <br>
+                <form id="formulaire" class="form" action="/Pilote/creation" method="post">
+                    <div class="container">
+                        <div class="row justify-content-center p-1">
+                            <!-- nom : -->
+                            <input id="nom" type="text" name="nom" placeholder="Nom" required>
+                        </div>
+                        <div class="row justify-content-center p-1">
+                            <!-- Prenom : -->
+                            <input id="prenom" type="text" name="prenom" placeholder="Prenom" required>
+                        </div>
+                        <div class="row justify-content-center">
+                            <!-- errur : -->
+                            {$erreur|default:''}
+                        </div>
+                        <div class="row justify-content-center p-1">
+                            <!-- email : -->
+                            <input id="email" type="email" name="email" placeholder="Email" required>
+                        </div>
+                        <div class="row justify-content-center p-1">
+                            <span id="pwd_div">
+                                <!-- password : -->
+                                <input id="pwd" type="password" name="pwd" placeholder="Password" required>
+                            </span>
+                        </div>
+                        <div class="row justify-content-center p-1">
+                            <select id="centre" name="centre" required>
+                                <option value="">Choississez un centre</option>
+                                {$Centre}
+                            </select>
+                        </div>
+                        <div class="row justify-content-center p-1">
+                            <input type="submit" value="Créer" id="submit">
+                        </div>
+                </form>
 
-      Prenom : <br>
-      <input id="prenom" type="text" name="prenom" required>
+                        <div class="row justify-content-center p-1">
+                            <span id="annuler">
+                            </span>
+                        </div>
+                    </div>
+            </fieldset>
+        </article>
 
-      <br>
-      <br>
+        <article class="col">
+            <fieldset class="field">
+                <legend>Liste des délégués</legend>
 
-      Mail : <br>
-      <input id="email" type="email" name="email" required>
+                <!-- Recherche Pilote -->
+                <div class="">
+                    <form id="recherche" action="/Pilote/recherche" method="post">
+                        <!-- Nom : -->
+                        <input id="r_nom" type="text" name="nom" placeholder="Nom">
 
-      <br>
-      <br>
+                        <!-- Prenom : -->
+                        <input id="r_prenom" type="text" name="prenom" placeholder="Prenom">
 
-      <span id="pwd_div">
-          Password : <br>
-          <input type="password" name="pwd" id="pwd" required>
-      </span>
+                        <!-- Centre : -->
+                        <select id="r_centre" name="centre">
+                            <option value="">Choisiez un centre</option>
+                            {$Centre}
+                        </select>
 
-      <br>
-      <br>
+                        <input id="r_submit" type="submit" value="Rechercher">
 
-      Centre : <br>
-      <select id="centre" name="centre" required>
-        <option value="">--Choississez un centre--</option>
-        {$Centre}
-      </select>
+                        <span id="close">
+                            {$close|default:""}
+                        </span>
+                    </form>
+                </div>
+    <!-- <a href="/Pilote"><button>X</button></a> -->
 
-      <br>
-      <br>
+                <div class="page">
+                    {$pagination|default:""}
+                </div>
 
-      <input type="submit" value="Créer" id="submit">
-      <br>
-
-    </form>
-
-    <div id="annuler">
+                <div class="">
+                    {$Pilote}
+                </div>
+            </fieldset>
+        </article>
     </div>
-
-    <br>
-
-    Barre de Recherche des Pilotes
-    <form id="recherche" action="/Pilote/recherche" method="post">
-        Nom :
-        <input id="r_nom" type="text" name="nom">
-
-        Prenom :
-        <input id="r_prenom" type="text" name="prenom">
-
-        Centre :
-        <select id="r_centre" name="centre">
-            <option value="">--Choisiez un centre--</option>
-            {$Centre}
-        </select>
-
-        <input id="r_submit" type="submit" value="Rechercher">
-    </form>
-    <a href="/Pilote"><button>X</button></a>
-
-      {$Pilote}
-
-    <div>
-        {$pagination|default:""}
-    </div>
+</main>
 
     <script src="/public/js/Pilote.js" charset="utf-8"></script>
 </body>

@@ -13,13 +13,13 @@ if (isset($this->err)) {
 }
 
 
-// Affichage de l'icone de fermeture
+// affichage de l'icone de fermeture
 if ($this->close) {
     $smarty->assign('close', '<a href="/Delegue"><img class="icop"  src="http://static.projet.com/img/close.svg" alt="icone close"></a>');
 }
 
 
-// affichage des etudiants
+// affichage des étudiants
 $i = 0;
 $aff = '';
 while ($row = $this->delegue->fetch()) {
@@ -47,7 +47,7 @@ while ($row = $this->delegue->fetch()) {
 
     $aff = $aff.' | Etudiant : <span id="etudiant_'.$row['id'].'">'.$row['etudiant'].'</span>';
 
-    $aff = $aff.' | Candidature : <span id="candidature_'.$row['id'].'">'.$row['candidature'].'</span></div></div>';
+    $aff = $aff.' | Candidature : <span id="candidature_'.$row['id'].'">'.$row['candidature'].'</span></div></div></div>';
 
     $aff = $aff.'<div><div><img class="icop" src="http://static.projet.com/img/update.svg" alt="icone modification" onclick=modification('.$row['id'].')></div>';
 
@@ -55,7 +55,7 @@ while ($row = $this->delegue->fetch()) {
         $aff = $aff.'<div><img class="icop" src="http://static.projet.com/img/delete.svg" alt="icone suppression" onclick=confirmation('.$row['id'].')></div>';
     }
 
-    $aff = $aff.'</div></div></div>';
+    $aff = $aff.'</div></div>';
 }
 $smarty->assign('delegue', $aff);
 

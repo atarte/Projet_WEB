@@ -11,6 +11,8 @@ function modification(id) {
 
     document.getElementById("submit").value = "Modifier";
 
+    document.getElementById("legend_form").innerHTML = "Modification de pilote";
+
     document.getElementById("annuler").innerHTML = '<button onclick=annuler()>Annuler</button>';
 }
 
@@ -38,13 +40,15 @@ function annuler() {
     document.getElementById("prenom").value = "";
     document.getElementById("email").value = "";
 
-    document.getElementById("pwd_div").innerHTML = 'Password : <br><input "pwd" type="password" name="pwd" required>';
+    document.getElementById("pwd_div").innerHTML = '<input id="pwd" type="password" name="pwd" placeholder="Password" required>';
 
     document.getElementById('centre').selectedIndex = 0;
 
     document.getElementById("formulaire").action = "/Pilote/creation";
 
     document.getElementById("submit").value = "Créer";
+
+    document.getElementById("legend_form").innerHTML = "Création de pilote";
 
     document.getElementById("annuler").innerHTML = "";
 }

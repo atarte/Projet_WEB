@@ -6,6 +6,7 @@ class Pilote extends Controler {
 
     public $err;
     public $p;
+    public $close;
 
 
     public function __construct() {
@@ -13,6 +14,8 @@ class Pilote extends Controler {
         $this->loadModel("Pilote_Model");
 
         $this->p = 1;
+
+        $this->close = false;
 
         $this->centre = $this->Pilote_Model->getCentre();
     }
@@ -65,6 +68,8 @@ class Pilote extends Controler {
         $this->pilote = $this->Pilote_Model->search();
 
         $this->p = 0;
+
+        $this->close = true;
 
         require_once(ROOT.'view/Pilote_View.php');
     }

@@ -4,6 +4,55 @@ $smarty = new Smarty;
 
 $smarty->assign('title', 'Gestion Pilote');
 
+
+// Affichage de l'erreur
+if (isset($this->err)) {
+    if ($$this->err == 1) {
+        $smarty->assign('erreur', '<span class="erreur">Adresse email déjà utilisé</span>');
+    }
+}
+
+
+// Affichage de l'icone de fermeture
+if ($this->close) {
+    $smarty->assign('close', '<a href="/Pilote"><img class="icop"  src="http://static.projet.com/img/close.svg" alt="icone close"></a>');
+}
+
+
+// Affichage des pilotes
+$html = '';
+$i = 0;
+while ($row = $this->pilote->fetch()) {
+    $i++;
+
+    $html = $html.'<div id="'.$row["Id_Users"].'" class="p-1 m-1 case">';
+
+    $html = $html.'<div class="gauche"><div><img class="ico" src="http://static.projet.com/img/user.svg" alt="icone user"></div>';
+
+    $nom = strtoupper($row['nom']);
+    $html = $html.'<div><div><span id="nom_'.$row['Id_Users'].'">'.$nom.'</span>';
+
+    $prenom = ucfirst($row["prenom"]);
+    $html = $html.'<span id="prenom_'.$row['Id_Users'].'">'.$prenom.'</span>';
+
+    $html = $html.'<span id="centre_'.$row['Id_Users'].'">'.$row['centre'].'</span></div>';
+
+    $html = $html.'<div><span id="email_'.$row['Id_Users'].'">'.$row['email'].'</span></div></div></div>';
+
+    // $html = $html.'<button onclick=modification('.$row['Id_Users'].')>Modifier</button>';
+    $html = $html.'<div><div><img class="icop" src="http://static.projet.com/img/update.svg" alt="icone modification" onclick=modification('.$row['Id_Users'].')></div>';
+
+    // $html = $html.'<button onclick=confirmation('.$row['Id_Users'].')>Supprimer</button>';
+    $html = $html.'<div><img class="icop" src="http://static.projet.com/img/delete.svg" alt="icone suppression" onclick=confirmation('.$row['Id_Users'].')></div>';
+
+    $html = $html.'</div></div>';
+
+}
+
+$smarty->assign('Pilote',$html);
+
+
+// Ajout des centres dans le select
 $html = '';
 while ($row = $this->centre->fetch()) {
     $html = $html.'<option value="'.$row['id'].'">'.$row['centre'].'</option>';
@@ -11,39 +60,8 @@ while ($row = $this->centre->fetch()) {
 
 $smarty->assign('Centre', $html);
 
-$html = '';
-$i = 0;
-while ($row = $this->pilote->fetch()) {
-    $i++;
 
-    $html = $html.'<div id="'.$row["Id_Users"].'">';
-
-    $html = $html.' Nom : <span id="nom_'.$row['Id_Users'].'">'.$row['nom'].'</span><br>';
-
-    $html = $html.' Prénom : <span id="prenom_'.$row['Id_Users'].'">'.$row['prenom'].'</span><br>';
-
-    $html = $html.' Email : <span id="email_'.$row['Id_Users'].'">'.$row['email'].'</span><br>';
-
-    $html = $html.' Centre : <span id="centre_'.$row['Id_Users'].'">'.$row['centre'].'</span><br>';
-
-    $html = $html.'<button onclick=confirmation('.$row['Id_Users'].')>Supprimer</button>';
-
-    $html = $html.'<button onclick=modification('.$row['Id_Users'].')>Modifier</button><br><br>';
-
-    $html = $html.'<br></div>';
-
-}
-
-$smarty->assign('Pilote',$html);
-
-if (isset($this->err)) {
-    if ($$this->err == 1) {
-        $smarty->assign('erreur', 'Email déjà utilisé pour un autre compte');
-    }
-    else {
-    }
-}
-
+// Pagination
 $page  = $this->p;
 $pageBack = $page -1;
 $pageForward = $page +1;

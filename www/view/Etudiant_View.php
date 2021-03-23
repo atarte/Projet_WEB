@@ -5,7 +5,7 @@ $smarty = new Smarty;
 $smarty->assign('title', 'Gestion Etudiant');
 
 
-// affichage de l'erreur
+// Affichage de l'erreur
 if (isset($this->err)) {
     if ($this->err == 1) {
         $smarty->assign('erreur', '<span class="erreur">Adresse email déjà utilisé</span>');
@@ -19,7 +19,7 @@ if ($this->close) {
 }
 
 
-// affichage des etudiants
+// Affichage des étudiants
 $i = 0;
 $aff = '';
 while ($row = $this->etudiant->fetch()) {
