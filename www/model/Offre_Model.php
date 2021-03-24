@@ -318,7 +318,6 @@ Class Offre_Model extends Model {
 
         $query->execute();
 
-        $row = $query->fetch();
         $count = $query->rowCount();
 
         if ($count == 0) {
@@ -354,11 +353,10 @@ Class Offre_Model extends Model {
 
         $query->execute();
 
-        $row = $query->fetch();
         $count = $query->rowCount();
 
         if ($count == 0) {
-            $req = "CALL Delete_Wishlist(:id_user, :id_stage)";
+            $req = "CALL Delete_Candidature(:id_user, :id_stage)";
         }
         else {
             $req = 'UPDATE Candidature SET
@@ -387,10 +385,8 @@ Class Offre_Model extends Model {
 
         $query->execute();
 
-        // $row = $query->fetch();
         $count = $query->rowCount();
 
-        // echo $count;
 
         if ($count == 0) {
 
@@ -426,11 +422,10 @@ Class Offre_Model extends Model {
 
         $query->execute();
 
-        $row = $query->fetch();
         $count = $query->rowCount();
 
         if ($count == 0) {
-            $req = "CALL Delete_Postulation(:id_user, :id_stage)";
+            $req = "CALL Delete_Candidature(:id_user, :id_stage)";
         }
         else {
             $req = 'UPDATE Candidature SET

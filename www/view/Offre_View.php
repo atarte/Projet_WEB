@@ -58,7 +58,6 @@ $smarty->assign('Durer', $html);
 $cand = $this->wish->fetchAll();
 $postu = $this->post->fetchAll();
 
-print_r($postu);
 
 // Affichage des Offres
 $html = '';
@@ -69,9 +68,8 @@ while ($row = $this->offre->fetch()) {
 
     $html = $html.'<div class="gauche"><div><img class="ico" src="http://static.projet.com/img/intership.svg" alt="icone stage"></div>';
 
-    // $html = $html.'<input type="hidden" id="id_offre" value="'.$row['id'].'">';
-
     $titre = strtoupper($row['nom']);
+
     $html = $html.' <div><div><span id="nom_'.$row['id'].'"><u><b>'.$titre.'</b></u></span></div>';
 
     $entreprise = ucfirst($row['entreprise']);
@@ -96,11 +94,11 @@ while ($row = $this->offre->fetch()) {
     $jsp = '';
     $jsp2 = '';
 
+// Si un étudiant se connecte les boutons changent pour postuler et wishList
     if ($_SESSION['role'] == 4) {
 
         if (count($cand) == 0) {
 
-            // $jsp = '<button id="btn_wish" onclick=wish('.$row['id'].')>WishList</button>';
             $jsp = '<img class="icop" src="http://static.projet.com/img/noWish.png" alt="icone modification" onclick=ajout_wish('.$row['id'].')>';
         }
         else {
@@ -109,18 +107,12 @@ while ($row = $this->offre->fetch()) {
 
                 if ($cand[$i]['id_stage'] == $row['id'] && !empty($cand[$i]['souhait'])) {
 
-                    // $jsp ='<a href="/Offre/deleteWishlist/'.$row['id'].'"><button>Déwishlister</button></a>';
                     $jsp = '<img class="icop" src="http://static.projet.com/img/Wish.png" alt="icone modification" onclick=rejet_wish('.$row['id'].')>';
-
-                    // $jsp2 = '<button onclick=postuler('.$row['id'].')>Dépostuler</button>';
                     break;
                 }
                 else {
 
-                    // $jsp = '<a href="/Offre/wishList/'.$row['id'].'"><button>WishList</button></a>';
                     $jsp = '<img class="icop" src="http://static.projet.com/img/noWish.png" alt="icone modification" onclick=ajout_wish('.$row['id'].')>';
-
-                    // $jsp2 = '<button onclick=postuler('.$row['id'].')>Postuler</button>';
                 }
             }
         }
@@ -147,10 +139,7 @@ while ($row = $this->offre->fetch()) {
     }
     else {
 
-        // $jsp = '<img class="icop" src="http://static.projet.com/img/update.svg" alt="icone modification" onclick=modification('.$row['id'].')>';
-
         $jsp2 = '<img class="icop" src="http://static.projet.com/img/delete.svg" alt="icone suppression" onclick=confirmation('.$row['id'].')>';
-
     }
 
     $html = $html.'<div><div>'.$jsp.'</div><div>'.$jsp2.'</div></div>';

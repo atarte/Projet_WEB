@@ -105,9 +105,25 @@ DROP PROCEDURE IF EXISTS Creation_Wishlist |
 CREATE PROCEDURE Creation_Wishlist (IN id_user INT, IN id_offre INT)
 BEGIN
     INSERT INTO Candidature (Id_Users, Id_Stage, Souhait) VALUES
-    (id_user,id_offre,DATE(NOW()))
+    (id_user,id_offre,DATE(NOW()));
 END |
 
+
+-- Création Postulation
+DROP PROCEDURE IF EXISTS Creation_Wishlist |
+CREATE PROCEDURE Creation_Wishlist (IN id_user INT, IN id_stage INT)
+BEGIN
+    INSERT INTO Candidature (Id_Users, Id_Stage, Postulation, Step) VALUES
+    (id_user,id_stage,DATE(NOW()),1;
+END |
+
+-- Suppression Candidature
+DROP PROCEDURE IF EXISTS Delete_Candidature |
+CREATE PROCEDURE Delete_Candidature (IN id_user INT, IN id_stage INT)
+BEGIN
+    DELETE FROM Candidature
+    WHERE Candidature.Id_Users = id_user AND Candidature.Id_Stage = id_stage
+END |
 
 
 DELIMITER ;
