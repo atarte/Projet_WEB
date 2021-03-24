@@ -9,6 +9,8 @@ $smarty->assign('title', 'Candidature');
 
 $html = '';
 
+$ok = $this->candidature->fetchAll();
+print_r($ok);
 
 
 $smarty->assign('candidature', $html);
