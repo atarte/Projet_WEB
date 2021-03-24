@@ -2,7 +2,6 @@
 
 Class Wishlist extends Controler {
     public $offre;
-    public $durer;
     public $wish;
     public $post;
 
