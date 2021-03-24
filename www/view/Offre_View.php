@@ -90,7 +90,7 @@ while ($row = $this->offre->fetch()) {
 
     $html = $html.' Ce stage permettra une rémunération de <span id="remuneration_'.$row['id'].'">'.$row['remuneration'].'</span>€.';
 
-    $html = $html.' Pour plus d\'information, merci de nous contacter à cette adresse : <span id="email_'.$row['id'].'">'.$row['email'].'</span></div></div></div>.';
+    $html = $html.' Pour plus d\'information, merci de nous contacter à cette adresse : <span id="email_'.$row['id'].'">'.$row['email'].'</span>.</div></div></div>';
 
     $jsp = '';
     $jsp2 = '';
