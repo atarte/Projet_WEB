@@ -1,57 +1,130 @@
 {include file="./common/header.tpl" title={$title}}
 
-<header>
-    {$erreur|default:""}
-</header>
+<link rel="stylesheet" href="http://static.projet.com/css/Entreprise.css">
 
 <body>
+{$role}
+<main class="container">
+    <nav>
+        <a href="/Accueil"><button>Retour</button></a>
+    </nav>
 
-<form action="./asset/php/Creation_Entreprise.php" method="post">
-      Nom : <br>
-      <input type="text" name="nom" required>
-      <br>
-      <br>
-      E-mail : <br>
-      <input type="email" name="mail" required>
-      <br>
-      <br>
-	  Adresse :<br>
-      <input type="text" name="adresse" class="taille_b">
-	  <br>
-      <br>
-      Code postal :<br>
-      <input id="code_p" type="number" name="code_p" class="taille_b">
-      <br>
-      <br>             
-      Ville :<br>
-      <select id="ville" class="taille_b" name="ville">
-      </select>
-	  <br>
-      <br>
-	  Region :<br>
-      <input id="region" type="text" name="region" class="taille_b" readonly>
-	  <br>
-      <br>
-	  Stagiaire : <br>
-      <select name="stagiaire" required>
-       
-	</select>	
-	  <br>
-      <br>
-	Secteur : <br>
-      <select name="secteur" required>
-      <option value="">Choisiez un secteur</option>
+    <div class="row justify-content-between">
+        <article class="col" id="art_form" {$entreprise|default:""}>
+
+            <!-- création entreprise -->
+            <fieldset class="field">
+                <legend id="legend_form">Création d'une entreprise</legend>
+
+                <form id="formulaire" class="form" action="/Entreprise/creation" method="post">
+                    <div class="container">
+                        <div class="row justify-content-center p-1">
+                            <!-- nom : -->
+                            <input id="nom" type="text" name="nom" placeholder="Nom" required>
+                        </div>
+                        <div class="row justify-content-center p-1">
+							<!-- email : -->
+                            <input id="email" type="text" name="email" placeholder="Email" required>
+                        </div>
+                        <div class="row justify-content-center p-1">
+						<!-- adresse : -->
+                            <input id="adresse" type="text" name="adresse" placeholder="Adresse" required>
+                        </div>
+                        <div class="row justify-content-center p-1">
+						<!-- code postal : -->
+                            <input id="code_p" type="number" name="code_p" placeholder="Code Postal" required>
+                        </div>
+                        <div class="row justify-content-center p-1">
+						<!-- Ville : <br> -->
+                            <select id="ville" name="ville">
+                                <option value="">Choisiez une ville</option>
+                                {$Ville}
+                            </select>
+                        </div>
+						<div class="row justify-content-center p-1">
+						<!-- region : -->
+                            <input id="region" type="text" name="region" placeholder="Region" required>
+                        </div>
+                        <div class="row justify-content-center p-1">
+						<!-- stagiaire : -->
+                            <input id="stagiaire" type="text" name="stagiaire" placeholder="NbStagiaireAccepté" required>
+                        </div>
+                        <div class="row justify-content-center p-1">
+                            <!-- Secteur : <br> -->
+                            <select id="secteur" name="secteur" required>
+                                <option value="">Choississez un secteur</option>
                                 {$secteur}
                             </select>
-      
-	</select>		
-			<input type="submit" value="Valider" class="bouton">
-            <input type="reset" value="Anuler" class="bouton">	
-			
-                
-    </form>
-    
-    <script src="./asset/js/entreprise.js"></script>
+                        </div>
+                        
+                        <div class="row justify-content-center p-1">
+                            <input type="submit" value="Créer" id="submit">
+                        </div>
+                </form>
+                        <div class="row justify-content-center p-1">
+                            <span id="annuler">
+                            </span>
+                        </div>
+                    </div>
+            </fieldset>
+        </article>
+
+        <article class="col">
+            <fieldset class="field">
+                <legend>Liste des Entreprises</legend>
+
+                <div class="">
+                    <!-- Barre de Recherche des Entreprises -->
+                    <form id="recherche" action="/Entreprise/recherche" method="post">
+
+                        <!-- Entreprise : -->
+                        <select id="r_entreprise" name="entreprise" >
+                            <option value="">Choississez une entreprise</option>
+                            {$Entreprise}
+                        </select>
+
+                        <!-- Ville : -->
+                        <select id="r_ville" name="ville">
+                            <option value="">Choisiez une ville</option>
+                            {$Ville}
+                        </select>
+
+                        <!-- Region : -->
+                        <select id="r_region" name="region">
+                            <option value="">Choisissez la region</option>
+                            {$Region}
+                        </select>
+
+                        <!-- Secteur : -->
+                        <select id="r_secteur" name="secteur">
+                            <option value="">Choisissez le secteur</option>
+                            {$Secteur}
+                        </select>
+
+               
+
+                        <input id="r_submit" type="submit" value="Rechercher">
+
+                        <span id="close">
+                            {$close|default:""}
+                        </span>
+                    </form>
+                </div>
+
+                <!-- Affichage : -->
+                <div class="page">
+                    {$pagination|default:""}
+                </div>
+
+                <div class="">
+                    {$Entreprise}
+                </div>
+            </fieldset>
+        </article>
+    </div>
+</main>
+
+    <script src="/public/js/Entreprise.js" charset="utf-8"></script>
 </body>
 
 {include file="./common/footer.tpl"}
