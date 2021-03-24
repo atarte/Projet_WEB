@@ -11,12 +11,16 @@ class Offre extends Controler {
 
     public $err;
     public $p;
+    public $close;
+
 
     public function __construct() {
         session_start();
         $this->loadModel("Offre_Model");
 
         $this->p = 1;
+
+        $this->close = false;
 
         $this->type_promo = $this->Offre_Model->getType();
         $this->ville = $this->Offre_Model->getVille();
@@ -67,6 +71,8 @@ class Offre extends Controler {
         $this->offre = $this->Offre_Model->search();
 
         $this->p = 0;
+
+        $this->close = true;
 
         require_once(ROOT.'view/Offre_View.php');
     }

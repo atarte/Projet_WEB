@@ -1,6 +1,5 @@
 {include file="./common/header.tpl" title={$title}}
 
-{$role}
 <link rel="stylesheet" href="http://static.projet.com/css/Offre.css">
 
 <body>
@@ -92,13 +91,13 @@
 
                         <!-- Entreprise : -->
                         <select id="r_entreprise" name="entreprise" >
-                            <option value="">--Choississez une entreprise--</option>
+                            <option value="">Choississez une entreprise</option>
                             {$Entreprise}
                         </select>
 
                         <!-- Ville : -->
                         <select id="r_ville" name="ville">
-                            <option value="">--Choisiez une ville--</option>
+                            <option value="">Choisiez une ville</option>
                             {$Ville}
                         </select>
 
