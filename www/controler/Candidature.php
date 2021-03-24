@@ -17,7 +17,7 @@ class Candidature extends Controler {
 
 
     public function affichage() {
-        // $this->candidature = $this->Candidature_Model->displayCandidature();
+        $this->candidature = $this->Candidature_Model->displayCandidature();
 
         require_once(ROOT.'view/Candidature_View.php');
     }

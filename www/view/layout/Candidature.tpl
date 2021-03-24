@@ -18,8 +18,9 @@
                 <legend id="legend_form">Liste des candidatures</legend>
 
                 <!-- affichages des stages postulé -->
-
-
+                <div class="">
+                    {$candidature}
+                </div>
             </fieldset>
         </article>
     </div>
