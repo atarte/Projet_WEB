@@ -40,6 +40,9 @@
       <br>
 	Secteur : <br>
       <select name="secteur" required>
+      <option value="">Choisiez un secteur</option>
+                                {$secteur}
+                            </select>
       
 	</select>		
 			<input type="submit" value="Valider" class="bouton">
