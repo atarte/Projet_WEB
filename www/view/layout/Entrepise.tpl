@@ -10,7 +10,7 @@
     </nav>
 
     <div class="row justify-content-between">
-        <article class="col" id="art_form" {$entreprise|default:""}>
+        <article class="col"  {$entreprise|default:""}>
 
             <!-- création entreprise -->
             <fieldset class="field">
