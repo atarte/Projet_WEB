@@ -130,9 +130,9 @@ while ($row = $this->offre->fetch()) {
     }
     else {
 
-        $jsp = '<img class="icop" src="http://static.projet.com/img/update.png" alt="icone modification" onclick=modification('.$row['id'].')>';
+        $jsp = '<img class="icop" src="http://static.projet.com/img/update.svg" alt="icone modification" onclick=modification('.$row['id'].')>';
 
-        $jsp2 = '<img class="icop" src="http://static.projet.com/img/delete.png" alt="icone suppression" onclick=confirmation('.$row['id'].')>';
+        $jsp2 = '<img class="icop" src="http://static.projet.com/img/delete.svg" alt="icone suppression" onclick=confirmation('.$row['id'].')>';
 
     }
 
