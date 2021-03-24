@@ -16,6 +16,8 @@
             <fieldset class="field">
                 <legend id="legend_form">WishList</legend>
 
+                
+
                 <!-- affichages des stages postulé -->
 
 
