@@ -11,7 +11,6 @@ Class Wishlist extends Controler {
         session_start();
         $this->loadModel("Wishlist_Model");
 
-        $this->wish = $this->Wishlist_Model->getWishlist();
         $this->post = $this->Wishlist_Model->getPostulation();
     }
 
