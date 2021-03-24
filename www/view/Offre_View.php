@@ -177,7 +177,7 @@ if ($this->p != 0) {
 
 // Remove Form
 if($_SESSION['role'] == 4) {
-    $smarty->assign('etudiant', 'hidden');
+    $smarty->assign('etudiant', 'hidden disabled');
 }
 
 $smarty->display(ROOT.'/view/layout/Offre.tpl');
