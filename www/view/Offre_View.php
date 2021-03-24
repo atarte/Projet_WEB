@@ -95,7 +95,7 @@ while ($row = $this->offre->fetch()) {
 
         if (count($cand) == 0) {
 
-            $jsp = '<img class="icop" src="http://static.projet.com/img/noWish.png" alt="icone modification" onclick=ajout_wish('.$row['id'].')>';
+            $jsp = '<img class="icop" src="http://static.projet.com/img/noWish.png" alt="icone whish" onclick=ajout_wish('.$row['id'].')>';
         }
         else {
 
@@ -103,19 +103,19 @@ while ($row = $this->offre->fetch()) {
 
                 if ($cand[$i]['id_stage'] == $row['id'] && !empty($cand[$i]['souhait'])) {
 
-                    $jsp = '<img class="icop" src="http://static.projet.com/img/Wish.png" alt="icone modification" onclick=rejet_wish('.$row['id'].')>';
+                    $jsp = '<img class="icop" src="http://static.projet.com/img/Wish.png" alt="icone whish" onclick=rejet_wish('.$row['id'].')>';
                     break;
                 }
                 else {
 
-                    $jsp = '<img class="icop" src="http://static.projet.com/img/noWish.png" alt="icone modification" onclick=ajout_wish('.$row['id'].')>';
+                    $jsp = '<img class="icop" src="http://static.projet.com/img/noWish.png" alt="icone whish" onclick=ajout_wish('.$row['id'].')>';
                 }
             }
         }
 
         if (count($postu) == 0) {
 
-            $jsp2 = '<img class="icop" src="http://static.projet.com/img/noPost.png" alt="icone modification" onclick=ajout_post('.$row['id'].')>';
+            $jsp2 = '<img class="icop" src="http://static.projet.com/img/noPost.png" alt="icone postuler" onclick=ajout_post('.$row['id'].')>';
         }
         else {
 
@@ -123,17 +123,18 @@ while ($row = $this->offre->fetch()) {
 
                 if ($postu[$i]['id_stage'] == $row['id'] && !empty($postu[$i]['postulation'])) {
 
-                    $jsp2 = '<img class="icop" src="http://static.projet.com/img/Post.png" alt="icone modification" onclick=rejet_post('.$row['id'].')>';
+                    $jsp2 = '<img class="icop" src="http://static.projet.com/img/Post.png" alt="icone postuler" onclick=rejet_post('.$row['id'].')>';
 
                     break;
                 }
                 else {
-                    $jsp2 = '<img class="icop" src="http://static.projet.com/img/noPost.png" alt="icone modification" onclick=ajout_post('.$row['id'].')>';
+                    $jsp2 = '<img class="icop" src="http://static.projet.com/img/noPost.png" alt="icone postuler" onclick=ajout_post('.$row['id'].')>';
                 }
             }
         }
     }
     else {
+        $jsp = '<img class="icop" src="http://static.projet.com/img/update.svg" alt="icone modification" onclick=modification('.$row['id'].')>';
 
         $jsp2 = '<img class="icop" src="http://static.projet.com/img/delete.svg" alt="icone suppression" onclick=confirmation('.$row['id'].')>';
     }
