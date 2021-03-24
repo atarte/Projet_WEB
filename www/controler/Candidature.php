@@ -2,12 +2,15 @@
 
 class Candidature extends Controler {
     public $candidature;
+    public $wish;
 
 
     public function __construct() {
         session_start();
 
         $this->loadModel("Candidature_Model");
+
+        $this->wish = $this->Candidature_Model->getWishlist();
     }
 
 
