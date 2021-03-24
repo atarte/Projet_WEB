@@ -24,4 +24,17 @@ class Candidature extends Controler {
 
         require_once(ROOT.'view/Candidature_View.php');
     }
+
+    public function wishList(int $id) {
+        $this->Candidature_Model->addWish($id);
+    }
+
+
+    public function deleteWishlist(int $id) {
+        $this->Candidature_Model->deleteWish($id);
+    }
+
+    public function deletePostuler(int $id) {
+        $this->Candidature_Model->deletePost($id);
+    }
 }
