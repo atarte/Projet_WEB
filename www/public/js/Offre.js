@@ -83,35 +83,30 @@ function confirmation(id) {
     }
 }
 
-// function wish(id_offre) {
-//     let nom_offre = document.getElementById("nom_"+id_offre).innerHTML;
-//
-//     let res = confirm("Voulez vous réelement ajouter cette offre à votre WishList : "+nom_offre+" ?");
-//
-//     if (res) {
-//         document.location.href="/Offre/wishList/"+id_offre;
-//     }
-//     document.location.href="/Offre/wishList/"+id_offre;
-// }
+function ajout_wish(id_offre) {
+    document.location.href="/Offre/wishList/"+id_offre;
+}
 
-// function deleteWish(id_offre){
-//     let nom_offre = document.getElementById("nom_"+id_offre).innerHTML;
-//
-//     let res = confirm("Voulez vous réelement supprimer cette offre à votre WishList : "+nom_offre+" ?");
-//
-//     if (res) {
-//         document.location.href="/Offre/deleteWishlist/"+id_offre;
-//     }
-//     document.location.href="/Offre/deleteWishlist/"+id_offre;
-// }
+function rejet_wish(id_offre){
+    document.location.href="/Offre/deleteWishlist/"+id_offre;
+}
+
+
+function ajout_post(id_offre) {
+    document.location.href="/Offre/postuler/"+id_offre;
+}
+
+function rejet_post(id_offre){
+    document.location.href="/Offre/deletePostuler/"+id_offre;
+}
 
 
 // function etudiant() {
 //     let role = document.getElementById("role").value;
-//     let form = document.getElementById("formulaire");
+//     let art_form = document.getElementById("art_form");
 //
 //     if (role == 4) {
-//         (form.parentElement).removeChild(form);
+//         (art_form.parentElement).removeChild(art_form);
 //     }
 // }
 // document.addEventListener('DOMContentLoaded', etudiant);

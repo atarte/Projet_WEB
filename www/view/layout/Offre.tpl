@@ -3,14 +3,14 @@
 <link rel="stylesheet" href="http://static.projet.com/css/Offre.css">
 
 <body>
-
+{$role}
 <main class="container">
     <nav>
         <a href="/Accueil"><button>Retour</button></a>
     </nav>
 
     <div class="row justify-content-between">
-        <article class="col">
+        <article class="col" id="art_form" {$etudiant|default: ""}>
 
             <!-- création étudiant -->
             <fieldset class="field">

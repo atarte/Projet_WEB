@@ -4,8 +4,8 @@ $smarty = new Smarty;
 
 $smarty->assign('title', 'Gestion Offre');
 
-// $html = '<input type="hidden" id="role" value="'.$_SESSION['role'].'">';
-// $smarty->assign('role', $html);
+$html = '<input type="hidden" id="role" value="'.$_SESSION['role'].'">';
+$smarty->assign('role', $html);
 
 
 // affichage de l'icone de fermeture
@@ -175,6 +175,9 @@ if ($this->p != 0) {
     $smarty->assign('pagination', $html);
 }
 
-
+// Remove Form
+if($_SESSION['role'] == 4) {
+    $smarty->assign('etudiant', 'remove');
+}
 
 $smarty->display(ROOT.'/view/layout/Offre.tpl');
