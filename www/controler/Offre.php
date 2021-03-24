@@ -8,6 +8,7 @@ class Offre extends Controler {
     public $competence;
     public $durer;
     public $wish;
+    public $post;
 
     public $err;
     public $p;
@@ -28,6 +29,7 @@ class Offre extends Controler {
         $this->competence = $this->Offre_Model->getCompetence();
         $this->durer = $this->Offre_Model->getDurer();
         $this->wish = $this->Offre_Model->getWishlist();
+        $this->post = $this->Offre_Model->getPostulation();
     }
 
 
@@ -91,5 +93,13 @@ class Offre extends Controler {
 
     public function deleteWishlist(int $id) {
         $this->Offre_Model->deleteWish($id);
+    }
+
+    public function postuler(int $id) {
+        $this->Offre_Model->addPost($id);
+    }
+
+    public function deletePostuler(int $id) {
+        $this->Offre_Model->deletePost($id);
     }
 }

@@ -54,10 +54,11 @@ while ($row = $this->durer->fetch()) {
 
 $smarty->assign('Durer', $html);
 
-// Appel des Souhaits
+// Appel des Souhaits et Postulation
 $cand = $this->wish->fetchAll();
+$postu = $this->post->fetchAll();
 
-//print_r($cand);
+print_r($postu);
 
 // Affichage des Offres
 $html = '';
@@ -101,8 +102,6 @@ while ($row = $this->offre->fetch()) {
 
             // $jsp = '<button id="btn_wish" onclick=wish('.$row['id'].')>WishList</button>';
             $jsp = '<img class="icop" src="http://static.projet.com/img/noWish.png" alt="icone modification" onclick=ajout_wish('.$row['id'].')>';
-
-            $jsp2 = '<img class="icop" src="http://static.projet.com/img/noPost.png" alt="icone modification" onclick=ajout_post('.$row['id'].')>';
         }
         else {
 
@@ -114,7 +113,6 @@ while ($row = $this->offre->fetch()) {
                     $jsp = '<img class="icop" src="http://static.projet.com/img/Wish.png" alt="icone modification" onclick=rejet_wish('.$row['id'].')>';
 
                     // $jsp2 = '<button onclick=postuler('.$row['id'].')>Dépostuler</button>';
-                    $jsp2 = '<img class="icop" src="http://static.projet.com/img/Post.png" alt="icone modification" onclick=rejet_post('.$row['id'].')>';
                     break;
                 }
                 else {
@@ -123,6 +121,25 @@ while ($row = $this->offre->fetch()) {
                     $jsp = '<img class="icop" src="http://static.projet.com/img/noWish.png" alt="icone modification" onclick=ajout_wish('.$row['id'].')>';
 
                     // $jsp2 = '<button onclick=postuler('.$row['id'].')>Postuler</button>';
+                }
+            }
+        }
+
+        if (count($postu) == 0) {
+
+            $jsp2 = '<img class="icop" src="http://static.projet.com/img/noPost.png" alt="icone modification" onclick=ajout_post('.$row['id'].')>';
+        }
+        else {
+
+            for ($i = 0; $i < count($postu); $i++) {
+
+                if ($postu[$i]['id_stage'] == $row['id'] && !empty($postu[$i]['postulation'])) {
+
+                    $jsp2 = '<img class="icop" src="http://static.projet.com/img/Post.png" alt="icone modification" onclick=rejet_post('.$row['id'].')>';
+
+                    break;
+                }
+                else {
                     $jsp2 = '<img class="icop" src="http://static.projet.com/img/noPost.png" alt="icone modification" onclick=ajout_post('.$row['id'].')>';
                 }
             }

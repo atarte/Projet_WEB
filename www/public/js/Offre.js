@@ -99,14 +99,3 @@ function ajout_post(id_offre) {
 function rejet_post(id_offre){
     document.location.href="/Offre/deletePostuler/"+id_offre;
 }
-
-
-// function etudiant() {
-//     let role = document.getElementById("role").value;
-//     let art_form = document.getElementById("art_form");
-//
-//     if (role == 4) {
-//         (art_form.parentElement).removeChild(art_form);
-//     }
-// }
-// document.addEventListener('DOMContentLoaded', etudiant);
