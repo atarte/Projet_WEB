@@ -45,9 +45,11 @@ Class Wishlist_Model extends Model {
     }
 
     public function displayOffre() {
-        $req = "CALL Affichage_Whishlist()";
+        $req = "CALL Affichage_Whishlist(:id)";
 
         $query = $this->db->prepare($req);
+
+        $query->bindParam(':id', $_SESSION['id']);
 
         $query->execute();
 

@@ -34,8 +34,8 @@ BEGIN
     INNER JOIN Entreprise e ON Stage.Id_Entreprise = e.Id_Entreprise
     INNER JOIN Ville v ON Stage.Id_Ville = v.Id_Ville
     INNER JOIN Candidature cand ON Stage.Id_Stage = cand.Id_Stage
-    WHERE comp.Id_Stage = Stage.Id_Stage AND cand.Id_Users = id_users
-    ORDER BY Stage.Nom DESC;
+    WHERE comp.Id_Stage = Stage.Id_Stage AND cand.Id_Users = id_users AND cand.Souhait IS NOT NULL
+    ORDER BY cand.Souhait DESC;
 END |
 
 
