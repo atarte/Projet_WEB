@@ -387,8 +387,10 @@ Class Offre_Model extends Model {
 
         $query->execute();
 
-        $row = $query->fetch();
+        // $row = $query->fetch();
         $count = $query->rowCount();
+
+        // echo $count;
 
         if ($count == 0) {
 
@@ -402,6 +404,8 @@ Class Offre_Model extends Model {
         }
 
         $query = $this->db->prepare($req);
+
+        echo $_SESSION["id"] . $id;
 
         $query->bindParam(':id_user', $_SESSION['id']);
         $query->bindParam(':id_stage', $id);
