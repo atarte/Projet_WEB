@@ -29,13 +29,15 @@
                         <div class="row justify-content-center p-1">
 						<!-- adresse : -->
                             <input id="adresse" type="text" name="adresse" placeholder="Adresse" required>
+							<!-- <button onclick="add()">+</button> -->
+                            <!-- <div id="adresse"></div> -->
                         </div>
                         <div class="row justify-content-center p-1">
 						<!-- code postal : -->
                             <input id="code_p" type="number" name="code_p" placeholder="Code Postal" required>
                         </div>
                         <div class="row justify-content-center p-1">
-						<!-- Ville : <br> -->
+						<!-- ville : <br> -->
                             <select id="ville" name="ville">
                                 <option value="">Choisiez une ville</option>
                                 {$Ville}
@@ -50,7 +52,7 @@
                             <input id="stagiaire" type="text" name="stagiaire" placeholder="NbStagiaireAccepté" required>
                         </div>
                         <div class="row justify-content-center p-1">
-                            <!-- Secteur : <br> -->
+                            <!-- secteur : <br> -->
                             <select id="secteur" name="secteur" required>
                                 <option value="">Choississez un secteur</option>
                                 {$secteur}
@@ -117,7 +119,7 @@
                 </div>
 
                 <div class="">
-                    {$Entreprise}
+                    {$Offre}
                 </div>
             </fieldset>
         </article>
