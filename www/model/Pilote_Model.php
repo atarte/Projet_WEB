@@ -5,6 +5,7 @@ Class Pilote_Model extends Model {
         // verification que l'utilisateur à bien le droit d'accédé à cette page
 
         if (($_SESSION['role'] == "3" && $_SESSION['deleg']['pilote'] != "1") || ($_SESSION['role'] == "2") || ($_SESSION['role'] == "4")) {
+            session_unset();
             header("location: /");
         }
     }

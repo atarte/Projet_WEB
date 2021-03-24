@@ -4,10 +4,6 @@ $smarty = new Smarty;
 
 $smarty->assign('title', 'Gestion Offre');
 
-$html = '<input type="hidden" id="role" value="'.$_SESSION['role'].'">';
-$smarty->assign('role', $html);
-
-
 // affichage de l'icone de fermeture
 if ($this->close) {
     $smarty->assign('close', '<a href="/Offre"><img class="icop"  src="http://static.projet.com/img/close.svg" alt="icone close"></a>');

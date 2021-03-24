@@ -3,7 +3,6 @@
 <link rel="stylesheet" href="http://static.projet.com/css/Offre.css">
 
 <body>
-{$role}
 <main class="container">
     <nav>
         <a href="/Accueil"><button>Retour</button></a>
