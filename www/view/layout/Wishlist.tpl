@@ -17,7 +17,9 @@
                 <legend id="legend_form">WishList</legend>
 
                 <!-- affichages des stages postulé -->
-                {$Offre}
+                <div class="">
+                    {$Offre}
+                </div>
 
             </fieldset>
         </article>

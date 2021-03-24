@@ -12,7 +12,7 @@ Class Wishlist_Model extends Model {
     }
 
     public function displayOffre() {
-        $req = "CALL Affichage_Whishlist(:id)";
+        $req = "CALL Affichage_Wishlist(:id)";
 
         $query = $this->db->prepare($req);
 

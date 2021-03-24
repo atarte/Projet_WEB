@@ -4,8 +4,6 @@ $smarty = new Smarty;
 
 $smarty->assign('title', 'Wishlist');
 
-$smarty->display(ROOT.'/view/layout/Wishlist.tpl');
-
 
 // Appel des Souhaits et Postulation
 $postu = $this->post->fetchAll();
@@ -21,7 +19,6 @@ while ($row = $this->offre->fetch()) {
     $html = $html.'<div class="gauche"><div><img class="ico" src="http://static.projet.com/img/intership.svg" alt="icone stage"></div>';
 
     $titre = strtoupper($row['nom']);
-
     $html = $html.' <div><div><u><b><span id="nom_'.$row['id'].'">'.$titre.'</span></b></u></div>';
 
     $entreprise = ucfirst($row['entreprise']);
@@ -70,7 +67,10 @@ while ($row = $this->offre->fetch()) {
 
     $html = $html.'<div><div>'.$jsp.'</div><div>'.$jsp2.'</div></div>';
 
-
     $html = $html.'</div>';
 }
+
+
 $smarty->assign('Offre',$html);
+
+$smarty->display(ROOT.'/view/layout/Wishlist.tpl');
