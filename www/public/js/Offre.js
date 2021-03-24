@@ -1,17 +1,17 @@
-function add() {
-
-    //Création d'un input
-    var element = document.createElement("input");
-
-    //définition des attribut du nouvel input
-    element.setAttribute("type", "text");
-    element.setAttribute("value", "");
-    element.setAttribute("name", "competences");
-
-    var plus = document.getElementById("plus_comp");
-
-    plus.appendChild(element);
-}
+// function add() {
+//
+//     //Création d'un input
+//     var element = document.createElement("input");
+//
+//     //définition des attribut du nouvel input
+//     element.setAttribute("type", "text");
+//     element.setAttribute("value", "");
+//     element.setAttribute("name", "competences");
+//
+//     var plus = document.getElementById("plus_comp");
+//
+//     plus.appendChild(element);
+// }
 
 function modification(id) {
     document.getElementById("nom").value = document.getElementById("nom_"+id).innerHTML;
@@ -20,7 +20,6 @@ function modification(id) {
     document.getElementById("duree").value = document.getElementById("duree_"+id).innerHTML;
     document.getElementById("nb_place").value = document.getElementById("nb_"+id).innerHTML;
     document.getElementById("remuneration").value = document.getElementById("remuneration_"+id).innerHTML;
-    //document.getElementById("date").value = document.getElementById("date_"+id).innerHTML;
 
     select(id, "specialite");
     select(id, "entreprise");
