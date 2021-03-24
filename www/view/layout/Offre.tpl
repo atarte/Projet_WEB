@@ -10,7 +10,7 @@
     </nav>
 
     <div class="row justify-content-between">
-        <article class="col" id="art_form" {$etudiant|default: ""}>
+        <article class="col" id="art_form" {$etudiant|default:""}>
 
             <!-- création étudiant -->
             <fieldset class="field">
