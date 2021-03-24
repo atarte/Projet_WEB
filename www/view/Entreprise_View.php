@@ -4,6 +4,26 @@ $smarty = new Smarty;
 
 $smarty->assign('title', 'Gestion Entreprise');
 
+$html = '<input type="hidden" id="role" value="'.$_SESSION['role'].'">';
+$smarty->assign('role', $html);
+
+
+// affichage de l'icone de fermeture
+if ($this->close) {
+    $smarty->assign('close', '<a href="/Offre"><img class="icop"  src="http://static.projet.com/img/close.svg" alt="icone close"></a>');
+}
+
+
+
+// Affichage des Villes
+$html = '';
+while ($row = $this->ville->fetch()) {
+    $html = $html.'<option value="'.$row['id'].'">'.$row['ville'].'</option>';
+}
+
+$smarty->assign('Ville', $html);
+
+// Affichage des Secteurs
 $html = '';
 while ($row = $this->secteur->fetch()) {
     $html = $html.'<option value="'.$row['id'].'">'.$row['secteur'].'</option>';
@@ -11,47 +31,51 @@ while ($row = $this->secteur->fetch()) {
 
 $smarty->assign('Secteur', $html);
 
+
+
+// Affichage des Entreprises
 $html = '';
 $i = 0;
+
 while ($row = $this->entreprise->fetch()) {
-    $i++;
+    $html = $html.'<div id=id_"'.$row['id'].'" class="p-1 m-1 case">';
 
-    $html = $html.'<div id="'.$row["Id_Entreprise"].'">';
+    $html = $html.'<div class="gauche"><div><img class="ico" src="http://static.projet.com/img/entreprise.png" alt="icone entreprise"></div>';
 
-    $html = $html.' Nom : <span id="nom_'.$row['Id_Entreprise'].'">'.$row['nom'].'</span><br>';
+    // $html = $html.'<input type="hidden" id="id_entreprise" value="'.$row['id'].'">';
 
-    $html = $html.' Email : <span id="email_'.$row['Id_Entreprise'].'">'.$row['email'].'</span><br>';
+    $titre = strtoupper($row['nom']);
+    $html = $html.' <div><div><span id="nom_'.$row['id'].'"><u><b>'.$titre.'</b></u></span></div>';
 
-    $html = $html.' Adresse : <span id="adresse_'.$row['Id_Entreprise'].'">'.$row['adresse'].'</span><br>';
-        
-    $html = $html.' Code Postal : <span id="codePostal_'.$row['Id_Entreprise'].'">'.$row['adresse'].'</span><br>';
-    
-    $html = $html.' Ville : <span id="ville_'.$row['Id_Entreprise'].'">'.$row['ville'].'</span><br>';
-    
-    $html = $html.' Region : <span id="region_'.$row['Id_Entreprise'].'">'.$row['region'].'</span><br>';
-    
-    $html = $html.' Stagiaire : <span id="stagiaire_'.$row['Id_Entreprise'].'">'.$row['stagiaire'].'</span><br>';
-    
-    $html = $html.' Secteur : <span id="secteur_'.$row['Id_Entreprise'].'">'.$row['secteur'].'</span><br>';
+    $entreprise = ucfirst($row['entreprise']);
+    $html = $html.' <div>L\'entreprise <span id="entreprise_'.$row['id'].'">'.$entreprise.'</span>';
 
-    $html = $html.'<button onclick=confirmation('.$row['Id_Entreprise'].')>Supprimer</button>';
+    $html = $html.' est située dans la ville <span id="ville_'.$row['id'].'">'.$row['ville'].'</span>';
 
-    $html = $html.'<button onclick=modification('.$row['Id_Entreprise'].')>Modifier</button><br><br>';
+    $html = $html.' en <span id="nb_'.$row['id'].'">'.$row['region'].'</span>';
 
-    $html = $html.'<br></div>';
+    $html = $html.' Spécialisée dans le secteur <span id="secteur_'.$row['id'].'">'.$row['secteur'].'</span>';
 
+    $html = $html.' elle a déjà accueilli <span id="stagiaire_'.$row['id'].'">'.$row['stagiaire'].'</span> en stage';
+
+    $html = $html.' Vous pouvez nous contacter à cette adresse : <span id="email_'.$row['id'].'">'.$row['email'].'</span>.</div></div></div>';
+
+   
+
+
+    $html = $html.'</div>';
 }
-
 $smarty->assign('Entreprise',$html);
 
+// Gestion des Errreur
 if (isset($this->err)) {
     if ($$this->err == 1) {
-        $smarty->assign('erreur', 'Email déjà utilisé par une Entreprise');
-    }
-    else {
+        $smarty->assign('erreur', 'Email déjà utilisé par une entreprise');
     }
 }
 
+
+// Pagination
 $page  = $this->p;
 $pageBack = $page -1;
 $pageForward = $page +1;
@@ -75,6 +99,6 @@ if ($this->p != 0) {
     $smarty->assign('pagination', $html);
 }
 
+}
 
-
-$smarty->display(ROOT.'view/layout/Entreprise.tpl');
+$smarty->display(ROOT.'/view/layout/Entreprise.tpl');
