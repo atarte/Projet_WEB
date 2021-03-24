@@ -66,7 +66,7 @@ while ($row = $this->offre->fetch()) {
 
     $titre = strtoupper($row['nom']);
 
-    $html = $html.' <div><div><span id="nom_'.$row['id'].'"><u><b>'.$titre.'</b></u></span></div>';
+    $html = $html.' <div><div><u><b><span id="nom_'.$row['id'].'">'.$titre.'</span></b></u></div>';
 
     $entreprise = ucfirst($row['entreprise']);
     $html = $html.' <div>L\'entreprise <span id="entreprise_'.$row['id'].'">'.$entreprise.'</span>';
