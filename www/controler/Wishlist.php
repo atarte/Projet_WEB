@@ -27,12 +27,6 @@ Class Wishlist extends Controler {
     }
 
 
-    public function wishList(int $id) {
-
-        $this->Wishlist_Model->addWish($id);
-    }
-
-
     public function deleteWishlist(int $id) {
         $this->Wishlist_Model->deleteWish($id);
     }

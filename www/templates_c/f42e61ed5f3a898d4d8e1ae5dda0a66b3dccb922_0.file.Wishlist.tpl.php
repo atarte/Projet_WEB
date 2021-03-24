@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-24 14:47:05
+/* Smarty version 3.1.39, created on 2021-03-24 14:54:23
   from 'C:\Users\catar\Documents\CESI\A2\4 - Web\Projet\Projet_WEB\www\view\layout\Wishlist.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_605b50e9604111_29021926',
+  'unifunc' => 'content_605b529fc3a722_71873393',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f42e61ed5f3a898d4d8e1ae5dda0a66b3dccb922' => 
     array (
       0 => 'C:\\Users\\catar\\Documents\\CESI\\A2\\4 - Web\\Projet\\Projet_WEB\\www\\view\\layout\\Wishlist.tpl',
-      1 => 1616596855,
+      1 => 1616597654,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./common/footer.tpl' => 1,
   ),
 ),false)) {
-function content_605b50e9604111_29021926 (Smarty_Internal_Template $_smarty_tpl) {
+function content_605b529fc3a722_71873393 (Smarty_Internal_Template $_smarty_tpl) {
 ob_start();
 echo $_smarty_tpl->tpl_vars['title']->value;
 $_prefixVariable1 = ob_get_clean();
@@ -46,8 +46,10 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
                 <legend id="legend_form">WishList</legend>
 
                 <!-- affichages des stages postulé -->
-                <?php echo $_smarty_tpl->tpl_vars['Offre']->value;?>
+                <div class="">
+                    <?php echo $_smarty_tpl->tpl_vars['Offre']->value;?>
 
+                </div>
 
             </fieldset>
         </article>
