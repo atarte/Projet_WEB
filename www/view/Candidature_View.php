@@ -66,7 +66,12 @@ while ($row = $this->candidature->fetch()) {
 
     $jsp2 = '<img class="icop" src="http://static.projet.com/img/Post.png" alt="icone postuler" onclick=rejet_post('.$row['id'].')>';
 
+    $html = $html.'<div>';
+
     $html = $html.'<div><div>'.$jsp.'</div><div>'.$jsp2.'</div></div>';
+
+    $html = $html.'<div>step : <span>'.$row['step'].'</span></div></div>';
+
 
     $html = $html.'</div>';
 }
