@@ -96,7 +96,13 @@ while ($row = $this->candidature->fetch()) {
 
     $html = $html.'<div class="entre">';
 
-        $html = $html.'PORIUT';
+        $html = $html.'<div id="textarea"></div>';
+
+        $html = $html.'<div id="infile"></div>';
+
+        $html = $html.'<div id="envoyer"></div>';
+
+        $html = $html.'<div id="annuler"></div>';
 
     $html = $html.'</div>';
 
