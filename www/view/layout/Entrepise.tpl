@@ -49,7 +49,7 @@
                         </div>
                         <div class="row justify-content-center p-1">
 						<!-- stagiaire : -->
-                            <input id="stagiaire" type="text" name="stagiaire" placeholder="NbStagiaireAccepté" required>
+                            <input id="nombre_accepter" type="text" name="nombre_accepter" placeholder="NbStagiaireAccepté" required>
                         </div>
                         <div class="row justify-content-center p-1">
                             <!-- secteur : <br> -->
