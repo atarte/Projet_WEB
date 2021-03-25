@@ -147,7 +147,7 @@ Class Candidature_Model extends Model {
         $this->getConnexion();
 
         $req = 'UPDATE Candidature SET
-        Candidature.Postulation = 2
+        Candidature.Step = 2
         WHERE Id_candidature = :id;';
 
         $query = $this->db->prepare($req);
@@ -164,7 +164,7 @@ Class Candidature_Model extends Model {
         $this->getConnexion();
 
         $req = 'UPDATE Candidature SET
-        Candidature.Postulation = 8
+        Candidature.Step = 8
         WHERE Id_candidature = :id;';
 
         $query = $this->db->prepare($req);
