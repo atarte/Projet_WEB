@@ -18,7 +18,7 @@ class Candidature extends Controler {
             $this->pilote = $this->Candidature_Model->getPilotePerso();
         }
         else if ($_SESSION['role'] == "2") {
-            $this->$assistant = $this->Candidature_Model->getAssit();
+            $this->assistant = $this->Candidature_Model->getAssit();
         }
     }
 

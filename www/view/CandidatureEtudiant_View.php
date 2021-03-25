@@ -103,7 +103,7 @@ while ($row = $this->candidature->fetch()) {
     if ($step == "2") {
         $html = $html.'<div class="d-flex">';
 
-        $html = $html.'<div id="textarea"><textarea id="story" name="story" rows="3" cols="30" style="resize: none;">'.$assist[0]['email'].'</textarea></div>';
+        $html = $html.'<div id="textarea"><textarea id="story" name="story" rows="3" cols="30" style="resize: none;">'.$pil[0]['email'].'</textarea></div>';
 
         $html = $html.'<div>';
 
