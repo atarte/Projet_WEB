@@ -252,4 +252,21 @@ Class Candidature_Model extends Model {
 
         header('location: /Candidature');
     }
+
+
+    public function updatestep5(int $id) {
+        $this->getConnexion();
+
+        $req = 'UPDATE Candidature SET
+        Candidature.Step = 5
+        WHERE Id_candidature = :id;';
+
+        $query = $this->db->prepare($req);
+
+        $query->bindParam(':id', $id);
+
+        $query->execute();
+
+        header('location: /Candidature');
+    }
 }
