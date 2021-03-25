@@ -40,7 +40,7 @@ $i = 0;
 while ($row = $this->entreprise->fetch()) {
     $html = $html.'<div id=id_"'.$row['id'].'" class="p-1 m-1 case">';
 
-    $html = $html.'<div class="gauche"><div><img class="ico" src="http://static.projet.com/img/entreprise.png" alt="icone entreprise"></div>';
+   // $html = $html.'<div class="gauche"><div><img class="ico" src="http://static.projet.com/img/entreprise.png" alt="icone entreprise"></div>';
 
     // $html = $html.'<input type="hidden" id="id_entreprise" value="'.$row['id'].'">';
 
