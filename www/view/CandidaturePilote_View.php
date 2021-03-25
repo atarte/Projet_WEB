@@ -49,9 +49,10 @@ while ($row = $this->candidature->fetch()) {
     $html = $html.'<div>'; // Ouverture de la step
 
     $step = $row['step'];
-    if ($step = "2") {
+    if ($step = "3") {
 
     }
+
     $html = $html.'</div>'; // fermeture de la step
 
     $html = $html.'</div>'; // fermeture de glob

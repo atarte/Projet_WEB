@@ -82,6 +82,7 @@ while ($row = $this->candidature->fetch()) {
     $html = $html.'<div>';
 
     $step = $row['step'];
+
     if ($step = "1") {
         $html = $html.'Avez vous été retenue par l\'entreprise';
         $html = $html.'  <div><span class="coche" onclick=accepter('.$row['id_cand'].')>✔️</span>';
@@ -96,13 +97,22 @@ while ($row = $this->candidature->fetch()) {
 
     $html = $html.'<div class="entre">';
 
-        $html = $html.'<div id="textarea"></div>';
+    echo $step;
 
-        $html = $html.'<div id="infile"></div>';
+    if ($step == "2") {
+        $html = $html.'<div class="d-flex">';
 
-        $html = $html.'<div id="envoyer"></div>';
+        $html = $html.'<div id="textarea"><textarea id="story" name="story" rows="3" cols="30" style="resize: none;"></textarea></div>';
 
-        $html = $html.'<div id="annuler"></div>';
+        $html = $html.'<div>';
+
+        $html = $html.'<div id="infile"><input type="file" name="file-upload" id="file-upload"/></div>';
+
+        $html = $html.'<div id="envoyer"><a href="/Candidature/step3Etudiant/"'.$row['id_cand'].'><button>Envoyer</button></a></div>';
+        $html = $html.'</div>';
+        $html = $html.'</div>';
+
+    }
 
     $html = $html.'</div>';
 
