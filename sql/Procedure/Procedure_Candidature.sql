@@ -64,6 +64,7 @@ BEGIN
         Candidature.Step AS step,
         u.Nom AS nom,
         u.Prenom AS prenom,
+        u.Email AS email,
         p.Promotion AS promotion,
         s.Nom AS nom_stage,
         s.Email AS email,
