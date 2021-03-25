@@ -44,13 +44,13 @@ Class Entreprise_Model extends Model {
             return 1;
         }
         else {
-            $req  = "CALL Creation_Entreprise(:nom, :email, :stagiaire, :adresse, :codePostal, :ville, :region, :pays, :secteur)";
+            $req  = "CALL Creation_Entreprise(:nom, :email, :nombre_accepter, :adresse, :codePostal, :ville, :region, :pays, :secteur)";
 
             $query = $this->db->prepare($req);
 
             $query->bindParam(':nom', $_POST['nom']);
             $query->bindParam(':email', $_POST['email']);
-            $query->bindParam(':stagiaire', $_POST['stagiaire']);
+            $query->bindParam(':nombre_accepter', $_POST['nombre_accepter']);
             $query->bindParam(':adresse', $_POST['adresse']);
             $query->bindParam(':codePostal', $_POST['codePostal']);
 			$query->bindParam(':ville', $_POST['ville']);
@@ -97,19 +97,19 @@ Class Entreprise_Model extends Model {
 
         if ($count == 0 || $row['id'] == strval($id)) {
 
-            $_POST['stagiaire'] = intval($_POST['stagiaire']);
+            $_POST['nombre_accepter'] = intval($_POST['nombre_accepter']);
 			$_POST['secteur'] = intval($_POST['secteur']);
 
 
 
-            $req = "CALL Modification_Entreprise(:id, :nom, :email, :stagiaire, :adresse, :codePostal, :ville, :region, :pays, :secteur)";
+            $req = "CALL Modification_Entreprise(:id, :nom, :email, :nombre_accepter, :adresse, :codePostal, :ville, :region, :pays, :secteur)";
 
             $query = $this->db->prepare($req);
 
             $query->bindParam(':id', $id);
             $query->bindParam(':nom', $nom);
             $query->bindParam(':email', $email);
-            $query->bindParam(':stagiaire', $_POST['stagiaire']);
+            $query->bindParam(':nombre_accepter', $_POST['nombre_accepter']);
             $query->bindParam(':adresse', $adresse);
 			$query->bindParam(':codePostal', $codePostal);
 			$query->bindParam(':ville', $ville);
