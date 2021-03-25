@@ -12,10 +12,10 @@ function rejet_post(id_offre){
 
 
 function accepter(id) {
-    console.log("accepter"+id);
+    document.location.href="/Candidature/step2EtudiantA/"+id;
 }
 
 
 function refuser(id) {
-    console.log("refuser"+id);
+    document.location.href="/Candidature/step2EtudiantR/"+id;
 }

@@ -50,4 +50,14 @@ class Candidature extends Controler {
             $this->Candidature_Model->deletePost($id);
         }
     }
+
+
+    public function step2EtudiantA(int $id) {
+        $this->Candidature_Model->updatestep2A($id);
+    }
+
+
+    public function step2EtudiantR(int $id) {
+        $this->Candidature_Model->updatestep2R($id);
+    }
 }

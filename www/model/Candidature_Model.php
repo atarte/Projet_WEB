@@ -141,4 +141,38 @@ Class Candidature_Model extends Model {
         return $query;
 
     }
+
+
+    public function updatestep2A($id) {
+        $this->getConnexion();
+
+        $req = 'UPDATE Candidature SET
+        Candidature.Postulation = 2
+        WHERE Id_candidature = :id;';
+
+        $query = $this->db->prepare($req);
+
+        $query->bindParam(':id', $id);
+
+        $query->execute();
+
+        header('location: /Candidature');
+    }
+
+
+    public function updatestep2R($id) {
+        $this->getConnexion();
+
+        $req = 'UPDATE Candidature SET
+        Candidature.Postulation = 8
+        WHERE Id_candidature = :id;';
+
+        $query = $this->db->prepare($req);
+
+        $query->bindParam(':id', $id);
+
+        $query->execute();
+
+        header('location: /Candidature');
+    }
 }
