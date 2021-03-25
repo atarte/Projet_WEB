@@ -52,7 +52,7 @@ while ($row = $this->entreprise->fetch()) {
 
     $html = $html.' est située dans la ville <span id="ville_'.$row['id'].'">'.$row['ville'].'</span>';
 
-    $html = $html.' en <span id="nb_'.$row['id'].'">'.$row['region'].'</span>';
+    $html = $html.' en <span id="region_'.$row['id'].'">'.$row['region'].'</span>';
 
     $html = $html.' Spécialisée dans le secteur <span id="secteur_'.$row['id'].'">'.$row['secteur'].'</span>';
 
