@@ -4,11 +4,10 @@ Class Candidature_Model extends Model {
     public function __construct() {
         // Vérification des droits d'accés
 
-        // if (!isset($_SESSION['id'])) {
-        //     session_unset();
-        //     // il faudrai affiché un message du genre "page inaxessible"
-        //     header("location: /");
-        // }
+        if (!isset($_SESSION['role']) || $_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
+            session_unset();
+            header("location: /");
+        }
     }
 
 
