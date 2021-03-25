@@ -271,22 +271,22 @@ Class Candidature_Model extends Model {
     }
 
     public function updatestep6(int $id) {
-        $this->getConnexion();
-
-        $req = 'UPDATE Candidature SET
-        Candidature.Step = 6
-        WHERE Id_candidature = :id;';
-
-        $query = $this->db->prepare($req);
-
-        $query->bindParam(':id', $id);
-
-        $query->execute();
+        // $this->getConnexion();
+        //
+        // $req = 'UPDATE Candidature SET
+        // Candidature.Step = 6
+        // WHERE Id_candidature = :id;';
+        //
+        // $query = $this->db->prepare($req);
+        //
+        // $query->bindParam(':id', $id);
+        //
+        // $query->execute();
 
 
 
         // faire l'autre requète
-        $req2 = 'CALL Update_Step6(:id)';
+        $req2 = 'CALL Update_step6(:id)';
 
         $query2 = $this->db->prepare($req);
 
