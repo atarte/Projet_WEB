@@ -22,6 +22,8 @@ class Entreprise extends Controler {
         $this->loadModel("Entreprise_Model");
 
         $this->p = 1;
+        
+        $this->close = false;
 
         $this->stagiaire= $this->Entreprise_Model->getNombre_Accepter();
         $this->secteur = $this->Entreprise_Model->getSecteur();
