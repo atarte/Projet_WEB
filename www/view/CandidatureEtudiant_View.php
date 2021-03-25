@@ -91,6 +91,12 @@ while ($row = $this->candidature->fetch()) {
         $html = $html.'  <div><span class="coche" onclick=accepter('.$row['id_cand'].')>✔️</span>';
         $html = $html.'  <span class="coche" onclick=refuser('.$row['id_cand'].')>❌</span></div>';
     }
+
+    if ($step == "6") {
+        $html = $html.'accepter';
+
+    }
+
     $html = $html.'</div>';
 
     $html = $html.'</div>'; // fin de gauche 2

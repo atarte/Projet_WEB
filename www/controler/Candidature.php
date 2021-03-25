@@ -84,4 +84,8 @@ class Candidature extends Controler {
     public function step5Pilote(int $id) {
         $this->Candidature_Model->updatestep5($id);
     }
+
+    public function step6Pilote(int $id) {
+        $this->Candidature_Model->updatestep6($id);
+    }
 }
