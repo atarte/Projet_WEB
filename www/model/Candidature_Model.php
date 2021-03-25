@@ -125,4 +125,20 @@ Class Candidature_Model extends Model {
 
         header('location: /Candidature');
     }
+
+    public function donneePilote() {
+
+        $this->getConnexion();
+
+        $req = "CALL Donnee_Pilote(:id_user)";
+
+        $query = $this->db->prepare($req);
+
+        $query->bindParam(':id_user', $_SESSION['id']);
+
+        $query->execute();
+
+        return $query;
+
+    }
 }
