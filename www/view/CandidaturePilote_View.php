@@ -16,9 +16,9 @@ $html = '';
 
 while ($row = $this->candidature->fetch()) {
 
-    $html = $html.'<div id=id_"'.$row['id'].'" class="p-1 m-1 case">';
+    $html = $html.'<div id=id_"'.$row['id'].'" class="p-1 m-1 contour">';
 
-    // $html = $html.' <div>';
+    $html = $html.' <div class="glob">';
 
     $html = $html.'<div class="gauche"><div><img class="ico" src="http://static.projet.com/img/intership.svg" alt="icone stage"></div>';
 
@@ -42,24 +42,32 @@ while ($row = $this->candidature->fetch()) {
 
     $html = $html.' : <span id="email_'.$row['id'].'">'.$row['email'].'</span>';
 
-    // $html = $html.
+    $html = $html.'</div>';
 
+    $html = $html.'</div>'; // fermeture de gauche
 
-    $html = $html.'</div></div>';
-
-    $html = $html.'<div>';
+    $html = $html.'<div>'; // Ouverture de la step
 
     $step = $row['step'];
     if ($step = "2") {
 
     }
+    $html = $html.'</div>'; // fermeture de la step
 
+    $html = $html.'</div>'; // fermeture de glob
+
+
+
+    $html = $html.'<div>';
+
+    $html = $html.'je suis trop fort';
+
+    $html = $html.'</div>';
 
 
 
     $html = $html.'</div>';
 
-    $html = $html.'</div></div>';
 
     // $html = $html.'</div>';
 }
