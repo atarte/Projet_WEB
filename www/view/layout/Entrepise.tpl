@@ -119,7 +119,7 @@
                 </div>
 
                 <div class="">
-                    {$Offre}
+                    {$Entreprise}
                 </div>
             </fieldset>
         </article>
