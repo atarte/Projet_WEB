@@ -18,6 +18,8 @@ while ($row = $this->candidature->fetch()) {
 
     $html = $html.'<div id=id_"'.$row['id'].'" class="p-1 m-1 case">';
 
+    // $html = $html.' <div>';
+
     $html = $html.'<div class="gauche"><div><img class="ico" src="http://static.projet.com/img/intership.svg" alt="icone stage"></div>';
 
     $html = $html.' <div>';
@@ -58,6 +60,8 @@ while ($row = $this->candidature->fetch()) {
     $html = $html.'</div>';
 
     $html = $html.'</div></div>';
+
+    // $html = $html.'</div>';
 }
 
 

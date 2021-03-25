@@ -6,3 +6,22 @@
 .coche:hover {
     background-color: grey;
 }
+
+
+.contour {
+    background-color: #ffffff;
+
+    border-style: solid;
+    border-width: 1px;
+
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+
+
+}
+
+.glob {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

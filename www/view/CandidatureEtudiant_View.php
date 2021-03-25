@@ -12,15 +12,15 @@ $html = '';
 
 while ($row = $this->candidature->fetch()) {
 
-    $html = $html.'<div id=id_"'.$row['id'].'" class="p-1 m-1 case">';
+    $html = $html.'<div id=id_"'.$row['id'].'" class="p-1 m-1 contour">';
 
-    // Div image
-    $html = $html.'<div class="gauche"><div><img class="ico" src="http://static.projet.com/img/intership.svg" alt="icone stage"></div>';
+    // $html = $html.' <div class="glob">';
+    $html = $html.' <div class="glob">';
 
-    // Div paragraphe
+    $html = $html.'<div class="gauche"><div><img class="ico" src="http://static.projet.com/img/intership.svg" alt="icone stage"></div>'; // début de gauche 1
+
+
     $html = $html.' <div>';
-
-
 
     $titre = strtoupper($row['nom']);
     $html = $html.'<div><u><b><span id="nom_'.$row['id'].'">'.$titre.'</span></b></u></div>';
@@ -44,13 +44,15 @@ while ($row = $this->candidature->fetch()) {
 
     $html = $html.' Pour plus d\'information, merci de nous contacter à cette adresse : <span id="email_'.$row['id'].'">'.$row['email'].'</span>.</div>';
 
+    $html = $html.'</div>';
+
+    $html = $html.'</div>'; // fin de gauche 1
 
 
-    $html = $html.'</div></div>';
 
+    $html = $html.'<div class="gauche">'; // début de gauche 2
     $jsp = '';
     $jsp2 = '';
-
 
     if (count($cand) == 0) {
 
@@ -74,27 +76,35 @@ while ($row = $this->candidature->fetch()) {
 
     $jsp2 = '<img class="icop" src="http://static.projet.com/img/Post.png" alt="icone postuler" onclick=rejet_post('.$row['id'].')>';
 
-
-    $html = $html.'<div class="gauche">';
-
     $html = $html.'<div><div>'.$jsp.'</div><div>'.$jsp2.'</div></div>';
+
 
     $html = $html.'<div>';
 
-
-    // $html = $html .'step : <span>'.$row['step'].'</span>';
     $step = $row['step'];
     if ($step = "1") {
         $html = $html.'Avez vous été retenue par l\'entreprise';
         $html = $html.'  <div><span class="coche" onclick=accepter('.$row['id_cand'].')>✔️</span>';
         $html = $html.'  <span class="coche" onclick=refuser('.$row['id_cand'].')>❌</span></div>';
     }
+    $html = $html.'</div>';
+
+    $html = $html.'</div>'; // fin de gauche 2
+
+    $html = $html.'</div>'; // fin de glob
+
+
+    $html = $html.'<div class="entre">';
+
+        $html = $html.'PORIUT';
+
+    $html = $html.'</div>';
 
 
 
     $html = $html.'</div>';
 
-    $html = $html.'</div></div>';
+
 }
 
 
