@@ -56,7 +56,7 @@ while ($row = $this->entreprise->fetch()) {
 
     $html = $html.' Spécialisée dans le secteur <span id="secteur_'.$row['id'].'">'.$row['secteur'].'</span>';
 
-    $html = $html.' elle a déjà accueilli <span id="stagiaire_'.$row['id'].'">'.$row['stagiaire'].'</span> en stage';
+    $html = $html.' elle a déjà accueilli <span id="nombre_accepter_'.$row['id'].'">'.$row['nombre_accepter'].'</span> en stage';
 
     $html = $html.' Vous pouvez nous contacter à cette adresse : <span id="email_'.$row['id'].'">'.$row['email'].'</span>.</div></div></div>';
 
