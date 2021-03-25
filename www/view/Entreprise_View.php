@@ -99,6 +99,6 @@ if ($this->p != 0) {
     $smarty->assign('pagination', $html);
 }
 
-}
+
 
 $smarty->display(ROOT.'/view/layout/Entreprise.tpl');
