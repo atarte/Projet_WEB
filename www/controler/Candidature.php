@@ -20,21 +20,32 @@ class Candidature extends Controler {
 
 
     public function affichage() {
-        $this->candidature = $this->Candidature_Model->displayCandidature();
+        if ($_SESSION['role'] == "4") {
+            $this->candidature = $this->Candidature_Model->displayCandidature();
+        }
+        else if ($_SESSION['role'] == "2") {
+            $this->candidature = $this->Candidature_Model->donneePilote();
+        }
 
         require_once(ROOT.'view/Candidature_View.php');
     }
 
     public function wishList(int $id) {
-        $this->Candidature_Model->addWish($id);
+        if ($_SESSION['role'] == "4") {
+            $this->Candidature_Model->addWish($id);
+        }
     }
 
 
     public function deleteWishlist(int $id) {
-        $this->Candidature_Model->deleteWish($id);
+        if ($_SESSION['role'] == "4") {
+            $this->Candidature_Model->deleteWish($id);
+        }
     }
 
     public function deletePostuler(int $id) {
-        $this->Candidature_Model->deletePost($id);
+        if ($_SESSION['role'] == "4") {
+            $this->Candidature_Model->deletePost($id);
+        }
     }
 }
