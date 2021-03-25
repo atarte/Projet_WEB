@@ -78,6 +78,7 @@ class Entreprise extends Controler {
         $this->entreprise = $this->Entreprise_Model->search();
 
         $this->p = 0;
+        $this->close = true;
 
         require_once(ROOT.'view/Entreprise_View.php');
     }
