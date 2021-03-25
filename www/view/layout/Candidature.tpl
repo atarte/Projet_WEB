@@ -7,7 +7,7 @@
 <main class="container">
     <nav>
         <a href="/Accueil"><button>Retour</button></a>
-        <a href="/Wishlist" {$wishlist}><button>Wishlist</button></a>
+        <a href="/Wishlist" {$wishlist|default:""}><button>Wishlist</button></a>
     </nav>
 
     <div class="row justify-content-between">

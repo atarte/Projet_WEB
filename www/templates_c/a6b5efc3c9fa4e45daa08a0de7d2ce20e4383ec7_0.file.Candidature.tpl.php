@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-24 14:04:49
+/* Smarty version 3.1.39, created on 2021-03-25 14:40:23
   from 'D:\SCOLAIRE\CESI\2eme_annee\projet\WEB\Projet_WEB\www\view\layout\Candidature.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_605b4701f17176_56947246',
+  'unifunc' => 'content_605ca0d7c58e56_61990907',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a6b5efc3c9fa4e45daa08a0de7d2ce20e4383ec7' => 
     array (
       0 => 'D:\\SCOLAIRE\\CESI\\2eme_annee\\projet\\WEB\\Projet_WEB\\www\\view\\layout\\Candidature.tpl',
-      1 => 1616594627,
+      1 => 1616683217,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./common/footer.tpl' => 1,
   ),
 ),false)) {
-function content_605b4701f17176_56947246 (Smarty_Internal_Template $_smarty_tpl) {
+function content_605ca0d7c58e56_61990907 (Smarty_Internal_Template $_smarty_tpl) {
 ob_start();
 echo $_smarty_tpl->tpl_vars['title']->value;
 $_prefixVariable1 = ob_get_clean();
@@ -36,7 +36,8 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
 <main class="container">
     <nav>
         <a href="/Accueil"><button>Retour</button></a>
-        <a href="/Wishlist"><button>Wishlist</button></a>
+        <a href="/Wishlist" <?php echo (($tmp = @$_smarty_tpl->tpl_vars['wishlist']->value)===null||$tmp==='' ? '' : $tmp);?>
+><button>Wishlist</button></a>
     </nav>
 
     <div class="row justify-content-between">
