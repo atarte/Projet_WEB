@@ -3,6 +3,7 @@
 class Candidature extends Controler {
     public $candidature;
     public $wish;
+    public $assistant;
 
 
     public function __construct() {
@@ -11,6 +12,7 @@ class Candidature extends Controler {
         $this->loadModel("Candidature_Model");
 
         $this->wish = $this->Candidature_Model->getWishlist();
+        $this->$assistant = $this->Candidature_Model->getAssit();
     }
 
 
@@ -61,7 +63,13 @@ class Candidature extends Controler {
         $this->Candidature_Model->updatestep2R($id);
     }
 
+
     public function step3Etudiant(int $id) {
         $this->Candidature_Model->updatestep3($id);
+    }
+
+
+    public function step4Pilote(int $id) {
+        $this->Candidature_Model->updatestep4($id);
     }
 }
