@@ -11,6 +11,8 @@ class Entreprise extends Controler {
     public $stagiaire;
     public $secteur;
 
+    
+    public $close;
     public $err;
     public $p;
 
