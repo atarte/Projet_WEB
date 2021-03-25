@@ -108,7 +108,7 @@ while ($row = $this->candidature->fetch()) {
 
         $html = $html.'<div id="infile"><input type="file" name="file-upload" id="file-upload"/></div>';
 
-        $html = $html.'<div id="envoyer"><a href="/Candidature/step3Etudiant/"'.$row['id_cand'].'><button>Envoyer</button></a></div>';
+        $html = $html.'<div id="envoyer"><a href="/Candidature/step3Etudiant/'.$row['id_cand'].'"><button>Envoyer</button></a></div>';
         $html = $html.'</div>';
         $html = $html.'</div>';
 

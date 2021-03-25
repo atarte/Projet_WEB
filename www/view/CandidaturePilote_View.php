@@ -49,7 +49,7 @@ while ($row = $this->candidature->fetch()) {
     $html = $html.'<div>'; // Ouverture de la step
 
     $step = $row['step'];
-    if ($step = "3") {
+    if ($step == "3") {
 
     }
 
