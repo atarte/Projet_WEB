@@ -22,12 +22,14 @@ class Candidature extends Controler {
     public function affichage() {
         if ($_SESSION['role'] == "4") {
             $this->candidature = $this->Candidature_Model->displayCandidature();
+
+            require_once(ROOT.'view/CandidatureEtudiant_View.php');
         }
         else if ($_SESSION['role'] == "2") {
             $this->candidature = $this->Candidature_Model->donneePilote();
-        }
 
-        require_once(ROOT.'view/Candidature_View.php');
+            require_once(ROOT.'view/CandidaturePilote_View.php');
+        }
     }
 
     public function wishList(int $id) {

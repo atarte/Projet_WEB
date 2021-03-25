@@ -14,7 +14,7 @@
         <article class="col">
 
             <!-- création étudiant -->
-            <fieldset class="field">
+            <fieldset class="fieldconst">
                 <legend id="legend_form">Liste des candidatures</legend>
 
                 <!-- affichages des stages postulé -->
