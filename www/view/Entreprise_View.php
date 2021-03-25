@@ -10,7 +10,7 @@ $smarty->assign('role', $html);
 
 // affichage de l'icone de fermeture
 if ($this->close) {
-    $smarty->assign('close', '<a href="/Offre"><img class="icop"  src="http://static.projet.com/img/close.svg" alt="icone close"></a>');
+    $smarty->assign('close', '<a href="/Entreprise"><img class="icop"  src="http://static.projet.com/img/close.svg" alt="icone close"></a>');
 }
 
 
