@@ -22,12 +22,23 @@ while ($row = $this->candidature->fetch()) {
 
     $html = $html.' <div>';
 
+    // $html = $html.'id : '.$row['id'].' ';
 
     $nom = strtoupper($row['nom']);
     $html = $html.'<span id="nom_'.$row['id'].'">'.$nom.'</span>  ';
 
     $prenom = ucfirst($row["prenom"]);
     $html = $html.'<span id="prenom_'.$row['id'].'">'.$prenom.'</span>';
+
+    $html = $html.'  <span id="promotion_'.$row['id'].'">'.$row['promotion'].'</span>';
+
+    $titre = strtoupper($row['nom_stage']);
+    $html = $html.' | <u><b><span id="stage_'.$row['id'].'">'.$titre.'</span></b></u>';
+
+    $entreprise = ucfirst($row['entreprise']);
+    $html = $html.' chez <span id="entreprise_'.$row['id'].'">'.$entreprise.'</span>';
+
+    $html = $html.' : <span id="email_'.$row['id'].'">'.$row['email'].'</span>';
 
     // $html = $html.
 

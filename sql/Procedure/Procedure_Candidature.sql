@@ -55,26 +55,29 @@ BEGIN
     BEGIN
         ROLLBACK;
     END;
-    SELECT Candidature.Id_Users AS id,
-    	   Candidature.Id_Stage AS id_stage,
-           Candidature.Step AS step,
-           u.Nom AS nom,
-           u.Prenom AS prenom,
-           p.Promotion AS promotion,
-           s.Nom AS nom_stage,
-           s.Email AS email,
-           e.Nom AS entreprise
-        FROM Candidature
-        INNER JOIN Users u
+
+    SELECT
+        Candidature.Id_candidature AS id,
+        Candidature.Id_Users AS id_users,
+        Candidature.Id_Stage AS id_stage,
+        Candidature.Step AS step,
+        u.Nom AS nom,
+        u.Prenom AS prenom,
+        p.Promotion AS promotion,
+        s.Nom AS nom_stage,
+        s.Email AS email,
+        e.Nom AS entreprise
+    FROM Candidature
+    INNER JOIN Users u
         ON Candidature.Id_Users = u.Id_Users
-        INNER JOIN Promotion p
+    INNER JOIN Promotion p
         ON u.Id_Promotion = p.Id_Promotion
-        INNER JOIN Stage s
+    INNER JOIN Stage s
         ON Candidature.Id_Stage = s.Id_Stage
-        INNER JOIN Entreprise e
-           ON s.Id_Entreprise = e.Id_Entreprise
-        WHERE Candidature.Postulation IS NOT NULL AND u.Id_pilote = id_user
-        ORDER BY Candidature.Postulation DESC;
+    INNER JOIN Entreprise e
+       ON s.Id_Entreprise = e.Id_Entreprise
+    WHERE Candidature.Postulation IS NOT NULL AND u.Id_pilote = id_user
+    ORDER BY Candidature.Postulation DESC;
 
 END |
 
