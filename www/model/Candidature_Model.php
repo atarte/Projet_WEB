@@ -16,9 +16,9 @@ Class Candidature_Model extends Model {
         $req = 'SELECT c.Centre AS centre,
         c.Assist_Nom AS nom,
         c.Assist_Prenom AS prenom,
-        c.Assit_Mail AS email
+        c.Assist_Mail AS email
         FROM Users
-        INNER JOIN c.Centre
+        INNER JOIN Centre c
         ON Users.Id_Centre = c.Id_Centre
         WHERE Users.Id_Users = :id;';
 

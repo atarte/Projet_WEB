@@ -58,7 +58,11 @@ while ($row = $this->candidature->fetch()) {
 
         $html = $html.'<div>';
 
+<<<<<<< HEAD
         $html = $html.'<div id="infile"><input type="file" name="file-upload" id="file-upload"/>'.$assist[0]['email'].'</div>';
+=======
+        $html = $html.'<div id="infile"><input type="file" name="file-upload" id="file-upload"/>'.$postu[0]['email'].'</div>';
+>>>>>>> b010bc5c69d854aa448572a623648514ae79f5ea
 
         $html = $html.'<div id="envoyer"><a href="/Candidature/step3Etudiant/'.$row['id_cand'].'"><button>Envoyer</button></a></div>';
         $html = $html.'</div>';
