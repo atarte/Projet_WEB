@@ -23,9 +23,13 @@ while ($row = $this->candidature->fetch()) {
     $html = $html.' <div>';
 
 
-    // paragraphe des paramètre de l'offre
-    $html = $html.'pilote';
+    $nom = strtoupper($row['nom']);
+    $html = $html.'<span id="nom_'.$row['id'].'">'.$nom.'</span>  ';
 
+    $prenom = ucfirst($row["prenom"]);
+    $html = $html.'<span id="prenom_'.$row['id'].'">'.$prenom.'</span>';
+
+    // $html = $html.
 
 
     $html = $html.'</div></div>';

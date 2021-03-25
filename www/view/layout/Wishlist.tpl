@@ -13,7 +13,7 @@
         <article class="col">
 
             <!-- création étudiant -->
-            <fieldset class="field">
+            <fieldset class="fieldconst">
                 <legend id="legend_form">WishList</legend>
 
                 <!-- affichages des stages postulé -->

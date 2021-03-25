@@ -193,6 +193,7 @@ CREATE TABLE Candidature(
    CONSTRAINT Candidature_Stage_FK FOREIGN KEY(Id_Stage) REFERENCES Stage(Id_Stage)
 );
 
+-- ALTER TABLE `Candidature` ADD `Id_candidature` INT AUTO_INCREMENT NOT NULL FIRST, ADD PRIMARY KEY (`Id_candidature`);
 
 DROP TABLE IF EXISTS Droit;
 CREATE TABLE Droit(
