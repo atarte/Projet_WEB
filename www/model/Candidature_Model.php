@@ -31,6 +31,30 @@ Class Candidature_Model extends Model {
         return $query;
     }
 
+
+    public function getPilotePerso() {
+        $this->getConnexion();
+
+        $req = "
+            SELECT
+                u.Nom AS nom,
+                u.Prenom AS prenom,
+                u.Email AS email
+            FROM Users
+            INNER JOIN Users u
+                ON Users.Id_Pilote = u.Id_Users
+            WHERE Users.Id_Users = :id";
+
+        $query = $this->db->prepare($req);
+
+        $query->bindParam(':id', $_SESSION['id']);
+
+        $query->execute();
+
+        return $query;
+    }
+
+
     public function displayCandidature() {
         $this->getConnexion();
 

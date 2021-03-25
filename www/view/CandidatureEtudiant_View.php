@@ -5,6 +5,9 @@ $smarty = new Smarty;
 $smarty->assign('title', 'Candidature');
 
 
+$pil = $this->pilote->fetchAll();
+
+
 // Affichage des candidatures du coté étudiant
 $cand = $this->wish->fetchAll();
 
@@ -97,12 +100,10 @@ while ($row = $this->candidature->fetch()) {
 
     $html = $html.'<div class="entre">';
 
-    echo $step;
-
     if ($step == "2") {
         $html = $html.'<div class="d-flex">';
 
-        $html = $html.'<div id="textarea"><textarea id="story" name="story" rows="3" cols="30" style="resize: none;"></textarea></div>';
+        $html = $html.'<div id="textarea"><textarea id="story" name="story" rows="3" cols="30" style="resize: none;">'.$assist[0]['email'].'</textarea></div>';
 
         $html = $html.'<div>';
 
@@ -111,7 +112,6 @@ while ($row = $this->candidature->fetch()) {
         $html = $html.'<div id="envoyer"><a href="/Candidature/step3Etudiant/'.$row['id_cand'].'"><button>Envoyer</button></a></div>';
         $html = $html.'</div>';
         $html = $html.'</div>';
-
     }
 
     $html = $html.'</div>';
