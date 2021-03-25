@@ -10,6 +10,26 @@ Class Candidature_Model extends Model {
         }
     }
 
+    public function getAssit() {
+        $this->getConnexion();
+
+        $req = 'SELECT c.Centre AS centre,
+        c.Assist_Nom AS nom,
+        c.Assist_Prenom AS prenom,
+        c.Assit_Mail AS email
+        FROM Users
+        INNER JOIN c.Centre
+        ON Users.Id_Centre = c.Id_Centre
+        WHERE Users.Id_Users = :id;';
+
+        $query = $this->db->prepare($req);
+
+        $query->bindParam(':id',$_SESSION['id']);
+
+        $query->execute();
+
+        return $query;
+    }
 
     public function displayCandidature() {
         $this->getConnexion();
@@ -181,6 +201,23 @@ Class Candidature_Model extends Model {
 
         $req = 'UPDATE Candidature SET
         Candidature.Step = 3
+        WHERE Id_candidature = :id;';
+
+        $query = $this->db->prepare($req);
+
+        $query->bindParam(':id', $id);
+
+        $query->execute();
+
+        header('location: /Candidature');
+    }
+
+
+    public function updatestep4(int $id) {
+        $this->getConnexion();
+
+        $req = 'UPDATE Candidature SET
+        Candidature.Step = 4
         WHERE Id_candidature = :id;';
 
         $query = $this->db->prepare($req);
