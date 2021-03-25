@@ -8,7 +8,7 @@ class Entreprise extends Controler {
     public $codePostal;
     public $ville;
     public $region;
-    public $stagiaire;
+    public $nombre_accepter;
     public $secteur;
 
     
@@ -25,7 +25,7 @@ class Entreprise extends Controler {
         
         $this->close = false;
 
-        $this->stagiaire= $this->Entreprise_Model->getNombre_Accepter();
+        $this->nombre_accepter= $this->Entreprise_Model->getNombre_Accepter();
         $this->secteur = $this->Entreprise_Model->getSecteur();
         
     }
