@@ -9,7 +9,7 @@ if ($_SESSION['role'] == "2") { // si c'est un pilote
     $smarty->assign('wishlist', 'hidden');
 }
 
-
+$assist = $this->$assistant->fetchAll();
 
 // Affichage des candidatures du coté pilote
 $html = '';
@@ -50,7 +50,17 @@ while ($row = $this->candidature->fetch()) {
 
     $step = $row['step'];
     if ($step == "3") {
+        $html = $html.'<div class="d-flex">';
 
+        $html = $html.'<div id="textarea"><textarea id="story" name="story" rows="3" cols="30" style="resize: none;"></textarea></div>';
+
+        $html = $html.'<div>';
+
+        $html = $html.'<div id="infile"><input type="file" name="file-upload" id="file-upload"/>'.$postu[0]['email'].'</div>';
+
+        $html = $html.'<div id="envoyer"><a href="/Candidature/step3Etudiant/'.$row['id_cand'].'"><button>Envoyer</button></a></div>';
+        $html = $html.'</div>';
+        $html = $html.'</div>';
     }
 
     $html = $html.'</div>'; // fermeture de la step

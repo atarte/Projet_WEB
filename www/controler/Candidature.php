@@ -4,6 +4,7 @@ class Candidature extends Controler {
     public $candidature;
     public $wish;
     public $assistant;
+    public $pilote;
 
 
     public function __construct() {
@@ -12,7 +13,13 @@ class Candidature extends Controler {
         $this->loadModel("Candidature_Model");
 
         $this->wish = $this->Candidature_Model->getWishlist();
-        $this->$assistant = $this->Candidature_Model->getAssit();
+
+        if ($_SESSION['role'] == "4") {
+            $this->pilote = $this->Candidature_Model->getPilotePerso();
+        }
+        else if ($_SESSION['role'] == "2") {
+            $this->$assistant = $this->Candidature_Model->getAssit();
+        }
     }
 
 

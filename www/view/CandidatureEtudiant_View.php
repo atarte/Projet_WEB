@@ -97,8 +97,6 @@ while ($row = $this->candidature->fetch()) {
 
     $html = $html.'<div class="entre">';
 
-    echo $step;
-
     if ($step == "2") {
         $html = $html.'<div class="d-flex">';
 
@@ -111,7 +109,6 @@ while ($row = $this->candidature->fetch()) {
         $html = $html.'<div id="envoyer"><a href="/Candidature/step3Etudiant/'.$row['id_cand'].'"><button>Envoyer</button></a></div>';
         $html = $html.'</div>';
         $html = $html.'</div>';
-
     }
 
     $html = $html.'</div>';
