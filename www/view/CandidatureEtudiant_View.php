@@ -82,8 +82,13 @@ while ($row = $this->candidature->fetch()) {
     $html = $html.'<div>';
 
 
-
-    $html = $html .'step : <span>'.$row['step'].'</span>';
+    // $html = $html .'step : <span>'.$row['step'].'</span>';
+    $step = $row['step'];
+    if ($step = "1") {
+        $html = $html.'Avez vous été retenue par l\'entreprise';
+        $html = $html.'  <span class="coche" onclick=accepter('.$row['id'].')>✔️</span>';
+        $html = $html.'  <span class="coche" onclick=refuser('.$row['id'].')>❌</span>';
+    }
 
 
 

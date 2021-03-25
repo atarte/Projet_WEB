@@ -9,4 +9,6 @@
 
 
         <title>{$title}</title>
+
+        <link rel="shortcut icon" type="image/svg+xml" href="http://static.projet.com/img/favicon.svg"/>
     </head>

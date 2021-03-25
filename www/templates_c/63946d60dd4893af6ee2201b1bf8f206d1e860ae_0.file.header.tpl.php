@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-23 11:57:27
+/* Smarty version 3.1.39, created on 2021-03-25 20:54:27
   from 'D:\SCOLAIRE\CESI\2eme_annee\projet\WEB\Projet_WEB\www\view\layout\common\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6059d7a7e8bbd0_43301811',
+  'unifunc' => 'content_605cf8833d5046_84835574',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '63946d60dd4893af6ee2201b1bf8f206d1e860ae' => 
     array (
       0 => 'D:\\SCOLAIRE\\CESI\\2eme_annee\\projet\\WEB\\Projet_WEB\\www\\view\\layout\\common\\header.tpl',
-      1 => 1616500643,
+      1 => 1616705665,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6059d7a7e8bbd0_43301811 (Smarty_Internal_Template $_smarty_tpl) {
+function content_605cf8833d5046_84835574 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -33,6 +33,8 @@ function content_6059d7a7e8bbd0_43301811 (Smarty_Internal_Template $_smarty_tpl)
 
         <title><?php echo $_smarty_tpl->tpl_vars['title']->value;?>
 </title>
+
+        <link rel="shortcut icon" type="image/svg+xml" href="http://static.projet.com/img/favicon.svg"/>
     </head>
 <?php }
 }
