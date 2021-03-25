@@ -26,7 +26,8 @@ BEGIN
        v.Ville AS ville,
        comp.competence AS competence,
        cand.Id_Users AS id_users,
-       cand.Step AS step
+       cand.Step AS step,
+       cand.Id_candidature AS id_cand
     FROM Stage
     INNER JOIN (
         SELECT c.Competence AS competence, Id_Stage FROM Demande

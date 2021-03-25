@@ -48,8 +48,7 @@ while ($row = $this->candidature->fetch()) {
     $html = $html.'<div>';
 
     $step = $row['step'];
-    if ($step = "1") {
-        // $html = $html.'l\'élève  à postuler a une offre';
+    if ($step = "2") {
 
     }
 
