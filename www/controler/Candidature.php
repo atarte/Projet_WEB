@@ -60,4 +60,8 @@ class Candidature extends Controler {
     public function step2EtudiantR(int $id) {
         $this->Candidature_Model->updatestep2R($id);
     }
+
+    public function step3Etudiant(int $id) {
+        $this->Candidature_Model->updatestep3($id);
+    }
 }

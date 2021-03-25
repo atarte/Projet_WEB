@@ -143,7 +143,7 @@ Class Candidature_Model extends Model {
     }
 
 
-    public function updatestep2A($id) {
+    public function updatestep2A(int $id) {
         $this->getConnexion();
 
         $req = 'UPDATE Candidature SET
@@ -160,11 +160,27 @@ Class Candidature_Model extends Model {
     }
 
 
-    public function updatestep2R($id) {
+    public function updatestep2R(int $id) {
         $this->getConnexion();
 
         $req = 'UPDATE Candidature SET
         Candidature.Step = 8
+        WHERE Id_candidature = :id;';
+
+        $query = $this->db->prepare($req);
+
+        $query->bindParam(':id', $id);
+
+        $query->execute();
+
+        header('location: /Candidature');
+    }
+
+    public function updatestep3(int $id) {
+        $this->getConnexion();
+
+        $req = 'UPDATE Candidature SET
+        Candidature.Step = 3
         WHERE Id_candidature = :id;';
 
         $query = $this->db->prepare($req);
