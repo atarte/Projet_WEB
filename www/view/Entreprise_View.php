@@ -16,10 +16,10 @@ if ($this->close) {
 
 
 // Affichage des Villes
-$html = '';
-while ($row = $this->ville->fetch()) {
-    $html = $html.'<option value="'.$row['id'].'">'.$row['ville'].'</option>';
-}
+// $html = '';
+// while ($row = $this->ville->fetch()) {
+//     $html = $html.'<option value="'.$row['id'].'">'.$row['ville'].'</option>';
+// }
 
 $smarty->assign('Ville', $html);
 
@@ -60,7 +60,7 @@ while ($row = $this->entreprise->fetch()) {
 
     $html = $html.' Vous pouvez nous contacter à cette adresse : <span id="email_'.$row['id'].'">'.$row['email'].'</span>.</div></div></div>';
 
-   
+
 
 
     $html = $html.'</div>';
