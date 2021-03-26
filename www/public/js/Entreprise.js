@@ -15,26 +15,26 @@ function Verification() {
 
     if (codePostal.value.length == 5) {
         let url = "https://api.zippopotam.us/FR/" + codePostal.value;
-        
+
         const request = new XMLHttpRequest();
-        
+
         request.open("GET", url);
         request.send();
 
         request.onload = (e) => {
             if (request.status == 200) {
-                
+
                 var info = JSON.parse(request.response);
                 var lenTab = info.places.length;
-                
+
                 nomVille = new Array(lenTab);
-                
+
                 for (i = 0; i < lenTab; i++) {
                     nomVille[i] = info.places[i]['place name'];
                 }
-                
+
                 nomRegion = info.places[0].state;
-                
+
                 PropositionVille();
                 PropositionRegion();
 
@@ -50,8 +50,7 @@ function Verification() {
 };
 
 function PropositionVille() {
- consol.log("ok")
- if (codePostal.value.length >= 5) {
+    if (codePostal.value.length >= 5) {
         if (nomVille !== undefined) {
             if (nomVille.length == 1) {
                 ville.innerHTML = '<option value="' + nomVille[0] + '">' + nomVille[0] + '</option>';

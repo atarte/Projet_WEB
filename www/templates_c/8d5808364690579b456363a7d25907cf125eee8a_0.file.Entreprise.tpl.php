@@ -1,16 +1,47 @@
-{include file="./common/header.tpl" title={$title}}
+<?php
+/* Smarty version 3.1.39, created on 2021-03-26 12:58:59
+  from 'D:\SCOLAIRE\CESI\2eme_annee\projet\WEB\Projet_WEB\www\view\layout\Entreprise.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.39',
+  'unifunc' => 'content_605dda93e361b2_50702953',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '8d5808364690579b456363a7d25907cf125eee8a' => 
+    array (
+      0 => 'D:\\SCOLAIRE\\CESI\\2eme_annee\\projet\\WEB\\Projet_WEB\\www\\view\\layout\\Entreprise.tpl',
+      1 => 1616763537,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+    'file:./common/header.tpl' => 1,
+    'file:./common/footer.tpl' => 1,
+  ),
+),false)) {
+function content_605dda93e361b2_50702953 (Smarty_Internal_Template $_smarty_tpl) {
+ob_start();
+echo $_smarty_tpl->tpl_vars['title']->value;
+$_prefixVariable1 = ob_get_clean();
+$_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('title'=>$_prefixVariable1), 0, false);
+?>
 
 <link rel="stylesheet" href="http://static.projet.com/css/Entreprise.css">
 
 <body>
-{$role}
+<?php echo $_smarty_tpl->tpl_vars['role']->value;?>
+
 <main class="container">
     <nav>
         <a href="/Accueil"><button>Retour</button></a>
     </nav>
 
     <div class="row justify-content-between">
-        <article class="col"  {$entreprise|default:""}>
+        <article class="col"  <?php echo (($tmp = @$_smarty_tpl->tpl_vars['entreprise']->value)===null||$tmp==='' ? '' : $tmp);?>
+>
 
             <!-- création entreprise -->
             <fieldset class="field">
@@ -40,12 +71,13 @@
 						<!-- ville : <br> -->
                             <select id="ville" name="ville">
                                 <option value="">Choisiez une ville</option>
-                                {$Ville}
+                                <?php echo $_smarty_tpl->tpl_vars['Ville']->value;?>
+
                             </select>
                         </div>
 						<div class="row justify-content-center p-1">
 						<!-- region : -->
-                            <input id="region" type="text" name="region" placeholder="Region" required readonly>
+                            <input id="region" type="text" name="region" placeholder="Region" required>
                         </div>
                         <div class="row justify-content-center p-1">
 						<!-- stagiaire : -->
@@ -55,7 +87,8 @@
                             <!-- secteur : <br> -->
                             <select id="secteur" name="secteur" required>
                                 <option value="">Choississez un secteur</option>
-                                {$secteur}
+                                <?php echo $_smarty_tpl->tpl_vars['secteur']->value;?>
+
                             </select>
                         </div>
 
@@ -82,25 +115,29 @@
                         <!-- Entreprise : -->
                         <select id="r_entreprise" name="entreprise" >
                             <option value="">Choississez une entreprise</option>
-                            {$Entreprise}
+                            <?php echo $_smarty_tpl->tpl_vars['Entreprise']->value;?>
+
                         </select>
 
                         <!-- Ville : -->
                         <select id="r_ville" name="ville">
                             <option value="">Choisiez une ville</option>
-                            {$Ville}
+                            <?php echo $_smarty_tpl->tpl_vars['Ville']->value;?>
+
                         </select>
 
                         <!-- Region : -->
                         <select id="r_region" name="region">
                             <option value="">Choisissez la region</option>
-                            {$Region}
+                            <?php echo $_smarty_tpl->tpl_vars['Region']->value;?>
+
                         </select>
 
                         <!-- Secteur : -->
                         <select id="r_secteur" name="secteur">
                             <option value="">Choisissez le secteur</option>
-                            {$Secteur}
+                            <?php echo $_smarty_tpl->tpl_vars['Secteur']->value;?>
+
                         </select>
 
 
@@ -108,25 +145,32 @@
                         <input id="r_submit" type="submit" value="Rechercher">
 
                         <span id="close">
-                            {$close|default:""}
+                            <?php echo (($tmp = @$_smarty_tpl->tpl_vars['close']->value)===null||$tmp==='' ? '' : $tmp);?>
+
                         </span>
                     </form>
                 </div>
 
                 <!-- Affichage : -->
                 <div class="page">
-                    {$pagination|default:""}
+                    <?php echo (($tmp = @$_smarty_tpl->tpl_vars['pagination']->value)===null||$tmp==='' ? '' : $tmp);?>
+
                 </div>
 
                 <div class="">
-                    {$Entreprise}
+                    <?php echo $_smarty_tpl->tpl_vars['Entreprise']->value;?>
+
                 </div>
             </fieldset>
         </article>
     </div>
 </main>
 
-    <script src="/public/js/Entreprise.js" charset="utf-8"></script>
+    <?php echo '<script'; ?>
+ src="/public/js/Entreprise.js" charset="utf-8"><?php echo '</script'; ?>
+>
 </body>
 
-{include file="./common/footer.tpl"}
+<?php $_smarty_tpl->_subTemplateRender("file:./common/footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+}
+}
