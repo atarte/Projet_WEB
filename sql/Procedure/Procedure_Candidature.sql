@@ -64,7 +64,7 @@ BEGIN
         Candidature.Step AS step,
         u.Nom AS nom,
         u.Prenom AS prenom,
-        u.Email AS email,
+        u.Email AS email_user,
         p.Promotion AS promotion,
         s.Nom AS nom_stage,
         s.Email AS email,
@@ -83,6 +83,30 @@ BEGIN
 
 END |
 
+
+DROP PROCEDURE IF EXISTS Update_step6 |
+CREATE PROCEDURE Update_step6(IN id INT)
+BEGIN
+
+    DECLARE id_ent INT;
+    DECLARE id_stage INT;
+
+    UPDATE Candidature SET
+    Candidature.Step = 6
+    WHERE Candidature.Id_candidature = id;
+
+    SELECT Candidature.Id_Stage INTO id_stage FROM Candidature WHERE Candidature.Id_candidature = id;
+
+    UPDATE Stage SET
+    Stage.Nombre_Place = Stage.Nombre_Place - 1
+    WHERE Stage.Id_Stage = id_stage;
+
+    SELECT Stage.Id_Entreprise INTO id_ent FROM Stage WHERE Stage.Id_Stage = id_stage;
+
+    UPDATE Entreprise SET
+    Entreprise.Nombre_Accepter = Entreprise.Nombre_Accepter + 1
+    WHERE Entreprise.Id_Entreprise = id_ent;
+END |
 
 
 DELIMITER ;

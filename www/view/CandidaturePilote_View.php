@@ -50,7 +50,18 @@ while ($row = $this->candidature->fetch()) {
 
     $html = $html.'<div>'; // Ouverture de la step
 
-    // ici il faudra indiquer le numero de la step courante
+    $step = $row['step'];
+
+    if ($step == "8") {
+        $html = $html.'Refuser';
+    }
+    else if ($step == "6") {
+        $html = $html.'Accepter';
+
+    }
+    else {
+        $html = $html.'<div class="step">step : '.$step.'</div>';
+    }
 
     $html = $html.'</div>'; // fermeture de la step
 
@@ -60,11 +71,10 @@ while ($row = $this->candidature->fetch()) {
 
     $html = $html.'<div>';
 
-    $step = $row['step'];
     if ($step == "3") {
-        $html = $html.'<div class="d-flex">';
+        $html = $html.'<div class="env_mail">';
 
-        $html = $html.'<div id="textarea"><textarea id="story" name="story" rows="3" cols="30" style="resize: none;">'.$assist[0]['email'].'</textarea></div>';
+        $html = $html.'<div id="textarea"><textarea id="story" name="story" rows="3" cols="40">'.$assist[0]['email'].'</textarea></div>';
 
         $html = $html.'<div>';
 
@@ -75,9 +85,9 @@ while ($row = $this->candidature->fetch()) {
         $html = $html.'</div>';
     }
     if ($step == "4") {
-        $html = $html.'<div class="d-flex">';
+        $html = $html.'<div class="env_mail">';
 
-        $html = $html.'<div id="textarea"><textarea id="story" name="story" rows="3" cols="30" style="resize: none;">'.$row['email'].'</textarea></div>';
+        $html = $html.'<div id="textarea"><textarea id="story" name="story" rows="3" cols="40"">'.$row['email_user'].'</textarea></div>';
 
         $html = $html.'<div>';
 
@@ -88,9 +98,9 @@ while ($row = $this->candidature->fetch()) {
         $html = $html.'</div>';
     }
     if ($step == "5") {
-        $html = $html.'<div class="d-flex">';
+        $html = $html.'<div class="env_mail">';
 
-        $html = $html.'<div id="textarea"><textarea id="story" name="story" rows="3" cols="30" style="resize: none;">5'.$row['email'].'</textarea></div>';
+        $html = $html.'<div id="textarea"><textarea id="story" name="story" rows="3" cols="40">'.$row['email_user'].'</textarea></div>';
 
         $html = $html.'<div>';
 

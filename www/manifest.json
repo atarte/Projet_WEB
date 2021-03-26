@@ -1,0 +1,42 @@
+{
+    "name": "Prosit WEB",
+    "short_name": "PrositWEB",
+    "lang": "fr",
+    "start_url": "www.projet.com",
+    "display": "standalone",
+    "theme_color": "#000000",
+    "background_color": "#FFFFFF",
+    "orientation": "portrait",
+    "icons": [
+        {
+          "src": "http://static.projet.com/img/icon/icone_x16.png",
+          "type": "image/png",
+          "sizes": "16x16"
+        },
+        {
+          "src": "http://static.projet.com/img/icon/icone_x32.png",
+          "type": "image/png",
+          "sizes": "32x32"
+        },
+        {
+          "src": "http://static.projet.com/img/icon/icone_x64.png",
+          "type": "image/png",
+          "sizes": "64x64"
+        },
+        {
+          "src": "http://static.projet.com/img/icon/icone_x128.png",
+          "type": "image/png",
+          "sizes": "128x128"
+        },
+        {
+          "src": "http://static.projet.com/img/icon/icone_x256.png",
+          "type": "image/png",
+          "sizes": "256x256"
+        },
+        {
+          "src": "http://static.projet.com/img/icon/icone_x512.png",
+          "type": "image/png",
+          "sizes": "512x512"
+        }
+    ]
+}
