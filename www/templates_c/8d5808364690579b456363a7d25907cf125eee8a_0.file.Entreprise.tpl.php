@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-26 13:04:51
+/* Smarty version 3.1.39, created on 2021-03-26 21:25:20
   from 'D:\SCOLAIRE\CESI\2eme_annee\projet\WEB\Projet_WEB\www\view\layout\Entreprise.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_605ddbf3b62927_57511759',
+  'unifunc' => 'content_605e514082c125_85249513',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8d5808364690579b456363a7d25907cf125eee8a' => 
     array (
       0 => 'D:\\SCOLAIRE\\CESI\\2eme_annee\\projet\\WEB\\Projet_WEB\\www\\view\\layout\\Entreprise.tpl',
-      1 => 1616763838,
+      1 => 1616790236,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./common/footer.tpl' => 1,
   ),
 ),false)) {
-function content_605ddbf3b62927_57511759 (Smarty_Internal_Template $_smarty_tpl) {
+function content_605e514082c125_85249513 (Smarty_Internal_Template $_smarty_tpl) {
 ob_start();
 echo $_smarty_tpl->tpl_vars['title']->value;
 $_prefixVariable1 = ob_get_clean();
@@ -32,8 +32,6 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
 <link rel="stylesheet" href="http://static.projet.com/css/Entreprise.css">
 
 <body>
-<?php echo $_smarty_tpl->tpl_vars['role']->value;?>
-
 <main class="container">
     <nav>
         <a href="/Accueil"><button>Retour</button></a>
@@ -60,7 +58,6 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
                         <div class="row justify-content-center p-1">
 						<!-- adresse : -->
                             <input id="adresse" type="text" name="adresse" placeholder="Adresse" required>
-							<!-- <button onclick="add()">+</button> -->
                             <!-- <div id="adresse"></div> -->
                         </div>
                         <div class="row justify-content-center p-1">
@@ -71,7 +68,6 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
 						<!-- ville : <br> -->
                             <select id="ville" name="ville">
                                 <option value="">Choisiez une ville</option>
-                                <?php echo $_smarty_tpl->tpl_vars['Ville']->value;?>
 
                             </select>
                         </div>
@@ -87,7 +83,7 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
                             <!-- secteur : <br> -->
                             <select id="secteur" name="secteur" required>
                                 <option value="">Choississez un secteur</option>
-                                <?php echo $_smarty_tpl->tpl_vars['secteur']->value;?>
+                                <?php echo $_smarty_tpl->tpl_vars['Secteur']->value;?>
 
                             </select>
                         </div>
