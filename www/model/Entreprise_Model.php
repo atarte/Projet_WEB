@@ -75,11 +75,12 @@ Class Entreprise_Model extends Model {
         $row = $query->fetch();
 
         $count2 = $query2->rowCount();
+        $row2 = $query2->fetch();
 
         if ($count == 1 && !empty($row)) {
             return 1;
         }
-        else if($count2 == 1){
+        else if($count2 == 1 && !empty($row)){
             $req  = "CALL Creation_EntrepriseEx(:nom, :email, :nb_accepter, :id_secteur, :ville, :cp, :adresse)";
 
             $query = $this->db->prepare($req);
@@ -94,7 +95,7 @@ Class Entreprise_Model extends Model {
 
             $query->execute();
         }
-        elseif ($count2 == 0) {
+        elseif ($count2 == 0 && empty($row)) {
             $req  = "CALL Creation_EntrepriseInex(:nom, :email, :nb_accepter, :id_secteur, :ville, :cp, :region, :adresse)";
 
             $query = $this->db->prepare($req);
@@ -108,6 +109,7 @@ Class Entreprise_Model extends Model {
 			$query->bindParam(':id_secteur', $_POST['secteur']);
             $query->bindParam(':region', $_POST['region']);
         }
+        header("Location: /Entreprise");
     }
 
 

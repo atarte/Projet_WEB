@@ -80,7 +80,7 @@
                         <!-- Entreprise : -->
                         <select id="r_entreprise" name="entreprise" >
                             <option value="">Choississez une entreprise</option>
-                            {$Entreprise}
+                            <!-- {$Entreprise} -->
                         </select>
 
                         <!-- Ville : -->

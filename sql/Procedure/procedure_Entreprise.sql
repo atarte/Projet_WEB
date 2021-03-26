@@ -98,54 +98,58 @@ BEGIN
     DECLARE id_adresse INT;
     DECLARE id_entreprise INT;
     DECLARE id_region INT;
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    BEGIN
+    END;
 
     INSERT INTO Entreprise (Nom, Email, Nombre_Accepter, Id_Secteur)
     VALUES (nom, email, nb_accepter, id_secteur);
 
-    SELECT LAST_INSERT_ID() INTO id_entreprise;
+    SELECT LAST_INSERT_ID() INTO @id_entreprise;
 
-    SELECT Id_region INTO id_region FROM Region WHERE Region = region;
+    SELECT Region.Id_Region INTO @id_region FROM Region WHERE Region.Region = region;
 
     INSERT INTO Ville (Ville, Code_Postal, Id_Region)
-    VALUES (ville, cp, id_region);
+    VALUES (ville, cp, @id_region);
 
-    SELECT LAST_INSERT_ID() INTO id_ville_nouv;
+    SELECT LAST_INSERT_ID() INTO @id_ville_nouv;
 
     INSERT INTO Adresse (Adresse, Id_Ville)
-    VALUES (adresse, id_ville_nouv);
+    VALUES (adresse, @id_ville_nouv);
 
-    SELECT LAST_INSERT_ID() INTO id_adresse;
+    SELECT LAST_INSERT_ID() INTO @id_adresse;
 
     INSERT INTO Reside (Id_Adresse, Id_Entreprise)
-    VALUES (id_adresse, id_entreprise);
-
+    VALUES (@id_adresse, @id_entreprise);
 END |
 
 
 DROP PROCEDURE IF EXISTS Creation_EntrepriseEx |
 CREATE PROCEDURE Creation_EntrepriseEx (IN nom VARCHAR(50), IN email VARCHAR(50),
-IN nb_accepter INT, IN id_secteur INT, IN ville VARCHAR(50), IN cp VARCHAR(50),
+IN nb_accepter INT, IN id_secteur INT, IN ville VARCHAR(50),
 IN adresse VARCHAR(50))
-BEGIN
-    DECLARE id_ville_nouv INT;
+    BEGIN
     DECLARE id_ville INT;
     DECLARE id_adresse INT;
     DECLARE id_entreprise INT;
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    BEGIN
+    END;
 
-    INSERT INTO Entreprise (Nom, Email, Nombre_Accepter, Id_Secteur)
-    VALUES (nom, email, nb_accepter, id_secteur);
+    INSERT INTO Entreprise (Id_Entreprise, Nom, Email, Nombre_Accepter, Id_Secteur)
+    VALUES (NULL,nom, email, nb_accepter, id_secteur);
 
-    SELECT LAST_INSERT_ID() INTO id_entreprise;
+    SELECT LAST_INSERT_ID() INTO @id_entreprise;
 
-    SELECT Id_Ville INTO Id_ville FROM Ville
-    WHERE Ville = ville;
+    SELECT Ville.Id_Ville INTO @id_ville FROM Ville
+    WHERE Ville.Ville = ville;
 
-    INSERT INTO Adresse (Adresse, Id_Ville)
-    VALUES (adresse, Id_ville);
+    INSERT INTO Adresse (Id_Adresse, Adresse, Id_Ville)
+    VALUES (NULL,adresse, @id_ville);
 
-    SELECT LAST_INSERT_ID() INTO id_adresse;
+    SELECT LAST_INSERT_ID() INTO @id_adresse;
 
     INSERT INTO Reside (Id_Adresse, Id_Entreprise)
-    VALUES (id_adresse, id_entreprise);
+    VALUES (@id_adresse, @id_entreprise);
 
 END |
