@@ -91,11 +91,18 @@ while ($row = $this->candidature->fetch()) {
         $html = $html.'  <div><span class="coche" onclick=accepter('.$row['id_cand'].')>✔️</span>';
         $html = $html.'  <span class="coche" onclick=refuser('.$row['id_cand'].')>❌</span></div>';
     }
-
-    if ($step == "6") {
-        $html = $html.'accepter';
+    else if ($step == "6") {
+        $html = $html.'Accepter';
 
     }
+    else if ($step == "8") {
+        $html = $html.'Refuser';
+    }
+    else {
+        $html = $html.'<div class="step">step : '.$step.'</div>';
+    }
+
+
 
     $html = $html.'</div>';
 
@@ -107,9 +114,9 @@ while ($row = $this->candidature->fetch()) {
     $html = $html.'<div class="entre">';
 
     if ($step == "2") {
-        $html = $html.'<div class="d-flex">';
+        $html = $html.'<div class="env_mail">';
 
-        $html = $html.'<div id="textarea"><textarea id="story" name="story" rows="3" cols="30" style="resize: none;">'.$pil[0]['email'].'</textarea></div>';
+        $html = $html.'<div id="textarea"><textarea id="story" name="story" rows="3" cols="40">'.$pil[0]['email'].'</textarea></div>';
 
         $html = $html.'<div>';
 

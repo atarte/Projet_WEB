@@ -1,3 +1,16 @@
+@media only screen and (min-width: 770px) {
+    .env_mail{
+        display: flex;
+        justify-content: left;
+        align-items: center;
+    }
+}
+
+.step {
+    white-space: nowrap;
+}
+
+
 .fieldconst {
     height: 90vh;
     overflow: auto
@@ -24,4 +37,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+#story {
+    resize: none;
 }

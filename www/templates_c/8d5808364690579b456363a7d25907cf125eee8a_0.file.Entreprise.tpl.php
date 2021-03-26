@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-26 12:58:59
+/* Smarty version 3.1.39, created on 2021-03-26 13:04:51
   from 'D:\SCOLAIRE\CESI\2eme_annee\projet\WEB\Projet_WEB\www\view\layout\Entreprise.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_605dda93e361b2_50702953',
+  'unifunc' => 'content_605ddbf3b62927_57511759',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8d5808364690579b456363a7d25907cf125eee8a' => 
     array (
       0 => 'D:\\SCOLAIRE\\CESI\\2eme_annee\\projet\\WEB\\Projet_WEB\\www\\view\\layout\\Entreprise.tpl',
-      1 => 1616763537,
+      1 => 1616763838,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./common/footer.tpl' => 1,
   ),
 ),false)) {
-function content_605dda93e361b2_50702953 (Smarty_Internal_Template $_smarty_tpl) {
+function content_605ddbf3b62927_57511759 (Smarty_Internal_Template $_smarty_tpl) {
 ob_start();
 echo $_smarty_tpl->tpl_vars['title']->value;
 $_prefixVariable1 = ob_get_clean();
@@ -77,7 +77,7 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
                         </div>
 						<div class="row justify-content-center p-1">
 						<!-- region : -->
-                            <input id="region" type="text" name="region" placeholder="Region" required>
+                            <input id="region" type="text" name="region" placeholder="Region" required readonly>
                         </div>
                         <div class="row justify-content-center p-1">
 						<!-- stagiaire : -->
