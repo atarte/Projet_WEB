@@ -1,9 +1,9 @@
 <?php
 
 class Entreprise extends Controler {
-    public $entreprise;   
+    public $entreprise;
     public $nom;
-    public $email; 
+    public $email;
     public $adresse;
     public $codePostal;
     public $ville;
@@ -11,7 +11,7 @@ class Entreprise extends Controler {
     public $nombre_accepter;
     public $secteur;
 
-    
+
     public $close;
     public $err;
     public $p;
@@ -22,12 +22,12 @@ class Entreprise extends Controler {
         $this->loadModel("Entreprise_Model");
 
         $this->p = 1;
-        
+
         $this->close = false;
 
-        $this->nombre_accepter= $this->Entreprise_Model->getNombre_Accepter();
+        //$this->nombre_accepter= $this->Entreprise_Model->getNombre_Accepter();
         $this->secteur = $this->Entreprise_Model->getSecteur();
-        
+
     }
 
 
@@ -40,6 +40,7 @@ class Entreprise extends Controler {
         $pageLimit = 10 * ($this->p -1);
 
         $this->entreprise = $this->Entreprise_Model->displayEntreprise($pageLimit);
+        $this->adresse = $this->Entreprise_Model->displayAdresse();
 
         require_once(ROOT.'view/Entreprise_View.php');
 

@@ -4,8 +4,8 @@ $smarty = new Smarty;
 
 $smarty->assign('title', 'Gestion Entreprise');
 
-$html = '<input type="hidden" id="role" value="'.$_SESSION['role'].'">';
-$smarty->assign('role', $html);
+// $html = '<input type="hidden" id="role" value="'.$_SESSION['role'].'">';
+// $smarty->assign('role', $html);
 
 
 // affichage de l'icone de fermeture
@@ -21,7 +21,7 @@ if ($this->close) {
 //     $html = $html.'<option value="'.$row['id'].'">'.$row['ville'].'</option>';
 // }
 
-$smarty->assign('Ville', $html);
+// $smarty->assign('Ville', $html);
 
 // Affichage des Secteurs
 $html = '';
@@ -34,6 +34,11 @@ $smarty->assign('Secteur', $html);
 
 
 // Affichage des Entreprises
+
+// $adr = $this->adresse->fetchAll();
+// print_r($adr);
+$html2 = '';
+
 $html = '';
 $i = 0;
 
@@ -47,21 +52,34 @@ while ($row = $this->entreprise->fetch()) {
     $titre = strtoupper($row['nom']);
     $html = $html.' <div><div><span id="nom_'.$row['id'].'"><u><b>'.$titre.'</b></u></span></div>';
 
-    $entreprise = ucfirst($row['entreprise']);
+    $entreprise = ucfirst($row['nom']);
+
     $html = $html.' <div>L\'entreprise <span id="entreprise_'.$row['id'].'">'.$entreprise.'</span>';
 
-    $html = $html.' est située dans la ville <span id="ville_'.$row['id'].'">'.$row['ville'].'</span>';
+    while ($adr = $this->adresse->fetch()){
 
-    $html = $html.' en <span id="region_'.$row['id'].'">'.$row['region'].'</span>';
+        for ($i = 0; $i < count($adr); $i++) {
+            if ($adr['id_entreprise'] == $row['id']) {
+
+
+                $html2 = $html2.' est située dans la ville <span id="ville_'.$adr['id_adresse'].'">'.$adr['ville'].'</span>';
+
+                $html2 = $html2.' à l\'adresse, <span id="adresse_'.$adr['id_adresse'].'">'.$adr['adresse'].'</span>';
+
+                $html2 = $html2.', en <span id="region_'.$adr['id_adresse'].'">'.$adr['region'].'</span>';
+
+                break;
+            }
+        }
+    }
+
+    $html = $html.$html2;
 
     $html = $html.' Spécialisée dans le secteur <span id="secteur_'.$row['id'].'">'.$row['secteur'].'</span>';
 
-    $html = $html.' elle a déjà accueilli <span id="nombre_accepter_'.$row['id'].'">'.$row['nombre_accepter'].'</span> en stage';
+    $html = $html.' elle a déjà accueilli <span id="nombre_accepter_'.$row['id'].'">'.$row['stagiaire'].'</span> en stage';
 
     $html = $html.' Vous pouvez nous contacter à cette adresse : <span id="email_'.$row['id'].'">'.$row['email'].'</span>.</div></div></div>';
-
-
-
 
     $html = $html.'</div>';
 }

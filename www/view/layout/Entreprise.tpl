@@ -3,7 +3,6 @@
 <link rel="stylesheet" href="http://static.projet.com/css/Entreprise.css">
 
 <body>
-{$role}
 <main class="container">
     <nav>
         <a href="/Accueil"><button>Retour</button></a>
@@ -29,7 +28,6 @@
                         <div class="row justify-content-center p-1">
 						<!-- adresse : -->
                             <input id="adresse" type="text" name="adresse" placeholder="Adresse" required>
-							<!-- <button onclick="add()">+</button> -->
                             <!-- <div id="adresse"></div> -->
                         </div>
                         <div class="row justify-content-center p-1">
@@ -40,7 +38,7 @@
 						<!-- ville : <br> -->
                             <select id="ville" name="ville">
                                 <option value="">Choisiez une ville</option>
-                                {$Ville}
+
                             </select>
                         </div>
 						<div class="row justify-content-center p-1">
@@ -55,7 +53,7 @@
                             <!-- secteur : <br> -->
                             <select id="secteur" name="secteur" required>
                                 <option value="">Choississez un secteur</option>
-                                {$secteur}
+                                {$Secteur}
                             </select>
                         </div>
 

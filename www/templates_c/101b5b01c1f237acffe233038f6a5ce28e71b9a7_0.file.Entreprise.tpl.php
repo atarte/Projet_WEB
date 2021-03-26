@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-26 12:51:59
+/* Smarty version 3.1.39, created on 2021-03-26 15:59:26
   from 'C:\Users\catar\Documents\CESI\A2\4 - Web\Projet\Projet_WEB\www\view\layout\Entreprise.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_605dd8ef301960_15698415',
+  'unifunc' => 'content_605e04de50b608_58262189',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '101b5b01c1f237acffe233038f6a5ce28e71b9a7' => 
     array (
       0 => 'C:\\Users\\catar\\Documents\\CESI\\A2\\4 - Web\\Projet\\Projet_WEB\\www\\view\\layout\\Entreprise.tpl',
-      1 => 1616763116,
+      1 => 1616774364,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./common/footer.tpl' => 1,
   ),
 ),false)) {
-function content_605dd8ef301960_15698415 (Smarty_Internal_Template $_smarty_tpl) {
+function content_605e04de50b608_58262189 (Smarty_Internal_Template $_smarty_tpl) {
 ob_start();
 echo $_smarty_tpl->tpl_vars['title']->value;
 $_prefixVariable1 = ob_get_clean();
@@ -32,8 +32,6 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
 <link rel="stylesheet" href="http://static.projet.com/css/Entreprise.css">
 
 <body>
-<?php echo $_smarty_tpl->tpl_vars['role']->value;?>
-
 <main class="container">
     <nav>
         <a href="/Accueil"><button>Retour</button></a>
@@ -45,7 +43,7 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
 
             <!-- création entreprise -->
             <fieldset class="field">
-                <legend id="legend_form">Création d'une entreprise</legend>
+                <legend id="legend_form">Création d'entreprise</legend>
 
                 <form id="formulaire" class="form" action="/Entreprise/creation" method="post">
                     <div class="container">
@@ -60,7 +58,6 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
                         <div class="row justify-content-center p-1">
 						<!-- adresse : -->
                             <input id="adresse" type="text" name="adresse" placeholder="Adresse" required>
-							<!-- <button onclick="add()">+</button> -->
                             <!-- <div id="adresse"></div> -->
                         </div>
                         <div class="row justify-content-center p-1">
@@ -71,13 +68,12 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
 						<!-- ville : <br> -->
                             <select id="ville" name="ville">
                                 <option value="">Choisiez une ville</option>
-                                <?php echo $_smarty_tpl->tpl_vars['Ville']->value;?>
 
                             </select>
                         </div>
 						<div class="row justify-content-center p-1">
 						<!-- region : -->
-                            <input id="region" type="text" name="region" placeholder="Region" required>
+                            <input id="region" type="text" name="region" placeholder="Region" required readonly>
                         </div>
                         <div class="row justify-content-center p-1">
 						<!-- stagiaire : -->
@@ -87,7 +83,7 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
                             <!-- secteur : <br> -->
                             <select id="secteur" name="secteur" required>
                                 <option value="">Choississez un secteur</option>
-                                <?php echo $_smarty_tpl->tpl_vars['secteur']->value;?>
+                                <?php echo $_smarty_tpl->tpl_vars['Secteur']->value;?>
 
                             </select>
                         </div>
