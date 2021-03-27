@@ -90,12 +90,12 @@ function PropositionRegion() {
 function modification(id) {
     document.getElementById("nom").value = document.getElementById("nom_"+id).innerHTML;
     document.getElementById("email").value = document.getElementById("email_"+id).innerHTML;
-    document.getElementById("nombre_accepter").value = document.getElementById("nombre_accepter_"+id).innerHTML;
-    console.log(document.getElementById("adresse_"+id).innerHTML);
+    document.getElementById("nombre_accepter").value = document.getElementById("nombre_"+id).innerHTML;
     document.getElementById("adresse").value = document.getElementById("adresse_"+id).innerHTML;
-    document.getElementById("region").value = document.getElementById("remuneration_"+id).innerHTML;
+    document.getElementById("region").value = document.getElementById("region_"+id).innerHTML;
+    document.getElementById("code_p").value = document.getElementById("code_p_"+id).innerHTML;
 
-    select(id, "ville");
+    //select(id, "ville");
     select(id, "secteur");
 
     document.getElementById("formulaire").action = "/Entreprise/modification/"+id;
@@ -124,13 +124,14 @@ function select(idOffre, idSelect) {
 
 
 function annuler() {
+    document.getElementById("id").value = "";
     document.getElementById("nom").value = "";
     document.getElementById("email").value = "";
     document.getElementById("adresse").value = "";
-    document.getElementById("codePostal").value = "";
+    document.getElementById("code_p").value = "";
     document.getElementById("ville").selectedIndex = 0;
     document.getElementById("region").value = "";
-    document.getElementById("stagiaire").value = "";
+    document.getElementById("nombre_accepter").value = "";
     document.getElementById('secteur').selectedIndex = 0;
 
     document.getElementById("formulaire").action = "/Entreprise/creation";

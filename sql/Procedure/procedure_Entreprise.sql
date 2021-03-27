@@ -14,7 +14,7 @@ BEGIN
     e.Nom AS nom,
     e.Email AS email,
     e.Nombre_Accepter AS nombre,
-    e.Secteur AS secteur,
+    s.Secteur AS secteur,
     z.Id_Adresse AS id_ad,
     z.Adresse AS adresse,
     z.Id_Ville AS id_vil,
@@ -64,6 +64,8 @@ BEGIN
     ON v.Id_ville = Adresse.Id_Ville
     ) z
     ON Reside.Id_Adresse = z.Id_Adresse
+    INNER JOIN Secteur s
+    ON e.Id_Secteur = s.Id_Secteur
     LIMIT page, 10;
 END |
 

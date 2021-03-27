@@ -70,7 +70,7 @@ Class Entreprise_Model extends Model {
 
         $this->getConnexion();
 
-        $req = "CALL Affichage_AdresseEntreprise(:p)";
+        $req = "CALL Affichage_Entreprise(:p)";
 
         $query = $this->db->prepare($req);
 
@@ -181,7 +181,7 @@ Class Entreprise_Model extends Model {
 
         $this->getConnexion();
 
-        $req = "SELECT Id_Users AS id FROM Users WHERE Email = :email";
+        $req = "SELECT Id_Entreprise AS id FROM Entreprise WHERE Email = :email";
 
         $query = $this->db->prepare($req);
 
@@ -200,19 +200,18 @@ Class Entreprise_Model extends Model {
 
 
 
-            $req = "CALL Modification_Entreprise(:id, :nom, :email, :nombre_accepter, :adresse, :codePostal, :ville, :region, :pays, :secteur)";
+            $req = "CALL Modification_Entreprise(:id, :nom, :email, :adresse, :cp, :ville, :region, :nb_stagiaire, :secteur)";
 
             $query = $this->db->prepare($req);
 
             $query->bindParam(':id', $id);
-            $query->bindParam(':nom', $nom);
+            $query->bindParam(':nom', $_POST['nom']);
             $query->bindParam(':email', $email);
-            $query->bindParam(':nombre_accepter', $_POST['nombre_accepter']);
-            $query->bindParam(':adresse', $adresse);
-			$query->bindParam(':codePostal', $codePostal);
-			$query->bindParam(':ville', $ville);
-			$query->bindParam(':region', $region);
-			$query->bindParam(':pays', $pays);
+            $query->bindParam(':nb_stagiaire', $_POST['nombre_accepter']);
+            $query->bindParam(':adresse', $_POST['adresse']);
+			$query->bindParam(':cp', $_POST['code_p']);
+			$query->bindParam(':ville', $_POST['ville']);
+			$query->bindParam(':region', $_POST['region']);
 			$query->bindParam(':secteur', $_POST['secteur']);
 
             $query->execute();
