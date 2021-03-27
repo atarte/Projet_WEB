@@ -60,54 +60,61 @@ Class Entreprise_Model extends Model {
         $this->getConnexion();
 
         $req = "SELECT Email From Entreprise WHERE Email = :email";
-        $req2 = "SELECT Ville From Ville WHERE Ville = :ville";
 
         $query = $this->db->prepare($req);
-        $query2 = $this->db->prepare($req2);
 
         $query->bindParam(':email', $_POST['email']);
-        $query2->bindParam(':ville', $_POST['ville']);
 
         $query->execute();
-        $query2->execute();
 
         $count = $query->rowCount();
         $row = $query->fetch();
 
-        $count2 = $query2->rowCount();
-        $row2 = $query2->fetch();
-
         if ($count == 1 && !empty($row)) {
             return 1;
         }
-        else if($count2 == 1 && !empty($row)){
-            $req  = "CALL Creation_EntrepriseEx(:nom, :email, :nb_accepter, :id_secteur, :ville, :cp, :adresse)";
+        else {
+            $req = "SELECT Ville From Ville WHERE Ville = :ville";
 
             $query = $this->db->prepare($req);
 
-            $query->bindParam(':nom', $_POST['nom']);
-            $query->bindParam(':email', $_POST['email']);
-            $query->bindParam(':nb_accepter', $_POST['nombre_accepter']);
-            $query->bindParam(':adresse', $_POST['adresse']);
-            $query->bindParam(':cp', $_POST['code_p']);
-			$query->bindParam(':ville', $_POST['ville']);
-			$query->bindParam(':id_secteur', $_POST['secteur']);
+            $query->bindParam(':ville', $_POST['ville']);
 
             $query->execute();
-        }
-        elseif ($count2 == 0 && empty($row)) {
-            $req  = "CALL Creation_EntrepriseInex(:nom, :email, :nb_accepter, :id_secteur, :ville, :cp, :region, :adresse)";
 
-            $query = $this->db->prepare($req);
+            $count = $query->rowCount();
+            $row = $query->fetch();
 
-            $query->bindParam(':nom', $_POST['nom']);
-            $query->bindParam(':email', $_POST['email']);
-            $query->bindParam(':nb_accepter', $_POST['nombre_accepter']);
-            $query->bindParam(':adresse', $_POST['adresse']);
-            $query->bindParam(':cp', $_POST['code_p']);
-			$query->bindParam(':ville', $_POST['ville']);
-			$query->bindParam(':id_secteur', $_POST['secteur']);
-            $query->bindParam(':region', $_POST['region']);
+            if($count == 1 && !empty($row)){
+                $req  = "CALL Creation_EntrepriseEx(:nom, :email, :nb_accepter, :id_secteur, :ville, :adresse)";
+
+                $query = $this->db->prepare($req);
+
+                $query->bindParam(':nom', $_POST['nom']);
+                $query->bindParam(':email', $_POST['email']);
+                $query->bindParam(':nb_accepter', $_POST['nombre_accepter']);
+                $query->bindParam(':adresse', $_POST['adresse']);
+                $query->bindParam(':ville', $_POST['ville']);
+                $query->bindParam(':id_secteur', $_POST['secteur']);
+
+                $query->execute();
+            }
+            else {
+                $req  = "CALL Creation_EntrepriseInex(:nom, :email, :nb_accepter, :id_secteur, :ville, :cp, :region, :adresse)";
+
+                $query = $this->db->prepare($req);
+
+                $query->bindParam(':nom', $_POST['nom']);
+                $query->bindParam(':email', $_POST['email']);
+                $query->bindParam(':nb_accepter', $_POST['nombre_accepter']);
+                $query->bindParam(':adresse', $_POST['adresse']);
+                $query->bindParam(':cp', $_POST['code_p']);
+                $query->bindParam(':ville', $_POST['ville']);
+                $query->bindParam(':id_secteur', $_POST['secteur']);
+                $query->bindParam(':region', $_POST['region']);
+
+                $query->execute();
+            }
         }
         header("Location: /Entreprise");
     }

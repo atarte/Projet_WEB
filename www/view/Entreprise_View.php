@@ -4,9 +4,6 @@ $smarty = new Smarty;
 
 $smarty->assign('title', 'Gestion Entreprise');
 
-// $html = '<input type="hidden" id="role" value="'.$_SESSION['role'].'">';
-// $smarty->assign('role', $html);
-
 
 // affichage de l'icone de fermeture
 if ($this->close) {
@@ -36,7 +33,6 @@ $smarty->assign('Secteur', $html);
 // Affichage des Entreprises
 
 $adr = $this->adresse->fetchAll();
-print_r($adr);
 
 
 $html = '';
@@ -45,9 +41,9 @@ $i = 0;
 while ($row = $this->entreprise->fetch()) {
     $html = $html.'<div id=id_"'.$row['id'].'" class="p-1 m-1 case">';
 
-   // $html = $html.'<div class="gauche"><div><img class="ico" src="http://static.projet.com/img/entreprise.png" alt="icone entreprise"></div>';
+   $html = $html.'<div class="gauche"><div><img class="ico" src="http://static.projet.com/img/entreprise.png" alt="icone entreprise"></div>';
 
-    // $html = $html.'<input type="hidden" id="id_entreprise" value="'.$row['id'].'">';
+    $html = $html.'<input type="hidden" id="id_entreprise" value="'.$row['id'].'">';
 
     $titre = strtoupper($row['nom']);
     $html = $html.' <div><div><span id="nom_'.$row['id'].'"><u><b>'.$titre.'</b></u></span></div>';
