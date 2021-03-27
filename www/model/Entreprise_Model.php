@@ -230,10 +230,10 @@ Class Entreprise_Model extends Model {
         $whr = "";
 
         if (!empty($_POST['entreprise'])) {
-            $whr = $whr."e.Nom = :nom ";
+            $whr = $whr."AND e.Id_Entreprise = :nom ";
         }
 		if (!empty($_POST['ville'])) {
-            $whr = $whr."AND z.Ville = :ville ";
+            $whr = $whr."AND z.Id_Ville = :ville ";
         }
 		if (!empty($_POST['region'])) {
             $whr = $whr."AND z.Region = :region ";
@@ -241,6 +241,8 @@ Class Entreprise_Model extends Model {
 		if (!empty($_POST['secteur'])) {
             $whr = $whr."AND s.Secteur = :secteur ";
         }
+
+        $whr = substr($whr,4);
 
         $req ="SELECT
                 e.Id_Entreprise AS id,
