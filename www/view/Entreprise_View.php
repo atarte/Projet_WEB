@@ -55,10 +55,10 @@ while ($row = $this->entreprise->fetch()) {
 
     $html = $html.'<div class="gauche"><div><img class="ico" src="http://static.projet.com/img/entreprise.png" alt="icone entreprise"></div>';
 
-    $html = $html.'<input type="hidden" id="id_entreprise_'.$row['id'].'" value="'.$row['id'].'">';
+    // $html = $html.'<input type="hidden" id="id_entreprise_'.$row['id'].'" value="'.$row['id'].'">';
 
     $titre = strtoupper($row['nom']);
-    $html = $html.' <div><div><span id="nom_'.$row['id'].'"><u><b>'.$titre.'</b></u></span></div>';
+    $html = $html.' <div><div><u><b><span id="nom_'.$row['id'].'">'.$titre.'</span></b></u></div>';
 
     $entreprise = ucfirst($row['nom']);
     $html = $html.'<div>Nom = <span id="nom_'.$row['id'].'">'.$entreprise.'</span><br>';
@@ -69,7 +69,7 @@ while ($row = $this->entreprise->fetch()) {
 
     $html = $html.'Nombre de Stagiaire pris : <span id="nombre_'.$row['id'].'">'.$row['nombre'].'</span><br>';
 
-    $html = $html.'Email :<span id="email_'.$row['id'].'"> '.$row['email'].'</span></div></div></div>';
+    $html = $html.'Email :<span id="email_'.$row['id'].'">'.$row['email'].'</span></div></div></div>';
 
 
     // $entreprise = ucfirst($row['nom']);

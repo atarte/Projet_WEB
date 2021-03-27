@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-27 19:37:46
+/* Smarty version 3.1.39, created on 2021-03-27 22:26:30
   from 'C:\Users\catar\Documents\CESI\A2\4 - Web\Projet\Projet_WEB\www\view\layout\Entreprise.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_605f898a499aa4_35930920',
+  'unifunc' => 'content_605fb11638eb35_07094801',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '101b5b01c1f237acffe233038f6a5ce28e71b9a7' => 
     array (
       0 => 'C:\\Users\\catar\\Documents\\CESI\\A2\\4 - Web\\Projet\\Projet_WEB\\www\\view\\layout\\Entreprise.tpl',
-      1 => 1616873853,
+      1 => 1616883987,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./common/footer.tpl' => 1,
   ),
 ),false)) {
-function content_605f898a499aa4_35930920 (Smarty_Internal_Template $_smarty_tpl) {
+function content_605fb11638eb35_07094801 (Smarty_Internal_Template $_smarty_tpl) {
 ob_start();
 echo $_smarty_tpl->tpl_vars['title']->value;
 $_prefixVariable1 = ob_get_clean();

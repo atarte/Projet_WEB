@@ -229,44 +229,83 @@ Class Entreprise_Model extends Model {
 
         $whr = "";
 
-        if (!empty($_POST['nom'])) {
-            $whr = $whr."AND Entreprise.Nom = :nom ";
+        if (!empty($_POST['entreprise'])) {
+            $whr = $whr."e.Nom = :nom ";
         }
-
 		if (!empty($_POST['ville'])) {
-            $whr = $whr."AND Ville.Ville = :ville ";
+            $whr = $whr."AND z.Ville = :ville ";
         }
 		if (!empty($_POST['region'])) {
-            $whr = $whr."AND Region.Region = :region ";
+            $whr = $whr."AND z.Region = :region ";
         }
 		if (!empty($_POST['secteur'])) {
-            $whr = $whr."AND Secteur.Secteur = :secteur ";
+            $whr = $whr."AND s.Secteur = :secteur ";
         }
 
-
-
-        $req =
-            "SELECT Ville.Ville as ville,
-            Region.Region as region,
-            TEntreprise.Tnom AS nom,
-            TEntreprise.Tsecteur AS secteur
-            FROM Ville
-            INNER JOIN Region ON Region.Id_Region=Ville.Id_Region
-            INNER JOIN (SELECT Entreprise.Nom AS Tnom,
-                        Secteur.Secteur AS Tsecteur,
-                        Reside.Id_Adresse as Tadresse
-                        FROM Entreprise
-                        INNER JOIN Reside ON Reside.Id_Entreprise = Entreprise.Id_Entreprise
-                        INNER JOIN Secteur ON Secteur.Id_Secteur = Entreprise.Id_Secteur)
-           AS TEntreprise
-           ON TEntreprise.Tadresse = Ville.Id_Ville ".$whr;
+        $req ="SELECT
+                e.Id_Entreprise AS id,
+                e.Nom AS nom,
+                e.Email AS email,
+                e.Nombre_Accepter AS nombre,
+                s.Secteur AS secteur,
+                z.Id_Adresse AS id_ad,
+                z.Adresse AS adresse,
+                z.Id_Ville AS id_vil,
+                z.Ville AS ville,
+                z.Code_Postal AS code_p,
+                z.Id_Region AS id_reg,
+                z.Region AS region,
+                z.Id_Pays AS id_pa,
+                z.Pays AS pays
+            FROM Reside
+            INNER JOIN Entreprise e
+            ON Reside.Id_Entreprise = e.Id_Entreprise
+            INNER JOIN (
+                SELECT
+                    Adresse.Id_Adresse,
+                    Adresse.Adresse,
+                    v.Id_Ville,
+                    v.Ville,
+                    v.Code_Postal,
+                    v.Id_Region,
+                    v.Region,
+                    v.Id_Pays,
+                    v.Pays
+                FROM (
+                    SELECT
+                        Ville.Id_Ville,
+                        Ville.Ville,
+                        Ville.Code_Postal,
+                        r.Id_Region,
+                        r.Region,
+                        r.ID_Pays,
+                        r.Pays
+                    FROM (
+                        SELECT
+                            Region.Id_region,
+                            Region.Region,
+                            p.Id_Pays,
+                            p.Pays
+                        FROM Pays p
+                        INNER JOIN Region
+                        ON p.Id_Pays = Region.Id_Pays
+                    ) r
+                    INNER JOIN Ville
+                    ON r.Id_Region = Ville.Id_Region
+                ) v
+                INNER JOIN Adresse
+                ON v.Id_ville = Adresse.Id_Ville
+            ) z
+            ON Reside.Id_Adresse = z.Id_Adresse
+            INNER JOIN Secteur s
+            ON e.Id_Secteur = s.Id_Secteur
+            WHERE ".$whr;
 
         $query = $this->db->prepare($req);
 
-        if (!empty($_POST['nom'])) {
-            $query->bindParam(':nom', $_POST['nom']);
+        if (!empty($_POST['entreprise'])) {
+            $query->bindParam(':nom', $_POST['entreprise']);
         }
-
         if (!empty($_POST['ville'])) {
             $query->bindParam(':ville', $_POST['ville']);
         }
