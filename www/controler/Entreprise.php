@@ -43,7 +43,6 @@ class Entreprise extends Controler {
         $pageLimit = 10 * ($this->p -1);
 
         $this->entreprise = $this->Entreprise_Model->displayEntreprise($pageLimit);
-        $this->adresse = $this->Entreprise_Model->displayAdresse();
 
         require_once(ROOT.'view/Entreprise_View.php');
 

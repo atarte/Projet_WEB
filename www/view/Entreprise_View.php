@@ -45,7 +45,7 @@ $smarty->assign('Region', $html);
 
 
 // Affichage des Entreprises
-$adr = $this->adresse->fetchAll();
+// $adr = $this->adresse->fetchAll();
 
 $html = '';
 $i = 0;
@@ -53,7 +53,7 @@ $i = 0;
 while ($row = $this->entreprise->fetch()) {
     $html = $html.'<div id=id_"'.$row['id'].'" class="p-1 m-1 case">';
 
-   $html = $html.'<div class="gauche"><div><img class="ico" src="http://static.projet.com/img/entreprise.png" alt="icone entreprise"></div>';
+    $html = $html.'<div class="gauche"><div><img class="ico" src="http://static.projet.com/img/entreprise.png" alt="icone entreprise"></div>';
 
     $html = $html.'<input type="hidden" id="id_entreprise" value="'.$row['id'].'">';
 
@@ -61,30 +61,40 @@ while ($row = $this->entreprise->fetch()) {
     $html = $html.' <div><div><span id="nom_'.$row['id'].'"><u><b>'.$titre.'</b></u></span></div>';
 
     $entreprise = ucfirst($row['nom']);
+    $html = $html.'<div>Nom = <span id="nom_'.$row['id'].'">'.$entreprise.'</span><br>';
 
-    $html = $html.' <div>L\'entreprise <span id="entreprise_'.$row['id'].'">'.$entreprise.'</span>';
+    $html = $html.'Adresse = <span id="adresse_'.$row['id'].'">'.$row['adresse'].'</span>, <span id="code_p_'.$row['id'].'">'.$row['code_p'].'</span> <span id="region_'.$row['id'].'">'.$row['region'].'</span><br>';
 
-    $html2 = '';
+    $html = $html.'Nombre de Stagiaire pris : '.$row['nombre'].'<br>';
 
-    for ($i = 0; $i < count($adr); $i++) {
-        if ($adr[$i]['id_entreprise'] == $row['id']) {
+    $html = $html.'Email : '.$row['email'].'</div></div></div>';
 
-            $html2 = $html2.' est située dans la ville <span id="ville_'.$row['id'].'">'.$adr[$i]['ville'].'</span>';
 
-            $html2 = $html2.' à l\'adresse, <span id="adresse_'.$row['id'].'">'.$adr[$i]['adresse'].'</span>';
-
-            $html2 = $html2.', en <span id="region_'.$row['id'].'">'.$adr[$i]['region'].'</span>';
-
-            break;
-        }
-    }
-    $html = $html.$html2;
-
-    $html = $html.' Spécialisée dans le secteur <span id="secteur_'.$row['id'].'">'.$row['secteur'].'</span>';
-
-    $html = $html.' elle a déjà accueilli <span id="nombre_accepter_'.$row['id'].'">'.$row['stagiaire'].'</span> étudiant(es)(s) en stage.';
-
-    $html = $html.' Vous pouvez nous contacter à cette adresse : <span id="email_'.$row['id'].'">'.$row['email'].'</span>.</div></div></div>';
+    // $entreprise = ucfirst($row['nom']);
+    //
+    // $html = $html.' <div>L\'entreprise <span id="entreprise_'.$row['id'].'">'.$entreprise.'</span>';
+    //
+    // $html2 = '';
+    //
+    // for ($i = 0; $i < count($adr); $i++) {
+    //     if ($adr[$i]['id_entreprise'] == $row['id']) {
+    //
+    //         $html2 = $html2.' est située dans la ville <span id="ville_'.$row['id'].'">'.$adr[$i]['ville'].'</span>';
+    //
+    //         $html2 = $html2.' à l\'adresse, <span id="adresse_'.$row['id'].'">'.$adr[$i]['adresse'].'</span>';
+    //
+    //         $html2 = $html2.', en <span id="region_'.$row['id'].'">'.$adr[$i]['region'].'</span>';
+    //
+    //         break;
+    //     }
+    // }
+    // $html = $html.$html2;
+    //
+    // $html = $html.' Spécialisée dans le secteur <span id="secteur_'.$row['id'].'">'.$row['secteur'].'</span>';
+    //
+    // $html = $html.' elle a déjà accueilli <span id="nombre_accepter_'.$row['id'].'">'.$row['stagiaire'].'</span> étudiant(es)(s) en stage.';
+    //
+    // $html = $html.' Vous pouvez nous contacter à cette adresse : <span id="email_'.$row['id'].'">'.$row['email'].'</span>.</div></div></div>';
 
     $html = $html.'<div><img class="icop" src="http://static.projet.com/img/update.svg" alt="icone modification" onclick=modification('.$row['id'].')></div>';
 

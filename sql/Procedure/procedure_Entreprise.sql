@@ -5,17 +5,65 @@ DELIMITER |
 
 -- ================================================================= CANDIDATURE
 -- Affichage Entreprise
+
 DROP PROCEDURE IF EXISTS Affichage_Entreprise |
 CREATE PROCEDURE Affichage_Entreprise (IN page INT)
 BEGIN
-    SELECT Id_Entreprise AS id,
-	   Nom AS nom,
-	   Nombre_Accepter AS stagiaire,
-       Email AS email,
-	   s.Secteur AS secteur
-    FROM Entreprise
-    INNER JOIN Secteur s
-    ON Entreprise.Id_Secteur = s.Id_Secteur
+    SELECT
+    e.Id_Entreprise AS id,
+    e.Nom AS nom,
+    e.Email AS email,
+    e.Nombre_Accepter AS nombre,
+    e.Secteur AS secteur,
+    z.Id_Adresse AS id_ad,
+    z.Adresse AS adresse,
+    z.Id_Ville AS id_vil,
+    z.Ville AS ville,
+    z.Code_Postal AS code_p,
+    z.Id_Region AS id_reg,
+    z.Region AS region,
+    z.Id_Pays AS id_pa,
+    z.Pays AS pays
+    FROM Reside
+    INNER JOIN Entreprise e
+    ON Reside.Id_Entreprise = e.Id_Entreprise
+    INNER JOIN
+    SELECT
+        Adresse.Id_Adresse,
+        Adresse.Adresse,
+        v.Id_Ville,
+        v.Ville,
+        v.Code_Postal,
+        v.Id_Region,
+        v.Region,
+        v.Id_Pays,
+        v.Pays
+    FROM (
+        SELECT
+            Ville.Id_Ville,
+            Ville.Ville,
+            Ville.Code_Postal,
+            r.Id_Region,
+            r.Region,
+            r.ID_Pays,
+            r.Pays
+        FROM (
+            SELECT
+                Region.Id_region,
+                Region.Region,
+                p.Id_Pays,
+                p.Pays
+            FROM Pays p
+            INNER JOIN Region
+            ON p.Id_Pays = Region.Id_Pays
+        ) r
+        INNER JOIN Ville
+        ON r.Id_Region = Ville.Id_Region
+    ) v
+    INNER JOIN Adresse
+    ON v.Id_ville = Adresse.Id_Ville
+    ) z
+    ON Reside.Id_Adresse = z.Id_Adresse
     LIMIT page, 10;
 END |
 
@@ -195,4 +243,27 @@ BEGIN
         WHERE Adresse.Id_Adresse = @id_adr;
 
     END IF;
+END |
+
+
+DROP PROCEDURE IF EXISTS Suppression_Entreprise |
+CREATE PROCEDURE Suppression_Entreprise (IN id INT)
+BEGIN
+    DECLARE id_adr INT;
+    DECLARE id_sta INT;
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    BEGIN
+    END;
+
+    SELECT Reside.Id_Adresse INTO @id_adr FROM Reside WHERE Reside.Id_Entreprise = id ;
+    SELECT Stage.Id_Stage INTO @id_sta FROM Stage WHERE Stage.Id_Entreprise = id;
+
+    DELETE FROM Reside WHERE Reside.Id_Entreprise = id;
+    DELETE FROM Adresse WHERE Adresse.Id_Adresse = @id_adr;
+    IF(@id_sta is NOT NULL) THEN
+    CALL Suppression_Offre(@id_sta);
+    END IF;
+    DELETE FROM Confiance WHERE Id_Entreprise = id;
+    DELETE FROM Note WHERE Id_Entreprise = id;
+    DELETE FROM Entreprise WHERE Id_Entreprise = id;
 END |

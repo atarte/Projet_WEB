@@ -70,7 +70,7 @@ Class Entreprise_Model extends Model {
 
         $this->getConnexion();
 
-        $req = "CALL Affichage_Entreprise(:p)";
+        $req = "CALL Affichage_AdresseEntreprise(:p)";
 
         $query = $this->db->prepare($req);
 
@@ -82,18 +82,18 @@ Class Entreprise_Model extends Model {
     }
 
 
-    public function displayAdresse() {
-
-        $this->getConnexion();
-
-        $req = "CALL Affichage_AdresseEntreprise();";
-
-        $query = $this->db->prepare($req);
-
-        $query->execute();
-
-        return $query;
-    }
+    // public function displayAdresse() {
+    //
+    //     $this->getConnexion();
+    //
+    //     $req = "CALL Affichage_AdresseEntreprise();";
+    //
+    //     $query = $this->db->prepare($req);
+    //
+    //     $query->execute();
+    //
+    //     return $query;
+    // }
 
 
     public function addEntreprise() {
