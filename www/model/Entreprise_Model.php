@@ -23,6 +23,47 @@ Class Entreprise_Model extends Model {
         return $query;
     }
 
+    public function getVille() {
+
+        $this->getConnexion();
+
+        $req = "SELECT Id_Ville AS id, Ville AS ville FROM Ville ORDER BY Ville;";
+
+        $query = $this->db->prepare($req);
+
+        $query->execute();
+
+        return $query;
+    }
+
+
+    public function getNomEntreprise() {
+
+        $this->getConnexion();
+
+        $req = "SELECT Id_Entreprise AS id, Nom AS nom FROM Entreprise ORDER BY Nom;";
+
+        $query = $this->db->prepare($req);
+
+        $query->execute();
+
+        return $query;
+    }
+
+
+    public function getRegion() {
+
+        $this->getConnexion();
+
+        $req = "SELECT Id_Region AS id, Region AS region FROM Region ORDER BY Region;";
+
+        $query = $this->db->prepare($req);
+
+        $query->execute();
+
+        return $query;
+    }
+
 
 
     public function displayEntreprise(int $p) {

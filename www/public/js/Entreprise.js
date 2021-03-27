@@ -87,7 +87,40 @@ function PropositionRegion() {
     }
 };
 
+function modification(id) {
+    document.getElementById("nom").value = document.getElementById("nom_"+id).innerHTML;
+    document.getElementById("email").value = document.getElementById("email_"+id).innerHTML;
+    document.getElementById("nombre_accepter").value = document.getElementById("nombre_accepter_"+id).innerHTML;
+    console.log(document.getElementById("adresse_"+id).innerHTML);
+    document.getElementById("adresse").value = document.getElementById("adresse_"+id).innerHTML;
+    document.getElementById("region").value = document.getElementById("remuneration_"+id).innerHTML;
 
+    select(id, "ville");
+    select(id, "secteur");
+
+    document.getElementById("formulaire").action = "/Entreprise/modification/"+id;
+
+    document.getElementById("submit").value = "Modifier";
+
+    document.getElementById("annuler").innerHTML = '<button onclick=annuler()>Annuler</button>';
+}
+
+
+function select(idOffre, idSelect) {
+    let offre = document.getElementById(idSelect+"_"+idOffre).innerHTML;
+
+    let select = document.getElementById(idSelect);
+    let len = select.length;
+
+    for (let i = 0; i < len; i++) {
+        let opt = select.options[i].outerText;
+
+        if (opt == offre) {
+            document.getElementById(idSelect).selectedIndex = i;
+            break;
+        }
+    }
+}
 
 
 function annuler() {
@@ -95,7 +128,7 @@ function annuler() {
     document.getElementById("email").value = "";
     document.getElementById("adresse").value = "";
     document.getElementById("codePostal").value = "";
-    document.getElementById("ville").value = "";
+    document.getElementById("ville").selectedIndex = 0;
     document.getElementById("region").value = "";
     document.getElementById("stagiaire").value = "";
     document.getElementById('secteur').selectedIndex = 0;

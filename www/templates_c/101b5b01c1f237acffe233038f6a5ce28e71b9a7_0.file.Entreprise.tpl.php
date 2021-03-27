@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-26 20:12:22
+/* Smarty version 3.1.39, created on 2021-03-27 13:03:03
   from 'C:\Users\catar\Documents\CESI\A2\4 - Web\Projet\Projet_WEB\www\view\layout\Entreprise.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_605e40269799c4_64074279',
+  'unifunc' => 'content_605f2d073cdf06_20457379',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '101b5b01c1f237acffe233038f6a5ce28e71b9a7' => 
     array (
       0 => 'C:\\Users\\catar\\Documents\\CESI\\A2\\4 - Web\\Projet\\Projet_WEB\\www\\view\\layout\\Entreprise.tpl',
-      1 => 1616789539,
+      1 => 1616850180,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./common/footer.tpl' => 1,
   ),
 ),false)) {
-function content_605e40269799c4_64074279 (Smarty_Internal_Template $_smarty_tpl) {
+function content_605f2d073cdf06_20457379 (Smarty_Internal_Template $_smarty_tpl) {
 ob_start();
 echo $_smarty_tpl->tpl_vars['title']->value;
 $_prefixVariable1 = ob_get_clean();
@@ -111,8 +111,8 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
                         <!-- Entreprise : -->
                         <select id="r_entreprise" name="entreprise" >
                             <option value="">Choississez une entreprise</option>
-                            <!-- <?php echo $_smarty_tpl->tpl_vars['Entreprise']->value;?>
- -->
+                            <?php echo $_smarty_tpl->tpl_vars['Nom']->value;?>
+
                         </select>
 
                         <!-- Ville : -->

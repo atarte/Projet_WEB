@@ -13,27 +13,39 @@ if ($this->close) {
 
 
 // Affichage des Villes
-// $html = '';
-// while ($row = $this->ville->fetch()) {
-//     $html = $html.'<option value="'.$row['id'].'">'.$row['ville'].'</option>';
-// }
-
-// $smarty->assign('Ville', $html);
+$html = '';
+while ($row = $this->ville->fetch()) {
+    $html = $html.'<option value="'.$row['id'].'">'.$row['ville'].'</option>';
+}
+$smarty->assign('Ville', $html);
 
 // Affichage des Secteurs
 $html = '';
 while ($row = $this->secteur->fetch()) {
     $html = $html.'<option value="'.$row['id'].'">'.$row['secteur'].'</option>';
 }
-
 $smarty->assign('Secteur', $html);
+
+
+// Affichage des Nom d'Entreprise
+$html = '';
+while ($row = $this->nom->fetch()) {
+    $html = $html.'<option value="'.$row['id'].'">'.$row['nom'].'</option>';
+}
+$smarty->assign('Nom', $html);
+
+
+// Affichage des Regions
+$html = '';
+while ($row = $this->region->fetch()) {
+    $html = $html.'<option value="'.$row['id'].'">'.$row['region'].'</option>';
+}
+$smarty->assign('Region', $html);
 
 
 
 // Affichage des Entreprises
-
 $adr = $this->adresse->fetchAll();
-
 
 $html = '';
 $i = 0;
@@ -66,7 +78,6 @@ while ($row = $this->entreprise->fetch()) {
             break;
         }
     }
-
     $html = $html.$html2;
 
     $html = $html.' Spécialisée dans le secteur <span id="secteur_'.$row['id'].'">'.$row['secteur'].'</span>';
@@ -75,9 +86,15 @@ while ($row = $this->entreprise->fetch()) {
 
     $html = $html.' Vous pouvez nous contacter à cette adresse : <span id="email_'.$row['id'].'">'.$row['email'].'</span>.</div></div></div>';
 
+    $html = $html.'<div><img class="icop" src="http://static.projet.com/img/update.svg" alt="icone modification" onclick=modification('.$row['id'].')></div>';
+
+    $html = $html.'<div><img class="icop" src="http://static.projet.com/img/delete.svg" alt="icone suppression" onclick=confirmation('.$row['id'].')></div>';
+
     $html = $html.'</div>';
+
 }
 $smarty->assign('Entreprise',$html);
+
 
 // Gestion des Errreur
 if (isset($this->err)) {
