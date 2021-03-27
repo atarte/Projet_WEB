@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-26 21:25:20
+/* Smarty version 3.1.39, created on 2021-03-27 13:24:54
   from 'D:\SCOLAIRE\CESI\2eme_annee\projet\WEB\Projet_WEB\www\view\layout\Entreprise.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_605e514082c125_85249513',
+  'unifunc' => 'content_605f3226d96041_00270088',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8d5808364690579b456363a7d25907cf125eee8a' => 
     array (
       0 => 'D:\\SCOLAIRE\\CESI\\2eme_annee\\projet\\WEB\\Projet_WEB\\www\\view\\layout\\Entreprise.tpl',
-      1 => 1616790236,
+      1 => 1616851490,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./common/footer.tpl' => 1,
   ),
 ),false)) {
-function content_605e514082c125_85249513 (Smarty_Internal_Template $_smarty_tpl) {
+function content_605f3226d96041_00270088 (Smarty_Internal_Template $_smarty_tpl) {
 ob_start();
 echo $_smarty_tpl->tpl_vars['title']->value;
 $_prefixVariable1 = ob_get_clean();
@@ -111,7 +111,7 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
                         <!-- Entreprise : -->
                         <select id="r_entreprise" name="entreprise" >
                             <option value="">Choississez une entreprise</option>
-                            <?php echo $_smarty_tpl->tpl_vars['Entreprise']->value;?>
+                            <?php echo $_smarty_tpl->tpl_vars['Nom']->value;?>
 
                         </select>
 

@@ -69,11 +69,11 @@ while ($row = $this->entreprise->fetch()) {
     for ($i = 0; $i < count($adr); $i++) {
         if ($adr[$i]['id_entreprise'] == $row['id']) {
 
-            $html2 = $html2.' est située dans la ville <span id="ville_'.$adr[$i]['id_adresse'].'">'.$adr[$i]['ville'].'</span>';
+            $html2 = $html2.' est située dans la ville <span id="ville_'.$row['id'].'">'.$adr[$i]['ville'].'</span>';
 
-            $html2 = $html2.' à l\'adresse, <span id="adresse_'.$adr[$i]['id_adresse'].'">'.$adr[$i]['adresse'].'</span>';
+            $html2 = $html2.' à l\'adresse, <span id="adresse_'.$row['id'].'">'.$adr[$i]['adresse'].'</span>';
 
-            $html2 = $html2.', en <span id="region_'.$adr[$i]['id_adresse'].'">'.$adr[$i]['region'].'</span>';
+            $html2 = $html2.', en <span id="region_'.$row['id'].'">'.$adr[$i]['region'].'</span>';
 
             break;
         }
