@@ -153,3 +153,46 @@ IN adresse VARCHAR(50))
     VALUES (@id_adresse, @id_entreprise);
 
 END |
+
+
+DROP PROCEDURE IF EXISTS Modification_Entreprise |
+CREATE PROCEDURE Modification_Entreprise (IN id INT,IN nom VARCHAR(50), IN email VARCHAR(50), IN adresse VARCHAR(50), IN cp VARCHAR(50), IN ville VARCHAR(50), IN region VARCHAR(50), IN nb_stagiaire INT, IN secteur VARCHAR(50))
+BEGIN
+    DECLARE id_adr INT;
+    DECLARE id_reg INT;
+    DECLARE id_ville_nouv INT;
+    DECLARE id_ville INT;
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    BEGIN
+    END;
+
+    SELECT Reside.Id_Adresse INTO @id_adr FROM Reside WHERE Reside.Id_Entreprise = id;
+    SELECT Region.Id_Region INTO @id_reg FROM Region WHERE Region.Region = region;
+
+    UPDATE Entreprise SET
+    Entreprise.Nom = nom,
+    Entreprise.Nombre_Accepter = nb_stagiaire,
+    Entreprise.Email = email,
+    Entreprise.Id_Secteur = secteur
+    WHERE Entreprise.Id_Entreprise = id;
+
+
+    IF ((SELECT Ville FROM Ville WHERE Ville.Ville = ville) IS NULL) THEN
+        INSERT INTO Ville (Ville, Code_Postal, Id_Region)
+        VALUES (ville, cp, @id_reg);
+        SELECT LAST_INSERT_ID() INTO @id_ville_nouv;
+        UPDATE Adresse SET
+        Adresse.Adresse = adresse,
+        Adresse.Id_Ville = @id_ville_nouv
+        WHERE Adresse.Id_Adresse = @id_adr;
+
+    ELSE
+
+        SELECT Ville.Id_Ville INTO @id_ville FROM Ville WHERE Ville.Ville = ville;
+        UPDATE Adresse SET
+        Adresse.Adresse = adresse,
+        Adresse.Id_Ville = @id_ville
+        WHERE Adresse.Id_Adresse = @id_adr;
+
+    END IF;
+END |
