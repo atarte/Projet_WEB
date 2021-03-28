@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-23 15:46:21
+/* Smarty version 3.1.39, created on 2021-03-28 11:31:34
   from 'D:\SCOLAIRE\CESI\2eme_annee\projet\WEB\Projet_WEB\www\view\layout\Connexion.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_605a0d4db37741_83724541',
+  'unifunc' => 'content_60606916e5fcb9_00779463',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ff15853d3aaf5b84008589979b8d46480cdaaa9e' => 
     array (
       0 => 'D:\\SCOLAIRE\\CESI\\2eme_annee\\projet\\WEB\\Projet_WEB\\www\\view\\layout\\Connexion.tpl',
-      1 => 1616514298,
+      1 => 1616931054,
       2 => 'file',
     ),
   ),
@@ -22,14 +22,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./common/footer.tpl' => 1,
   ),
 ),false)) {
-function content_605a0d4db37741_83724541 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60606916e5fcb9_00779463 (Smarty_Internal_Template $_smarty_tpl) {
 ob_start();
 echo $_smarty_tpl->tpl_vars['title']->value;
 $_prefixVariable1 = ob_get_clean();
 $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('title'=>$_prefixVariable1), 0, false);
 ?>
 
-<link rel="stylesheet" href="http://static.projet.com/css/Connexion.css">
+<link rel="stylesheet" href="https://static.projet.com/css/Connexion.css">
 
 <body>
 

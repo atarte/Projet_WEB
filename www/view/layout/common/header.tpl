@@ -4,8 +4,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="stylesheet" href="http://static.projet.com/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="http://static.projet.com/css/common/style.css">
+        <link rel="stylesheet" href="https://static.projet.com/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://static.projet.com/css/common/style.css">
 
         <title>{$title}</title>
 
@@ -18,5 +18,5 @@
         <meta name="msapplication-starturl" content="/">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <link rel="shortcut icon" type="image/svg+xml" href="http://static.projet.com/img/favicon.svg"/>
+        <link rel="shortcut icon" type="image/svg+xml" href="https://static.projet.com/img/favicon.svg"/>
     </head>

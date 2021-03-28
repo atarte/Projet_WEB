@@ -1,6 +1,6 @@
 {include file="./common/header.tpl" title={$title}}
 
-<link rel="stylesheet" href="http://static.projet.com/css/Etudiant.css">
+<link rel="stylesheet" href="https://static.projet.com/css/Etudiant.css">
 
 <body>
 <main class="container">

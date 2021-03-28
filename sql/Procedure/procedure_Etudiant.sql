@@ -106,3 +106,92 @@ END |
 
 
 DELIMITER ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SELECT
+    a.Id_Adresse AS id_ad,
+    a.Adresse AS adresse,
+    v.id_vil,
+    v.ville,
+    v.id_reg,
+    v.region,
+    v.id_pa,
+    v.pays
+FROM (
+    SELECT
+        v.Id_ville AS id_vil,
+        v.Ville AS ville,
+        v.Code_Postal AS code_p,
+        r.id_reg,
+        r.region
+        r.id_pa,
+        r.pays
+    FROM (
+        SELECT
+            r.Id_region AS id_reg,
+            r.Region AS region
+            p.ID_pays AS id_pa,
+            p.Pays AS pays,
+        FROM Pays p
+        INNER JOIN Region r
+        ON p.Id_Pays = r.Id_Pays
+    ) r
+    INNER JOIN Ville v
+    ON r.id_reg = v.Id_Region
+) v
+INNER JOIN Adresse a
+ON v.id_vil = a.Id_ville
