@@ -402,12 +402,10 @@ Class Entreprise_Model extends Model {
 
         if ($count == 0) {
 
-            $req = "INSERT INTO Note (Id_Entreprise, Id_Users, Note) VALUES
-            (:id_ent, ;id_users, :note)";
+            $req = "CALL Ajout_Note(:id_ent, ;id_user, :note)";
         }
         else {
-            $req = "UPDATE Note SET Note = :note WHERE Id_Entreprise = :id_ent
-            AND Id_Users = id_users;";
+            $req = "CALL Update_note(:id_ent, ;id_user, :note)";
         }
 
         $query->bindParam(':id_ent', $id);
