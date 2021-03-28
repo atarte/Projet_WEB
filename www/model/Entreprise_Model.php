@@ -94,6 +94,20 @@ Class Entreprise_Model extends Model {
     }
 
 
+    public function getMoyenne() {
+        $this->getConnexion();
+
+        $req = "SELECT Id_Entreprise AS id_entreprise, ROUND(AVG(Note)) AS note
+        FROM Note GROUP BY Id_Entreprise";
+
+        $query = $this->db->prepare($req);
+
+        $query->execute();
+
+        return $query;
+    }
+
+
 
     public function displayEntreprise(int $p) {
 
