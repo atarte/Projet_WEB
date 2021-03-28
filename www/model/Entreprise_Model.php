@@ -68,11 +68,9 @@ Class Entreprise_Model extends Model {
     public function getConfiance() {
         $this->getConnexion();
 
-        $req = "SELECT Id_Entreprise AS id_ent FROM Confiance WHERE Id_Users = :id";
+        $req = "SELECT Id_Entreprise AS id_ent, Id_Users AS id_user FROM Confiance";
 
         $query = $this->db->prepare($req);
-
-        $query->bindParam(':id', $_SESSION['id']);
 
         $query->execute();
 
@@ -95,20 +93,6 @@ Class Entreprise_Model extends Model {
 
         return $query;
     }
-
-
-    // public function displayAdresse() {
-    //
-    //     $this->getConnexion();
-    //
-    //     $req = "CALL Affichage_AdresseEntreprise();";
-    //
-    //     $query = $this->db->prepare($req);
-    //
-    //     $query->execute();
-    //
-    //     return $query;
-    // }
 
 
     public function addEntreprise() {

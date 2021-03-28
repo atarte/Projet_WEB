@@ -45,7 +45,6 @@ $smarty->assign('Region', $html);
 
 
 // Affichage des Entreprises
-// $adr = $this->adresse->fetchAll();
 $conf = $this->confiance->fetchAll();
 
 $html = '';
@@ -55,8 +54,6 @@ while ($row = $this->entreprise->fetch()) {
     $html = $html.'<div id=id_"'.$row['id'].'" class="p-1 m-1 case">';
 
     $html = $html.'<div class="gauche"><div><img class="ico" src="https://static.projet.com/img/entreprise.png" alt="icone entreprise"></div>';
-
-    // $html = $html.'<input type="hidden" id="id_entreprise_'.$row['id'].'" value="'.$row['id'].'">';
 
     $titre = strtoupper($row['nom']);
     $html = $html.' <div><div><u><b><span id="nom_'.$row['id'].'">'.$titre.'</span></b></u></div>';
@@ -70,34 +67,15 @@ while ($row = $this->entreprise->fetch()) {
 
     $html = $html.'Nombre de Stagiaire pris : <span id="nombre_'.$row['id'].'">'.$row['nombre'].'</span><br>';
 
-    $html = $html.'Email :<span id="email_'.$row['id'].'">'.$row['email'].'</span></div></div></div>';
+    $html = $html.'Email :<span id="email_'.$row['id'].'">'.$row['email'].'</span><br>';
 
+    for ($i = 0; $i < count($conf); $i++) {
+        if ($conf[$i]['id_ent'] == $row['id'] && !empty($conf)) {
+            $html = $html.'Cette entreprise à la confiance de'.count($conf).' pilote(s).';
+        }
+    }
 
-    // $entreprise = ucfirst($row['nom']);
-    //
-    // $html = $html.' <div>L\'entreprise <span id="entreprise_'.$row['id'].'">'.$entreprise.'</span>';
-    //
-    // $html2 = '';
-    //
-    // for ($i = 0; $i < count($adr); $i++) {
-    //     if ($adr[$i]['id_entreprise'] == $row['id']) {
-    //
-    //         $html2 = $html2.' est située dans la ville <span id="ville_'.$row['id'].'">'.$adr[$i]['ville'].'</span>';
-    //
-    //         $html2 = $html2.' à l\'adresse, <span id="adresse_'.$row['id'].'">'.$adr[$i]['adresse'].'</span>';
-    //
-    //         $html2 = $html2.', en <span id="region_'.$row['id'].'">'.$adr[$i]['region'].'</span>';
-    //
-    //         break;
-    //     }
-    // }
-    // $html = $html.$html2;
-    //
-    // $html = $html.' Spécialisée dans le secteur <span id="secteur_'.$row['id'].'">'.$row['secteur'].'</span>';
-    //
-    // $html = $html.' elle a déjà accueilli <span id="nombre_accepter_'.$row['id'].'">'.$row['stagiaire'].'</span> étudiant(es)(s) en stage.';
-    //
-    // $html = $html.' Vous pouvez nous contacter à cette adresse : <span id="email_'.$row['id'].'">'.$row['email'].'</span>.</div></div></div>';
+    $html = $html.'</div></div></div>';
 
     $html = $html.'<div><img class="icop" src="https://static.projet.com/img/update.svg" alt="icone modification" onclick=modification('.$row['id'].')></div>';
 
@@ -105,7 +83,7 @@ while ($row = $this->entreprise->fetch()) {
 
     $html2 ="";
 
-    if ($_SESSION['role'] == 2){
+    if ($_SESSION['role'] == '2'){
 
         if(count($conf) == 0) {
 
@@ -113,7 +91,8 @@ while ($row = $this->entreprise->fetch()) {
         }
         else {
             for ($i = 0; $i < count($conf); $i++) {
-                if ($conf[$i]['id_ent'] == $row['id']) {
+                if ($conf[$i]['id_ent'] == $row['id'] && $conf[$i]['id_user'] == $_SESSION['id']) {
+
                     $html2 = $html2.'<div><button id="conf" onclick=confiance('.$row['id'].')>Annuler la Confiance</button></div>';
                     break;
                 }
@@ -123,7 +102,7 @@ while ($row = $this->entreprise->fetch()) {
             }
         }
     }
-    elseif ($_SESSION['role'] == 4) {
+    elseif ($_SESSION['role'] == '4') {
         $html = $html.'<div><button id="conf" onclick=confiance('.$row['id'].')>Noté</button></div>';
     }
 

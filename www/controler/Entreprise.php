@@ -22,7 +22,6 @@ class Entreprise extends Controler {
 
         $this->close = false;
 
-        //$this->nombre_accepter= $this->Entreprise_Model->getNombre_Accepter();
         $this->secteur = $this->Entreprise_Model->getSecteur();
         $this->ville = $this->Entreprise_Model->getVille();
         $this->nom = $this->Entreprise_Model->getNomEntreprise();
