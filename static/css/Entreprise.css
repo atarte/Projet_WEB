@@ -1,5 +1,44 @@
 .star {
-    height: 20px;
-    width: 20px;
+    height: 19px;
+    width: 19px;
     font-size: 15px;
+}
+
+.contour {
+    background-color: #ffffff;
+
+    border-style: solid;
+    border-width: 1px;
+
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+
+
+}
+
+.up {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.down {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.note {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.space {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.star:hover {
+    background-color: grey;
 }

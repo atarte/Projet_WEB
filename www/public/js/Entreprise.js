@@ -165,13 +165,13 @@ function entre (id_ent, point) {
         j = i +1
 
         document.getElementById(id_ent+'_note_'+j).innerHTML = "⭐"
-        document.getElementById(id_ent+'_note_'+j).style.backgroundColor = "grey"
+        // document.getElementById(id_ent+'_note_'+j).style.backgroundColor = "grey"
     }
 
     for (i = 1+point; i < 6; i++) {
 
         document.getElementById(id_ent+'_note_'+i).innerHTML = "☆"
-        document.getElementById(id_ent+'_note_'+i).style.backgroundColor = "white"
+        // document.getElementById(id_ent+'_note_'+i).style.backgroundColor = "white"
     }
 }
 
@@ -182,13 +182,13 @@ function sortie (id_ent, max) {
         j = i +1
 
         document.getElementById(id_ent+'_note_'+j).innerHTML = "⭐"
-        document.getElementById(id_ent+'_note_'+j).style.backgroundColor = "white"
+        // document.getElementById(id_ent+'_note_'+j).style.backgroundColor = "white"
     }
 
     for (i = 1+max; i < 6; i++) {
 
         document.getElementById(id_ent+'_note_'+i).innerHTML = "☆"
-        document.getElementById(id_ent+'_note_'+i).style.backgroundColor = "white"
+        // document.getElementById(id_ent+'_note_'+i).style.backgroundColor = "white"
     }
 }
 
