@@ -20,7 +20,7 @@ while ($row = $this->candidature->fetch()) {
     // $html = $html.' <div class="glob">';
     $html = $html.' <div class="glob">';
 
-    $html = $html.'<div class="gauche"><div><img class="ico" src="http://static.projet.com/img/intership.svg" alt="icone stage"></div>'; // début de gauche 1
+    $html = $html.'<div class="gauche"><div><img class="ico" src="https://static.projet.com/img/intership.svg" alt="icone stage"></div>'; // début de gauche 1
 
 
     $html = $html.' <div>';
@@ -59,7 +59,7 @@ while ($row = $this->candidature->fetch()) {
 
     if (count($cand) == 0) {
 
-        $jsp = '<img class="icop" src="http://static.projet.com/img/noWish.png" alt="icone whish" onclick=ajout_wish('.$row['id'].')>';
+        $jsp = '<img class="icop" src="https://static.projet.com/img/noWish.png" alt="icone whish" onclick=ajout_wish('.$row['id'].')>';
     }
     else {
 
@@ -67,17 +67,17 @@ while ($row = $this->candidature->fetch()) {
 
             if ($cand[$i]['id_stage'] == $row['id'] && !empty($cand[$i]['souhait'])) {
 
-                $jsp = '<img class="icop" src="http://static.projet.com/img/Wish.png" alt="icone whish" onclick=rejet_wish('.$row['id'].')>';
+                $jsp = '<img class="icop" src="https://static.projet.com/img/Wish.png" alt="icone whish" onclick=rejet_wish('.$row['id'].')>';
                 break;
             }
             else {
 
-                $jsp = '<img class="icop" src="http://static.projet.com/img/noWish.png" alt="icone whish" onclick=ajout_wish('.$row['id'].')>';
+                $jsp = '<img class="icop" src="https://static.projet.com/img/noWish.png" alt="icone whish" onclick=ajout_wish('.$row['id'].')>';
             }
         }
     }
 
-    $jsp2 = '<img class="icop" src="http://static.projet.com/img/Post.png" alt="icone postuler" onclick=rejet_post('.$row['id'].')>';
+    $jsp2 = '<img class="icop" src="https://static.projet.com/img/Post.png" alt="icone postuler" onclick=rejet_post('.$row['id'].')>';
 
     $html = $html.'<div><div>'.$jsp.'</div><div>'.$jsp2.'</div></div>';
 

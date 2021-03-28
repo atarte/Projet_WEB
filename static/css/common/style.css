@@ -1,5 +1,5 @@
 /* fichier css commun à toutes nos pages */
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 760px) {
     .field {
         height: 90vh;
         overflow: auto

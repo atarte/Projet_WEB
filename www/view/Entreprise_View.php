@@ -7,7 +7,7 @@ $smarty->assign('title', 'Gestion Entreprise');
 
 // affichage de l'icone de fermeture
 if ($this->close) {
-    $smarty->assign('close', '<a href="/Entreprise"><img class="icop"  src="http://static.projet.com/img/close.svg" alt="icone close"></a>');
+    $smarty->assign('close', '<a href="/Entreprise"><img class="icop"  src="https://static.projet.com/img/close.svg" alt="icone close"></a>');
 }
 
 
@@ -53,7 +53,7 @@ $i = 0;
 while ($row = $this->entreprise->fetch()) {
     $html = $html.'<div id=id_"'.$row['id'].'" class="p-1 m-1 case">';
 
-    $html = $html.'<div class="gauche"><div><img class="ico" src="http://static.projet.com/img/entreprise.png" alt="icone entreprise"></div>';
+    $html = $html.'<div class="gauche"><div><img class="ico" src="https://static.projet.com/img/entreprise.png" alt="icone entreprise"></div>';
 
     // $html = $html.'<input type="hidden" id="id_entreprise_'.$row['id'].'" value="'.$row['id'].'">';
 
@@ -98,9 +98,9 @@ while ($row = $this->entreprise->fetch()) {
     //
     // $html = $html.' Vous pouvez nous contacter à cette adresse : <span id="email_'.$row['id'].'">'.$row['email'].'</span>.</div></div></div>';
 
-    $html = $html.'<div><img class="icop" src="http://static.projet.com/img/update.svg" alt="icone modification" onclick=modification('.$row['id'].')></div>';
+    $html = $html.'<div><img class="icop" src="https://static.projet.com/img/update.svg" alt="icone modification" onclick=modification('.$row['id'].')></div>';
 
-    $html = $html.'<div><img class="icop" src="http://static.projet.com/img/delete.svg" alt="icone suppression" onclick=confirmation('.$row['id'].')></div>';
+    $html = $html.'<div><img class="icop" src="https://static.projet.com/img/delete.svg" alt="icone suppression" onclick=confirmation('.$row['id'].')></div>';
 
     $html = $html.'</div>';
 

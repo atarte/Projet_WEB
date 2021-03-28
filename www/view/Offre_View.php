@@ -6,7 +6,7 @@ $smarty->assign('title', 'Gestion Offre');
 
 // affichage de l'icone de fermeture
 if ($this->close) {
-    $smarty->assign('close', '<a href="/Offre"><img class="icop"  src="http://static.projet.com/img/close.svg" alt="icone close"></a>');
+    $smarty->assign('close', '<a href="/Offre"><img class="icop"  src="https://static.projet.com/img/close.svg" alt="icone close"></a>');
 }
 
 
@@ -62,7 +62,7 @@ $i = 0;
 while ($row = $this->offre->fetch()) {
     $html = $html.'<div id=id_"'.$row['id'].'" class="p-1 m-1 case">';
 
-    $html = $html.'<div class="gauche"><div><img class="ico" src="http://static.projet.com/img/intership.svg" alt="icone stage"></div>';
+    $html = $html.'<div class="gauche"><div><img class="ico" src="https://static.projet.com/img/intership.svg" alt="icone stage"></div>';
 
     $titre = strtoupper($row['nom']);
 
@@ -95,7 +95,7 @@ while ($row = $this->offre->fetch()) {
 
         if (count($cand) == 0) {
 
-            $jsp = '<img class="icop" src="http://static.projet.com/img/noWish.png" alt="icone whish" onclick=ajout_wish('.$row['id'].')>';
+            $jsp = '<img class="icop" src="https://static.projet.com/img/noWish.png" alt="icone whish" onclick=ajout_wish('.$row['id'].')>';
         }
         else {
 
@@ -103,19 +103,19 @@ while ($row = $this->offre->fetch()) {
 
                 if ($cand[$i]['id_stage'] == $row['id'] && !empty($cand[$i]['souhait'])) {
 
-                    $jsp = '<img class="icop" src="http://static.projet.com/img/Wish.png" alt="icone whish" onclick=rejet_wish('.$row['id'].')>';
+                    $jsp = '<img class="icop" src="https://static.projet.com/img/Wish.png" alt="icone whish" onclick=rejet_wish('.$row['id'].')>';
                     break;
                 }
                 else {
 
-                    $jsp = '<img class="icop" src="http://static.projet.com/img/noWish.png" alt="icone whish" onclick=ajout_wish('.$row['id'].')>';
+                    $jsp = '<img class="icop" src="https://static.projet.com/img/noWish.png" alt="icone whish" onclick=ajout_wish('.$row['id'].')>';
                 }
             }
         }
 
         if (count($postu) == 0) {
 
-            $jsp2 = '<img class="icop" src="http://static.projet.com/img/noPost.png" alt="icone postuler" onclick=ajout_post('.$row['id'].')>';
+            $jsp2 = '<img class="icop" src="https://static.projet.com/img/noPost.png" alt="icone postuler" onclick=ajout_post('.$row['id'].')>';
         }
         else {
 
@@ -123,20 +123,20 @@ while ($row = $this->offre->fetch()) {
 
                 if ($postu[$i]['id_stage'] == $row['id'] && !empty($postu[$i]['postulation'])) {
 
-                    $jsp2 = '<img class="icop" src="http://static.projet.com/img/Post.png" alt="icone postuler" onclick=rejet_post('.$row['id'].')>';
+                    $jsp2 = '<img class="icop" src="https://static.projet.com/img/Post.png" alt="icone postuler" onclick=rejet_post('.$row['id'].')>';
 
                     break;
                 }
                 else {
-                    $jsp2 = '<img class="icop" src="http://static.projet.com/img/noPost.png" alt="icone postuler" onclick=ajout_post('.$row['id'].')>';
+                    $jsp2 = '<img class="icop" src="https://static.projet.com/img/noPost.png" alt="icone postuler" onclick=ajout_post('.$row['id'].')>';
                 }
             }
         }
     }
     else {
-        $jsp = '<img class="icop" src="http://static.projet.com/img/update.svg" alt="icone modification" onclick=modification('.$row['id'].')>';
+        $jsp = '<img class="icop" src="https://static.projet.com/img/update.svg" alt="icone modification" onclick=modification('.$row['id'].')>';
 
-        $jsp2 = '<img class="icop" src="http://static.projet.com/img/delete.svg" alt="icone suppression" onclick=confirmation('.$row['id'].')>';
+        $jsp2 = '<img class="icop" src="https://static.projet.com/img/delete.svg" alt="icone suppression" onclick=confirmation('.$row['id'].')>';
     }
 
     $html = $html.'<div><div>'.$jsp.'</div><div>'.$jsp2.'</div></div>';

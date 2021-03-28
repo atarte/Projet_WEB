@@ -15,7 +15,7 @@ if (isset($this->err)) {
 
 // affichage de l'icone de fermeture
 if ($this->close) {
-    $smarty->assign('close', '<a href="/Delegue"><img class="icop"  src="http://static.projet.com/img/close.svg" alt="icone close"></a>');
+    $smarty->assign('close', '<a href="/Delegue"><img class="icop"  src="https://static.projet.com/img/close.svg" alt="icone close"></a>');
 }
 
 
@@ -27,7 +27,7 @@ while ($row = $this->delegue->fetch()) {
 
     $aff = $aff.'<div id="'.$row["id"].'" class="p-1 m-1 case">';
 
-    $aff = $aff.'<div class="gauche"><div><img class="ico" src="http://static.projet.com/img/user.svg" alt="icone user"></div>';
+    $aff = $aff.'<div class="gauche"><div><img class="ico" src="https://static.projet.com/img/user.svg" alt="icone user"></div>';
 
     $nom = strtoupper($row['nom']);
     $aff = $aff.'<div><div><span id="nom_'.$row['id'].'">'.$nom.'</span>  ';
@@ -49,10 +49,10 @@ while ($row = $this->delegue->fetch()) {
 
     $aff = $aff.' | Candidature : <span id="candidature_'.$row['id'].'">'.$row['candidature'].'</span></div></div></div>';
 
-    $aff = $aff.'<div><div><img class="icop" src="http://static.projet.com/img/update.svg" alt="icone modification" onclick=modification('.$row['id'].')></div>';
+    $aff = $aff.'<div><div><img class="icop" src="https://static.projet.com/img/update.svg" alt="icone modification" onclick=modification('.$row['id'].')></div>';
 
     if ($_SESSION['role'] != "3") {
-        $aff = $aff.'<div><img class="icop" src="http://static.projet.com/img/delete.svg" alt="icone suppression" onclick=confirmation('.$row['id'].')></div>';
+        $aff = $aff.'<div><img class="icop" src="https://static.projet.com/img/delete.svg" alt="icone suppression" onclick=confirmation('.$row['id'].')></div>';
     }
 
     $aff = $aff.'</div></div>';

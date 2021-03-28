@@ -22,7 +22,7 @@ while ($row = $this->candidature->fetch()) {
 
     $html = $html.' <div class="glob">';
 
-    $html = $html.'<div class="gauche"><div><img class="ico" src="http://static.projet.com/img/intership.svg" alt="icone stage"></div>';
+    $html = $html.'<div class="gauche"><div><img class="ico" src="https://static.projet.com/img/intership.svg" alt="icone stage"></div>';
 
     $html = $html.' <div>';
 

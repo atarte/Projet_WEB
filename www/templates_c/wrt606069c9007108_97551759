@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-28 11:34:50
-  from 'D:\SCOLAIRE\CESI\2eme_annee\projet\WEB\Projet_WEB\www\view\layout\Etudiant.tpl' */
+/* Smarty version 3.1.39, created on 2021-03-28 11:34:33
+  from 'D:\SCOLAIRE\CESI\2eme_annee\projet\WEB\Projet_WEB\www\view\layout\Delegue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_606069da973347_12162979',
+  'unifunc' => 'content_606069c9005dc9_32908630',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '4bbf89a610c58c5a621a3b6f426a96fac3bc4c9d' => 
+    'ab980d4a5fa6ffc65d75ee3e7fe09d250e5ac59d' => 
     array (
-      0 => 'D:\\SCOLAIRE\\CESI\\2eme_annee\\projet\\WEB\\Projet_WEB\\www\\view\\layout\\Etudiant.tpl',
-      1 => 1616931079,
+      0 => 'D:\\SCOLAIRE\\CESI\\2eme_annee\\projet\\WEB\\Projet_WEB\\www\\view\\layout\\Delegue.tpl',
+      1 => 1616931069,
       2 => 'file',
     ),
   ),
@@ -22,14 +22,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./common/footer.tpl' => 1,
   ),
 ),false)) {
-function content_606069da973347_12162979 (Smarty_Internal_Template $_smarty_tpl) {
+function content_606069c9005dc9_32908630 (Smarty_Internal_Template $_smarty_tpl) {
 ob_start();
 echo $_smarty_tpl->tpl_vars['title']->value;
 $_prefixVariable1 = ob_get_clean();
 $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('title'=>$_prefixVariable1), 0, false);
 ?>
 
-<link rel="stylesheet" href="https://static.projet.com/css/Etudiant.css">
+<link rel="stylesheet" href="https://static.projet.com/css/Delegue.css">
 
 <body>
 <main class="container">
@@ -42,9 +42,9 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
 
             <!-- création étudiant -->
             <fieldset class="field">
-                <legend id="legend_form">Création d'étudiant</legend>
+                <legend id="legend_form">Création de délégué</legend>
 
-                <form id="formulaire" class="form" action="/Etudiant/creation" method="post">
+                <form id="formulaire" class="form" action="/Delegue/creation" method="post">
                     <div class="container">
                         <div class="row justify-content-center p-1">
                             <!-- nom : -->
@@ -66,38 +66,38 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
                         <div class="row justify-content-center p-1">
                             <span id="pwd_div">
                                 <!-- password : -->
-                                <input "pwd" type="password" name="pwd" placeholder="Password" required>
+                                <input id="pwd" type="password" name="pwd" placeholder="Password" required>
                             </span>
                         </div>
                         <div class="row justify-content-center p-1">
-                            <!-- pilote : -->
-                            <select id="pilote" name="pilote" required>
-                                <option value="">Choisiez un pilote</option>
-                                <?php echo $_smarty_tpl->tpl_vars['pilote']->value;?>
-
-                            </select>
+                            gestion Entreprise :
+                            <input id="entreprise" type="checkbox" name="gestion[]" value="entreprise">
                         </div>
                         <div class="row justify-content-center p-1">
-                        <!-- promotion : -->
-                            <select id="promotion" name="promotion" required>
-                                <option value="">Choisiez une promotion</option>
-                                <?php echo $_smarty_tpl->tpl_vars['promotion']->value;?>
-
-                            </select>
+                            gestion Offre :
+                            <input id="offre" type="checkbox" name="gestion[]" value="offre">
                         </div>
                         <div class="row justify-content-center p-1">
-                        <!-- spécialité : -->
-                            <select id="specialite" name="specialite" required>
-                                <option value="">Choisiez une spécialité</option>
-                                <?php echo $_smarty_tpl->tpl_vars['specialite']->value;?>
-
-                            </select>
+                            gestion Pilote :
+                            <input id="pilote" type="checkbox" name="gestion[]" value="pilote">
+                        </div>
+                        <div class="row justify-content-center p-1">
+                            gestion Délégué :
+                            <input id="delegue" type="checkbox" name="gestion[]" value="delegue">
+                        </div>
+                        <div class="row justify-content-center p-1">
+                            gestion Etudiant :
+                            <input id="etudiant" type="checkbox" name="gestion[]" value="etudiant">
+                        </div>
+                        <div class="row justify-content-center p-1">
+                            gestion Candidature :
+                            <input id="candidature" type="checkbox" name="gestion[]" value="candidature">
                         </div>
                         <div class="row justify-content-center p-1">
                             <input id="submit" type="submit" value="Créer">
                         </div>
-                </form>
 
+                </form>
                         <div class="row justify-content-center p-1">
                             <span id="annuler">
                             </span>
@@ -108,44 +108,16 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
 
         <article class="col">
             <fieldset class="field">
-                <legend>Liste des étudiants</legend>
+                <legend>Liste des délégués</legend>
 
                 <!-- Recherche Etudiant -->
                 <div class="">
-                    <form id="recherche" action="/Etudiant/recherche" method="post">
+                    <form id="recherche" action="/Delegue/recherche" method="post">
                         <!-- nom : -->
                         <input id="r_nom" type="text" name="nom" placeholder="Nom">
 
-                        <!-- prenom : -->
+                        <!-- Prenom : -->
                         <input id="r_prenom" type="text" name="prenom" placeholder="Prenom">
-
-                        <!-- pilote : -->
-                        <select id="r_pilote" name="pilote">
-                            <option value="">Choisiez un pilote</option>
-                            <?php echo $_smarty_tpl->tpl_vars['pilote']->value;?>
-
-                        </select>
-
-                        <!-- promotion : -->
-                        <select id="r_promotion" name="promotion">
-                            <option value="">Choisiez une promotion</option>
-                            <?php echo $_smarty_tpl->tpl_vars['promotion']->value;?>
-
-                        </select>
-
-                        <!-- spécialité : -->
-                        <select id="r_specialite" name="specialite">
-                            <option value="">Choisiez une spécialité</option>
-                            <?php echo $_smarty_tpl->tpl_vars['specialite']->value;?>
-
-                        </select>
-
-                        <!-- centre : -->
-                        <select id="r_centre" name="centre">
-                            <option value="">Choisiez un centre</option>
-                            <?php echo $_smarty_tpl->tpl_vars['centre']->value;?>
-
-                        </select>
 
                         <input id="r_submit" type="submit" value="Rechercher">
 
@@ -162,22 +134,20 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
 
                 </div>
 
-                <div class="">
-                    <?php echo $_smarty_tpl->tpl_vars['etudiant']->value;?>
+                <div>
+                    <?php echo $_smarty_tpl->tpl_vars['delegue']->value;?>
 
                 </div>
             </fieldset>
         </article>
-
     </div>
 </main>
 
-
-
     <?php echo '<script'; ?>
- src="/public/js/Etudiant.js" charset="utf-8"><?php echo '</script'; ?>
+ src="/public/js/Delegue.js" charset="utf-8"><?php echo '</script'; ?>
 >
 </body>
+
 
 <?php $_smarty_tpl->_subTemplateRender("file:./common/footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 }
