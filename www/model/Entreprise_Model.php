@@ -82,7 +82,7 @@ Class Entreprise_Model extends Model {
         $this->getConnexion();
 
         $req = "SELECT Id_Entreprise AS id_entreprise, Note AS note
-        FROM Note WHERE Id_Users = :id";
+        FROM Note WHERE Id_Users = :id LIMIT 1";
 
         $query = $this->db->prepare($req);
 
