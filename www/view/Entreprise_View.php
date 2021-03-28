@@ -46,6 +46,10 @@ $smarty->assign('Region', $html);
 
 // Affichage des Entreprises
 $conf = $this->confiance->fetchAll();
+$not = $this->note->fetchAll();
+
+print_r($not);
+
 
 $html = '';
 $i = 0;
@@ -83,6 +87,8 @@ while ($row = $this->entreprise->fetch()) {
 
     $html2 ="";
 
+
+
     if ($_SESSION['role'] == '2'){
 
         if(count($conf) == 0) {
@@ -103,7 +109,45 @@ while ($row = $this->entreprise->fetch()) {
         }
     }
     elseif ($_SESSION['role'] == '4') {
-        $html = $html.'<div><button id="conf" onclick=confiance('.$row['id'].')>Noté</button></div>';
+        $html = $html.'<div>';
+
+        $flag = false;
+        for ($z = 0; $z < count($not); $z++) {
+            if ($not[$z]['id_entreprise'] == $row['id']) {
+                $i = intval($not[$z]['note']);
+
+                for ($j = 0; $j < $i; $j++) {
+                    $y = $j +1;
+                    $html = $html.'<span id="note_'.$y.'">⭐</span>';
+                }
+
+                $v = 5 - $i;
+
+                for ($w = 0; $w < $v; $w++) {
+                    $x = $w +$i +1;
+                    $html = $html.'<span id="note_'.$x.'">☆</span>';
+                }
+                $flag = true;
+                break;
+            }
+        }
+        if (!$flag) {
+            for ($i = 0; $i < 5; $i++) {
+                $html = $html.'<span id="note_'.$i.'">☆</span>';
+            }
+        }
+
+        $html = $html.'<div>'; // button
+
+        $html = $html.'</div>';
+
+
+        $html = $html.'<div>';  // moyenne
+
+        $html = $html.'</div>';
+
+
+        $html = $html.'</div>';
     }
 
     $html = $html.$html2.'</div>';

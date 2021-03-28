@@ -9,6 +9,8 @@
 
         <title>{$title}</title>
 
+        <meta name="description" content="Ceci est le site du projet avec du https">
+
         <link rel="manifest" href="/manifest.json">
 
         <meta name="mobile-web-app-capable" content="yes">

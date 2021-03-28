@@ -86,7 +86,7 @@ Class Entreprise_Model extends Model {
 
         $query = $this->db->prepare($req);
 
-        $query = bindParam(':id', $_SESSION['id']);
+        $query->bindParam(':id', $_SESSION['id']);
 
         $query->execute();
 
