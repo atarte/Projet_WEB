@@ -94,6 +94,7 @@ class Entreprise extends Controler {
 
 
     public function ajout_Note(int $id, int $note) {
-        $this->Entreprise_Model->noter($id, $note);
+        // $this->Entreprise_Model->noter($id, $note);
+        echo $id.' '.$note;
     }
 }

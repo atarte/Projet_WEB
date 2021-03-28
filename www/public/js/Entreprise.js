@@ -161,7 +161,6 @@ function confiance(id) {
 
 function entre (id_ent, point) {
 
-
     for (i = 0; i < point; i++) {
         j = i +1
 
@@ -177,14 +176,24 @@ function entre (id_ent, point) {
 }
 
 
-// document.getElementById("point_"+id_ent).addEventListener("mouseenter", function(  ) {isOnDiv=true;});
-// document.getElementById("point_"+id_ent).addEventListener("mouseout", function(  ) {isOnDiv=false;});
+function sortie (id_ent, max) {
 
-function sortie (id_ent, point) {
-    // if (isOnDiv === true ) {
-        //
-        //     console.log(id_ent+' sortie '+point);
-        // }
+    for (i = 0; i < max; i++) {
+        j = i +1
+
+        document.getElementById(id_ent+'_note_'+j).innerHTML = "⭐"
+        document.getElementById(id_ent+'_note_'+j).style.backgroundColor = "white"
+    }
+
+    for (i = 1+max; i < 6; i++) {
+
+        document.getElementById(id_ent+'_note_'+i).innerHTML = "☆"
+        document.getElementById(id_ent+'_note_'+i).style.backgroundColor = "white"
+    }
+}
 
 
+function envoie(id_ent, point) {
+    // console.log(id_ent+' '+point);
+    document.location.href="/Entreprise/ajout_Note/"+id_ent+"/"+point;
 }

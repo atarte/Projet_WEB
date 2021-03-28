@@ -119,14 +119,14 @@ while ($row = $this->entreprise->fetch()) {
 
                 for ($j = 0; $j < $i; $j++) {
                     $y = $j +1;
-                    $html = $html.'<span id="'.$row['id'].'_note_'.$y.'" onmouseover="entre('.$row['id'].', '.$y.')">⭐</span>';
+                    $html = $html.'<span id="'.$row['id'].'_note_'.$y.'" class="star" onclick="envoie('.$row['id'].', '.$y.')" onmouseover="entre('.$row['id'].', '.$y.')">⭐</span>';
                 }
 
                 $v = 5 - $i;
 
                 for ($w = 0; $w < $v; $w++) {
                     $x = $w +$i +1;
-                    $html = $html.'<span id="'.$row['id'].'_note_'.$x.'" onmouseover="entre('.$row['id'].', '.$x.')">☆</span>';
+                    $html = $html.'<span id="'.$row['id'].'_note_'.$x.'" class="star" onclick="envoie('.$row['id'].', '.$y.')" onmouseover="entre('.$row['id'].', '.$x.')">☆</span>';
                 }
                 $flag = true;
                 break;
@@ -137,7 +137,7 @@ while ($row = $this->entreprise->fetch()) {
 
             for ($i = 0; $i < 5; $i++) {
                 $x = $i +1;
-                $html = $html.'<span id="'.$row['id'].'_note_'.$x.'" onmouseover="entre('.$row['id'].', '.$x.')">☆</span>';
+                $html = $html.'<span id="'.$row['id'].'_note_'.$x.'" class="star" onclick="envoie('.$row['id'].', '.$x.')" onmouseover="entre('.$row['id'].', '.$x.')">☆</span>';
             }
         }
 
