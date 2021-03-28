@@ -389,7 +389,7 @@ Class Entreprise_Model extends Model {
     public function noter(int $id, int $note) {
         $this->getConnexion();
 
-        $req = "SELECT * FROM note WHERE Id_Entreprise = :id_ent AND Id_Users = :id_user;";
+        $req = "SELECT * FROM Note WHERE Id_Entreprise = :id_ent AND Id_Users = :id_user;";
 
         $query = $this->db->prepare($req);
 
