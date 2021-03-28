@@ -8,6 +8,7 @@ class Entreprise extends Controler {
     public $secteur;
     public $confiance;
     public $note;
+    public $moyenne;
 
 
     public $close;
@@ -29,6 +30,7 @@ class Entreprise extends Controler {
         $this->region = $this->Entreprise_Model->getRegion();
         $this->confiance = $this->Entreprise_Model->getConfiance();
         $this->note = $this->Entreprise_Model->getNote();
+        $this->moyenne = $this->Entreprise_Model->getMoyenne();
 
     }
 
@@ -88,5 +90,10 @@ class Entreprise extends Controler {
 
     public function confiance(int $id) {
         $this->Entreprise_Model->faireConfiance($id);
+    }
+
+
+    public function ajout_Note(int $id, int $note) {
+        $this->Entreprise_Model->noter($id, $note);
     }
 }

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-28 12:09:18
+/* Smarty version 3.1.39, created on 2021-03-28 14:09:28
   from 'C:\Users\catar\Documents\CESI\A2\4 - Web\Projet\Projet_WEB\www\view\layout\common\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_606071ee6444e6_25690853',
+  'unifunc' => 'content_60608e18797863_18845923',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1d9438c6a240d3624006f572efc6b27038199655' => 
     array (
       0 => 'C:\\Users\\catar\\Documents\\CESI\\A2\\4 - Web\\Projet\\Projet_WEB\\www\\view\\layout\\common\\header.tpl',
-      1 => 1616933353,
+      1 => 1616940563,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_606071ee6444e6_25690853 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60608e18797863_18845923 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -32,6 +32,8 @@ function content_606071ee6444e6_25690853 (Smarty_Internal_Template $_smarty_tpl)
 
         <title><?php echo $_smarty_tpl->tpl_vars['title']->value;?>
 </title>
+
+        <meta name="description" content="Ceci est le site du projet avec du https">
 
         <link rel="manifest" href="/manifest.json">
 
