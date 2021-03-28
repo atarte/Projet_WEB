@@ -197,3 +197,7 @@ function envoie(id_ent, point) {
     // console.log(id_ent+' '+point);
     document.location.href="/Entreprise/ajout_Note/"+id_ent+"/"+point;
 }
+
+function deleteEtoile(id_ent) {
+    document.location.href="/Entreprise/delete_note/"+id_ent
+}

@@ -47,8 +47,7 @@ $smarty->assign('Region', $html);
 // Affichage des Entreprises
 $conf = $this->confiance->fetchAll();
 $not = $this->note->fetchAll();
-
-print_r($not);
+$moy = $this->moyenne->fetchAll();
 
 
 $html = '';
@@ -110,6 +109,8 @@ while ($row = $this->entreprise->fetch()) {
     }
     elseif ($_SESSION['role'] == '4') {
 
+        $html = $html.'<div>'; //grande div
+
         $flag = false;
         for ($z = 0; $z < count($not); $z++) {
             if ($not[$z]['id_entreprise'] == $row['id']) {
@@ -129,6 +130,8 @@ while ($row = $this->entreprise->fetch()) {
                     $html = $html.'<span id="'.$row['id'].'_note_'.$x.'" class="star" onclick="envoie('.$row['id'].', '.$y.')" onmouseover="entre('.$row['id'].', '.$x.')">☆</span>';
                 }
                 $flag = true;
+
+                $html = $html.'<span><img class="star" src="https://static.projet.com/img/unstar.svg" alt="étoile suppression" onclick=deleteEtoile('.$row['id'].')></span>';
                 break;
             }
         }
@@ -141,7 +144,6 @@ while ($row = $this->entreprise->fetch()) {
             }
         }
 
-        $html = $html.'<div>'; // button
 
         $html = $html.'</div>';
 
