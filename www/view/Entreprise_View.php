@@ -111,7 +111,7 @@ while ($row = $this->entreprise->fetch()) {
             }
         }
     }
-    if (!$flag) {
+    if (!$flag && $_SESSION['role'] == '2') {
         $html = $html.'<img id="conf" class="icop" src="https://static.projet.com/img/trust.svg" alt="icone d\'ajout de confiance" onclick=confiance('.$row['id'].')>';
         // $html = $html.'<div><button id="conf" onclick=confiance('.$row['id'].')>Faire Confiance</button></div>';
     }
@@ -126,17 +126,23 @@ while ($row = $this->entreprise->fetch()) {
 
     $html = $html.'<div class="space">'; //confiance
 
+    $nb = 0;
     for ($i = 0; $i < count($conf); $i++) {
-        if ($conf[$i]['id_ent'] == $row['id'] && !empty($conf)) {
-            $nb = count($conf);
-            if ($nb == 1) {
-                $html = $html.$nb.' pilote fait confiance';
-            }
-            else {
-                $html = $html.$nb.' pilotes font confiances';
-            }
+        if ($conf[$i]['id_ent'] == $row['id']) {
+            $nb++;
         }
     }
+
+    if ($nb == 0) {
+        // nothing
+    }
+    else if ($nb == 1) {
+        $html = $html.$nb.' pilote fait confiance |';
+    }
+    else {
+        $html = $html.$nb.' pilotes font confiances |';
+    }
+
 
     $html = $html.'</div>'; // fermeture de confiance
 
@@ -145,7 +151,7 @@ while ($row = $this->entreprise->fetch()) {
 
     for ($i = 0; $i < count($moy); $i++) {
         if ($moy[$i]['id_entreprise'] == $row['id']) {
-            $html = $html.'Note (moy) : '.$moy[$i]['note'];
+            $html = $html.'Note : '.$moy[$i]['note'].' |';
             break;
         }
     }
@@ -178,7 +184,7 @@ while ($row = $this->entreprise->fetch()) {
 
             for ($w = 0; $w < $v; $w++) {
                 $x = $w +$i +1;
-                $html = $html.'<span id="'.$row['id'].'_note_'.$x.'" class="star" onclick="envoie('.$row['id'].', '.$y.')" onmouseover="entre('.$row['id'].', '.$x.')">☆</span>';
+                $html = $html.'<span id="'.$row['id'].'_note_'.$x.'" class="star" onclick="envoie('.$row['id'].', '.$x.')" onmouseover="entre('.$row['id'].', '.$x.')">☆</span>';
             }
             $flag = true;
 
