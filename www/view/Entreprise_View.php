@@ -150,6 +150,9 @@ while ($row = $this->entreprise->fetch()) {
 
         $html = $html.'<div>';  // moyenne
 
+        for ($i = 0; $i < count($moy); $i++) {
+            $html = $html.'Note (moy) : '.$moy[$i]['note'];
+        }
         $html = $html.'</div>';
 
 
