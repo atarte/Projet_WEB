@@ -78,6 +78,22 @@ Class Entreprise_Model extends Model {
     }
 
 
+    public function getNote() {
+        $this->getConnexion();
+
+        $req = "SELECT Id_Entreprise AS id_entreprise, Note AS note
+        FROM Note WHERE Id_Users = :id";
+
+        $query = $this->db->prepare($req);
+
+        $query = bindParam(':id', $_SESSION['id']);
+
+        $query->execute();
+
+        return $query;
+    }
+
+
 
     public function displayEntreprise(int $p) {
 
