@@ -385,4 +385,39 @@ Class Entreprise_Model extends Model {
         header("Location: /Entreprise");
     }
 
+
+    public function note(int $id, int $note) {
+        $this->getConnexion();
+
+        $req = "SELECT * FROM note WHERE Id_Entreprise = :id_ent AND Id_Users = :id_user;";
+
+        $query = $this->db->prepare($req);
+
+        $query->bindParam(':id_ent', $id);
+        $query->bindParam(':id_user', $_SESSION['id']);
+
+        $query->execute();
+
+        $count = $query->rowCount();
+
+        if ($count == 0) {
+
+            $req = "INSERT INTO Note (Id_Entreprise, Id_Users, Note) VALUES
+            (:id_ent, ;id_users, :note)";
+        }
+        else {
+            $req = "UPDATE Note SET Note = :note WHERE Id_Entreprise = :id_ent
+            AND Id_Users = id_users;";
+        }
+
+        $query->bindParam(':id_ent', $id);
+        $query->bindParam(':id_user', $_SESSION['id']);
+        $query->bindParam(':note', $note);
+
+        $query->execute();
+
+        header("Location: /Entreprise");
+
+    }
+
 }

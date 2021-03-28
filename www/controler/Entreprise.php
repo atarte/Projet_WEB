@@ -91,4 +91,9 @@ class Entreprise extends Controler {
     public function confiance(int $id) {
         $this->Entreprise_Model->faireConfiance($id);
     }
+
+
+    public function ajout_Note(int $id, int $note) {
+        $this->Entreprise_Model->noter($id, $note);
+    }
 }
