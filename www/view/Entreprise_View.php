@@ -46,6 +46,7 @@ $smarty->assign('Region', $html);
 
 // Affichage des Entreprises
 // $adr = $this->adresse->fetchAll();
+$conf = $this->confiance->fetchAll();
 
 $html = '';
 $i = 0;
@@ -102,14 +103,31 @@ while ($row = $this->entreprise->fetch()) {
 
     $html = $html.'<div><img class="icop" src="https://static.projet.com/img/delete.svg" alt="icone suppression" onclick=confirmation('.$row['id'].')></div>';
 
+    $html2 ="";
+
     if ($_SESSION['role'] == 2){
-        $html = $html.'<div><button id="conf" onclick=confiance('.$row['id'].')>Faire Confiance</button></div>';
+
+        if(count($conf) == 0) {
+
+            $html2 = $html2.'<div><button id="conf" onclick=confiance('.$row['id'].')>Faire Confiance</button></div>';
+        }
+        else {
+            for ($i = 0; $i < count($conf); $i++) {
+                if ($conf[$i]['id_ent'] == $row['id']) {
+                    $html2 = $html2.'<div><button id="conf" onclick=confiance('.$row['id'].')>Annuler la Confiance</button></div>';
+                    break;
+                }
+                else {
+                    $html2 = $html2.'<div><button id="conf" onclick=confiance('.$row['id'].')>Faire Confiance</button></div>';
+                }
+            }
+        }
     }
     elseif ($_SESSION['role'] == 4) {
         $html = $html.'<div><button id="conf" onclick=confiance('.$row['id'].')>Noté</button></div>';
     }
 
-    $html = $html.'</div>';
+    $html = $html.$html2.'</div>';
 
 }
 $smarty->assign('Entreprise',$html);

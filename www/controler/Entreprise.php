@@ -3,13 +3,10 @@
 class Entreprise extends Controler {
     public $entreprise;
     public $nom;
-    public $email;
-    public $adresse;
-    public $codePostal;
     public $ville;
     public $region;
-    public $nombre_accepter;
     public $secteur;
+    public $confiance;
 
 
     public $close;
@@ -30,6 +27,7 @@ class Entreprise extends Controler {
         $this->ville = $this->Entreprise_Model->getVille();
         $this->nom = $this->Entreprise_Model->getNomEntreprise();
         $this->region = $this->Entreprise_Model->getRegion();
+        $this->confiance = $this->Entreprise_Model->getConfiance();
 
     }
 
