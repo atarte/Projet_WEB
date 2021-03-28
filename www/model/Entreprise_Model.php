@@ -408,6 +408,8 @@ Class Entreprise_Model extends Model {
             $req = "CALL Update_Note(:id_ent, ;id_user, :note)";
         }
 
+        $query = $this->db->prepare($req);
+
         $query->bindParam(':id_ent', $id);
         $query->bindParam(':id_user', $_SESSION['id']);
         $query->bindParam(':note', $note);
