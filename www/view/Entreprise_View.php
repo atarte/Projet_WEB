@@ -151,7 +151,10 @@ while ($row = $this->entreprise->fetch()) {
         $html = $html.'<div>';  // moyenne
 
         for ($i = 0; $i < count($moy); $i++) {
-            $html = $html.'Note (moy) : '.$moy[$i]['note'];
+            if ($moy[$i]['id_entreprise'] == $row['id']) {
+                $html = $html.'Note (moy) : '.$moy[$i]['note'];
+                break;
+            }
         }
         $html = $html.'</div>';
 
