@@ -386,7 +386,7 @@ Class Entreprise_Model extends Model {
     }
 
 
-    public function note(int $id, int $note) {
+    public function noter(int $id, int $note) {
         $this->getConnexion();
 
         $req = "SELECT * FROM note WHERE Id_Entreprise = :id_ent AND Id_Users = :id_user;";
