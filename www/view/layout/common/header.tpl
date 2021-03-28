@@ -13,10 +13,19 @@
 
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="application-name" content="Prosit8">
-        <meta name="apple-mobile-web-app-title" content="Prosit8">
-        <meta name="msapplication-starturl" content="/">
+        <meta name="application-name" content="ProjetWeb">
+        <meta name="apple-mobile-web-app-title" content="ProjetWeb">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="msapplication-starturl" content="/">
+
+        <link rel="apple-touch-icon" href="https://static.projet.com/img/icone_x16.png" />
+        <link rel="apple-touch-icon" href="https://static.projet.com/img/icone_x32.png" />
+        <link rel="apple-touch-icon" href="https://static.projet.com/img/icone_x64.png" />
+        <link rel="apple-touch-icon" href="https://static.projet.com/img/icone_x128.png" />
+        <link rel="apple-touch-icon" href="https://static.projet.com/img/icone_x256.png" />
+        <link rel="apple-touch-icon" href="https://static.projet.com/img/icone_x512.png" />
+        <meta name="apple-mobile-web-app-status-bar" content="#db4938" />
+        <meta name="theme-color" content="#db4938" />
 
         <link rel="shortcut icon" type="image/svg+xml" href="https://static.projet.com/img/favicon.svg"/>
     </head>

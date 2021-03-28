@@ -2,7 +2,7 @@
     "name": "Prosit WEB",
     "short_name": "PrositWEB",
     "lang": "fr",
-    "start_url": "www.projet.com",
+    "start_url": "https://www.projet.com",
     "display": "standalone",
     "theme_color": "#000000",
     "background_color": "#FFFFFF",
