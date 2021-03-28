@@ -405,7 +405,7 @@ Class Entreprise_Model extends Model {
             $req = "CALL Ajout_Note(:id_ent, ;id_user, :note)";
         }
         else {
-            $req = "CALL Update_note(:id_ent, ;id_user, :note)";
+            $req = "CALL Update_Note(:id_ent, ;id_user, :note)";
         }
 
         $query->bindParam(':id_ent', $id);
