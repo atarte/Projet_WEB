@@ -96,4 +96,9 @@ class Entreprise extends Controler {
     public function ajout_Note(int $id, int $note) {
         $this->Entreprise_Model->noter($id, $note);
     }
+
+
+    public function delete_note(int $id) {
+        $this->Entreprise_Model->deleteNote($id);
+    }
 }

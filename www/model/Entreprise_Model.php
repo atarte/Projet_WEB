@@ -420,4 +420,20 @@ Class Entreprise_Model extends Model {
 
     }
 
+
+    public function deleteNote($id) {
+        $this->getConnexion();
+
+        $req = "DELETE FROM Note WHERE Id_Entreprise = :id_ent AND Id_Users = :id_user;";
+
+        $query = $this->db->prepare($req);
+
+        $query->bindParam(':id_ent', $id);
+        $query->bindParam(':id_user', $_SESSION['id']);
+
+        $query->execute();
+
+        header("Location: /Entreprise");
+    }
+
 }
