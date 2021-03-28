@@ -157,3 +157,34 @@ function confirmation(id) {
 function confiance(id) {
     document.location.href="/Entreprise/confiance/"+id;
 }
+
+
+function entre (id_ent, point) {
+
+
+    for (i = 0; i < point; i++) {
+        j = i +1
+
+        document.getElementById(id_ent+'_note_'+j).innerHTML = "⭐"
+        document.getElementById(id_ent+'_note_'+j).style.backgroundColor = "grey"
+    }
+
+    for (i = 1+point; i < 6; i++) {
+
+        document.getElementById(id_ent+'_note_'+i).innerHTML = "☆"
+        document.getElementById(id_ent+'_note_'+i).style.backgroundColor = "white"
+    }
+}
+
+
+// document.getElementById("point_"+id_ent).addEventListener("mouseenter", function(  ) {isOnDiv=true;});
+// document.getElementById("point_"+id_ent).addEventListener("mouseout", function(  ) {isOnDiv=false;});
+
+function sortie (id_ent, point) {
+    // if (isOnDiv === true ) {
+        //
+        //     console.log(id_ent+' sortie '+point);
+        // }
+
+
+}

@@ -109,31 +109,35 @@ while ($row = $this->entreprise->fetch()) {
         }
     }
     elseif ($_SESSION['role'] == '4') {
-        $html = $html.'<div>';
 
         $flag = false;
         for ($z = 0; $z < count($not); $z++) {
             if ($not[$z]['id_entreprise'] == $row['id']) {
                 $i = intval($not[$z]['note']);
 
+                $html = $html.'<div id="point_'.$row['id'].'" onmouseout="sortie('.$row['id'].', '.$i.')" onmo>';
+
                 for ($j = 0; $j < $i; $j++) {
                     $y = $j +1;
-                    $html = $html.'<span id="note_'.$y.'">⭐</span>';
+                    $html = $html.'<span id="'.$row['id'].'_note_'.$y.'" onmouseover="entre('.$row['id'].', '.$y.')">⭐</span>';
                 }
 
                 $v = 5 - $i;
 
                 for ($w = 0; $w < $v; $w++) {
                     $x = $w +$i +1;
-                    $html = $html.'<span id="note_'.$x.'">☆</span>';
+                    $html = $html.'<span id="'.$row['id'].'_note_'.$x.'" onmouseover="entre('.$row['id'].', '.$x.')">☆</span>';
                 }
                 $flag = true;
                 break;
             }
         }
         if (!$flag) {
+            $html = $html.'<div  onmouseout="sortie('.$row['id'].', 0)">';
+
             for ($i = 0; $i < 5; $i++) {
-                $html = $html.'<span id="note_'.$i.'">☆</span>';
+                $x = $i +1;
+                $html = $html.'<span id="'.$row['id'].'_note_'.$x.'" onmouseover="entre('.$row['id'].', '.$x.')">☆</span>';
             }
         }
 
