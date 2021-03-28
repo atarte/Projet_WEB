@@ -323,4 +323,37 @@ Class Entreprise_Model extends Model {
         return $query;
     }
 
+
+    public function faireConfiance(int $id) {
+        $this->getConnexion();
+
+        $req = "SELECT * FROM Confiance WHERE Id_Entreprise = :id_ent AND Id_Users = :id_user;";
+
+        $query = $this->db->prepare($req);
+
+        $query->bindParam(':id_ent', $id);
+        $query->bindParam(':id_user', $_SESSION['id']);
+
+        $query->execute();
+
+        $count = $query->rowCount();
+
+        if ($count == 0) {
+
+            $req = "CALL Faire_Confiance(:id_ent, :id_user)";
+        }
+        else {
+            $req = "DELETE FROM Confiance WHERE Id_Entreprise = :id_ent AND Id_Users = :id_user;";
+        }
+
+        $query = $this->db->prepare($req);
+
+        $query->bindParam(':id_ent', $id);
+        $query->bindParam(':id_user', $_SESSION['id']);
+
+        $query->execute();
+
+        header("Location: /Entreprise");
+    }
+
 }

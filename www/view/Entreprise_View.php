@@ -102,6 +102,13 @@ while ($row = $this->entreprise->fetch()) {
 
     $html = $html.'<div><img class="icop" src="https://static.projet.com/img/delete.svg" alt="icone suppression" onclick=confirmation('.$row['id'].')></div>';
 
+    if ($_SESSION['role'] == 2){
+        $html = $html.'<div><button id="conf" onclick=confiance('.$row['id'].')>Faire Confiance</button></div>';
+    }
+    elseif ($_SESSION['role'] == 4) {
+        $html = $html.'<div><button id="conf" onclick=confiance('.$row['id'].')>Noté</button></div>';
+    }
+
     $html = $html.'</div>';
 
 }

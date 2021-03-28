@@ -269,3 +269,11 @@ BEGIN
     DELETE FROM Note WHERE Id_Entreprise = id;
     DELETE FROM Entreprise WHERE Id_Entreprise = id;
 END |
+
+
+DROP PROCEDURE IF EXISTS Faire_Confiance |
+CREATE PROCEDURE Suppression_Entreprise (IN id_ent INT, IN id_user INT)
+BEGIN
+    INSERT INTO Confiance (Id_Entreprise, Id_Users) VALUES
+    (id_ent, id_users);
+END |

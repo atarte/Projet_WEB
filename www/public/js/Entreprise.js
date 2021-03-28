@@ -152,3 +152,10 @@ function confirmation(id) {
         document.location.href="/Entreprise/suppression/"+id;
     }
 }
+
+
+function confiance(id) {
+    document.location.href="/Entreprise/confiance/"+id;
+
+    document.getElementById("conf").value = "Annuler la confiance";
+}

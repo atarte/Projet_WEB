@@ -85,4 +85,9 @@ class Entreprise extends Controler {
 
         require_once(ROOT.'view/Entreprise_View.php');
     }
+
+
+    public function confiance(int $id) {
+        $this->Entreprise_Model->faireConfiance($id);
+    }
 }
