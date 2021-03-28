@@ -402,10 +402,10 @@ Class Entreprise_Model extends Model {
 
         if ($count == 0) {
 
-            $req = "CALL Ajout_Note(:id_ent, ;id_user, :note)";
+            $req = "CALL Ajout_Note(:id_ent, :id_user, :note)";
         }
         else {
-            $req = "CALL Update_Note(:id_ent, ;id_user, :note)";
+            $req = "CALL Update_Note(:id_ent, :id_user, :note)";
         }
 
         $query = $this->db->prepare($req);
