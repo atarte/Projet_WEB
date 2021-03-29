@@ -60,7 +60,18 @@ while ($row = $this->candidature->fetch()) {
 
     }
     else {
-        $html = $html.'<div class="step">step : '.$step.'</div>';
+        if ($step == 3) {
+            $html = $html.'<div class="step">step '.$step.': Fiche envoyé</div>';
+        }
+        else if($step == 4) {
+            $html = $html.'<div class="step">step '.$step.': Fiche signée</div>';
+        }
+        else if ($step == 5) {
+            $html = $html.'<div class="step">step '.$step.': Convention envoyé</div>';
+        }
+        else if ($step == 6) {
+            $html = $html.'<div class="step">step '.$step.': Convention signée</div>';
+        }
     }
 
     $html = $html.'</div>'; // fermeture de la step
@@ -72,7 +83,7 @@ while ($row = $this->candidature->fetch()) {
     $html = $html.'<div>';
 
     if ($step == "3") {
-        $html = $html.'<div class="env_mail">';
+        $html = $html.'<div class="env_mail"> Prévenir l\'assistant que la fiche est signée : ' ;
 
         $html = $html.'<div id="textarea"><textarea id="story" name="story" rows="3" cols="40">'.$assist[0]['email'].'</textarea></div>';
 
@@ -85,7 +96,7 @@ while ($row = $this->candidature->fetch()) {
         $html = $html.'</div>';
     }
     if ($step == "4") {
-        $html = $html.'<div class="env_mail">';
+        $html = $html.'<div class="env_mail"> Envoyer la convention : ';
 
         $html = $html.'<div id="textarea"><textarea id="story" name="story" rows="3" cols="40"">'.$row['email_user'].'</textarea></div>';
 
@@ -98,7 +109,7 @@ while ($row = $this->candidature->fetch()) {
         $html = $html.'</div>';
     }
     if ($step == "5") {
-        $html = $html.'<div class="env_mail">';
+        $html = $html.'<div class="env_mail">Prévenir que la convention a été signée : ';
 
         $html = $html.'<div id="textarea"><textarea id="story" name="story" rows="3" cols="40">'.$row['email_user'].'</textarea></div>';
 
