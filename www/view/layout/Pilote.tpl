@@ -61,7 +61,7 @@
 
         <article class="col">
             <fieldset class="field">
-                <legend>Liste des délégués</legend>
+                <legend>Liste des pilotes</legend>
 
                 <!-- Recherche Pilote -->
                 <div class="">
