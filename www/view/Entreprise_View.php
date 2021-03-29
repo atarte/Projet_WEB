@@ -65,19 +65,33 @@ while ($row = $this->entreprise->fetch()) {
     $titre = strtoupper($row['nom']);
     $html = $html.'<div><u><b><span id="nom_'.$row['id'].'">'.$titre.'</span></b></u></div>';
 
-    $html = $html.'<div><span id="secteur_'.$row['id'].'">'.$row['secteur'].'</span>';
+    $html = $html.'<div>';
 
-    $html = $html.'<span id="adresse_'.$row['id'].'">'.$row['adresse'].'</span>';
+    $html = $html.'<div>';
+    $html = $html.'<u>Adresse : </u>';
+    $html = $html.'<span id="adresse_'.$row['id'].'">'.$row['adresse'].'</span> ,';
+    $html = $html.'<span id="ville_'.$row['id'].'">'.$row['ville'].'</span> ,';
+    $html = $html.'<span id="code_p_'.$row['id'].'">'.$row['code_p'].'</span> ,';
+    $html = $html.'<span id="region_'.$row['id'].'">'.$row['region'].'</span> ';
+    $html = $html.'</div>';
 
-    $html = $html.'<span id="ville_'.$row['id'].'">'.$row['ville'].'</span>';
 
-    $html = $html.'<span id="code_p_'.$row['id'].'">'.$row['code_p'].'</span>';
+    $html = $html.'<div>';
+    $html = $html.'<u>Secteur : ';
+    $html = $html.'</u><span id="secteur_'.$row['id'].'">'.$row['secteur'].'</span>';
+    $html = $html.'</div>';
 
-    $html = $html.'<span id="region_'.$row['id'].'">'.$row['region'].'</span>';
 
-    $html = $html.'Nombre de Stagiaire pris : <span id="nombre_'.$row['id'].'">'.$row['nombre'].'</span>';
+    $html = $html.'<div>';
+    $html = $html.'<u>Nombre de Stagiaire pris : </u>';
+    $html = $html.'<span id="nombre_'.$row['id'].'">'.$row['nombre'].'</span>';
+    $html = $html.'</div>';
 
-    $html = $html.'Email :<span id="email_'.$row['id'].'">'.$row['email'].'</span></div>';
+
+    $html = $html.'<div>';
+    $html = $html.'<u>Email : </u>';
+    $html = $html.'<span id="email_'.$row['id'].'">'.$row['email'].'</span></div>';
+    $html = $html.'</div>';
 
     $html = $html.'</div>'; // fermeture du paragraphe
 
