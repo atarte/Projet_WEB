@@ -39,10 +39,8 @@ while ($row = $this->pilote->fetch()) {
 
     $html = $html.'<div><span id="email_'.$row['Id_Users'].'">'.$row['email'].'</span></div></div></div>';
 
-    // $html = $html.'<button onclick=modification('.$row['Id_Users'].')>Modifier</button>';
     $html = $html.'<div><div><img class="icop" src="https://static.projet.com/img/update.svg" alt="icone modification" onclick=modification('.$row['Id_Users'].')></div>';
 
-    // $html = $html.'<button onclick=confirmation('.$row['Id_Users'].')>Supprimer</button>';
     $html = $html.'<div><img class="icop" src="https://static.projet.com/img/delete.svg" alt="icone suppression" onclick=confirmation('.$row['Id_Users'].')></div>';
 
     $html = $html.'</div></div>';

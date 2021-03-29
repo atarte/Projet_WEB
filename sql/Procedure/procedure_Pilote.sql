@@ -38,7 +38,7 @@ END |
 
 -- Modification Pilote
 DROP PROCEDURE IF EXISTS Modification_Pilote |
-CREATE PROCEDURE Modification_Pilote (IN id INT)
+CREATE PROCEDURE Modification_Pilote (IN id INT, IN nom VARCHAR(50), IN prenom VARCHAR(50), IN email VARCHAR(50), IN centre INT)
 BEGIN
     UPDATE Users SET
         Users.Nom = nom,
