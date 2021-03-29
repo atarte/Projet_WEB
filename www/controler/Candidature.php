@@ -17,6 +17,9 @@ class Candidature extends Controler {
         if ($_SESSION['role'] == "4") {
             $this->pilote = $this->Candidature_Model->getPilotePerso();
         }
+        else if ($_SESSION['role'] == "3") {
+            require_once(ROOT.'view/CandidatureDelegue_View.php');
+        }
         else if ($_SESSION['role'] == "2") {
             $this->assistant = $this->Candidature_Model->getAssit();
         }
