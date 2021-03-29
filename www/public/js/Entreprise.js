@@ -90,17 +90,20 @@ function PropositionRegion() {
 function modification(id) {
     document.getElementById("nom").value = document.getElementById("nom_"+id).innerHTML;
     document.getElementById("email").value = document.getElementById("email_"+id).innerHTML;
-    document.getElementById("nombre_accepter").value = document.getElementById("nombre_"+id).innerHTML;
+    document.getElementById("code_p").value = document.getElementById("code_p_"+id).innerHTML;
     document.getElementById("adresse").value = document.getElementById("adresse_"+id).innerHTML;
     document.getElementById("region").value = document.getElementById("region_"+id).innerHTML;
-    document.getElementById("code_p").value = document.getElementById("code_p_"+id).innerHTML;
+    document.getElementById("nombre_accepter").value = document.getElementById("nombre_"+id).innerHTML;
 
+    Verification()
     //select(id, "ville");
     select(id, "secteur");
 
     document.getElementById("formulaire").action = "/Entreprise/modification/"+id;
 
     document.getElementById("submit").value = "Modifier";
+
+    document.getElementById("legend_form").innerHTML = "Modification d'entreprise";
 
     document.getElementById("annuler").innerHTML = '<button onclick=annuler()>Annuler</button>';
 }
@@ -124,12 +127,13 @@ function select(idOffre, idSelect) {
 
 
 function annuler() {
-    document.getElementById("id").value = "";
+    // document.getElementById("id").value = "";
     document.getElementById("nom").value = "";
     document.getElementById("email").value = "";
     document.getElementById("adresse").value = "";
     document.getElementById("code_p").value = "";
-    document.getElementById("ville").selectedIndex = 0;
+    document.getElementById("ville").innerHTML = '<option value="">Choisiez une ville</option>';
+
     document.getElementById("region").value = "";
     document.getElementById("nombre_accepter").value = "";
     document.getElementById('secteur').selectedIndex = 0;
@@ -138,15 +142,16 @@ function annuler() {
 
     document.getElementById("submit").value = "Créer";
 
+    document.getElementById("legend_form").innerHTML = "Création d'entreprise";
+
     document.getElementById("annuler").innerHTML = "";
 }
 
 
 function confirmation(id) {
     let nom = document.getElementById("nom_"+id).innerHTML;
-    let adresse = document.getElementById("adresse_"+id).innerHTML;
 
-    let res = confirm("Voulez vous réelement supprimer cette Entreprise : "+nom+" "+adresse+" ?");
+    let res = confirm("Voulez vous réelement supprimer cette Entreprise : "+nom+" ?");
 
     if (res) {
         document.location.href="/Entreprise/suppression/"+id;

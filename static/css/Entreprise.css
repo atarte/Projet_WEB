@@ -1,3 +1,15 @@
+@media only screen and (min-width: 1200px) {
+    .space {
+        margin-right: 10px;
+    }
+}
+@media only screen and (max-width: 990px) {
+    .space {
+        margin-right: 10px;
+    }
+}
+
+
 .star {
     height: 19px;
     width: 19px;
@@ -34,9 +46,7 @@
     align-items: center;
 }
 
-.space {
-    margin-right: 10px;
-}
+
 
 .star:hover {
     background-color: grey;
