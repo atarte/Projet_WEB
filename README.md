@@ -19,7 +19,7 @@ Enfin, vous retrouverez tous les codes php ou mysql dans les dossiers :
 
 ## SQL
 
-Dans le dossier [sql](https://github.com/atarte/Projet_WEB/tree/main/sql) vous retrouverez toutes les procedures sql utilise sur notre base de donnée, ainsi que que les scripts de création et d'insertion de notre base de donnée.
+Dans le dossier [sql](https://github.com/atarte/Projet_WEB/tree/main/sql) vous retrouverez toutes les procédures sql utilise sur notre base de données, ainsi que les scripts de création et d'insertion de notre base de données.
 
 ## www
 
