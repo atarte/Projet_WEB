@@ -17,11 +17,11 @@ Enfin vous retrouverez tous les codes php ou mysql dans les dossiers :
 * www
 * static
 
-### SQL
+## SQL
 
 Dans le dossier [sql](https://github.com/atarte/Projet_WEB/tree/main/sql) vous retrouverez toutes les procedures sql utilise sur notre base de donnée, ainsi que que les scripts de création et d'insertion de notre base de donnée.
 
-### www
+## www
 
 Dans le dossier [www](https://github.com/atarte/Projet_WEB/tree/main/www) vous retrouverez :
 * le routeur de notre architecture : ***inde.php***
@@ -35,7 +35,7 @@ Dans le dossier [www](https://github.com/atarte/Projet_WEB/tree/main/www) vous r
 * le dossier contenant les templates générer : ***template_c***
 * le dossier contenant les views et templates : ***public***
 
-### static
+## static
 
 Dans le dossier [static](https://github.com/atarte/Projet_WEB/tree/main/static) vous retrouverez :
 * le dossier contenant les images du site : ***img***
