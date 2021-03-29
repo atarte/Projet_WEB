@@ -59,7 +59,9 @@ $smarty->assign('etudiant', $aff);
 // Ajout des pilotes dans le select
 $html = '';
 while ($row = $this->pilote->fetch()) {
-    $html = $html.'<option value="'.$row['id'].'">'.$row['nom'].' '.$row['prenom'].'</option>';
+    $nom = strtoupper($row['nom']);
+    $prenom = ucfirst($row['prenom']);
+    $html = $html.'<option value="'.$row['id'].'">'.$nom.' '.$prenom.'</option>';
 }
 $smarty->assign('pilote', $html);
 
