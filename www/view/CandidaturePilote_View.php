@@ -2,12 +2,9 @@
 
 $smarty = new Smarty;
 
-$smarty->assign('title', 'Candidature');
+$smarty->assign('title', 'Candidature Pilote');
 
-// affichage de la wishList
-if ($_SESSION['role'] == "2") { // si c'est un pilote
-    $smarty->assign('wishlist', 'hidden');
-}
+$smarty->assign('wishlist', 'hidden');
 
 
 $assist = $this->assistant->fetchAll();

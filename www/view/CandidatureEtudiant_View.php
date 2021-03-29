@@ -2,7 +2,7 @@
 
 $smarty = new Smarty;
 
-$smarty->assign('title', 'Candidature');
+$smarty->assign('title', 'Candidature Etudiant');
 
 
 $pil = $this->pilote->fetchAll();
