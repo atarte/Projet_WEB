@@ -69,75 +69,6 @@ BEGIN
     LIMIT page, 10;
 END |
 
--- Affichage des adresses des entreprises
-DROP PROCEDURE IF EXISTS Affichage_AdresseEntreprise |
-CREATE PROCEDURE Affichage_AdresseEntreprise ()
-BEGIN
-    SELECT Reside.Id_Entreprise AS id_entreprise,
-       Reside.Id_Adresse AS id_adresse,
-       a.Adresse AS adresse,
-       v.Ville AS ville,
-       v.Code_Postal AS CP,
-       r.Region AS region,
-       p.Pays AS pays
-    FROM Reside
-    INNER JOIN Adresse a
-    ON Reside.Id_Adresse = a.id_Adresse
-    INNER JOIN Ville v
-    ON a.Id_Ville = v.Id_Ville
-    INNER JOIN Region r
-    ON v.Id_Region = r.Id_Region
-    INNER JOIN Pays p
-    ON r.Id_Region = p.Id_Pays;
-END |
-
-
--- Get Secteur
-SELECT Id_Secteur AS id, Secteur AS secteur FROM Secteur
-
--- Get Region
-SELECT Id_Region As id, Region AS region FROM Region
-
-
--- Création Entreprise
--- DROP PROCEDURE IF EXISTS Creation_Entreprise |
--- CREATE PROCEDURE Creation_Entreprise (IN nom VARCHAR(50), IN email VARCHAR(50),
--- IN nb_accepter INT, IN id_secteur INT, IN ville VARCHAR(50), IN cp VARCHAR(50),
--- IN adresse VARCHAR(50))
--- BEGIN
---     DECLARE id_ville_nouv INT;
---     DECLARE id_ville INT;
---     DECLARE id_adresse INT;
---     DECLARE id_entreprise INT;
---
---     INSERT INTO Entreprise (Nom, Email, Nombre_Accepter, Id_Secteur)
---     VALUES (nom, email, nb_accepter, id_secteur);
---
---     SELECT LAST_INSERT_ID() INTO id_entreprise;
---
---     IF Ville.Ville != ville THEN
---
---     INSERT INTO Ville (Ville, Code_Postal, Id_Region)
---     VALUES (ville, cp, id_region);
---     SELECT LAST_INSERT_ID() INTO id_ville_nouv;
---     INSERT INTO Adresse (Adresse, Id_Ville)
---     VALUES (adresse, id_ville_nouv);
---
---     ELSE
---
---     SELECT Id_Ville INTO Id_ville FROM Ville
---     WHERE Ville = ville;
---     INSERT INTO Adresse (Adresse, Id_Ville)
---     VALUES (adresse, Id_ville);
---
---     END IF;
---
---     SELECT LAST_INSERT_ID() INTO id_adresse;
---
---     INSERT INTO Reside (Id_Adresse, Id_Entreprise)
---     VALUES (id_adresse, id_entreprise);
---
--- END |
 
 DROP PROCEDURE IF EXISTS Creation_EntrepriseInex |
 CREATE PROCEDURE Creation_EntrepriseInex (IN nom VARCHAR(50), IN email VARCHAR(50),
@@ -276,4 +207,19 @@ CREATE PROCEDURE Suppression_Entreprise (IN id_ent INT, IN id_user INT)
 BEGIN
     INSERT INTO `Confiance` (`Id_Entreprise`, `Id_Users`) VALUES
     (id_ent, id_users);
+END |
+
+
+DROP PROCEDURE IF EXISTS Ajout_Note |
+CREATE PROCEDURE Ajout_Note (IN id_ent INT, IN id_user INT, IN note INT)
+BEGIN
+INSERT INTO `Note`(`Id_Entreprise`, `Id_Users`, `Note`) VALUES (id_ent,id_user,note);
+END |
+
+DROP PROCEDURE IF EXISTS Update_Note |
+CREATE PROCEDURE Update_Note (IN id_ent INT, IN id_user INT, IN note INT)
+BEGIN
+UPDATE `Note` SET
+`Note` = note
+WHERE `Id_Entreprise` = id_ent AND `Id_Users` = id_user;
 END |
