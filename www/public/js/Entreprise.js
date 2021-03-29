@@ -127,13 +127,11 @@ function select(idOffre, idSelect) {
 
 
 function annuler() {
-    // document.getElementById("id").value = "";
     document.getElementById("nom").value = "";
     document.getElementById("email").value = "";
     document.getElementById("adresse").value = "";
     document.getElementById("code_p").value = "";
     document.getElementById("ville").innerHTML = '<option value="">Choisiez une ville</option>';
-
     document.getElementById("region").value = "";
     document.getElementById("nombre_accepter").value = "";
     document.getElementById('secteur').selectedIndex = 0;
