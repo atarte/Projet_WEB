@@ -58,10 +58,7 @@ while ($row = $this->candidature->fetch()) {
     }
     else {
         if ($step == 3) {
-            $html = $html.'<div class="step">';
-            $html = $html.'<span>step '.$step.': </span>';
-            $html = $html.'<span>Fiche envoyée</span>';
-            $html = $html.'</div>';
+            $html = $html.'<div class="step">step '.$step.': Fiche envoyée</div>';
         }
         else if($step == 4) {
             $html = $html.'<div class="step">step '.$step.': Fiche signée</div>';
