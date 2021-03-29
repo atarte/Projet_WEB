@@ -11,3 +11,8 @@ Ce git contient toutes les informations et résultats du projet Web. Vous retrou
 Mais la majeur partie des fichers présent concerneront le livrable 2.  
 
 Premièrement vous retrouverez dans le racine du git, deux fichiers de configuration de notre seveur apache. Ainsi que un rapport de pwa concernant noter site est sa capacité à être installer et utilisé sans connexion.
+
+Enfin vous retrouverez tous les codes php ou mysql dans les dossiers :
+* sql
+* static
+* www
