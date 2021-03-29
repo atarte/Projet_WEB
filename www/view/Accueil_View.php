@@ -39,7 +39,7 @@ if ($_SESSION['role'] == "1" || $_SESSION['role'] == "2" || ($_SESSION['role'] =
     $html = $html.'<div class="row justify-content-center p-2"><a href="/Etudiant"><button>Gestion Etudiant</button></a></div>';
 }
 
-if ($_SESSION['role'] == "1" || $_SESSION['role'] == "2" || $_SESSION['role'] == "4" || ($_SESSION['role'] == "3" && $_SESSION['deleg']['candidature'] == "1")) {
+if ($_SESSION['role'] == "2" || $_SESSION['role'] == "4" || ($_SESSION['role'] == "3" && $_SESSION['deleg']['candidature'] == "1")) {
     $html = $html.'<div class="row justify-content-center p-2"><a href="/Candidature"><button>Gestion Candidature</button></a></div>';
 }
 

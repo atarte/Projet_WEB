@@ -4,7 +4,7 @@ Class Candidature_Model extends Model {
     public function __construct() {
         // Vérification des droits d'accés
 
-        if (!isset($_SESSION['role']) || $_SESSION['role'] == 1 || $_SESSION['role'] == 3) {
+        if (!isset($_SESSION['role']) || $_SESSION['role'] == 1 || ($_SESSION['role'] == "3" && $_SESSION['deleg']['candidature'] != "1")) {
             session_unset();
             header("location: /");
         }
@@ -272,7 +272,7 @@ Class Candidature_Model extends Model {
 
     public function updatestep6(int $id) {
         $this->getConnexion();
-        
+
         $req = 'CALL Update_step6(:id)';
 
         $query = $this->db->prepare($req);
