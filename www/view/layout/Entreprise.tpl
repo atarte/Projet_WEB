@@ -37,7 +37,7 @@
                         <div class="row justify-content-center p-1">
 						<!-- ville : <br> -->
                             <select id="ville" name="ville">
-                                <option value="">Choisiez une ville</option>
+                                <option value="">Choisissez une ville</option>
 
                             </select>
                         </div>
@@ -52,7 +52,7 @@
                         <div class="row justify-content-center p-1">
                             <!-- secteur : <br> -->
                             <select id="secteur" name="secteur" required>
-                                <option value="">Choississez un secteur</option>
+                                <option value="">Choisissez un secteur</option>
                                 {$Secteur}
                             </select>
                         </div>
@@ -79,13 +79,13 @@
 
                         <!-- Entreprise : -->
                         <select id="r_entreprise" name="entreprise" >
-                            <option value="">Choississez une entreprise</option>
+                            <option value="">Choisissez une entreprise</option>
                             {$Nom}
                         </select>
 
                         <!-- Ville : -->
                         <select id="r_ville" name="ville">
-                            <option value="">Choisiez une ville</option>
+                            <option value="">Choisissez une ville</option>
                             {$Ville}
                         </select>
 

@@ -24,21 +24,21 @@
                         <div class="row justify-content-center p-1">
                             <!-- Type de Promotion : <br> -->
                             <select id="specialite" name="specialite" required>
-                                <option value="">Choississez une spécialité</option>
+                                <option value="">Choisissez une spécialité</option>
                                 {$Type}
                             </select>
                         </div>
                         <div class="row justify-content-center p-1">
                             <!-- Entreprise : <br> -->
                             <select id="entreprise" name="entreprise" required>
-                                <option value="">Choississez une entreprise</option>
+                                <option value="">Choisissez une entreprise</option>
                                 {$Entreprise}
                             </select>
                         </div>
                         <div class="row justify-content-center p-1">
                             <!-- Ville : <br> -->
                             <select id="ville" name="ville">
-                                <option value="">Choisiez une ville</option>
+                                <option value="">Choisissez une ville</option>
                                 {$Ville}
                             </select>
                         </div>
@@ -90,31 +90,31 @@
 
                         <!-- Entreprise : -->
                         <select id="r_entreprise" name="entreprise" >
-                            <option value="">Choississez une entreprise</option>
+                            <option value="">Choisissez une entreprise</option>
                             {$Entreprise}
                         </select>
 
                         <!-- Ville : -->
                         <select id="r_ville" name="ville">
-                            <option value="">Choisiez une ville</option>
+                            <option value="">Choisissez une ville</option>
                             {$Ville}
                         </select>
 
                         <!-- Compétences : -->
                         <select id="r_competence" name="competence">
-                            <option value="">Choisiez le(s) Compétence(s)</option>
+                            <option value="">Choisissez le(s) Compétence(s)</option>
                             {$Competence}
                         </select>
 
                         <!-- Durée : -->
                         <select id="r_durer" name="durer">
-                            <option value="">Choisiez la Durée de votre stage</option>
+                            <option value="">Choisissez la Durée de votre stage</option>
                             {$Durer}
                         </select>
 
                         <!-- Rémunération : -->
                         <select id="r_remuneration" name="remuneration">
-                            <option value="">Choisiez une rémunération</option>
+                            <option value="">Choisissez une rémunération</option>
                             <option value="0"> Non rémunéré </option>
                             <option value="100"> > 100 </option>
                             <option value="300"> > 300 </option>

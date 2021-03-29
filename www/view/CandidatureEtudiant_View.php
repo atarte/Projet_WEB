@@ -17,7 +17,6 @@ while ($row = $this->candidature->fetch()) {
 
     $html = $html.'<div id=id_"'.$row['id'].'" class="p-1 m-1 contour">';
 
-    // $html = $html.' <div class="glob">';
     $html = $html.' <div class="glob">';
 
     $html = $html.'<div class="gauche"><div><img class="ico" src="https://static.projet.com/img/intership.svg" alt="icone stage"></div>'; // début de gauche 1
@@ -31,7 +30,7 @@ while ($row = $this->candidature->fetch()) {
     $entreprise = ucfirst($row['entreprise']);
     $html = $html.' <div>L\'entreprise <span id="entreprise_'.$row['id'].'">'.$entreprise.'</span>';
 
-    $html = $html.' situé à <span id="ville_'.$row['id'].'">'.$row['ville'].'</span>';
+    $html = $html.' située à <span id="ville_'.$row['id'].'">'.$row['ville'].'</span>';
 
     $html = $html.' recherche <span id="nb_'.$row['id'].'">'.$row['nb_place'].'</span> stagiaire(s)';
 
@@ -41,19 +40,20 @@ while ($row = $this->candidature->fetch()) {
 
     $html = $html.' Ce stage vise les étudiants dont la spécialité est <span id="specialite_'.$row['id'].'">'.$row['specialite'].'</span>.';
 
-    $html = $html.' L\'étudiant devra avoir les compétences suivante : <span id="competences_'.$row['id'].'">'.$row['competence'].'</span>.';
+    $html = $html.' L\'étudiant devra avoir les compétences suivantes : <span id="competences_'.$row['id'].'">'.$row['competence'].'</span>.';
 
     $html = $html.' Ce stage permettra une rémunération de <span id="remuneration_'.$row['id'].'">'.$row['remuneration'].'</span>€.';
 
-    $html = $html.' Pour plus d\'information, merci de nous contacter à cette adresse : <span id="email_'.$row['id'].'">'.$row['email'].'</span>.</div>';
+    $html = $html.' Pour plus d\'informations, merci de nous contacter à cette adresse : <span id="email_'.$row['id'].'">'.$row['email'].'</span>.</div>';
 
     $html = $html.'</div>';
 
-    $html = $html.'</div>'; // fin de gauche 1
+    // fin de gauche 1
+    $html = $html.'</div>';
 
 
-
-    $html = $html.'<div class="gauche">'; // début de gauche 2
+    // début de gauche 2
+    $html = $html.'<div class="gauche">';
     $jsp = '';
     $jsp2 = '';
 
@@ -87,16 +87,16 @@ while ($row = $this->candidature->fetch()) {
     $step = $row['step'];
 
     if ($step == "1") {
-        $html = $html.'Avez vous été retenue par l\'entreprise';
+        $html = $html.'Avez vous avez été retenue par l\'entreprise';
         $html = $html.'  <div><span class="coche" onclick=accepter('.$row['id_cand'].')>✔️</span>';
         $html = $html.'  <span class="coche" onclick=refuser('.$row['id_cand'].')>❌</span></div>';
     }
     else if ($step == "6") {
-        $html = $html.'Accepter';
+        $html = $html.'Accepté';
 
     }
     else if ($step == "8") {
-        $html = $html.'Refuser';
+        $html = $html.'Refusé';
     }
     else {
         $html = $html.'<div class="step">step : '.$step.'</div>';
@@ -106,9 +106,11 @@ while ($row = $this->candidature->fetch()) {
 
     $html = $html.'</div>';
 
-    $html = $html.'</div>'; // fin de gauche 2
+    // fin de gauche 2
+    $html = $html.'</div>';
 
-    $html = $html.'</div>'; // fin de glob
+    // fin de glob
+    $html = $html.'</div>';
 
 
     $html = $html.'<div class="entre">';

@@ -42,7 +42,7 @@
                         </div>
                         <div class="row justify-content-center p-1">
                             <select id="centre" name="centre" required>
-                                <option value="">Choississez un centre</option>
+                                <option value="">Choisissez un centre</option>
                                 {$Centre}
                             </select>
                         </div>
@@ -74,7 +74,7 @@
 
                         <!-- Centre : -->
                         <select id="r_centre" name="centre">
-                            <option value="">Choisiez un centre</option>
+                            <option value="">Choisissez un centre</option>
                             {$Centre}
                         </select>
 

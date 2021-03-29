@@ -42,21 +42,21 @@
                         <div class="row justify-content-center p-1">
                             <!-- pilote : -->
                             <select id="pilote" name="pilote" required>
-                                <option value="">Choisiez un pilote</option>
+                                <option value="">Choisissez un pilote</option>
                                 {$pilote}
                             </select>
                         </div>
                         <div class="row justify-content-center p-1">
                         <!-- promotion : -->
                             <select id="promotion" name="promotion" required>
-                                <option value="">Choisiez une promotion</option>
+                                <option value="">Choisissez une promotion</option>
                                 {$promotion}
                             </select>
                         </div>
                         <div class="row justify-content-center p-1">
                         <!-- spécialité : -->
                             <select id="specialite" name="specialite" required>
-                                <option value="">Choisiez une spécialité</option>
+                                <option value="">Choisissez une spécialité</option>
                                 {$specialite}
                             </select>
                         </div>
@@ -88,25 +88,25 @@
 
                         <!-- pilote : -->
                         <select id="r_pilote" name="pilote">
-                            <option value="">Choisiez un pilote</option>
+                            <option value="">Choisissez un pilote</option>
                             {$pilote}
                         </select>
 
                         <!-- promotion : -->
                         <select id="r_promotion" name="promotion">
-                            <option value="">Choisiez une promotion</option>
+                            <option value="">Choisissez une promotion</option>
                             {$promotion}
                         </select>
 
                         <!-- spécialité : -->
                         <select id="r_specialite" name="specialite">
-                            <option value="">Choisiez une spécialité</option>
+                            <option value="">Choisissez une spécialité</option>
                             {$specialite}
                         </select>
 
                         <!-- centre : -->
                         <select id="r_centre" name="centre">
-                            <option value="">Choisiez un centre</option>
+                            <option value="">Choisissez un centre</option>
                             {$centre}
                         </select>
 
