@@ -60,12 +60,12 @@ while ($row = $this->entreprise->fetch()) {
 
     $html = $html.'<div class="gauche"><div><img class="ico" src="https://static.projet.com/img/entreprise.svg" alt="icone entreprise"></div>'; // gauche
 
-    $html = $html.'<div>'; // paragraphe
+    $html = $html.'<div>'; // paragraphe avec titre
 
     $titre = strtoupper($row['nom']);
     $html = $html.'<div><u><b><span id="nom_'.$row['id'].'">'.$titre.'</span></b></u></div>';
 
-    $html = $html.'<div>';
+    $html = $html.'<div>'; // paragraphe sans titre
 
     $html = $html.'<div>';
     $html = $html.'<u>Adresse : </u>';
@@ -90,10 +90,12 @@ while ($row = $this->entreprise->fetch()) {
 
     $html = $html.'<div>';
     $html = $html.'<u>Email : </u>';
-    $html = $html.'<span id="email_'.$row['id'].'">'.$row['email'].'</span></div>';
+    $html = $html.'<span id="email_'.$row['id'].'">'.$row['email'].'</span>';
     $html = $html.'</div>';
 
-    $html = $html.'</div>'; // fermeture du paragraphe
+    $html = $html.'</div>' // fermeture de paragraphe sans titre
+    ;
+    $html = $html.'</div>'; // fermeture du paragraphe avec titre
 
     $html = $html.'</div>'; // fermeture de gauche
 
