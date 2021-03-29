@@ -40,27 +40,27 @@
                             </span>
                         </div>
                         <div class="row justify-content-center p-1">
-                            gestion Entreprise :
+                            Gestion Entreprise :
                             <input id="entreprise" type="checkbox" name="gestion[]" value="entreprise">
                         </div>
                         <div class="row justify-content-center p-1">
-                            gestion Offre :
+                            Gestion Offre :
                             <input id="offre" type="checkbox" name="gestion[]" value="offre">
                         </div>
                         <div class="row justify-content-center p-1">
-                            gestion Pilote :
+                            Gestion Pilote :
                             <input id="pilote" type="checkbox" name="gestion[]" value="pilote">
                         </div>
                         <div class="row justify-content-center p-1">
-                            gestion Délégué :
+                            Gestion Délégué :
                             <input id="delegue" type="checkbox" name="gestion[]" value="delegue">
                         </div>
                         <div class="row justify-content-center p-1">
-                            gestion Etudiant :
+                            Gestion Etudiant :
                             <input id="etudiant" type="checkbox" name="gestion[]" value="etudiant">
                         </div>
                         <div class="row justify-content-center p-1">
-                            gestion Candidature :
+                            Gestion Candidature :
                             <input id="candidature" type="checkbox" name="gestion[]" value="candidature">
                         </div>
                         <div class="row justify-content-center p-1">

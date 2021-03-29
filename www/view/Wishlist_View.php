@@ -24,7 +24,7 @@ while ($row = $this->offre->fetch()) {
     $entreprise = ucfirst($row['entreprise']);
     $html = $html.' <div>L\'entreprise <span id="entreprise_'.$row['id'].'">'.$entreprise.'</span>';
 
-    $html = $html.' situé à <span id="ville_'.$row['id'].'">'.$row['ville'].'</span>';
+    $html = $html.' située à <span id="ville_'.$row['id'].'">'.$row['ville'].'</span>';
 
     $html = $html.' recherche <span id="nb_'.$row['id'].'">'.$row['nb_place'].'</span> stagiaire(s)';
 
@@ -34,11 +34,11 @@ while ($row = $this->offre->fetch()) {
 
     $html = $html.' Ce stage vise les étudiants dont la spécialité est <span id="specialite_'.$row['id'].'">'.$row['specialite'].'</span>.';
 
-    $html = $html.' L\'étudiant devra avoir les compétences suivante : <span id="competences_'.$row['id'].'">'.$row['competence'].'</span>.';
+    $html = $html.' L\'étudiant devra avoir les compétences suivantes : <span id="competences_'.$row['id'].'">'.$row['competence'].'</span>.';
 
     $html = $html.' Ce stage permettra une rémunération de <span id="remuneration_'.$row['id'].'">'.$row['remuneration'].'</span>€.';
 
-    $html = $html.' Pour plus d\'information, merci de nous contacter à cette adresse : <span id="email_'.$row['id'].'">'.$row['email'].'</span>.</div></div></div>';
+    $html = $html.' Pour plus d\'informations, merci de nous contacter à cette adresse : <span id="email_'.$row['id'].'">'.$row['email'].'</span>.</div></div></div>';
 
     $jsp = '';
     $jsp2 = '';

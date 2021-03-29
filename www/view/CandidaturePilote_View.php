@@ -23,8 +23,6 @@ while ($row = $this->candidature->fetch()) {
 
     $html = $html.' <div>';
 
-    // $html = $html.'id : '.$row['id'].' ';
-
     $nom = strtoupper($row['nom']);
     $html = $html.'<span id="nom_'.$row['id'].'">'.$nom.'</span>  ';
 
@@ -43,9 +41,11 @@ while ($row = $this->candidature->fetch()) {
 
     $html = $html.'</div>';
 
-    $html = $html.'</div>'; // fermeture de gauche
+    // fermeture de gauche
+    $html = $html.'</div>';
 
-    $html = $html.'<div>'; // Ouverture de la step
+    // Ouverture de la step
+    $html = $html.'<div>';
 
     $step = $row['step'];
 
@@ -58,22 +58,24 @@ while ($row = $this->candidature->fetch()) {
     }
     else {
         if ($step == 3) {
-            $html = $html.'<div class="step">step '.$step.': Fiche envoyé</div>';
+            $html = $html.'<div class="step">step '.$step.': Fiche envoyée</div>';
         }
         else if($step == 4) {
             $html = $html.'<div class="step">step '.$step.': Fiche signée</div>';
         }
         else if ($step == 5) {
-            $html = $html.'<div class="step">step '.$step.': Convention envoyé</div>';
+            $html = $html.'<div class="step">step '.$step.': Convention envoyée</div>';
         }
         else if ($step == 6) {
             $html = $html.'<div class="step">step '.$step.': Convention signée</div>';
         }
     }
 
-    $html = $html.'</div>'; // fermeture de la step
+    // fermeture de la step
+    $html = $html.'</div>';
 
-    $html = $html.'</div>'; // fermeture de glob
+    // fermeture de glob
+    $html = $html.'</div>';
 
 
 
@@ -127,8 +129,6 @@ while ($row = $this->candidature->fetch()) {
 
     $html = $html.'</div>';
 
-
-    // $html = $html.'</div>';
 }
 
 

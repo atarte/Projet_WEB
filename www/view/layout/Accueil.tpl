@@ -11,7 +11,7 @@
             <legend>Interface {$role|default:""}</legend>
             <div class="container">
                 <div class="row justify-content-center p-2">
-                    <a href="/Accueil/deconnexion"><button>Deconnexion</button></a>
+                    <a href="/Accueil/deconnexion"><button>Déconnexion</button></a>
                 </div>
                 {$button}
             </div>

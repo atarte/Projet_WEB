@@ -54,18 +54,23 @@ $html = '';
 $i = 0;
 
 while ($row = $this->entreprise->fetch()) {
-    $html = $html.'<div id=id_"'.$row['id'].'" class="p-1 m-1 contour">'; // contour
+    // contour
+    $html = $html.'<div id=id_"'.$row['id'].'" class="p-1 m-1 contour">';
 
-    $html = $html.' <div class="up">'; // up
+    // up
+    $html = $html.' <div class="up">';
 
-    $html = $html.'<div class="gauche"><div><img class="ico" src="https://static.projet.com/img/entreprise.svg" alt="icone entreprise"></div>'; // gauche
+    // gauche
+    $html = $html.'<div class="gauche"><div><img class="ico" src="https://static.projet.com/img/entreprise.svg" alt="icone entreprise"></div>';
 
-    $html = $html.'<div>'; // paragraphe avec titre
+    // paragraphe avec titre
+    $html = $html.'<div>';
 
     $titre = strtoupper($row['nom']);
     $html = $html.'<div><u><b><span id="nom_'.$row['id'].'">'.$titre.'</span></b></u></div>';
 
-    $html = $html.'<div>'; // paragraphe sans titre
+    // paragraphe sans titre
+    $html = $html.'<div>';
 
     $html = $html.'<div>';
     $html = $html.'<u>Adresse : </u>';
@@ -93,14 +98,18 @@ while ($row = $this->entreprise->fetch()) {
     $html = $html.'<span id="email_'.$row['id'].'">'.$row['email'].'</span>';
     $html = $html.'</div>';
 
-    $html = $html.'</div>' // fermeture de paragraphe sans titre
+    // fermeture de paragraphe sans titre
+    $html = $html.'</div>'
     ;
-    $html = $html.'</div>'; // fermeture du paragraphe avec titre
+    // fermeture du paragraphe avec titre
+    $html = $html.'</div>';
 
-    $html = $html.'</div>'; // fermeture de gauche
+    // fermeture de gauche
+    $html = $html.'</div>';
 
 
-    $html = $html.'<div>'; // button
+    // button
+    $html = $html.'<div>';
 
     $html = $html.'<img class="icop" src="https://static.projet.com/img/update.svg" alt="icone modification" onclick=modification('.$row['id'].')>';
 
@@ -110,14 +119,12 @@ while ($row = $this->entreprise->fetch()) {
     if ($_SESSION['role'] == '2'){
         if(count($conf) == 0) {
 
-            // $html = $html.'<div><button id="conf" onclick=confiance('.$row['id'].')>Faire Confiance</button></div>';
             $html = $html.'<img id="conf" class="icop" src="https://static.projet.com/img/trust.svg" alt="icone d\'ajout de confiance" onclick=confiance('.$row['id'].')>';
         }
         else {
             for ($i = 0; $i < count($conf); $i++) {
                 if ($conf[$i]['id_ent'] == $row['id'] && $conf[$i]['id_user'] == $_SESSION['id']) {
 
-                    // $html = $html.'<div><button id="conf" onclick=confiance('.$row['id'].')>Annuler la Confiance</button></div>';
                     $html = $html.'<img id="conf" class="icop" src="https://static.projet.com/img/untrust.svg" alt="icone retrait de confiance" onclick=confiance('.$row['id'].')>';
 
                     $flag = true;
@@ -129,18 +136,21 @@ while ($row = $this->entreprise->fetch()) {
     }
     if (!$flag && $_SESSION['role'] == '2') {
         $html = $html.'<img id="conf" class="icop" src="https://static.projet.com/img/trust.svg" alt="icone d\'ajout de confiance" onclick=confiance('.$row['id'].')>';
-        // $html = $html.'<div><button id="conf" onclick=confiance('.$row['id'].')>Faire Confiance</button></div>';
     }
 
-    $html = $html.'</div>'; // fermeture de button
+    // fermeture de button
+    $html = $html.'</div>';
 
-    $html = $html.'</div>'; // fermeture de up
+    // fermeture de up
+    $html = $html.'</div>';
 
 
-    $html = $html.' <div class="down">'; // down
+    // down
+    $html = $html.' <div class="down">';
 
 
-    $html = $html.'<div class="space">'; //confiance
+    //confiance
+    $html = $html.'<div class="space">';
 
     $nb = 0;
     for ($i = 0; $i < count($conf); $i++) {
@@ -160,10 +170,12 @@ while ($row = $this->entreprise->fetch()) {
     }
 
 
-    $html = $html.'</div>'; // fermeture de confiance
+    // fermeture de confiance
+    $html = $html.'</div>';
 
 
-    $html = $html.'<div class="space">';  // moyenne
+    // moyenne
+    $html = $html.'<div class="space">';
 
     for ($i = 0; $i < count($moy); $i++) {
         if ($moy[$i]['id_entreprise'] == $row['id']) {
@@ -171,10 +183,12 @@ while ($row = $this->entreprise->fetch()) {
             break;
         }
     }
-    $html = $html.'</div>'; // fermeture de moyenne
+    // fermeture de moyenne
+    $html = $html.'</div>';
 
 
-    $html = $html.'<div class="note space">';  // grande div
+    // grande div
+    $html = $html.'<div class="note space">';
 
     $flag = false;
     for ($z = 0; $z < count($not); $z++) {
@@ -182,14 +196,17 @@ while ($row = $this->entreprise->fetch()) {
             $i = intval($not[$z]['note']);
 
 
-            $html = $html.'<div>'; // retirer
+            // retirer
+            $html = $html.'<div>';
 
             $html = $html.'<span><img class="star" src="https://static.projet.com/img/unstar.svg" alt="étoile suppression" onclick=deleteEtoile('.$row['id'].')></span>';
 
-            $html = $html.'</div>'; // fermeture de retirer
+            // fermeture de retirer
+            $html = $html.'</div>';
 
 
-            $html = $html.'<div id="point_'.$row['id'].'" onmouseout="sortie('.$row['id'].', '.$i.')">'; // div des notes
+            // div des notes
+            $html = $html.'<div id="point_'.$row['id'].'" onmouseout="sortie('.$row['id'].', '.$i.')">';
 
             for ($j = 0; $j < $i; $j++) {
                 $y = $j +1;
@@ -216,13 +233,17 @@ while ($row = $this->entreprise->fetch()) {
         }
     }
 
-    $html = $html.'</div>'; // fermeture de div des notes
+    // fermeture de div des notes
+    $html = $html.'</div>';
 
-    $html = $html.'</div>'; // fermeture de la grande div
+    // fermeture de la grande div
+    $html = $html.'</div>';
 
-    $html = $html.'</div>'; // fermeture de down
+    // fermeture de down
+    $html = $html.'</div>';
 
-    $html = $html.'</div>'; // fermeture de countour
+    // fermeture de countour
+    $html = $html.'</div>';
 
 }
 $smarty->assign('Entreprise',$html);

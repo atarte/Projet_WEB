@@ -12,7 +12,6 @@ if (isset($err)) {
     }
 }
 
-// echo $_COOKIE['userName'];
 
 if (isset($_COOKIE['userName'])) {
     $smarty->assign('cookie', $_COOKIE['userName']);
