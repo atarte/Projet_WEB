@@ -1,4 +1,4 @@
-@media only screen and (min-width: 770px) {
+@media only screen and (min-width: 990px) {
     .env_mail{
         display: flex;
         justify-content: left;
@@ -41,4 +41,9 @@
 
 #story {
     resize: none;
+}
+
+.step {
+    display: flex;
+
 }

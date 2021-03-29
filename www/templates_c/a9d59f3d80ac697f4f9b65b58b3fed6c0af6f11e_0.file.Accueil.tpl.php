@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-28 13:25:36
+/* Smarty version 3.1.39, created on 2021-03-29 13:57:04
   from 'C:\Users\catar\Documents\CESI\A2\4 - Web\Projet\Projet_WEB\www\view\layout\Accueil.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_606083d02f6f86_69490983',
+  'unifunc' => 'content_6061dcb014e504_98623142',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a9d59f3d80ac697f4f9b65b58b3fed6c0af6f11e' => 
     array (
       0 => 'C:\\Users\\catar\\Documents\\CESI\\A2\\4 - Web\\Projet\\Projet_WEB\\www\\view\\layout\\Accueil.tpl',
-      1 => 1616931159,
+      1 => 1617023876,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./common/footer.tpl' => 1,
   ),
 ),false)) {
-function content_606083d02f6f86_69490983 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6061dcb014e504_98623142 (Smarty_Internal_Template $_smarty_tpl) {
 ob_start();
 echo $_smarty_tpl->tpl_vars['title']->value;
 $_prefixVariable1 = ob_get_clean();
@@ -41,7 +41,7 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
 </legend>
             <div class="container">
                 <div class="row justify-content-center p-2">
-                    <a href="/Accueil/deconnexion"><button>Deconnexion</button></a>
+                    <a href="/Accueil/deconnexion"><button>Déconnexion</button></a>
                 </div>
                 <?php echo $_smarty_tpl->tpl_vars['button']->value;?>
 

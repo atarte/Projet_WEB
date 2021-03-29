@@ -71,7 +71,7 @@
 
         <article class="col">
             <fieldset class="field">
-                <legend>Liste des Entreprises</legend>
+                <legend>Liste des entreprises</legend>
 
                 <div class="">
                     <!-- Barre de Recherche des Entreprises -->

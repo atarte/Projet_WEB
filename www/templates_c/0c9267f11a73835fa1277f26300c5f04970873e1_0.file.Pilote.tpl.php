@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-28 11:33:44
+/* Smarty version 3.1.39, created on 2021-03-29 15:41:28
   from 'D:\SCOLAIRE\CESI\2eme_annee\projet\WEB\Projet_WEB\www\view\layout\Pilote.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60606998717e26_45853752',
+  'unifunc' => 'content_6061f528a189b5_27579946',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0c9267f11a73835fa1277f26300c5f04970873e1' => 
     array (
       0 => 'D:\\SCOLAIRE\\CESI\\2eme_annee\\projet\\WEB\\Projet_WEB\\www\\view\\layout\\Pilote.tpl',
-      1 => 1616931087,
+      1 => 1617032444,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./common/footer.tpl' => 1,
   ),
 ),false)) {
-function content_60606998717e26_45853752 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6061f528a189b5_27579946 (Smarty_Internal_Template $_smarty_tpl) {
 ob_start();
 echo $_smarty_tpl->tpl_vars['title']->value;
 $_prefixVariable1 = ob_get_clean();
@@ -72,7 +72,7 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
                         </div>
                         <div class="row justify-content-center p-1">
                             <select id="centre" name="centre" required>
-                                <option value="">Choississez un centre</option>
+                                <option value="">Choisissez un centre</option>
                                 <?php echo $_smarty_tpl->tpl_vars['Centre']->value;?>
 
                             </select>
@@ -92,7 +92,7 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
 
         <article class="col">
             <fieldset class="field">
-                <legend>Liste des délégués</legend>
+                <legend>Liste des pilotes</legend>
 
                 <!-- Recherche Pilote -->
                 <div class="">
@@ -105,7 +105,7 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
 
                         <!-- Centre : -->
                         <select id="r_centre" name="centre">
-                            <option value="">Choisiez un centre</option>
+                            <option value="">Choisissez un centre</option>
                             <?php echo $_smarty_tpl->tpl_vars['Centre']->value;?>
 
                         </select>

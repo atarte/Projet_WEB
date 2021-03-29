@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-28 11:32:45
+/* Smarty version 3.1.39, created on 2021-03-29 13:57:39
   from 'C:\Users\catar\Documents\CESI\A2\4 - Web\Projet\Projet_WEB\www\view\layout\Entreprise.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6060695d65d037_14514631',
+  'unifunc' => 'content_6061dcd30db794_71295339',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '101b5b01c1f237acffe233038f6a5ce28e71b9a7' => 
     array (
       0 => 'C:\\Users\\catar\\Documents\\CESI\\A2\\4 - Web\\Projet\\Projet_WEB\\www\\view\\layout\\Entreprise.tpl',
-      1 => 1616931159,
+      1 => 1617024121,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./common/footer.tpl' => 1,
   ),
 ),false)) {
-function content_6060695d65d037_14514631 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6061dcd30db794_71295339 (Smarty_Internal_Template $_smarty_tpl) {
 ob_start();
 echo $_smarty_tpl->tpl_vars['title']->value;
 $_prefixVariable1 = ob_get_clean();
@@ -67,7 +67,7 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
                         <div class="row justify-content-center p-1">
 						<!-- ville : <br> -->
                             <select id="ville" name="ville">
-                                <option value="">Choisiez une ville</option>
+                                <option value="">Choisissez une ville</option>
 
                             </select>
                         </div>
@@ -82,7 +82,7 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
                         <div class="row justify-content-center p-1">
                             <!-- secteur : <br> -->
                             <select id="secteur" name="secteur" required>
-                                <option value="">Choississez un secteur</option>
+                                <option value="">Choisissez un secteur</option>
                                 <?php echo $_smarty_tpl->tpl_vars['Secteur']->value;?>
 
                             </select>
@@ -110,14 +110,14 @@ $_smarty_tpl->_subTemplateRender("file:./common/header.tpl", $_smarty_tpl->cache
 
                         <!-- Entreprise : -->
                         <select id="r_entreprise" name="entreprise" >
-                            <option value="">Choississez une entreprise</option>
+                            <option value="">Choisissez une entreprise</option>
                             <?php echo $_smarty_tpl->tpl_vars['Nom']->value;?>
 
                         </select>
 
                         <!-- Ville : -->
                         <select id="r_ville" name="ville">
-                            <option value="">Choisiez une ville</option>
+                            <option value="">Choisissez une ville</option>
                             <?php echo $_smarty_tpl->tpl_vars['Ville']->value;?>
 
                         </select>
